@@ -1,0 +1,95 @@
+/// <reference path="../generic/_references.scss" />
+
+.widget {
+   .widget-content {
+        padding: 2 * 10px;
+    }
+    // todo: .mb(2);
+
+    .widget-content.inverted {
+        background-color: $red;
+        color: #fff;
+    }
+
+    .widget-content.lighter {
+        background-color: #e4e5e7;
+    }
+}
+
+.emphasized-widget-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.hoteliers-title {
+    img {
+        margin-top: -5px;
+    }
+}
+
+
+.widget.widget-iframe {
+    border: none;
+
+    iframe {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.widget.widget-logobar {
+    .logo {
+        height: 190px;
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .logo:before { /* create a full-height inline block pseudo=element */
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle; /* vertical alignment of the inline element */
+        height: 100%;
+    }
+
+    img {
+        max-width: 90%;
+        max-height: 150px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .widget {
+        .widget-content {
+            // todo: tablet gutter
+            padding: 2 * 10px;
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .widget {
+        .widget-content {
+            // todo: desktop gutter
+            padding: 2 * 10px;
+        }
+    }
+}
+
+
+.widget.banner {
+    text-align: center;
+    margin-bottom:20px;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto; //Center the image
+    }
+
+    iframe {
+        max-width: 100%;
+        overflow: hidden; //Prevent the banner to be wider than the viewport
+    }
+}

@@ -1,0 +1,26 @@
+﻿.breadcrumbs{
+        margin-bottom:20px;
+    ul{
+        margin:0;
+        padding:0;
+    }
+    li{
+        display:inline-block;
+        &:after{
+            content:' /';
+        }
+        &:last-child{
+            &:after{
+                content:'';
+            }
+        }
+        &.active a{
+            color:#000;
+            font-weight: 800;
+        }
+    }
+    a{
+        color:#000;
+        text-decoration:underline;
+    }
+}

@@ -1,0 +1,11 @@
+
+.fullwidth {
+    position: relative;
+    left: -49vw;
+    margin-left: 50%;
+    width: 98vw;
+
+    .container {
+        @include make-container-max-widths();
+    }
+}

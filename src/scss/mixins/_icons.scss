@@ -1,0 +1,31 @@
+/// <reference path="../generic/_references.scss" />
+
+
+@mixin icon-sprite() {
+    display: inline-block;
+    background: url(/assets/images/icon-sprite.png) no-repeat;
+    text-indent: -9999em;
+    overflow: hidden;
+}
+
+@mixin icon-20x20() {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+
+@mixin icon-30x30() {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+}
+
+@mixin icon-toggle($hor: -15px, $vert: -115px, $horHover: -15px, $vertHover: -165px) {
+    @include icon-sprite();
+    @include icon-20x20();
+    background-position: $hor $vert;
+
+    .open & {
+        background-position: $horHover $vertHover;
+    }
+}

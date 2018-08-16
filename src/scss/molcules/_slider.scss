@@ -1,0 +1,284 @@
+﻿/// <reference path="../generic/_references.scss" />
+
+.slider-object {
+    @extend %clearfix;
+    margin-bottom: 20px;
+
+    a:focus {
+        outline: none;
+    }
+
+
+
+    @include media-breakpoint-up(md) {
+        .content-wrapper {
+            margin: 0 auto;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        &.slider-object--compact {
+            .content-wrapper {
+                position: relative;
+            }
+
+            .slider-main,
+            .slider-progressbar {
+                width: 66.66666667%;
+            }
+
+            .slider-progressbar {
+                top: 0;
+            }
+
+            .slider-content {
+                width: 33.33333333%;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                top: 0;
+
+                .row {
+                    margin: 0;
+                }
+
+                [class*="col-"] {
+                    width: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .slider-image {
+        position: relative;
+        background-size: cover;
+
+        &:before {
+            display: block;
+            content: "";
+            width: 100%;
+            padding-top: 56.25%;
+        }
+
+        > a {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: transparent;
+            top: 0;
+            left: 0;
+        }
+
+        .play-video {
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            z-index: 200;
+            margin: -20px 0 0 -20px;
+            background: $red;
+            color: $red;
+            overflow: hidden;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 0 10px 10px;
+                border-color: transparent transparent transparent #ffffff;
+                left: 15px;
+                top: 10px;
+            }
+
+            @include media-breakpoint-up(md) {
+                margin: -30px 0 0 -30px;
+                width: 60px;
+                height: 60px;
+                padding-top: 0;
+
+                &:after {
+                    border-width: 15px 0 15px 15px;
+                    left: 24px;
+                    top: 15px;
+                }
+            }
+        }
+
+        .player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .bx-wrapper {
+        position: relative;
+    }
+
+    .bx-controls-direction {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        margin-top: -15px;
+
+        a.bx-prev {
+            float: left;
+        }
+
+        a.bx-next {
+            float: right;
+        }
+    }
+
+    .slider-title {
+        font-size: 30px;
+    }
+
+    .slider-progressbar {
+        height: 5px;
+        background: $gray;
+        position: relative;
+        top: -1px;
+
+        .progress {
+            display: block;
+            width: 0;
+            height: 5px;
+            background: $red;
+        }
+    }
+
+    .slider-content {
+        position: relative;
+        top: -1px;
+        padding: 20px;
+        background: $gray-light;
+        overflow: hidden;
+    }
+
+    .slider-current {
+        margin-bottom: 20px;
+        font-size: 13px;
+
+        &:first-letter {
+            font-weight: 700;
+        }
+    }
+
+    .slider-content-wrapper {
+        position: relative;
+        z-index: 50;
+        font-size: 13px;
+
+        .container {
+            padding: 0;
+        }
+    }
+
+    .slider-category {
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: #000;
+    }
+
+
+    .date {
+        color: $red;
+        line-height: 30px;
+        font-size: 14px;
+
+        @include media-breakpoint-up(xl) {
+            font-size: 16px;
+        }
+
+        .time {
+            color: #4d4d4f;
+        }
+    }
+
+    .location {
+        line-height: 30px;
+        color: #4d4d4f;
+        font-size: 14px;
+        margin-bottom: 10px;
+
+        @include media-breakpoint-up(xl) {
+            font-size: 16px;
+        }
+    }
+
+    .date i,
+    .location i {
+        margin-right: 18px;
+        color: #4d4d4f;
+    }
+}
+
+
+.bx-controls-direction {
+    a, button {
+        @extend %button-icon;
+        background: $red;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &.disabled {
+            display: none;
+        }
+
+        &.bx-prev {
+
+            &:before {
+                content: "\e904";
+            }
+        }
+
+        &.bx-next {
+
+            &:before {
+                content: "\e905";
+            }
+        }
+    }
+}
+
+.bx-slider--small {
+
+    .bx-controls-direction {
+        a, button {
+            width: 40px;
+            height: 40px;
+
+            &:before {
+                top: 10px;
+                left: 11px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+
+#video-slider {
+    .slider-current {
+        display: none;
+    }
+}

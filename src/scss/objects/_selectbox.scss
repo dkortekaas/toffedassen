@@ -1,0 +1,416 @@
+﻿/*
+ * jquery.selectBoxIt.css 3.8.1
+ * Author: @gregfranko
+ */
+
+/*
+  Common CSS Properties
+  ---------------------
+  These properties will be applied to any themes that you use
+*/
+
+$selectbox-height: 45px;
+
+
+.selectboxit-container {
+    .selectboxit {
+        background: transparent;
+        text-transform: uppercase;
+        border: 1px solid #c4c4c5;
+        color: #4d4d4d;
+
+        &.selectboxit-selected {
+            background: #000;
+            color: #fff;
+
+            &:hover,
+            &:focus {
+                color: #fff;
+            }
+
+            .selectboxit-arrow {
+                border-top-color: #fff;
+            }
+        }
+    }
+
+
+    .selectboxit-option {
+        font-size: 20px;
+        position: relative;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+
+        &.im {
+            position: relative;
+
+            &:before {
+                vertical-align: middle;
+                line-height: 36px;
+                position: relative;
+                display: inline-block;
+                padding-right:15px;
+            }
+        }
+
+        .selectboxit-option-anchor {
+            font-family: 'Avenir', sans-serif;
+            text-transform: uppercase;
+            font-size: 12px;
+            display: inline-block;
+            border: none;
+        }
+    }
+}
+
+
+/* SelectBoxIt container */
+.selectboxit-container {
+    position: relative;
+    vertical-align: top;
+    display: block;
+    width: 100%;
+}
+
+/* Styles that apply to all SelectBoxIt elements */
+.selectboxit-container * {
+    /* Prevents text selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    outline: none;
+    white-space: nowrap;
+}
+
+/* Button */
+.selectboxit-container .selectboxit {
+    width: 100%;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+/* Height and Vertical Alignment of Text */
+.selectboxit-container span,
+.selectboxit-container .selectboxit-options a {
+    height: $selectbox-height; /* Height of the drop down */
+    line-height: $selectbox-height; /* Vertically positions the drop down text */
+    display: block;
+}
+
+.selectboxit-container .selectboxit-options a {
+    height: $selectbox-height + 2; /* Height of the drop down */
+    line-height: $selectbox-height + 2; /* Vertically positions the drop down text */
+}
+
+/* Focus pseudo selector */
+.selectboxit-container .selectboxit:focus {
+    outline: 0;
+}
+
+/* Disabled Mouse Interaction */
+.selectboxit.selectboxit-disabled, .selectboxit-options .selectboxit-disabled {
+    opacity: 0.65;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+/* Button Text */
+.selectboxit-text {
+    text-indent: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
+.selectboxit .selectboxit-option-icon-container {
+    margin-left: 0;
+}
+
+.selectboxit-container .selectboxit-option-icon-container {
+    .selectboxit-option-icon {
+        left: 8px;
+    }
+}
+.selectboxit-options .selectboxit-option-icon-container {
+    .selectboxit-option-icon {
+        left: -5px;
+    }
+}
+.selectboxit-options .selectboxit-option-icon-container,
+.selectboxit-container .selectboxit-option-icon-container {
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+
+    .selectboxit-option-icon {
+        top: -3px;
+    }
+}
+
+/* Options List */
+.selectboxit-container .selectboxit-options {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 100%; /* Minimum Width of the dropdown list box options */
+    *width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: auto;
+    cursor: pointer;
+    display: none;
+    z-index: 9999999999999;
+    text-align: left;
+    top: 0 !important;
+
+    > li {
+        display: block;
+
+        &:first-child:after {
+            content: "\e604";
+            font-family: 'icomoon';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size:16px;
+            position:absolute;
+            top:16px;
+            right:0px;
+            color:#999;
+        }
+    }
+}
+
+/* Individual options */
+.selectboxit-option .selectboxit-option-anchor {
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.selectboxit-option:last-child .selectboxit-option-anchor {
+    border-bottom: 0;
+}
+
+/* Individual Option Hover Action */
+.selectboxit-option .selectboxit-option-anchor:hover {
+    text-decoration: none;
+}
+
+/* Individual Option Optgroup Header */
+.selectboxit-option, .selectboxit-optgroup-header {
+    text-indent: 0; /* Horizontal Positioning of the select box option text */
+    margin: 0 15px;
+    list-style-type: none;
+}
+
+
+
+/* Drop Down optgroup headers */
+.selectboxit-optgroup-header {
+    font-weight: bold;
+}
+
+/* Drop Down optgroup header hover psuedo class */
+.selectboxit-optgroup-header:hover {
+    cursor: default;
+}
+
+/* Drop Down down arrow container */
+.selectboxit-container .selectboxit-arrow-container {
+    /* Positions the down arrow */
+    width: 30px;
+    height: $selectbox-height;
+    position: absolute;
+    right: 0;
+}
+
+/* Drop Down down arrow */
+.selectboxit .selectboxit-arrow-container .selectboxit-arrow {
+    /* Horizontally centers the down arrow */
+    margin: -2px auto 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+}
+
+/* Drop Down down arrow for jQueryUI and jQuery Mobile */
+.selectboxit .selectboxit-arrow-container .selectboxit-arrow.ui-icon {
+    top: 30%;
+}
+
+/* Drop Down individual option icon positioning */
+.selectboxit-option-icon-container {
+    float: left;
+}
+
+.selectboxit-container .selectboxit-option-icon {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+
+/* Drop Down individual option icon positioning */
+.selectboxit-option-icon-url {
+    width: 18px;
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    float: left;
+}
+
+.selectboxit-rendering {
+    display: inline-block !important;
+    *display: inline !important;
+    zoom: 1 !important;
+    visibility: visible !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
+
+/* jQueryUI and jQuery Mobile compatability fix - Feel free to remove this style if you are not using jQuery Mobile */
+.jqueryui .ui-icon {
+    background-color: inherit;
+}
+
+/* Another jQueryUI and jQuery Mobile compatability fix - Feel free to remove this style if you are not using jQuery Mobile */
+.jqueryui .ui-icon-triangle-1-s {
+    background-position: -64px -16px;
+}
+
+/*
+  Default Theme
+*/
+.selectboxit-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.selectboxit-container {
+    font-size: 12px;
+}
+
+
+.selectboxit-btn.selectboxit-enabled:hover {
+    border: 1px solid #000;
+}
+
+.selectboxit-btn.selectboxit-enabled:hover,
+.selectboxit-btn.selectboxit-enabled:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.selectboxit-default-arrow {
+    width: 0;
+    height: 0;
+    border-top: 4px solid #000;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.selectboxit-list {
+    background-color: #fff;
+    border: 1px solid #000;
+}
+
+.selectboxit-list .selectboxit-option-anchor {
+    color: #000;
+}
+
+.selectboxit-list > .selectboxit-focus > .selectboxit-option-anchor {
+    color: $red;
+}
+
+.selectboxit-list > .selectboxit-disabled > .selectboxit-option-anchor {
+    color: #999999;
+}
+
+.sorting-icon {
+    display: inline-block;
+    margin-left: 10px;
+    width: 14px;
+    height: 14px;
+    vertical-align: text-top;
+    background: transparent url(/assets/images/icon-sort.png) no-repeat center;
+}
+
+.selectboxit-container {
+    .selectboxit--sm {
+        &,
+        span {
+            height: 34px; /* Height of the drop down */
+            line-height: 34px; /* Vertically positions the drop down text */
+        }
+
+        .selectboxit-options a {
+            height: 34px + 2; /* Height of the drop down */
+            line-height: 34px + 2; /* Vertically positions the drop down text */
+        }
+
+        .selectboxit-arrow-container {
+            height: 34px;
+        }
+    }
+}
+
+.event-search-widget,
+.card {
+    .selectboxit-btn {
+        background-color: $gray;
+        color: $gray-dark;
+        border-color: $gray;
+        font-size: 14px;
+    }
+
+    .selectboxit-container {
+        font-size: 14px;
+    }
+
+    .selectboxit-container span,
+    .selectboxit-container .selectboxit-options a,
+    .selectboxit-container .selectboxit-arrow-container {
+        height: 45px;
+    }
+
+    .selectboxit-container span,
+    .selectboxit-container .selectboxit-options a {
+        line-height: 45px;
+    }
+
+    .selectboxit-list,
+    .selectboxit-btn.selectboxit-enabled:hover,
+    .selectboxit-btn.selectboxit-enabled:hover,
+    .selectboxit-btn.selectboxit-enabled:focus {
+        border: 1px solid $gray-dark;
+    }
+
+    .selectboxit-list {
+        background-color: $gray;
+    }
+}

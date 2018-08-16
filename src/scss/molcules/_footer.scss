@@ -1,0 +1,313 @@
+/// <reference path="../generic/_references.scss" />
+.site-footer {
+    margin-top: 40px;
+    padding-top: 40px;
+    background: $gray-light;
+    min-height: 300px;
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+
+    @include media-breakpoint-up(md) {
+        .container-fluid {
+            margin: 0;
+        }
+    }
+
+    h2 {
+        font-size: 15px;
+        color: $gray-dark;
+        margin-top: 30px;
+        font-weight: 800;
+        line-height: 40px;
+    }
+
+    .social-partners {
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            height: 45px;
+        }
+    }
+
+    .footer-nav-dropdown {
+        text-transform: uppercase;
+        margin-bottom: 25px;
+
+        button {
+            width: 100%;
+            display: block;
+            background: $white;
+            border: 1px solid $gray-dark;
+            color: $gray-dark;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 0 20px;
+            height: 50px;
+            line-height: 50px;
+
+            .caret {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                margin-top: -2px;
+            }
+        }
+
+
+
+        .dropdown-toggle:after {
+            content: none;
+        }
+
+        &.open {
+
+            button {
+                border-bottom: none;
+            }
+
+            > .dropdown-menu {
+                position: relative;
+                width: 100%;
+                box-shadow: none;
+                border: 1px solid $gray-dark;
+                border-top: none;
+                font-size: 12px;
+                margin-bottom: 25px;
+
+                > li > a {
+                    padding: 10px 20px;
+                    text-decoration: none;
+                }
+
+                > li > a:active,
+                > li > a:hover {
+                    background: none;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .list-social.list-social-small {
+        
+        @include media-breakpoint-up(lg) {
+            margin-top: -4px;
+        }
+        li {
+            display: block;
+            text-transform: uppercase;
+            margin-bottom: 17px;
+        }
+
+        .soc-icon {
+            font-size: 12px;
+            text-decoration: none;
+            width: auto;
+            height: auto;
+            background-color: transparent;
+            font-weight: 500;
+            color: $gray-dark;
+            text-align: left;
+
+
+
+            span {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                color: $white;
+                margin-right: 12px;
+                background-color: #9d9c9d;
+                text-align: center;
+                line-height: 15px;
+
+
+                img {
+                    width: 16px;
+                    height: 16px;
+                    position: relative;
+                    top: 2px;
+                }
+
+                &:hover {
+                    background-color: #848284;
+                }
+
+                &.icon-facebook {
+                    background-color: #3a629e;
+                    line-height: 20px;
+                }
+
+                &.icon-facebook:hover {
+                    background-color: #2c4b79;
+                }
+
+                &.icon-twitter {
+                    background-color: #3ca7dd;
+                    line-height: 20px;
+                }
+
+                &.icon-twitter:hover {
+                    background-color: #228ec4;
+                }
+
+                &.icon-pinterest {
+                    background-color: #FF0000;
+                    line-height: 20px;
+                }
+
+                &.icon-pinterest:hover {
+                    background-color: #cc0000;
+                }
+
+                &.icon-linkedin {
+                    background-color: #146e9d;
+                    line-height: 20px;
+                }
+
+                &.icon-linkedin:hover {
+                    background-color: #0e4e70;
+                }
+
+                &.icon-instagram {
+                    background-color: #BF8360;
+                }
+
+                &.icon-instagram:hover {
+                    background-color: #8d654d;
+                }
+            }
+        }
+
+        @include media-breakpoint-down(md) {
+            overflow: hidden;
+            float: left;
+
+            li {
+                float: left;
+                margin-right: 20px;
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            width: 50%;
+
+            li {
+                float: none;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.site-bottom-social {
+    @include media-breakpoint-down(md) {
+        border-top: 1px solid rgba(77,77,79,0.2);
+        padding-top: 17px;
+    }
+}
+
+.site-bottom {
+    padding-top: 20px;
+    font-size: 14px;
+    padding-bottom: 10px;
+    color: $black;
+    font-weight: 500;
+    border-top: 1px solid rgba(77,77,79,0.2);
+    text-transform: none;
+
+    .list {
+
+        a {
+            color: $black;
+            margin-right: 0;
+            border-left: 1px solid rgba(77,77,79,0.2);
+            padding: 0 0 0 14px;
+        }
+
+        li:first-child a {
+            border: none;
+            padding: 0;
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        font-size: 12px;
+    }
+}
+
+.nav-footer-title {
+    font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.nav-footer {
+    line-height: 34px;
+    text-transform: none;
+    margin-bottom: 1.5em;
+
+    @include media-breakpoint-up(lg) {
+        text-transform: uppercase;
+    }
+
+    &--highlight {
+        @include media-breakpoint-up(lg) {
+            margin-top: -7px;
+        }
+    }
+
+    &--long-list {
+        line-height: 26px;
+
+        @include media-breakpoint-up(lg) {
+            text-transform: none;
+        }
+
+        a {
+            border-bottom: 1px solid #000;
+            text-decoration: none;
+
+            &:hover {
+                border-bottom: 1px solid $red;
+            }
+        }
+    }
+
+    > li {
+        > a {
+            color: #4d4d4f;
+            font-weight: 500;
+            font-size: 12px;
+            text-decoration: none;
+
+            &:hover {
+                color: #000;
+            }
+
+            @include media-breakpoint-up(md) {
+                display: inline;
+            }
+        }
+    }
+}
+
+
+
+@include media-breakpoint-up(lg) {
+    .site-footer {
+        h2 {
+            margin-top: 0;
+        }
+    }
+
+    .site-bottom {
+        margin-top: 10px;
+    }
+}

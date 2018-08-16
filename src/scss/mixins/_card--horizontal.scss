@@ -1,0 +1,25 @@
+/// <reference path="../generic/_references.scss" />
+
+@mixin card--horizontal() {
+  .card--horizontal {
+        flex-direction: row;
+        max-width: none;
+
+        > .card-image {
+            width: 48.7%;
+        }
+
+        > .card-content {
+            width: 51.3%;
+            padding: 0;
+        }
+
+        .card-body {
+            padding: 10px 20px 0 20px;
+        }
+
+        .card-footer {
+            padding-bottom: 0;
+        }
+    }
+}

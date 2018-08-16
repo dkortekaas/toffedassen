@@ -1,0 +1,158 @@
+﻿/// <reference path="../generic/_references.scss" />
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    position: relative;
+    padding-right: 30px;
+    border-bottom: 2px solid $red;
+    &:focus {
+        outline: 0;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        /* Horizontally centers the down arrow */
+        margin: -10px auto 0;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        border: 0;
+        width: 20px;
+        height: 20px;
+        
+        @include icon-toggle();
+    }
+
+    &.dropdown-toggle-white-bg {
+        &:after {
+            @include icon-toggle(-119px, -115px, -119px, -165px);
+        }
+    }
+}
+
+.dropdown-menu {
+    min-width: 160px;
+    font-size: 14px;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: none;
+    z-index: 9999999999999;
+    text-align: left;
+    border:1px solid #4d4d4f;
+}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 7px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    text-decoration: none;
+    color: #262626;
+    background-color: $gray-light;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    outline: 0;
+    font-weight:700;
+    color:$red;
+}
+
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+    color: #999999;
+}
+
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    cursor: not-allowed;
+}
+
+.open > .dropdown-menu {
+    display: block;
+}
+
+.open > a {
+    outline: 0;
+}
+
+.dropdown-menu-right {
+    left: auto;
+    right: 0;
+}
+
+.dropdown-menu-left {
+    left: 0;
+    right: auto;
+}
+
+.dropdown-header {
+    display: block;
+    padding: 3px 20px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #999999;
+}
+
+.dropdown-backdrop {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 990;
+}
+
+.pull-right > .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.dropup .caret {
+    border-top: 0;
+    border-bottom: 4px solid;
+    content: "";
+}
+
+.dropup .dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+}

@@ -1,0 +1,34 @@
+﻿
+.icon {
+    @include icon-sprite();
+
+    .text-right & {
+        text-indent: 9999em;
+    }
+}
+
+.icon-grid {
+    @include icon-30x30();
+    background-position: -360px -10px;
+    background-color: $red;
+}
+
+.icon-arrow--left {
+    @include icon-30x30();
+    background-position: -60px -110px;
+    background-color: $red;
+}
+
+.icon-arrow--right {
+    @include icon-30x30();
+    background-position: -60px -160px;
+    background-color: $red;
+}
+
+.icon-iamlogo {
+    width: 31px;
+    height: 13px;
+    background-position: -15px -218px;
+}
+
+

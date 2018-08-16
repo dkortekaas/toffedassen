@@ -1,0 +1,75 @@
+﻿
+.event-related-cards {
+
+    > h3 {
+        @extend .section-title;
+    }
+
+    .related-cards-pagination {
+        margin: 30px 0;
+    }
+
+    @media (max-width: 579px) {
+        .related-cards-pagination {
+            margin: 10px 0;
+            height: 40px;
+        }
+
+        .event-card {
+            .event-card__title {
+                margin-bottom: 0;
+            }
+
+        }
+    }
+
+    @media (min-width: 580px) {
+
+        > .event-card {
+            margin: 10px 13px 17px 12px;
+            float: left;
+        }
+
+
+        .event-card {
+            .event-card__title {
+                border-bottom: 2px solid #f4f4f4;
+                padding-bottom: 13px;
+                margin-bottom: 18px;
+                height: auto;
+            }
+
+            .event-card__date {
+                border-bottom: 0;
+                padding-bottom: 0;
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+
+    @media (min-width: 1280px) {
+        .related-cards-pagination {
+            width: auto;
+            display: block;
+            height: 40px;
+        }
+    }
+}
+
+
+.related-cards {
+    display: flex;
+    .col-md-4{
+        padding:0;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    > li {
+    display: flex;
+    }
+}
+
+.pagination.related-cards-pagination {
+    margin: 0 0 50px;
+}

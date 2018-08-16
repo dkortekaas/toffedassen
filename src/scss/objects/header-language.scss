@@ -1,0 +1,44 @@
+﻿
+$langswitch-width-lg: 160px;
+
+#language-switch {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+        display: block;
+        float: right;
+        width: $langswitch-width-lg;
+        //margin-right: 50px;
+
+        button {
+            width: $langswitch-width-lg;
+            font-size: 11px;
+            overflow: hidden;
+        }
+
+        &.open {
+            width: $langswitch-width-lg;
+            background: $red;
+            z-index: 1200;
+        }
+
+        &.dropdown.open {
+            button {
+                width: $langswitch-width-lg;
+            }
+
+            .dropdown-menu {
+                box-shadow: none;
+            }
+        }
+
+        .dropdown-menu {
+            min-width: 200px;
+        top: $header-bar-height;
+        }
+
+        .caret {
+            margin-left: 5px;
+        }
+    }
+}

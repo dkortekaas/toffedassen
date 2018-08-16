@@ -1,0 +1,145 @@
+﻿/// <reference path="../generic/_references.scss" />
+
+// Print utilities
+//
+// Media queries are placed on the inside to be mixin-friendly.
+
+// Note: Deprecated .visible-print as of v3.2.0
+
+@include responsive-invisibility('.visible-print');
+
+@media print {
+  @include responsive-visibility('.visible-print');
+}
+.visible-print-block {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+.visible-print-inline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+.visible-print-inline-block {
+  display: none !important;
+
+  @media print {
+    display: inline-block !important;
+  }
+}
+
+@media print {
+  @include responsive-invisibility('.hidden-print');
+}
+
+
+
+// hidden
+
+.hidden {
+    display: none !important;
+}
+
+
+.hidden-xxs {
+  @include media-breakpoint-down(xs) {
+   display: none !important;
+  }
+}
+.hidden-xs {
+  @include media-breakpoint-only(xs) {
+   display: none !important;
+  }
+}
+
+.hidden-sm {
+  @include media-breakpoint-only(sm) {
+    display: none !important;
+  }
+}
+
+.hidden-md {
+  @include media-breakpoint-only(md) {
+    display: none !important;
+  }
+}
+
+.hidden-lg {
+  @include media-breakpoint-up(lg) {
+    display: none !important;
+  }
+}
+
+.hidden-xl {
+  @include media-breakpoint-only(xl) {
+    display: none !important;
+  }
+}
+
+.hidden-xxl {
+  @include media-breakpoint-only(xxl) {
+   display: none !important;
+  }
+}
+
+.visible-xs {
+  @include media-breakpoint-only(xs) {
+   display: block !important;
+  }
+}
+
+.visible-sm {
+  @include media-breakpoint-only(sm) {
+    display: block !important;
+  }
+}
+
+.visible-md {
+  @include media-breakpoint-only(md) {
+    display: block !important;
+  }
+}
+
+.visible-lg {
+  @include media-breakpoint-up(lg) {
+    display: block !important;
+  }
+}
+
+.visible-xl {
+  @include media-breakpoint-only(xl) {
+    display: block !important;
+  }
+}
+
+.visible-xxl {
+  @include media-breakpoint-only(xxl) {
+   display: block !important;
+  }
+}
+
+
+  @include media-breakpoint-down(sm) {
+        .hidden-above-tablet {
+             display: block;
+         }
+          
+         .hidden-below-tablet { 
+              display: none;
+         }
+    }
+
+     @include media-breakpoint-up(md) {
+         .hidden-above-tablet {
+             display: none!important;
+         }
+          
+         .hidden-below-tablet { 
+              display: block;
+         }
+    }

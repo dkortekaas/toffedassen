@@ -1,0 +1,106 @@
+.widget-topplaces {
+    overflow: hidden;
+    background: #f7f7f7;
+    margin-bottom: 20px;
+}
+
+.widget-topplaces__image-wrapper {
+    padding-bottom: 65%;
+    width: 100%;
+    position: relative;
+    background: #fff;
+
+    img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+    .widget-topplaces__image-square{display:none;}
+    .widget-topplaces__image-pano{display:block;}
+
+.widget-topplaces__content {
+    padding: 20px;
+
+    .h1 {
+        font-size: 24px;
+    }
+
+    ul {
+        padding: 0;
+        list-style: none;
+
+        > li {
+            border-bottom: 1px solid #e4e3e4;
+            padding: 15px 0 15px 5px;
+            font-size: 12px;
+            color: #000;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
+            span {
+                display: inline-block;
+                line-height: 20px;
+                vertical-align: top;
+            }
+
+            .widget-topplaces__content-position {
+                width: 6%;
+            }
+
+            .widget-topplaces__content-title {
+                font-size: 16px;
+                color: #4d4d4f;
+                width: 55%;
+                padding-right: 10px;
+            }
+
+            .widget-topplaces__content-category {
+                width: 35%;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .widget-topplaces__image {
+        width: 50%;
+        float: left;
+    }
+.widget-topplaces__image-wrapper {
+    padding-bottom: 100%;}
+    .widget-topplaces__image-square{display:block;}
+    .widget-topplaces__image-pano{display:none;}
+
+    .widget-topplaces__content {
+        width: 50%;
+        float: left;
+
+        .h1 {
+            font-size: 30px;
+        }
+    }
+}
+
+@include media-breakpoint-up(xxl) {
+    .widget-topplaces__image {
+        width: 62.5%;
+    }
+.widget-topplaces__image-wrapper {
+    padding-bottom: 62.5%;}
+    .widget-topplaces__image-square{display:none;}
+    .widget-topplaces__image-pano{display:block;}
+
+    .widget-topplaces__content {
+        width: 37.5%;
+
+        .h1 {
+            font-size: 30px;
+        }
+    }
+}
+

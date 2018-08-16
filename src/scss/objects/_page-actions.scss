@@ -1,0 +1,159 @@
+﻿.page-actions {
+    display: none;
+
+    .js & {
+        display: block;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        margin: 2em 0 20px;
+    }
+
+    &__options {
+        height: 0px;
+        overflow: hidden;
+        transition: 0.13s ease-in all;
+
+        &.active {
+            height: 44px;
+        }
+    }
+
+    &__button {
+        background: #fff;
+        border: 0;
+        border-right: 1px solid #ddddde;
+        outline: 0;
+        padding: 0 30px;
+        height: 25px;
+        line-height: 25px;
+        white-space: nowrap;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            border-right: 0;
+            padding-right: 0;
+        }
+
+
+        &-icon {
+            font-size: 16px;
+            line-height: 25px;
+            vertical-align: sub;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        &-text {
+            border-bottom: 2px solid $red;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 23px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        &:hover &-text,
+        &.active &-text {
+            color: $red;
+        }
+    }
+
+    &--align-left {
+
+        .page-actions__buttons, .jssocials-shares {
+            justify-content: flex-start;
+        }
+
+        .page-actions__button {
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+
+.jssocials {
+    &-shares {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &-share-link {
+        display: block;
+        width: 30px;
+        height: 30px;
+        line-height: 28px;
+        text-decoration: none;
+        margin: 7px;
+        font-size: 20px;
+        background: #333;
+        color: #fff;
+    }
+
+    &-share-logo {
+        width: 30px;
+        height: 30px;
+        display: block;
+        text-align: center;
+        padding-top: 5px;
+
+
+        &.icon-facebook {
+            background: #305891;
+
+            &:hover {
+                background: #305891;
+            }
+        }
+
+        &.icon-whatsapp {
+            background: #48d46c;
+            padding-top: 4px;
+            font-size: 20px;
+            padding-left: 1px;
+
+            &:hover {
+                background: #48d46c;
+            }
+        }
+
+        &.icon-pinterest {
+            background: #c82828;
+
+            &:hover {
+                background: #c82828;
+            }
+        }
+
+        &.icon-twitter {
+            font-size: 23px;
+            background: #2ca8d2;
+            padding-top: 3px;
+            padding-left: 1px;
+
+            &:hover {
+                background: #2ca8d2;
+            }
+        }
+
+        &.icon-email2 {
+            font-size: 30px;
+            background: #4d4d4f;
+            padding-top: 0;
+
+            &:hover {
+                background: #4d4d4f;
+            }
+        }
+    }
+
+}
