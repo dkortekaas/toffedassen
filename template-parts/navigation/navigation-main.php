@@ -30,6 +30,8 @@
 
 			<?php get_template_part( 'template-parts/header/header', 'search' ); ?>
 
+			<?php get_template_part( 'template-parts/navigation/menu', 'right' ); ?>
+
 		</div>
 
 	</section>
