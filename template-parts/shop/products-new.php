@@ -24,6 +24,9 @@
                     <div class="product-thumbnail">
                         <a href="#" class="product-thumbnail-link">
                             <img width="400" height="400" src="uploads/product-1.jpg" class="image" alt="product name">
+                            <span class="ribbons">
+                                <span class="onsale ribbon">Sale</span>
+                            </span>
                         </a>
                     </div>
                     
