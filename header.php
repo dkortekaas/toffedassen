@@ -26,16 +26,33 @@
 
 <body <?php body_class( logiq_get_post_slug() ); ?> <?php logiq_html_tag_schema(); ?>>
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'logiq' ); ?></a>
+	<div id="page" class="hfeed site">
 
-	<header role="banner" itemscope itemtype="http://schema.org/WPHeader">
+	<div id="su-header-minimized" class="su-header-minimized su-header-1"></div>
 
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
+		<div class="supro-container">
+			<div class="header-main">
+				<div class="header-row">
+					<div class="menu-logo s-left">
+					
+						<?php get_template_part( 'template-parts/header/header', 'branding' ); ?>
 
-			<?php get_template_part( 'template-parts/navigation/navigation', 'main' ); ?>
+					</div>
+					<div class="container s-center menu-main">
 
-		</nav>
+						<?php get_template_part( 'template-parts/navigation/navigation', 'main' ); ?>
 
+					</div>
+
+					<div class="menu-extra s-right">
+
+						<?php get_template_part( 'template-parts/navigation/navigation', 'right' ); ?>
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</header>
 
-	<main id="content" role="main">
+<main id="content" class="site-content" role="main">

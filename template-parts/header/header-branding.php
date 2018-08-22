@@ -7,13 +7,15 @@
 
 ?>
 
-	<a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
-		<?php
-		if ( has_custom_logo() ) :
-			the_custom_logo();
-		else :
-			//echo file_get_contents( get_stylesheet_directory() . '/assets/images/eco-chat.svg' );
-		endif;
-		?>
-		<span class="screen-reader-text"><?php esc_html_e( 'Home', 'logiq' ); ?></span>
-	</a>
+	<div class="site-logo">
+		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo">
+			<img src="<?php echo get_stylesheet_directory() . '/assets/images/logo.svg'; ?>" alt="<?php bloginfo( 'name' ); ?>" class="logo logo-dark">
+			<img src="<?php echo get_stylesheet_directory() . '/assets/images/logo-light.svg'; ?>" alt="<?php bloginfo( 'name' ); ?>" class="logo logo-light">
+		</a>
+		<p class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<?php bloginfo( 'name' ); ?>
+			</a>
+		</p>
+		<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+	</div>

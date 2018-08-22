@@ -18,6 +18,8 @@ if ( ! function_exists( 'logiq_enqueue_styles' ) ) :
 		
 		$the_theme = wp_get_theme(); // Get the theme data.
 
+		//wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/assets/css/style-org.css', array(), $the_theme->get( 'Version' ) );
+
 		wp_enqueue_style( 'styles', get_stylesheet_directory_uri() . '/assets/css/theme.css', array(), $the_theme->get( 'Version' ) );
 
 	}

@@ -3,9 +3,9 @@
     $GENERIC ELEMENTS
 \*------------------------------------*/
 
-@import "generic/variables"; 
-@import "generic/functions"; 
-@import "generic/mixins";
+//@import "generic/variables"; 
+//@import "generic/functions"; 
+//@import "generic/mixins";
 // @import "generic/responsive_utilities";
 // @import "generic/normalize";
 // @import "generic/a11y"; 
@@ -15,16 +15,16 @@
     $GLOBAL ELEMENTS
 \*------------------------------------*/
 
-@import "base/fonts";
-@import "base/typography";
-@import "base/colors";
+//@import "base/fonts";
+//@import "base/typography";
+//@import "base/colors";
 // @import "base/links";
 // @import "base/media";
 // @import "base/forms";
 // @import "base/tables";
 // @import "base/utils";
 //@import "base/icomoon";
-@import "base/icons";
+//@import "base/icons";
 //@import "base/dropdown";
 
 /*------------------------------------*\
@@ -38,8 +38,13 @@
     $VENDORS
 \*------------------------------------*/
 
-@import "vendors/bootstrap/bootstrap";
-
+//@import "vendors/bootstrap/bootstrap";
+@import "vendors/lineair-org";
+@import "vendors/revicons";
+@import "vendors/revslider";
+@import "vendors/swicicons";
+@import "vendors/fontawesome";
+@import "vendors/woocommerce";
 /*------------------------------------*\
     $COMPONENTS
 \*------------------------------------*/
@@ -82,7 +87,7 @@
 // @import "objects/calendar";
 // @import "objects/event-search-widget";
 // @import "objects/faq";
-@import "objects/fullwidth";
+//@import "objects/fullwidth";
 // @import "objects/filter";
 //@import "objects/footer-search";
 //@import "objects/gmaps";
@@ -140,3 +145,6 @@
 // @import "templates/twentyfourhours";
 // @import "templates/business-event";
 // @import "templates/routes";
+
+
+@import "style-org";
