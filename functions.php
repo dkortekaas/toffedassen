@@ -119,23 +119,23 @@ endif;
 /**
  * Load WooCommerce functions.
  */
-if ( class_exists( 'WooCommerce' ) ) :
+// if ( class_exists( 'WooCommerce' ) ) :
 
-	require get_parent_theme_file_path( '/inc/plugins/woocommerce/woocommerce.php' );
+// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/woocommerce.php' );
 
-	/**
-	 * Enhanced E-commerce for Woocommerce store.
-	 */
-	require get_parent_theme_file_path( '/inc/plugins/woocommerce/enhanced-ecommerce.php' );
+// 	/**
+// 	 * Enhanced E-commerce for Woocommerce store.
+// 	 */
+// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/enhanced-ecommerce.php' );
 
-	/**
-	 * Disable messages.
-	 */
-	require get_parent_theme_file_path( '/inc/plugins/woocommerce/disable-messages.php' );
+// 	/**
+// 	 * Disable messages.
+// 	 */
+// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/disable-messages.php' );
 
-	/**
-	 * Table Rate Shipping Plugin Amendments.
-	 */
-	require get_parent_theme_file_path( '/inc/plugins/woocommerce/table-rate-shipping.php' );
+// 	/**
+// 	 * Table Rate Shipping Plugin Amendments.
+// 	 */
+// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/table-rate-shipping.php' );
 
-endif;
+// endif;
