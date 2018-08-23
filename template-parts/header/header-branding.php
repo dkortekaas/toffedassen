@@ -2,7 +2,7 @@
 /**
  * Template part for displaying header site branding
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 ?>

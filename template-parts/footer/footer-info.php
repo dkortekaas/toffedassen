@@ -1,22 +1,19 @@
 <?php
 /**
- * Template part for displaying footer site info
+ * Template part for displaying footer site info links
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 ?>
 
-	<div class="site-info col-12 col-md">
-
-		<?php
-		if ( function_exists( 'the_privacy_policy_link' ) ) :
-			the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
-		endif;
-		?>
-
-		<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'logiq' ) ); ?>" class="imprint">
-			<?php printf( __( 'Proudly powered by %s', 'logiq' ), 'WordPress' ); ?>
-		</a>
-
+	<div class="widget widget_nav_menu">
+		<div class="menu-footer-menu-container">
+        	<?php wp_nav_menu( array(
+            	'theme_location' => 'footer-menu',
+				'menu_id'        => 'footer-menu',
+				'container'       => '',
+				'menu_class'      => 'navbar-nav mr-auto',
+        	) ); ?>		
+		</div>
 	</div>

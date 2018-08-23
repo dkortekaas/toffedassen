@@ -2,7 +2,7 @@
 /**
  * Template part for displaying header media
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 ?>

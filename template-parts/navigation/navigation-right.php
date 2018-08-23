@@ -2,7 +2,7 @@
 /**
  * Partial template displays top right navigation
  *
- * @package ToffeDassen
+ * @package Toffedassen
  */
 
 ?>

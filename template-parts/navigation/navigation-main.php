@@ -2,7 +2,7 @@
 /**
  * Partial template displays top navigation
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 ?>

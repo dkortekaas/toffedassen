@@ -34,6 +34,7 @@
 		<div class="supro-container">
 			<div class="header-main">
 				<div class="header-row">
+
 					<div class="menu-logo s-left">
 					
 						<?php get_template_part( 'template-parts/header/header', 'branding' ); ?>
@@ -50,9 +51,10 @@
 						<?php get_template_part( 'template-parts/navigation/navigation', 'right' ); ?>
 
 					</div>
+
 				</div>
 			</div>
 		</div>
 	</header>
 
-<main id="content" class="site-content" role="main">
+	<main id="content" class="site-content" role="main">

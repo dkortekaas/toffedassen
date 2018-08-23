@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 get_header();
@@ -21,17 +21,5 @@ get_header();
 		</div>
 	</div>
 
-	<?php
-		//get_template_part( 'template-parts/general/content', 'leader' );
-
-		//get_template_part( 'template-parts/page/content', 'front-page' );
-
-		//get_template_part( 'template-parts/general/content', 'services' );
-
-		//get_template_part( 'template-parts/general/content', 'projects' );
-
-		//get_template_part( 'template-parts/general/content', 'partners' );
-
-		//get_template_part( 'template-parts/general/content', 'cta' );
-
+<?php
 get_footer();
