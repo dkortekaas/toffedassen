@@ -2,7 +2,7 @@
 /**
  * Custom functions for nav menu
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 
@@ -12,16 +12,16 @@
  * @since 1.0
  * @return void
  */
-function supro_numeric_pagination() {
+function toffedassen_numeric_pagination() {
 	global $wp_query;
 
 	if ( $wp_query->max_num_pages < 2 ) {
 		return;
 	}
 
-	$type_nav  = supro_get_option( 'portfolio_nav_type' );
-	$p_style   = supro_get_option( 'portfolio_layout' );
-	$view_more = apply_filters( 'supro_portfolio_nav_text', esc_html__( 'Discover More', 'supro' ) );
+	$type_nav  = toffedassen_get_option( 'portfolio_nav_type' );
+	$p_style   = toffedassen_get_option( 'portfolio_layout' );
+	$view_more = apply_filters( 'toffedassen_portfolio_nav_text', esc_html__( 'Discover More', 'supro' ) );
 
 	$next_html = sprintf(
 		'<span id="supro-portfolio-ajax" class="nav-previous-ajax">
@@ -38,7 +38,7 @@ function supro_numeric_pagination() {
 	?>
 	<nav class="navigation paging-navigation numeric-navigation">
 		<?php
-		add_filter( 'number_format_i18n', 'supro_paginate_links_prefix' );
+		add_filter( 'number_format_i18n', 'toffedassen_paginate_links_prefix' );
 
 		$big  = 999999999;
 		$args = array(
@@ -50,13 +50,13 @@ function supro_numeric_pagination() {
 			'type'      => 'plain'
 		);
 
-		if ( supro_is_portfolio() && $p_style != 'carousel' && $type_nav == 'ajax' ) {
+		if ( toffedassen_is_portfolio() && $p_style != 'carousel' && $type_nav == 'ajax' ) {
 			$args['prev_text'] = '';
 			$args['next_text'] = $next_html;
 		}
 
 		echo paginate_links( $args );
-		remove_filter( 'number_format_i18n', 'supro_paginate_links_prefix' );
+		remove_filter( 'number_format_i18n', 'toffedassen_paginate_links_prefix' );
 		?>
 	</nav>
 	<?php
@@ -68,15 +68,15 @@ function supro_numeric_pagination() {
  * @since 1.0
  * @return void
  */
-function supro_paging_nav() {
+function toffedassen_paging_nav() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
 	}
 	$css       = '';
-	$type_nav  = supro_get_option( 'type_nav' );
-	$style     = supro_get_option( 'view_more_style' );
-	$view_more = wp_kses( supro_get_option( 'view_more_text' ), wp_kses_allowed_html( 'post' ) );
+	$type_nav  = toffedassen_get_option( 'type_nav' );
+	$style     = toffedassen_get_option( 'view_more_style' );
+	$view_more = wp_kses( toffedassen_get_option( 'view_more_text' ), wp_kses_allowed_html( 'post' ) );
 
 	if ( $type_nav == 'view_more' ) {
 		$css .= ' blog-view-more style-' . $style;
@@ -126,7 +126,7 @@ function supro_paging_nav() {
  * @since 1.0
  * @return void
  */
-function supro_post_nav() {
+function toffedassen_post_nav() {
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -148,8 +148,8 @@ function supro_post_nav() {
 }
 
 /* Filter function to be used with number_format_i18n filter hook */
-if ( ! function_exists( 'supro_paginate_links_prefix' ) ) :
-	function supro_paginate_links_prefix( $format ) {
+if ( ! function_exists( 'toffedassen_paginate_links_prefix' ) ) :
+	function toffedassen_paginate_links_prefix( $format ) {
 		$number = intval( $format );
 		if ( intval( $number / 10 ) > 0 ) {
 			return $format;
@@ -159,7 +159,7 @@ if ( ! function_exists( 'supro_paginate_links_prefix' ) ) :
 	}
 endif;
 
-function supro_single_portfolio_nav() {
+function toffedassen_single_portfolio_nav() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
 

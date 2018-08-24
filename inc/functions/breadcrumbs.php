@@ -6,7 +6,7 @@
  *
  * @param array|string $args
  */
-function supro_breadcrumbs( $args = '' ) {
+function toffedassen_breadcrumbs( $args = '' ) {
 	$args = wp_parse_args( $args, array(
 		'separator'         => '<span class="circle"></span>',
 		'home_class'        => 'home',
@@ -30,7 +30,7 @@ function supro_breadcrumbs( $args = '' ) {
 		),
 	) );
 
-	$args = apply_filters( 'supro_breadcrumbs_args', $args );
+	$args = apply_filters( 'toffedassen_breadcrumbs_args', $args );
 
 	if ( is_front_page() && ! $args['show_on_front'] ) {
 		return;
@@ -91,13 +91,13 @@ function supro_breadcrumbs( $args = '' ) {
 		} elseif ( is_singular( 'portfolio' ) ) {
 			$taxonomy = 'portfolio_category';
 
-			if ( $page_id = get_option( 'supro_portfolio_page_id' ) ) {
+			if ( $page_id = get_option( 'toffedassen_portfolio_page_id' ) ) {
 				$items[] = sprintf( $item_tpl, esc_url( get_permalink( $page_id ) ), get_the_title( $page_id ) );
 			}
 		} elseif ( is_singular( 'service' ) ) {
 			$taxonomy = 'service_category';
 
-			if ( $page_id = get_option( 'supro_service_page_id' ) ) {
+			if ( $page_id = get_option( 'toffedassen_service_page_id' ) ) {
 				$items[] = sprintf( $item_tpl, esc_url( get_permalink( $page_id ) ), get_the_title( $page_id ) );
 			}
 		}
@@ -105,7 +105,7 @@ function supro_breadcrumbs( $args = '' ) {
 		$terms = get_the_terms( get_the_ID(), $taxonomy );
 		if ( $terms ) {
 			$term    = current( $terms );
-			$terms   = supro_get_term_parents( $term->term_id, $taxonomy );
+			$terms   = toffedassen_get_term_parents( $term->term_id, $taxonomy );
 			$terms[] = $term->term_id;
 
 			foreach ( $terms as $term_id ) {
@@ -125,7 +125,7 @@ function supro_breadcrumbs( $args = '' ) {
 			}
 
 		} else {
-			$pages = supro_get_post_parents( get_queried_object_id() );
+			$pages = toffedassen_get_post_parents( get_queried_object_id() );
 			foreach ( $pages as $page ) {
 				$items[] = sprintf( $item_tpl, esc_url( get_permalink( $page ) ), get_the_title( $page ) );
 			}
@@ -144,7 +144,7 @@ function supro_breadcrumbs( $args = '' ) {
 		$current_term = get_queried_object();
 
 		if ( $current_term ) {
-			$terms = supro_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
+			$terms = toffedassen_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
 			if ( $terms ) {
 				foreach ( $terms as $term_id ) {
 					$term    = get_term( $term_id, $current_term->taxonomy );
@@ -193,7 +193,7 @@ function supro_breadcrumbs( $args = '' ) {
 	} // Archive
 	elseif ( is_post_type_archive( 'portfolio' ) ) {
 
-		$portfolio_page_id = get_option( 'supro_portfolio_page_id' );
+		$portfolio_page_id = get_option( 'toffedassen_portfolio_page_id' );
 
 		if ( $portfolio_page_id && get_post( $portfolio_page_id ) ) {
 			$title = get_the_title( $portfolio_page_id );
@@ -226,7 +226,7 @@ function supro_breadcrumbs( $args = '' ) {
  *
  * @return array Array of parent terms' IDs.
  */
-function supro_get_term_parents( $term_id = '', $taxonomy = 'category' ) {
+function toffedassen_get_term_parents( $term_id = '', $taxonomy = 'category' ) {
 	// Set up some default arrays.
 	$list = array();
 
@@ -258,7 +258,7 @@ function supro_get_term_parents( $term_id = '', $taxonomy = 'category' ) {
  *
  * @return array Array of parent posts' IDs.
  */
-function supro_get_post_parents( $post_id = '' ) {
+function toffedassen_get_post_parents( $post_id = '' ) {
 	// Set up some default array.
 	$list = array();
 

@@ -2,7 +2,7 @@
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 if ( ! defined( 'ABSPATH' ) ) :
@@ -21,29 +21,29 @@ if ( !is_admin() ) :
 
 endif;
 
-if ( ! function_exists( 'logiq_start' ) ) :
+if ( ! function_exists( 'toffedassen_start' ) ) :
 
-	function logiq_start() {
+	function toffedassen_start() {
 
 		// remove WP versionnr.
-		add_filter( 'the_generator', 'logiq_no_generator' );
+		add_filter( 'the_generator', 'toffedassen_no_generator' );
 
 		// launching operation cleanup
-		add_action( 'init', 'logiq_head_cleanup' );
+		add_action( 'init', 'toffedassen_head_cleanup' );
 
 		// Show less info to users on failed login for security
-		add_filter( 'login_errors', 'logiq_show_less_login_info' );
+		add_filter( 'login_errors', 'toffedassen_show_less_login_info' );
 
 		// Remove WP Version From styles and scripts
-		add_filter( 'style_loader_src', 'logiq_remove_ver_css_js', 9999 );
-		add_filter( 'script_loader_src', 'logiq_remove_ver_css_js', 9999 );
+		add_filter( 'style_loader_src', 'toffedassen_remove_ver_css_js', 9999 );
+		add_filter( 'script_loader_src', 'toffedassen_remove_ver_css_js', 9999 );
 
 		// Disable emoticons
-		add_action( 'init', 'logiq_disable_wp_emojicons' );
+		add_action( 'init', 'toffedassen_disable_wp_emojicons' );
 
 	}
 
-	add_action( 'after_setup_theme', 'logiq_start', 16 );
+	add_action( 'after_setup_theme', 'toffedassen_start', 16 );
 
 endif;
 
@@ -53,9 +53,9 @@ endif;
  *
  * @return string
  */
-if ( ! function_exists( 'logiq_no_generator' ) ) :
+if ( ! function_exists( 'toffedassen_no_generator' ) ) :
 
-	function logiq_no_generator() {
+	function toffedassen_no_generator() {
 
 		return '';
 
@@ -66,9 +66,9 @@ endif;
 /*
  * Clean up wp_head() from unused or unsecure stuff
  */
-if ( ! function_exists( 'logiq_head_cleanup' ) ) :
+if ( ! function_exists( 'toffedassen_head_cleanup' ) ) :
 
-	function logiq_head_cleanup() {
+	function toffedassen_head_cleanup() {
 
 		// Remove WP version
 		remove_action( 'wp_head', 'wp_generator' );
@@ -109,11 +109,11 @@ endif;
  *
  * @return string
  */
-if ( ! function_exists( 'logiq_show_less_login_info' ) ) :
+if ( ! function_exists( 'toffedassen_show_less_login_info' ) ) :
 
-	function logiq_show_less_login_info() {
+	function toffedassen_show_less_login_info() {
 
-		return esc_html__( '<strong>ERROR</strong>: Stop guessing!', 'logiq' );
+		return esc_html__( '<strong>ERROR</strong>: Stop guessing!', 'toffedassen' );
 
 	}
 
@@ -124,9 +124,9 @@ endif;
  *
  * @return string
  */
-if ( ! function_exists( 'logiq_remove_ver_css_js' ) ) :
+if ( ! function_exists( 'toffedassen_remove_ver_css_js' ) ) :
 
-	function logiq_remove_ver_css_js( $src ) {
+	function toffedassen_remove_ver_css_js( $src ) {
 
 		if ( strpos( $src, 'ver=' ) ) :
 			$src = remove_query_arg( 'ver', $src );
@@ -143,9 +143,9 @@ endif;
  *
  * @return string
  */
-if ( ! function_exists( 'logiq_disable_wp_emojicons' ) ) :
+if ( ! function_exists( 'toffedassen_disable_wp_emojicons' ) ) :
 
-	function logiq_disable_wp_emojicons() {
+	function toffedassen_disable_wp_emojicons() {
 
 		remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
@@ -170,9 +170,9 @@ endif;
 /**
  * Remove dashicons in frontend for unauthenticated users.
  */
-if ( ! function_exists( 'logiq_dequeue_dashicons' ) ) :
+if ( ! function_exists( 'toffedassen_dequeue_dashicons' ) ) :
 
-	function logiq_dequeue_dashicons() {
+	function toffedassen_dequeue_dashicons() {
 
 		if ( ! is_user_logged_in() ) :
 			wp_deregister_style( 'dashicons' );
@@ -180,16 +180,16 @@ if ( ! function_exists( 'logiq_dequeue_dashicons' ) ) :
 
 	}
 
-	add_action( 'wp_enqueue_scripts', 'logiq_dequeue_dashicons' );
+	add_action( 'wp_enqueue_scripts', 'toffedassen_dequeue_dashicons' );
 
 endif;
 
 /**
  * Remove injected CSS from recent comments widget
  */
-if ( ! function_exists( 'logiq_remove_recent_comments_style' ) ) :
+if ( ! function_exists( 'toffedassen_remove_recent_comments_style' ) ) :
 
-	function logiq_remove_recent_comments_style() {
+	function toffedassen_remove_recent_comments_style() {
 
 		global $wp_widget_factory;
 

@@ -12,7 +12,7 @@ class my_Admin {
      * Default Option key
      * @var string
      */
-    private $key = 'logiq_options';
+    private $key = 'toffedassen_options';
 
     /**
      * Array of metaboxes/fields
@@ -38,7 +38,7 @@ class my_Admin {
      */
     public function __construct() {
         // Set our title
-        $this->title = __( 'Theme Options', 'logiq' );
+        $this->title = __( 'Theme Options', 'toffedassen' );
     }
 
     /**

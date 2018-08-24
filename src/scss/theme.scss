@@ -1,150 +1,101 @@
-﻿
-/*------------------------------------*\
-    $GENERIC ELEMENTS
-\*------------------------------------*/
+﻿/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 - Normalize
+2.0 - Typography
+3.0 - Elements
+	3.1 - Common Elements
+	3.2 - WordPress Elements
+	3.3 - Theme's Elements
+4.0 - Header
+5.0 - Navigations
+6.0 - Content
+	6.1 - Posts and pages
+	5.2 - Comments
+7.0 - Widgets
+8.0 - Footer
+9.0 - Media Queries
+--------------------------------------------------------------*/
+@import 'base/fonts';
+@import 'generic/variables';
+@import 'vendors/slick';
+@import 'generic/mixins';
+@import 'vendors/bootstrap-5-columns';
+@import 'vendors/owl-carousel';
+@import 'molcules/modal';
+@import 'vendors/nprogress';
+@import 'vendors/swiper';
 
-//@import "generic/variables"; 
-//@import "generic/functions"; 
-//@import "generic/mixins";
-// @import "generic/responsive_utilities";
-// @import "generic/normalize";
-// @import "generic/a11y"; 
+/*--------------------------------------------------------------
+1.0 - Normalize
+--------------------------------------------------------------*/
+@import 'generic/normalize';
 
+/*--------------------------------------------------------------
+2.0 - Typography
+--------------------------------------------------------------*/
+@import 'base/typography';
 
-/*------------------------------------*\
-    $GLOBAL ELEMENTS
-\*------------------------------------*/
+/*--------------------------------------------------------------
+3.0 - Elements
+--------------------------------------------------------------*/
 
-//@import "base/fonts";
-//@import "base/typography";
-//@import "base/colors";
-// @import "base/links";
-// @import "base/media";
-// @import "base/forms";
-// @import "base/tables";
-// @import "base/utils";
-//@import "base/icomoon";
-//@import "base/icons";
-//@import "base/dropdown";
+/**
+ * 3.1 - Common Elements
+ */
+@import 'base/elements';
 
-/*------------------------------------*\
-    $GRID
-\*------------------------------------*/
+/**
+ * 3.2 - WordPress Elements
+ */
+@import 'templates/wordpress';
+@import 'templates/canvas-panel';
 
-//@import "grid/grid";
-//@import "grid/grid-ie9";
+/*--------------------------------------------------------------
+4.0 - Header
+--------------------------------------------------------------*/
+@import 'objects/header';
 
-/*------------------------------------*\
-    $VENDORS
-\*------------------------------------*/
+/*--------------------------------------------------------------
+5.0 - Navigations
+--------------------------------------------------------------*/
+@import 'objects/nav';
 
-//@import "vendors/bootstrap/bootstrap";
-@import "vendors/lineair-org";
-@import "vendors/revicons";
-@import "vendors/revslider";
-@import "vendors/swicicons";
-@import "vendors/fontawesome";
-@import "vendors/woocommerce";
-/*------------------------------------*\
-    $COMPONENTS
-\*------------------------------------*/
+/*--------------------------------------------------------------
+6.0 - Content
+--------------------------------------------------------------*/
 
+/**
+ * 6.1 Posts and Pages
+ */
+@import 'objects/content';
+//@import 'objects/portfolio';
 
-/*------------------------------------*\
-    $LAYOUT
-\*------------------------------------*/
-//@import "objects/layout";
+/**
+ * 6.3 Comments
+ */
+@import 'templates/comments';
 
-/*------------------------------------*\
-    $MOLECULES
-\*------------------------------------*/
-//@import "molcules/cards";
-//@import "molcules/search";
-//@import "molcules/modal";
-//@import "molcules/footer";
-//@import "molcules/slider";
-//@import "molcules/bxslider";
-//@import "molcules/related-cards";
-//@import "molcules/photocollage";
-//@import "molcules/well";
+/*--------------------------------------------------------------
+7.0 - Widgets
+--------------------------------------------------------------*/
+@import 'objects/widgets';
 
-/*------------------------------------*\
-    $PAGE STRUCTURE
-\*------------------------------------*/
-// @import "objects/add-to-calendar";
-// @import "objects/addslot";
-// @import "objects/article-widget";
-// @import "objects/breadcrumbs";
-// @import "objects/buttons";
-// @import "objects/cookie-alert";
-// @import "objects/card-slider";
-// @import "objects/close-btn";
-// @import "objects/event-card-slider";
-// @import "objects/event-card";
-// @import "objects/event-filter-overlay";
-// @import "objects/event-filter";
-// @import "objects/event-datepicker";
-// @import "objects/calendar";
-// @import "objects/event-search-widget";
-// @import "objects/faq";
-//@import "objects/fullwidth";
-// @import "objects/filter";
-//@import "objects/footer-search";
-//@import "objects/gmaps";
-// @import "objects/header-bar";
-// @import "objects/header-dropdown"; 
-// @import "objects/header-language";
-// @import "objects/header-logo";
-// @import "objects/header-navigation";
-// @import "objects/page-actions";
-// @import "objects/header-search";
-// @import "objects/homepage-header";
-//@import "objects/info-block";
-//@import "objects/last-minute-tickets";
-// @import "objects/location-info";
-// @import "objects/mini-widget";
-// @import "objects/notification";
-// @import "objects/page-image";
-// @import "objects/page-introduction";
-// @import "objects/page-tabs";
-//@import "objects/page-videoheader";
-// @import "objects/pagination";
-// @import "objects/price-plan";
-// @import "objects/rating";
-// @import "objects/scroll-top";
-// @import "objects/selectbox";
-// @import "objects/site-introduction";
-// @import "objects/stamps";
-// @import "objects/static-googlemaps";
-// @import "objects/tags";
-// @import "objects/tooltip";
-// @import "objects/topplaces";
-// @import "objects/view";
-// @import "objects/waiting-card";
-// @import "objects/waiting-widget";
-// @import "objects/widgets";
-// @import "objects/widgets-klm";
-// @import "objects/yelp";
-// @import "objects/cookie-alert";
-// @import "objects/uitmail-popup";
-//@import "objects/list-navigation";
-//@import "objects/_business-filter-widget";
+@import 'templates/woocommerce';
 
+@import 'templates/shortcodes';
 
+/*--------------------------------------------------------------
+8.0 - Footer
+--------------------------------------------------------------*/
+@import 'objects/footer';
 
-/*------------------------------------*\
-    $TEMPLATES
-\*------------------------------------*/
-// @import "templates/overall";
-// @import "templates/portal";
-// @import "templates/editorialFullWidth";
+/*--------------------------------------------------------------
+8.0 - Page Header
+--------------------------------------------------------------*/
+@import 'objects/page-header';
 
-// @import "templates/venuefinder";
-// @import "templates/webshop";
-// @import "templates/citycard";
-// @import "templates/twentyfourhours";
-// @import "templates/business-event";
-// @import "templates/routes";
-
-
-@import "style-org";
+/*--------------------------------------------------------------
+9.0 - Media Queries
+--------------------------------------------------------------*/
+@import 'generic/responsive';

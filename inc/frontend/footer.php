@@ -4,15 +4,15 @@
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 /**
  * Show footer
  */
 
-if ( ! function_exists( 'supro_show_footer' ) ) :
-	function supro_show_footer() {
+if ( ! function_exists( 'toffedassen_show_footer' ) ) :
+	function toffedassen_show_footer() {
 		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 			return;
 		}
@@ -23,17 +23,17 @@ if ( ! function_exists( 'supro_show_footer' ) ) :
 
 endif;
 
-add_action( 'supro_footer', 'supro_show_footer', 20 );
+add_action( 'toffedassen_footer', 'toffedassen_show_footer', 20 );
 
 /**
  *  Display footer newsletter
  */
-function supro_footer_newsletter() {
-	if ( ! intval( supro_get_option( 'footer_newsletter' ) ) ) {
+function toffedassen_footer_newsletter() {
+	if ( ! intval( toffedassen_get_option( 'footer_newsletter' ) ) ) {
 		return;
 	}
 
-	if ( intval( supro_get_option( 'footer_newsletter_home' ) ) && ! is_front_page() ) {
+	if ( intval( toffedassen_get_option( 'footer_newsletter_home' ) ) && ! is_front_page() ) {
 		return;
 	}
 
@@ -41,16 +41,16 @@ function supro_footer_newsletter() {
 		return;
 	}
 
-	if ( ! supro_get_option( 'newsletter_form' ) ) {
+	if ( ! toffedassen_get_option( 'newsletter_form' ) ) {
 		return;
 	}
 
-	$style = supro_get_option( 'newsletter_style' );
-	$shape = supro_get_option( 'newsletter_shape' );
-	$title = supro_get_option( 'newsletter_title' );
-	$desc  = supro_get_option( 'newsletter_desc' );
-	$bg    = supro_get_option( 'newsletter_background_color' );
-	$form  = do_shortcode( wp_kses( supro_get_option( 'newsletter_form' ), wp_kses_allowed_html( 'post' ) ) );
+	$style = toffedassen_get_option( 'newsletter_style' );
+	$shape = toffedassen_get_option( 'newsletter_shape' );
+	$title = toffedassen_get_option( 'newsletter_title' );
+	$desc  = toffedassen_get_option( 'newsletter_desc' );
+	$bg    = toffedassen_get_option( 'newsletter_background_color' );
+	$form  = do_shortcode( wp_kses( toffedassen_get_option( 'newsletter_form' ), wp_kses_allowed_html( 'post' ) ) );
 
 	if ( $style == 'space-between' ) {
 		$title_col = 'col-md-5 col-xs-12 col-sm-12';
@@ -92,13 +92,13 @@ function supro_footer_newsletter() {
 	<?php
 }
 
-add_action( 'supro_before_footer', 'supro_footer_newsletter', 10 );
+add_action( 'toffedassen_before_footer', 'toffedassen_footer_newsletter', 10 );
 
 /**
  *  Display Newsletter Form on Home Full Slider
  */
 
-function supro_footer_newsletter_full_slider() {
+function toffedassen_footer_newsletter_full_slider() {
 
 	if ( ! is_page_template( 'template-home-no-footer.php' ) ) {
 		return;
@@ -139,15 +139,15 @@ function supro_footer_newsletter_full_slider() {
 	<?php
 }
 
-add_action( 'supro_before_footer', 'supro_footer_newsletter_full_slider', 20 );
+add_action( 'toffedassen_before_footer', 'toffedassen_footer_newsletter_full_slider', 20 );
 
 /**
  * Display back to top
  *
  * @since 1.0.0
  */
-function supro_back_to_top() {
-	if ( ! intval( supro_get_option( 'back_to_top' ) ) ) {
+function toffedassen_back_to_top() {
+	if ( ! intval( toffedassen_get_option( 'back_to_top' ) ) ) {
 		return;
 	}
 	?>
@@ -157,12 +157,12 @@ function supro_back_to_top() {
 	<?php
 }
 
-add_action( 'wp_footer', 'supro_back_to_top' );
+add_action( 'wp_footer', 'toffedassen_back_to_top' );
 
 /**
  * Adds photoSwipe dialog element
  */
-function supro_gallery_images_lightbox() {
+function toffedassen_gallery_images_lightbox() {
 
 	if ( ! is_singular() ) {
 		return;
@@ -233,21 +233,21 @@ function supro_gallery_images_lightbox() {
 	<?php
 }
 
-add_action( 'wp_footer', 'supro_gallery_images_lightbox' );
+add_action( 'wp_footer', 'toffedassen_gallery_images_lightbox' );
 
 
 /**
  * Adds preloader container at the bottom of the site
  */
-function supro_preloader() {
-	if ( ! intval( supro_get_option( 'preloader' ) ) ) {
+function toffedassen_preloader() {
+	if ( ! intval( toffedassen_get_option( 'preloader' ) ) ) {
 		return;
 	}
 
 	get_template_part( 'parts/preloader' );
 }
 
-add_action( 'supro_after_footer', 'supro_preloader' );
+add_action( 'toffedassen_after_footer', 'toffedassen_preloader' );
 
 /**
  * Add off canvas shopping cart to footer
@@ -255,8 +255,8 @@ add_action( 'supro_after_footer', 'supro_preloader' );
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'supro_off_canvas_menu_sidebar' ) ) :
-	function supro_off_canvas_menu_sidebar() {
+if ( ! function_exists( 'toffedassen_off_canvas_menu_sidebar' ) ) :
+	function toffedassen_off_canvas_menu_sidebar() {
 
 		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 			return;
@@ -287,7 +287,7 @@ if ( ! function_exists( 'supro_off_canvas_menu_sidebar' ) ) :
 					if ( is_active_sidebar( $sidebar ) ) {
 						dynamic_sidebar( $sidebar );
 					} else {
-						supro_nav_menu();
+						toffedassen_nav_menu();
 					}
 					?>
                 </div>
@@ -300,7 +300,7 @@ if ( ! function_exists( 'supro_off_canvas_menu_sidebar' ) ) :
 
 endif;
 
-add_action( 'wp_footer', 'supro_off_canvas_menu_sidebar' );
+add_action( 'wp_footer', 'toffedassen_off_canvas_menu_sidebar' );
 
 /**
  * Display a layer to close canvas panel everywhere inside page
@@ -308,8 +308,8 @@ add_action( 'wp_footer', 'supro_off_canvas_menu_sidebar' );
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'supro_site_canvas_layer' ) ) :
-	function supro_site_canvas_layer() {
+if ( ! function_exists( 'toffedassen_site_canvas_layer' ) ) :
+	function toffedassen_site_canvas_layer() {
 		?>
         <div id="off-canvas-layer" class="supro-off-canvas-layer"></div>
 		<?php
@@ -317,7 +317,7 @@ if ( ! function_exists( 'supro_site_canvas_layer' ) ) :
 
 endif;
 
-add_action( 'wp_footer', 'supro_site_canvas_layer' );
+add_action( 'wp_footer', 'toffedassen_site_canvas_layer' );
 
 /**
  * Add off canvas shopping cart to footer
@@ -325,8 +325,8 @@ add_action( 'wp_footer', 'supro_site_canvas_layer' );
  * @since 1.0.0
  */
 
-if ( ! function_exists( 'supro_off_canvas_cart' ) ) :
-	function supro_off_canvas_cart() {
+if ( ! function_exists( 'toffedassen_off_canvas_cart' ) ) :
+	function toffedassen_off_canvas_cart() {
 
 		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 			return;
@@ -336,7 +336,7 @@ if ( ! function_exists( 'supro_off_canvas_cart' ) ) :
 			return;
 		}
 
-		$extras = supro_get_menu_extras();
+		$extras = toffedassen_get_menu_extras();
 
 		if ( empty( $extras ) || ! in_array( 'cart', $extras ) ) {
 			return '';
@@ -359,13 +359,13 @@ if ( ! function_exists( 'supro_off_canvas_cart' ) ) :
 
 endif;
 
-add_action( 'wp_footer', 'supro_off_canvas_cart' );
+add_action( 'wp_footer', 'toffedassen_off_canvas_cart' );
 
 /**
  * Add search modal to footer
  */
-if ( ! function_exists( 'supro_search_modal' ) ) :
-	function supro_search_modal() {
+if ( ! function_exists( 'toffedassen_search_modal' ) ) :
+	function toffedassen_search_modal() {
 
 		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 			return;
@@ -379,9 +379,9 @@ if ( ! function_exists( 'supro_search_modal' ) ) :
                 <div class="container">
                     <form method="get" class="instance-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<?php
-						$number = apply_filters( 'supro_product_cats_search_number', 4 );
+						$number = apply_filters( 'toffedassen_product_cats_search_number', 4 );
 						$cats   = '';
-						if ( supro_get_option( 'search_content_type' ) == 'products' ) {
+						if ( toffedassen_get_option( 'search_content_type' ) == 'products' ) {
 							$args = array(
 								'number'       => $number,
 								'orderby'      => 'count',
@@ -412,7 +412,7 @@ if ( ! function_exists( 'supro_search_modal' ) ) :
                         <div class="search-fields">
                             <input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'supro' ); ?>"
                                    class="search-field" autocomplete="off">
-							<?php if ( supro_get_option( 'search_content_type' ) == 'products' ) { ?>
+							<?php if ( toffedassen_get_option( 'search_content_type' ) == 'products' ) { ?>
                                 <input type="hidden" name="post_type" value="product">
 							<?php } ?>
                             <input type="submit" class="btn-submit">
@@ -441,13 +441,13 @@ if ( ! function_exists( 'supro_search_modal' ) ) :
 
 endif;
 
-add_action( 'wp_footer', 'supro_search_modal' );
+add_action( 'wp_footer', 'toffedassen_search_modal' );
 
 /**
  * Adds quick view modal to footer
  */
-if ( ! function_exists( 'supro_quick_view_modal' ) ) :
-	function supro_quick_view_modal() {
+if ( ! function_exists( 'toffedassen_quick_view_modal' ) ) :
+	function toffedassen_quick_view_modal() {
 		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 			return;
 		}
@@ -482,15 +482,15 @@ if ( ! function_exists( 'supro_quick_view_modal' ) ) :
 
 endif;
 
-add_action( 'wp_footer', 'supro_quick_view_modal' );
+add_action( 'wp_footer', 'toffedassen_quick_view_modal' );
 
 
 /**
  * Add login modal to footer
  */
 
-if ( ! function_exists( 'supro_login_modal' ) ) :
-	function supro_login_modal() {
+if ( ! function_exists( 'toffedassen_login_modal' ) ) :
+	function toffedassen_login_modal() {
 
 		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 			return;
@@ -521,14 +521,14 @@ if ( ! function_exists( 'supro_login_modal' ) ) :
 
 endif;
 
-add_action( 'wp_footer', 'supro_login_modal' );
+add_action( 'wp_footer', 'toffedassen_login_modal' );
 
 /**
  * Add newsletter modal to footer
  */
 
-if ( ! function_exists( 'supro_newsletter_modal' ) ) :
-	function supro_newsletter_modal() {
+if ( ! function_exists( 'toffedassen_newsletter_modal' ) ) :
+	function toffedassen_newsletter_modal() {
 		if ( ! is_page_template( 'template-home-no-footer.php' ) ) {
 			return;
 		}
@@ -545,7 +545,7 @@ if ( ! function_exists( 'supro_newsletter_modal' ) ) :
         <span id="supro-newsletter-icon" class="newsletter-icon icon-paper-plane hidden-lg"></span>
         <div id="footer-newsletter-modal" class="footer-newsletter-modal supro-modal">
             <div class="form-wrapper-modal">
-				<?php supro_footer_newsletter_full_slider(); ?>
+				<?php toffedassen_footer_newsletter_full_slider(); ?>
             </div>
 
             <a href="#" class="close-modal">
@@ -557,4 +557,4 @@ if ( ! function_exists( 'supro_newsletter_modal' ) ) :
 	}
 endif;
 
-add_action( 'wp_footer', 'supro_newsletter_modal' );
+add_action( 'wp_footer', 'toffedassen_newsletter_modal' );

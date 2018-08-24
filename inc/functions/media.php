@@ -2,7 +2,7 @@
 /**
  * Custom functions for images, audio, videos.
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 
@@ -13,7 +13,7 @@
  *
  * @return string
  */
-function supro_fonts_url() {
+function toffedassen_fonts_url() {
 	$fonts_url = '';
 
 	/* Translators: If there are characters in your language that are not

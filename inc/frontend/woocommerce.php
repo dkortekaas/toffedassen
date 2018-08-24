@@ -5,7 +5,7 @@
  *
  * @version 1.0
  */
-class Supro_WooCommerce {
+class Toffedassen_WooCommerce {
 	/**
 	 * @var string Layout of current page
 	 */
@@ -25,11 +25,11 @@ class Supro_WooCommerce {
 	 * Construction function
 	 *
 	 * @since  1.0
-	 * @return Supro_WooCommerce
+	 * @return Toffedassen_WooCommerce
 	 */
 	function __construct() {
-		add_action( 'wp_ajax_supro_search_products', array( $this, 'instance_search_result' ) );
-		add_action( 'wp_ajax_nopriv_supro_search_products', array( $this, 'instance_search_result' ) );
+		add_action( 'wp_ajax_toffedassen_search_products', array( $this, 'instance_search_result' ) );
+		add_action( 'wp_ajax_nopriv_toffedassen_search_products', array( $this, 'instance_search_result' ) );
 
 		// Check if Woocomerce plugin is actived
 		if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
@@ -93,9 +93,9 @@ class Supro_WooCommerce {
 	 * @return void
 	 */
 	function hooks() {
-		$this->layout       = supro_get_layout();
-		$this->new_duration = supro_get_option( 'product_newness' );
-		$this->shop_view    = isset( $_COOKIE['shop_view'] ) ? $_COOKIE['shop_view'] : supro_get_option( 'shop_view' );
+		$this->layout       = toffedassen_get_layout();
+		$this->new_duration = toffedassen_get_option( 'product_newness' );
+		$this->shop_view    = isset( $_COOKIE['shop_view'] ) ? $_COOKIE['shop_view'] : toffedassen_get_option( 'shop_view' );
 
 		// Socials Log
 		if ( function_exists( 'wsl_render_auth_widget_in_wp_login_form' ) ) {
@@ -127,7 +127,7 @@ class Supro_WooCommerce {
 		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
 
 		// Add Shop Toolbar
-		add_action( 'supro_page_header_shop_toolbar', array( $this, 'shop_toolbar' ), 20 );
+		add_action( 'toffedassen_page_header_shop_toolbar', array( $this, 'shop_toolbar' ), 20 );
 
 		// Add Shop Topbar
 		add_action( 'woocommerce_archive_description', array( $this, 'shop_topbar' ), 25 );
@@ -158,25 +158,25 @@ class Supro_WooCommerce {
 		add_action( 'woocommerce_before_add_to_cart_button', 'woocommerce_single_variation', 5 );
 
 		// Remove default tab title
-		add_filter( 'woocommerce_product_reviews_tab_title', array( $this, 'supro_product_review_tab_title' ) );
+		add_filter( 'woocommerce_product_reviews_tab_title', array( $this, 'toffedassen_product_review_tab_title' ) );
 		add_filter(
 			'woocommerce_product_additional_information_tab_title', array(
 				$this,
-				'supro_product_additional_information_tab_title'
+				'toffedassen_product_additional_information_tab_title'
 			)
 		);
 
 		// remove description heading
 		add_filter( 'woocommerce_product_description_heading', '__return_false' );
 
-		if ( ! intval( supro_get_option( 'product_related' ) ) ) {
+		if ( ! intval( toffedassen_get_option( 'product_related' ) ) ) {
 			remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		}
 
 		// remove products upsell display
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
 		// Add product upsell
-		if ( intval( supro_get_option( 'product_upsells' ) ) ) {
+		if ( intval( toffedassen_get_option( 'product_upsells' ) ) ) {
 			add_action( 'woocommerce_after_single_product_summary', array( $this, 'upsell_products' ), 15 );
 		}
 
@@ -208,7 +208,7 @@ class Supro_WooCommerce {
 		add_action( 'woocommerce_account_dashboard', 'woocommerce_account_edit_address', 15 );
 
 		remove_action( 'woocommerce_before_single_product', 'wc_print_notices', 10 );
-		add_action( 'supro_before_single_product', 'wc_print_notices', 10 );
+		add_action( 'toffedassen_before_single_product', 'wc_print_notices', 10 );
 
 		// Remove Social Share
 		remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50 );
@@ -224,23 +224,23 @@ class Supro_WooCommerce {
 		add_action( 'woocommerce_before_shop_loop', array( $this, 'shop_loading' ), 60 );
 
 		// Change label orderby option default
-		add_filter( 'woocommerce_catalog_orderby', array( $this, 'supro_catalog_orderby_options' ) );
+		add_filter( 'woocommerce_catalog_orderby', array( $this, 'toffedassen_catalog_orderby_options' ) );
 		add_filter( 'woocommerce_default_catalog_orderby', array( $this, 'catalog_orderby_default' ) );
 
 		// Catalog Page Header
 		add_action( 'woocommerce_before_main_content', array( $this, 'catalog_page_header' ), 50 );
 
 		// Wrap product summary for sticky description on product style 1
-		if ( '3' == supro_get_option( 'single_product_layout' ) ) {
+		if ( '3' == toffedassen_get_option( 'single_product_layout' ) ) {
 			add_action( 'woocommerce_single_product_summary', array( $this, 'open_sticky_description' ), 0 );
 			add_action( 'woocommerce_single_product_summary', array( $this, 'close_sticky_description' ), 1000 );
 		}
 
-		if ( in_array( supro_get_option( 'single_product_layout' ), array( '3', '4', '5', '6' ) ) ) {
+		if ( in_array( toffedassen_get_option( 'single_product_layout' ), array( '3', '4', '5', '6' ) ) ) {
 			add_filter( 'woocommerce_single_product_flexslider_enabled', '__return_false' );
 		}
 
-		if ( in_array( supro_get_option( 'single_product_layout' ), array( '3', '4', '5', '6' ) ) ) {
+		if ( in_array( toffedassen_get_option( 'single_product_layout' ), array( '3', '4', '5', '6' ) ) ) {
 			add_filter(
 				'woocommerce_gallery_image_size', array(
 					$this,
@@ -249,7 +249,7 @@ class Supro_WooCommerce {
 			);
 		}
 
-		if ( in_array( supro_get_option( 'single_product_layout' ), array( '1', '2' ) ) ) {
+		if ( in_array( toffedassen_get_option( 'single_product_layout' ), array( '1', '2' ) ) ) {
 			add_filter( 'woocommerce_get_image_size_gallery_thumbnail', array( $this, 'gallery_thumb_size' ) );
 		}
 
@@ -281,11 +281,11 @@ class Supro_WooCommerce {
 
 		ob_start();
 		$icon_cart = '<i class="t-icon icon-cart"></i>';
-		$icon_cart = apply_filters( 'supro_icon_cart', $icon_cart );
+		$icon_cart = apply_filters( 'toffedassen_icon_cart', $icon_cart );
 
 		$cart_html = esc_html( get_post_meta( get_the_ID(), 'header_cart_text', true ) );
 
-		$cart_html = $cart_html ? $cart_html : esc_html__( 'Shopping Cart', 'supro' );
+		$cart_html = $cart_html ? $cart_html : esc_html__( 'Shopping Cart', 'toffedassen' );
 
 		?>
 
@@ -336,7 +336,7 @@ class Supro_WooCommerce {
 	 */
 	function orders_title( $has_orders ) {
 		if ( $has_orders ) {
-			printf( '<h2 class="orders-title">%s</h2>', esc_html__( 'Orders History', 'supro' ) );
+			printf( '<h2 class="orders-title">%s</h2>', esc_html__( 'Orders History', 'toffedassen' ) );
 		}
 	}
 
@@ -373,7 +373,7 @@ class Supro_WooCommerce {
 	 * @return array
 	 */
 	function open_checkout_form_wrapper() {
-		echo '<div class="supro-checkout-form-wrapper clearfix">';
+		echo '<div class="toffedassen-checkout-form-wrapper clearfix">';
 	}
 
 	/**
@@ -398,8 +398,8 @@ class Supro_WooCommerce {
 	function product_content_thumbnail() {
 		global $product;
 		$attachment_ids  = $product->get_gallery_image_ids();
-		$secondary_thumb = intval( supro_get_option( 'disable_secondary_thumb' ) );
-		$shop_view       = supro_get_option( 'shop_view' );
+		$secondary_thumb = intval( toffedassen_get_option( 'disable_secondary_thumb' ) );
+		$shop_view       = toffedassen_get_option( 'shop_view' );
 
 		printf( '<div class="un-product-thumbnail">' );
 
@@ -429,7 +429,7 @@ class Supro_WooCommerce {
 			echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
 		}
 
-		echo '<a href="' . $product->get_permalink() . '" data-id="' . esc_attr( $product->get_id() ) . '"  class="supro-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'supro' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
+		echo '<a href="' . $product->get_permalink() . '" data-id="' . esc_attr( $product->get_id() ) . '"  class="toffedassen-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'toffedassen' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
 
 		echo '</div>'; // .actions-button
 		echo '</div>'; // .footer-button
@@ -452,7 +452,7 @@ class Supro_WooCommerce {
 			echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
 		}
 
-		echo '<a href="' . $product->get_permalink() . '" data-id="' . esc_attr( $product->get_id() ) . '"  class="supro-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'supro' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
+		echo '<a href="' . $product->get_permalink() . '" data-id="' . esc_attr( $product->get_id() ) . '"  class="toffedassen-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'toffedassen' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
 
 		echo '</div>'; // .actions-button
 		echo '</div>'; // .footer-button.footer-button-shop-list
@@ -467,9 +467,9 @@ class Supro_WooCommerce {
 		global $product;
 
 
-		if ( intval( supro_get_option( 'show_badges' ) ) ) {
+		if ( intval( toffedassen_get_option( 'show_badges' ) ) ) {
 			$output = array();
-			$badges = supro_get_option( 'badges' );
+			$badges = toffedassen_get_option( 'badges' );
 			// Change the default sale ribbon
 
 			$custom_badges = maybe_unserialize( get_post_meta( $product->get_id(), 'custom_badges_text', true ) );
@@ -479,31 +479,31 @@ class Supro_WooCommerce {
 			} else {
 
 				if ( $product->get_stock_status() == 'outofstock' && in_array( 'outofstock', $badges ) ) {
-					$outofstock = supro_get_option( 'outofstock_text' );
+					$outofstock = toffedassen_get_option( 'outofstock_text' );
 					if ( ! $outofstock ) {
-						$outofstock = esc_html__( 'Out Of Stock', 'supro' );
+						$outofstock = esc_html__( 'Out Of Stock', 'toffedassen' );
 					}
 					$output[] = '<span class="out-of-stock ribbon">' . esc_html( $outofstock ) . '</span>';
 				} elseif ( $product->is_on_sale() && in_array( 'sale', $badges ) ) {
-					$sale = supro_get_option( 'sale_text' );
+					$sale = toffedassen_get_option( 'sale_text' );
 					if ( ! $sale ) {
-						$sale = esc_html__( 'Sale', 'supro' );
+						$sale = esc_html__( 'Sale', 'toffedassen' );
 					}
 
 					$output[] = '<span class="onsale ribbon">' . esc_html( $sale ) . '</span>';
 
 				} elseif ( $product->is_featured() && in_array( 'hot', $badges ) ) {
-					$hot = supro_get_option( 'hot_text' );
+					$hot = toffedassen_get_option( 'hot_text' );
 					if ( ! $hot ) {
-						$hot = esc_html__( 'Hot', 'supro' );
+						$hot = esc_html__( 'Hot', 'toffedassen' );
 					}
 					$output[] = '<span class="featured ribbon">' . esc_html( $hot ) . '</span>';
 				} elseif ( ( time() - ( 60 * 60 * 24 * $this->new_duration ) ) < strtotime( get_the_time( 'Y-m-d' ) ) && in_array( 'new', $badges ) ||
 				           get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
 				) {
-					$new = supro_get_option( 'new_text' );
+					$new = toffedassen_get_option( 'new_text' );
 					if ( ! $new ) {
-						$new = esc_html__( 'New', 'supro' );
+						$new = esc_html__( 'New', 'toffedassen' );
 					}
 					$output[] = '<span class="newness ribbon">' . esc_html( $new ) . '</span>';
 				}
@@ -520,7 +520,7 @@ class Supro_WooCommerce {
 
 	function product_meta() {
 		global $product;
-		$meta = supro_get_option( 'show_product_meta' );
+		$meta = toffedassen_get_option( 'show_product_meta' );
 		$cats = $tags = '';
 
 		if ( ! in_array( 'categories', $meta ) && ! in_array( 'tags', $meta ) ) {
@@ -528,18 +528,18 @@ class Supro_WooCommerce {
 		}
 
 		if ( in_array( 'categories', $meta ) ) {
-			$cats = wc_get_product_category_list( $product->get_id(), ', ', '<div class="posted_in"><strong>' . _n( 'Category: ', 'Categories: ', count( $product->get_category_ids() ), 'supro' ) . '</strong>', '</div>' );
+			$cats = wc_get_product_category_list( $product->get_id(), ', ', '<div class="posted_in"><strong>' . _n( 'Category: ', 'Categories: ', count( $product->get_category_ids() ), 'toffedassen' ) . '</strong>', '</div>' );
 		}
 
 		if ( in_array( 'tags', $meta ) ) {
-			$tags = wc_get_product_tag_list( $product->get_id(), ', ', '<div class="tagged_as"><strong>' . _n( 'Tag: ', 'Tags: ', count( $product->get_tag_ids() ), 'supro' ) . '</strong>', '</div>' );
+			$tags = wc_get_product_tag_list( $product->get_id(), ', ', '<div class="tagged_as"><strong>' . _n( 'Tag: ', 'Tags: ', count( $product->get_tag_ids() ), 'toffedassen' ) . '</strong>', '</div>' );
 		}
 
 		echo '<div class="product_meta">' . $cats . $tags . '</div>';
 	}
 
 	function product_sku() {
-		$meta = supro_get_option( 'show_product_meta' );
+		$meta = toffedassen_get_option( 'show_product_meta' );
 		if ( ! in_array( 'sku', $meta ) ) {
 			return;
 		}
@@ -548,13 +548,13 @@ class Supro_WooCommerce {
 
 		if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) {
 			?>
-            <div class="sku_wrapper"><?php esc_html_e( 'SKU:', 'supro' ); ?>
+            <div class="sku_wrapper"><?php esc_html_e( 'SKU:', 'toffedassen' ); ?>
                 <span class="sku">
                     <?php
                     if( $sku = $product->get_sku() ) {
                         echo wp_kses_post( $sku );
                     } else {
-	                    echo esc_html__( 'N/A', 'supro' );
+	                    echo esc_html__( 'N/A', 'toffedassen' );
                     }
                   ?>
                 </span>
@@ -585,7 +585,7 @@ class Supro_WooCommerce {
 	function yith_button() {
 		echo '<div class="actions-button">';
 		if ( shortcode_exists( 'yith_wcwl_add_to_wishlist' ) ) {
-			echo '<div class="supro-wishlist-button">';
+			echo '<div class="toffedassen-wishlist-button">';
 			echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
 			echo '</div>';
 		}
@@ -645,18 +645,18 @@ class Supro_WooCommerce {
 				}
 			}
 		} else {
-			$classes[]      = 'supro-single-product';
-			$product_layout = supro_get_option( 'single_product_layout' );
-			$classes[]      = 'supro-product-layout-' . $product_layout;
+			$classes[]      = 'toffedassen-single-product';
+			$product_layout = toffedassen_get_option( 'single_product_layout' );
+			$classes[]      = 'toffedassen-product-layout-' . $product_layout;
 
 			if ( in_array( $product_layout, array( '1', '2', '5', '6' ) ) ) {
-				$classes[] = 'supro-product-slider';
+				$classes[] = 'toffedassen-product-slider';
 			}
 
 			$columns = wc_get_default_products_per_row();
 
 			if ( $columns == '5' ) {
-				$classes[] = 'supro-product-slider';
+				$classes[] = 'toffedassen-product-slider';
 			}
 		}
 
@@ -719,7 +719,7 @@ class Supro_WooCommerce {
 	 * @since 1.0
 	 */
 	function open_product_categories_thumb() {
-		echo '<span class="supro-product-categories-thumb">';
+		echo '<span class="toffedassen-product-categories-thumb">';
 	}
 
 	/**
@@ -758,11 +758,11 @@ class Supro_WooCommerce {
 	 * @since 1.0
 	 */
 	function shop_toolbar() {
-		if ( ! supro_is_catalog() ) {
+		if ( ! toffedassen_is_catalog() ) {
 			return;
 		}
 
-		$elements = supro_get_option( 'shop_toolbar' );
+		$elements = toffedassen_get_option( 'shop_toolbar' );
 		if ( ! $elements ) {
 			return;
 		}
@@ -777,11 +777,11 @@ class Supro_WooCommerce {
 			global $wp_query;
 			if ( $wp_query && isset( $wp_query->found_posts ) ) {
 				if ( $wp_query->found_posts > 1 ) {
-					$label = esc_html__( ' Products', 'supro' );
+					$label = esc_html__( ' Products', 'toffedassen' );
 				} else {
-					$label = esc_html__( ' Product', 'supro' );
+					$label = esc_html__( ' Product', 'toffedassen' );
 				}
-				$found = '<span>' . $wp_query->found_posts . ' </span>' . $label . ' ' . esc_html__( 'Found', 'supro' );
+				$found = '<span>' . $wp_query->found_posts . ' </span>' . $label . ' ' . esc_html__( 'Found', 'toffedassen' );
 			}
 
 			if ( $found ) {
@@ -790,8 +790,8 @@ class Supro_WooCommerce {
 		}
 
 		if ( in_array( 'filter', $elements ) ) {
-			$output[] = '<div id="supro-catalog-filter" class="shop-toolbar-el supro-catalog-filter">
-							<a href="#">' . esc_html__( 'Filter', 'supro' ) . '<i class="arrow_carrot-down"></i>
+			$output[] = '<div id="toffedassen-catalog-filter" class="shop-toolbar-el toffedassen-catalog-filter">
+							<a href="#">' . esc_html__( 'Filter', 'toffedassen' ) . '<i class="arrow_carrot-down"></i>
 
 							</a>
 						</div>';
@@ -809,7 +809,7 @@ class Supro_WooCommerce {
 			$grid_current = $this->shop_view == 'grid' ? 'current' : '';
 
 			$output[] = sprintf(
-				'<div id="supro-shop-view" class="shop-toolbar-el shop-view">' .
+				'<div id="toffedassen-shop-view" class="shop-toolbar-el shop-view">' .
 				'<a href="#" class="view-grid %s" data-view="grid"><i class="icon-icons2"></i></a>' .
 				'<a href="#" class="view-list %s" data-view="list"><i class="icon-list4"></i></a>' .
 				'</div>',
@@ -819,14 +819,14 @@ class Supro_WooCommerce {
 		}
 
 		if ( in_array( 'filter', $elements ) ) {
-			$output[] = '<div id="supro-catalog-filter-mobile" class="shop-toolbar-el supro-catalog-filter-mobile">
+			$output[] = '<div id="toffedassen-catalog-filter-mobile" class="shop-toolbar-el toffedassen-catalog-filter-mobile">
 							<a href="#"><i class="icon-equalizer"></i></a>
 						</div>';
 		}
 
 		if ( $output ) {
 			?>
-            <div id="supro-shop-toolbar" class="shop-toolbar <?php echo esc_attr( $css_class ); ?>">
+            <div id="toffedassen-shop-toolbar" class="shop-toolbar <?php echo esc_attr( $css_class ); ?>">
 				<?php echo implode( ' ', $output ); ?>
             </div>
 			<?php
@@ -839,7 +839,7 @@ class Supro_WooCommerce {
 	 * @since 1.0
 	 */
 	function shop_topbar() {
-		if ( ! supro_is_catalog() ) {
+		if ( ! toffedassen_is_catalog() ) {
 			return;
 		}
 
@@ -852,11 +852,11 @@ class Supro_WooCommerce {
 	 * @since 1.0
 	 */
 	function shop_filter_content() {
-		if ( ! supro_is_catalog() ) {
+		if ( ! toffedassen_is_catalog() ) {
 			return;
 		}
 
-		$elements = supro_get_option( 'shop_toolbar' );
+		$elements = toffedassen_get_option( 'shop_toolbar' );
 		if ( ! in_array( 'filter', $elements ) ) {
 			return;
 		}
@@ -877,10 +877,10 @@ class Supro_WooCommerce {
 
             <div class="shop-filter-actived">
 				<?php
-				$link = supro_get_page_base_url();
+				$link = toffedassen_get_page_base_url();
 
 				if ( $_GET ) {
-					printf( '<a href="%s" id="remove-filter-actived" class="remove-filter-actived"><i class="icon-cross2"></i>%s</a>', esc_url( $link ), esc_html__( 'Clear All Filter', 'supro' ) );
+					printf( '<a href="%s" id="remove-filter-actived" class="remove-filter-actived"><i class="icon-cross2"></i>%s</a>', esc_url( $link ), esc_html__( 'Clear All Filter', 'toffedassen' ) );
 				}
 				?>
             </div>
@@ -896,10 +896,10 @@ class Supro_WooCommerce {
 	 * @return string
 	 */
 	function before_shop_loop() {
-		if ( ! supro_is_catalog() ) {
+		if ( ! toffedassen_is_catalog() ) {
 			return;
 		}
-		echo '<div id="supro-shop-content" class="supro-shop-content">';
+		echo '<div id="toffedassen-shop-content" class="toffedassen-shop-content">';
 	}
 
 	/**
@@ -909,7 +909,7 @@ class Supro_WooCommerce {
 	 * @return string
 	 */
 	function after_shop_loop() {
-		if ( ! supro_is_catalog() ) {
+		if ( ! toffedassen_is_catalog() ) {
 			return;
 		}
 		echo '</div>';
@@ -922,11 +922,11 @@ class Supro_WooCommerce {
 	 * @return string
 	 */
 	function shop_loading() {
-		if ( ! supro_is_catalog() ) {
+		if ( ! toffedassen_is_catalog() ) {
 			return;
 		}
-		echo '<div class="supro-catalog-loading">
-				<span class="supro-loader"></span>
+		echo '<div class="toffedassen-catalog-loading">
+				<span class="toffedassen-loader"></span>
 			</div>';
 	}
 
@@ -936,8 +936,8 @@ class Supro_WooCommerce {
 	 * @since 1.0
 	 */
 	function upsell_products() {
-		$upsell_numbers = intval( supro_get_option( 'upsells_products_numbers' ) );
-		$upsell_columns = intval( supro_get_option( 'upsells_products_columns' ) );
+		$upsell_numbers = intval( toffedassen_get_option( 'upsells_products_numbers' ) );
+		$upsell_columns = intval( toffedassen_get_option( 'upsells_products_columns' ) );
 
 		if ( $upsell_columns && $upsell_numbers && function_exists( 'woocommerce_upsell_display' ) ) {
 			woocommerce_upsell_display( $upsell_numbers, $upsell_columns );
@@ -954,8 +954,8 @@ class Supro_WooCommerce {
 	 */
 	function related_products( $args ) {
 
-		$args['posts_per_page'] = intval( supro_get_option( 'related_products_numbers' ) );;
-		$args['columns'] = intval( supro_get_option( 'related_products_columns' ) );
+		$args['posts_per_page'] = intval( toffedassen_get_option( 'related_products_numbers' ) );;
+		$args['columns'] = intval( toffedassen_get_option( 'related_products_columns' ) );
 
 		return $args;
 	}
@@ -968,7 +968,7 @@ class Supro_WooCommerce {
 	function variation_attribute_options( $args ) {
 		$attribute = $args['attribute'];
 		if ( function_exists( 'wc_attribute_label' ) && $attribute ) {
-			$args['show_option_none'] = esc_html__( 'Select', 'supro' ) . ' ' . wc_attribute_label( $attribute );
+			$args['show_option_none'] = esc_html__( 'Select', 'toffedassen' ) . ' ' . wc_attribute_label( $attribute );
 		}
 
 		return $args;
@@ -980,7 +980,7 @@ class Supro_WooCommerce {
 	 * @return int
 	 */
 	function cross_sells_columns( $cross_columns ) {
-		return apply_filters( 'supro_cross_sells_columns', 4 );
+		return apply_filters( 'toffedassen_cross_sells_columns', 4 );
 	}
 
 	/**
@@ -989,14 +989,14 @@ class Supro_WooCommerce {
 	 * @return int
 	 */
 	function cross_sells_numbers( $cross_numbers ) {
-		return apply_filters( 'supro_cross_sells_total', 4 );
+		return apply_filters( 'toffedassen_cross_sells_total', 4 );
 	}
 
 	/**
 	 * Display product toolbar on single product page
 	 */
 	public function product_toolbar() {
-		$toolbar = supro_get_option( 'single_product_toolbar' );
+		$toolbar = toffedassen_get_option( 'single_product_toolbar' );
 
 		if ( ! $toolbar ) {
 			return;
@@ -1024,9 +1024,9 @@ class Supro_WooCommerce {
 				if ( in_array( 'navigation', $toolbar ) ) {
 					the_post_navigation(
 						array(
-							'screen_reader_text' => esc_html__( 'Product navigation', 'supro' ),
-							'prev_text'          => _x( '<i class="arrow_carrot-left"></i><span class="screen-reader-text">%title</span>', 'Previous post link', 'supro' ),
-							'next_text'          => _x( '<span class="screen-reader-text">%title</span><i class="arrow_carrot-right"></i>', 'Next post link', 'supro' ),
+							'screen_reader_text' => esc_html__( 'Product navigation', 'toffedassen' ),
+							'prev_text'          => _x( '<i class="arrow_carrot-left"></i><span class="screen-reader-text">%title</span>', 'Previous post link', 'toffedassen' ),
+							'next_text'          => _x( '<span class="screen-reader-text">%title</span><i class="arrow_carrot-right"></i>', 'Next post link', 'toffedassen' ),
 						)
 					);
 				}
@@ -1044,7 +1044,7 @@ class Supro_WooCommerce {
 	 */
 	function single_product_socials() {
 
-		if ( ! intval( supro_get_option( 'show_product_socials' ) ) ) {
+		if ( ! intval( toffedassen_get_option( 'show_product_socials' ) ) ) {
 			return;
 		}
 
@@ -1055,8 +1055,8 @@ class Supro_WooCommerce {
 			$image_link = wp_get_attachment_url( $image_id );
 		}
 
-		if ( function_exists( 'supro_addons_share_link_socials' ) ) {
-			echo supro_addons_share_link_socials( $product->get_title(), $product->get_permalink(), $image_link );
+		if ( function_exists( 'toffedassen_addons_share_link_socials' ) ) {
+			echo toffedassen_addons_share_link_socials( $product->get_title(), $product->get_permalink(), $image_link );
 		}
 	}
 
@@ -1065,10 +1065,10 @@ class Supro_WooCommerce {
 	 *
 	 * @return string
 	 */
-	function supro_product_review_tab_title() {
+	function toffedassen_product_review_tab_title() {
 		global $product;
 
-		$title = sprintf( '%s <span class="count">(%s)</span>', esc_html__( 'Reviews', 'supro' ), $product->get_review_count() );
+		$title = sprintf( '%s <span class="count">(%s)</span>', esc_html__( 'Reviews', 'toffedassen' ), $product->get_review_count() );
 
 		return $title;
 	}
@@ -1078,19 +1078,19 @@ class Supro_WooCommerce {
 	 *
 	 * @return string
 	 */
-	function supro_product_additional_information_tab_title() {
-		$title = esc_html__( 'More Information', 'supro' );
+	function toffedassen_product_additional_information_tab_title() {
+		$title = esc_html__( 'More Information', 'toffedassen' );
 
 		return $title;
 	}
 
-	function supro_catalog_orderby_options( $catalog_orderby_options = '' ) {
-		$catalog_orderby_options['menu_order'] = esc_html__( 'Default', 'supro' );
-		$catalog_orderby_options['popularity'] = esc_html__( 'Popularity', 'supro' );
-		$catalog_orderby_options['rating']     = esc_html__( 'Average rating', 'supro' );
-		$catalog_orderby_options['date']       = esc_html__( 'Newness', 'supro' );
-		$catalog_orderby_options['price']      = esc_html__( 'Price: low to high', 'supro' );
-		$catalog_orderby_options['price-desc'] = esc_html__( 'Price: high to low', 'supro' );
+	function toffedassen_catalog_orderby_options( $catalog_orderby_options = '' ) {
+		$catalog_orderby_options['menu_order'] = esc_html__( 'Default', 'toffedassen' );
+		$catalog_orderby_options['popularity'] = esc_html__( 'Popularity', 'toffedassen' );
+		$catalog_orderby_options['rating']     = esc_html__( 'Average rating', 'toffedassen' );
+		$catalog_orderby_options['date']       = esc_html__( 'Newness', 'toffedassen' );
+		$catalog_orderby_options['price']      = esc_html__( 'Price: low to high', 'toffedassen' );
+		$catalog_orderby_options['price-desc'] = esc_html__( 'Price: high to low', 'toffedassen' );
 
 		return $catalog_orderby_options;
 	}
@@ -1102,7 +1102,7 @@ class Supro_WooCommerce {
 	}
 
 	function catalog_page_header() {
-		if ( ! intval( supro_get_option( 'catalog_page_header' ) ) ) {
+		if ( ! intval( toffedassen_get_option( 'catalog_page_header' ) ) ) {
 			return false;
 		}
 
@@ -1135,7 +1135,7 @@ class Supro_WooCommerce {
 		$user = get_user_by( 'ID', get_current_user_id() );
 
 		if ( $user ) {
-			printf( '<h3 class="m-title">%s %s</h3>', esc_html__( 'Hello!', 'supro' ), $user->display_name );
+			printf( '<h3 class="m-title">%s %s</h3>', esc_html__( 'Hello!', 'toffedassen' ), $user->display_name );
 		}
 
 	}
@@ -1146,8 +1146,8 @@ class Supro_WooCommerce {
 	 * @since 1.0
 	 */
 	public function instance_search_result() {
-		if ( apply_filters( 'supro_check_ajax_referer', true ) ) {
-			check_ajax_referer( '_supro_nonce', 'nonce' );
+		if ( apply_filters( 'toffedassen_check_ajax_referer', true ) ) {
+			check_ajax_referer( '_toffedassen_nonce', 'nonce' );
 		}
 
 		$response = array();
@@ -1159,7 +1159,7 @@ class Supro_WooCommerce {
 		}
 
 		if ( empty( $response ) ) {
-			$response[] = sprintf( '<li>%s</li>', esc_html__( 'Nothing found', 'supro' ) );
+			$response[] = sprintf( '<li>%s</li>', esc_html__( 'Nothing found', 'toffedassen' ) );
 		}
 
 		$output = sprintf( '<ul>%s</ul>', implode( ' ', $response ) );
@@ -1306,14 +1306,14 @@ class Supro_WooCommerce {
 
 	function single_product_zoom_enabled() {
 
-		if ( in_array( supro_get_option( 'single_product_layout' ), array( '3', '4', '5', '6' ) ) ) {
+		if ( in_array( toffedassen_get_option( 'single_product_layout' ), array( '3', '4', '5', '6' ) ) ) {
 			return false;
 		}
 
-		return supro_get_option( 'product_zoom' );
+		return toffedassen_get_option( 'product_zoom' );
 	}
 
-	function supro_get_item_data( $cart_item, $flat = false ) {
+	function toffedassen_get_item_data( $cart_item, $flat = false ) {
 		$item_data = array();
 
 		if ( $cart_item['data']->is_type( 'variation' ) && is_array( $cart_item['variation'] ) ) {
@@ -1480,7 +1480,7 @@ class Supro_WooCommerce {
 	 */
 	function product_attribute() {
 
-		$default_attribute = sanitize_title( supro_get_option( 'product_attribute' ) );
+		$default_attribute = sanitize_title( toffedassen_get_option( 'product_attribute' ) );
 
 		if ( $default_attribute == '' || $default_attribute == 'none' ) {
 			return;

@@ -2,7 +2,7 @@
 /**
  * Custom login setup.
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 if ( ! defined( 'ABSPATH' ) ) :
@@ -12,8 +12,8 @@ endif;
 /**
  * Sets the custom login style.
  */
-if ( ! function_exists( 'logiq_custom_login_style' ) ) :
-	function logiq_custom_login_style() {
+if ( ! function_exists( 'toffedassen_custom_login_style' ) ) :
+	function toffedassen_custom_login_style() {
 
 		if ( LOGIN_WEBLOGIQ === true ) :
 
@@ -27,16 +27,16 @@ if ( ! function_exists( 'logiq_custom_login_style' ) ) :
 
 	}
 
-	add_action( 'login_head', 'logiq_custom_login_style' );
+	add_action( 'login_head', 'toffedassen_custom_login_style' );
 
 endif;
 
 /**
  * Sets the custom login Url.
  */	
-if ( ! function_exists( 'logiq_custom_login_url' ) ) :
+if ( ! function_exists( 'toffedassen_custom_login_url' ) ) :
 
-	function logiq_custom_login_url() {
+	function toffedassen_custom_login_url() {
 
 		if ( LOGIN_WEBLOGIQ === true ) :
 
@@ -50,29 +50,29 @@ if ( ! function_exists( 'logiq_custom_login_url' ) ) :
 
 	}
 
-	add_filter( 'login_headerurl', 'logiq_custom_login_url' );
+	add_filter( 'login_headerurl', 'toffedassen_custom_login_url' );
 
 endif;
 
 /**
  * Sets the custom login Url title.
  */	
-if ( ! function_exists( 'logiq_custom_login_url_title' ) ) :
+if ( ! function_exists( 'toffedassen_custom_login_url_title' ) ) :
 
-	function logiq_custom_login_url_title() {
+	function toffedassen_custom_login_url_title() {
 
 		if ( LOGIN_WEBLOGIQ === true ) :
 
-			return esc_html__( 'Developed by internetbureau Weblogiq', 'logiq' );
+			return esc_html__( 'Developed by internetbureau Weblogiq', 'toffedassen' );
 
 		else :
 
-			return esc_html__( 'Developed by BMC Internet Marketing', 'logiq' );
+			return esc_html__( 'Developed by BMC Internet Marketing', 'toffedassen' );
 
 		endif;
 
 	}
 
-	add_filter( 'login_headertitle', 'logiq_custom_login_url_title' );
+	add_filter( 'login_headertitle', 'toffedassen_custom_login_url_title' );
 
 endif;

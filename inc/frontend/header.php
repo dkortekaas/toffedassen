@@ -2,7 +2,7 @@
 /**
  * Hooks for template header
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 /**
@@ -10,11 +10,11 @@
  *
  * @since 1.0
  */
-function supro_enqueue_scripts() {
+function toffedassen_enqueue_scripts() {
 	/**
 	 * Register and enqueue styles
 	 */
-	wp_register_style( 'supro-fonts', supro_fonts_url(), array(), '20180307' );
+	wp_register_style( 'supro-fonts', toffedassen_fonts_url(), array(), '20180307' );
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 	wp_register_style( 'eleganticons', get_template_directory_uri() . '/css/eleganticons.min.css', array(), '1.0.0' );
 	wp_register_style( 'linearicons', get_template_directory_uri() . '/css/linearicons.min.css', array(), '1.0.0' );
@@ -32,7 +32,7 @@ function supro_enqueue_scripts() {
 	), '20161025'
 	);
 
-	wp_add_inline_style( 'supro', supro_customize_css() );
+	wp_add_inline_style( 'supro', toffedassen_customize_css() );
 
 	/**
 	 * Register and enqueue scripts
@@ -103,25 +103,25 @@ function supro_enqueue_scripts() {
 	$product_thumb_slider     = 0;
 	$product_thumb_vertical   = 0;
 	$product_gallery_carousel = 0;
-	if ( in_array( supro_get_option( 'single_product_layout' ), array( '1', '2' ) ) ) {
+	if ( in_array( toffedassen_get_option( 'single_product_layout' ), array( '1', '2' ) ) ) {
 		$product_thumb_slider = 1;
 
-		if ( supro_get_option( 'single_product_layout' ) == '2' ) {
+		if ( toffedassen_get_option( 'single_product_layout' ) == '2' ) {
 			$product_thumb_vertical = 1;
 		}
-	} elseif ( in_array( supro_get_option( 'single_product_layout' ), array( '5', '6' ) ) ) {
+	} elseif ( in_array( toffedassen_get_option( 'single_product_layout' ), array( '5', '6' ) ) ) {
 		$product_gallery_carousel = 1;
 	}
 
 	wp_localize_script(
 		'supro', 'suproData', array(
 			'ajax_url'            => admin_url( 'admin-ajax.php' ),
-			'nonce'               => wp_create_nonce( '_supro_nonce' ),
-			'menu_animation'      => supro_get_option( 'menu_animation' ),
-			'ajax_search'         => intval( supro_get_option( 'header_ajax_search' ) ),
-			'search_content_type' => supro_get_option( 'search_content_type' ),
-			'shop_nav_type'       => supro_get_option( 'shop_nav_type' ),
-			'add_to_cart_ajax'    => intval( supro_get_option( 'product_add_to_cart_ajax' ) ),
+			'nonce'               => wp_create_nonce( '_toffedassen_nonce' ),
+			'menu_animation'      => toffedassen_get_option( 'menu_animation' ),
+			'ajax_search'         => intval( toffedassen_get_option( 'header_ajax_search' ) ),
+			'search_content_type' => toffedassen_get_option( 'search_content_type' ),
+			'shop_nav_type'       => toffedassen_get_option( 'shop_nav_type' ),
+			'add_to_cart_ajax'    => intval( toffedassen_get_option( 'product_add_to_cart_ajax' ) ),
 			'product'             => array(
 				'thumb_slider'     => $product_thumb_slider,
 				'thumb_vertical'   => $product_thumb_vertical,
@@ -129,36 +129,36 @@ function supro_enqueue_scripts() {
 				'lightbox'         => $lightbox,
 			),
 			'l10n'                => array(
-				'added_to_cart_notice'  => intval( supro_get_option( 'added_to_cart_notice' ) ),
+				'added_to_cart_notice'  => intval( toffedassen_get_option( 'added_to_cart_notice' ) ),
 				'notice_text'           => esc_html__( 'has been added to your cart.', 'supro' ),
 				'notice_texts'          => esc_html__( 'have been added to your cart.', 'supro' ),
 				'cart_text'             => esc_html__( 'View Cart', 'supro' ),
 				'cart_link'             => function_exists( 'wc_get_cart_url' ) ? esc_url( wc_get_cart_url() ) : '',
-				'cart_notice_auto_hide' => intval( supro_get_option( 'cart_notice_auto_hide' ) ) > 0 ? intval( supro_get_option( 'cart_notice_auto_hide' ) ) * 1000 : 0,
+				'cart_notice_auto_hide' => intval( toffedassen_get_option( 'cart_notice_auto_hide' ) ) > 0 ? intval( toffedassen_get_option( 'cart_notice_auto_hide' ) ) * 1000 : 0,
 			),
 		)
 	);
 }
 
-add_action( 'wp_enqueue_scripts', 'supro_enqueue_scripts', 50 );
+add_action( 'wp_enqueue_scripts', 'toffedassen_enqueue_scripts', 50 );
 
 /**
  * Enqueues front-end CSS for theme customization
  */
-function supro_customize_css() {
+function toffedassen_customize_css() {
 	$css = '';
 
-	$css .= supro_get_page_custom_css();
-	$css .= supro_header_css();
+	$css .= toffedassen_get_page_custom_css();
+	$css .= toffedassen_header_css();
 
 	// Logo
-	$logo_size_width = intval( supro_get_option( 'logo_width' ) );
+	$logo_size_width = intval( toffedassen_get_option( 'logo_width' ) );
 	$logo_css        = $logo_size_width ? 'width:' . $logo_size_width . 'px; ' : '';
 
-	$logo_size_height = intval( supro_get_option( 'logo_height' ) );
+	$logo_size_height = intval( toffedassen_get_option( 'logo_height' ) );
 	$logo_css .= $logo_size_height ? 'height:' . $logo_size_height . 'px; ' : '';
 
-	$logo_margin = supro_get_option( 'logo_position' );
+	$logo_margin = toffedassen_get_option( 'logo_position' );
 	$logo_css .= $logo_margin['top'] ? 'margin-top:' . $logo_margin['top'] . '; ' : '';
 	$logo_css .= $logo_margin['right'] ? 'margin-right:' . $logo_margin['right'] . '; ' : '';
 	$logo_css .= $logo_margin['bottom'] ? 'margin-bottom:' . $logo_margin['bottom'] . '; ' : '';
@@ -169,8 +169,8 @@ function supro_customize_css() {
 	}
 
 	// Coming Soon Background Image
-	$c_background = supro_get_option( 'coming_soon_background' );
-	$c_bg_color   = supro_get_option( 'coming_soon_background_color' );
+	$c_background = toffedassen_get_option( 'coming_soon_background' );
+	$c_bg_color   = toffedassen_get_option( 'coming_soon_background_color' );
 
 	if ( $c_background ) {
 		$css .= '.page-template-template-coming-soon-page { background-image: url( ' . esc_url( $c_background ) . ' ) } ';
@@ -181,8 +181,8 @@ function supro_customize_css() {
 	}
 
 	// Newsletter
-	$n_color = supro_get_option( 'newsletter_text_color' );
-	$n_bg    = supro_get_option( 'newsletter_background_color' );
+	$n_color = toffedassen_get_option( 'newsletter_text_color' );
+	$n_bg    = toffedassen_get_option( 'newsletter_background_color' );
 
 	if ( $n_bg ) {
 		$css .= '.footer-newsletter .mc4wp-form .mc4wp-form-fields { background-color:' . $n_bg . '; }';
@@ -199,8 +199,8 @@ function supro_customize_css() {
 	}
 
 	// Footer
-	$footer_copyright_top_spacing    = supro_get_option( 'footer_copyright_top_spacing' );
-	$footer_copyright_bottom_spacing = supro_get_option( 'footer_copyright_bottom_spacing' );
+	$footer_copyright_top_spacing    = toffedassen_get_option( 'footer_copyright_top_spacing' );
+	$footer_copyright_bottom_spacing = toffedassen_get_option( 'footer_copyright_bottom_spacing' );
 	$footer_copyright_css            = '';
 
 	if ( $footer_copyright_top_spacing ) {
@@ -214,7 +214,7 @@ function supro_customize_css() {
 	$css .= '.site-footer .footer-copyright {' . $footer_copyright_css . '}';
 
 	// Single Product Background
-	$single_product_bg = supro_get_option( 'single_product_background_color' );
+	$single_product_bg = toffedassen_get_option( 'single_product_background_color' );
 
 	if ( $single_product_bg ) {
 		$css .= '.woocommerce.single-product-layout-2 .site-header { background-color:' . $single_product_bg . '; }';
@@ -224,18 +224,18 @@ function supro_customize_css() {
 	}
 
 	/* Color Scheme */
-	$color_scheme_option = supro_get_option( 'color_scheme' );
+	$color_scheme_option = toffedassen_get_option( 'color_scheme' );
 
-	if ( intval( supro_get_option( 'custom_color_scheme' ) ) ) {
-		$color_scheme_option = supro_get_option( 'custom_color' );
+	if ( intval( toffedassen_get_option( 'custom_color_scheme' ) ) ) {
+		$color_scheme_option = toffedassen_get_option( 'custom_color' );
 	}
 
 	// Don't do anything if the default color scheme is selected.
 	if ( $color_scheme_option ) {
-		$css .= supro_get_color_scheme_css( $color_scheme_option );
+		$css .= toffedassen_get_color_scheme_css( $color_scheme_option );
 	}
 
-	$css .= supro_typography_css();
+	$css .= toffedassen_typography_css();
 
 	return $css;
 }
@@ -243,8 +243,8 @@ function supro_customize_css() {
 /**
  * Display header
  */
-function supro_show_header() {
-	$header_layout = supro_get_option( 'header_layout' );
+function toffedassen_show_header() {
+	$header_layout = toffedassen_get_option( 'header_layout' );
 
 	if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 		echo '<div class="container">';
@@ -257,15 +257,15 @@ function supro_show_header() {
 	}
 }
 
-add_action( 'supro_header', 'supro_show_header' );
+add_action( 'toffedassen_header', 'toffedassen_show_header' );
 
 /**
  * Display the header minimized
  *
  * @since 1.0.0
  */
-function supro_header_minimized() {
-	if ( supro_get_option( 'header_sticky' ) == false ) {
+function toffedassen_header_minimized() {
+	if ( toffedassen_get_option( 'header_sticky' ) == false ) {
 		return;
 	}
 
@@ -273,28 +273,28 @@ function supro_header_minimized() {
 		return;
 	}
 
-	$css_class = 'su-header-' . supro_get_option( 'header_layout' );
+	$css_class = 'su-header-' . toffedassen_get_option( 'header_layout' );
 
 	printf( '<div id="su-header-minimized" class="su-header-minimized %s"></div>', esc_attr( $css_class ) );
 
 }
 
-add_action( 'supro_before_header', 'supro_header_minimized' );
+add_action( 'toffedassen_before_header', 'toffedassen_header_minimized' );
 
 /**
  * Show page header
  *
  * @since 1.0.0
  */
-function supro_show_page_header() {
+function toffedassen_show_page_header() {
 
-	if ( supro_is_home() ||
+	if ( toffedassen_is_home() ||
 		is_page_template( 'template-coming-soon-page.php' )
 	) {
 		return;
 	}
 
-	if ( supro_is_catalog() ) {
+	if ( toffedassen_is_catalog() ) {
 		return;
 	}
 
@@ -302,7 +302,7 @@ function supro_show_page_header() {
 		return;
 	}
 
-	$page_header = supro_get_page_header();
+	$page_header = toffedassen_get_page_header();
 
 	if ( ! $page_header ) {
 		return;
@@ -314,7 +314,7 @@ function supro_show_page_header() {
 		$layout = $page_header['layout'];
 	}
 
-	if ( supro_is_blog() ) {
+	if ( toffedassen_is_blog() ) {
 		get_template_part( 'parts/page-headers/blog', $layout );
 	} else {
 		get_template_part( 'parts/page-headers/default' );
@@ -324,7 +324,7 @@ function supro_show_page_header() {
 	<?php
 }
 
-add_action( 'supro_after_header', 'supro_show_page_header', 20 );
+add_action( 'toffedassen_after_header', 'toffedassen_show_page_header', 20 );
 
 /**
  * Returns CSS for the color schemes.
@@ -334,7 +334,7 @@ add_action( 'supro_after_header', 'supro_show_page_header', 20 );
  *
  * @return string Color scheme CSS.
  */
-function supro_get_color_scheme_css( $colors ) {
+function toffedassen_get_color_scheme_css( $colors ) {
 	return <<<CSS
 
 	/* Background Color */
@@ -416,13 +416,13 @@ function supro_get_color_scheme_css( $colors ) {
 CSS;
 }
 
-if ( ! function_exists( 'supro_typography_css' ) ) :
+if ( ! function_exists( 'toffedassen_typography_css' ) ) :
 	/**
 	 * Get typography CSS base on settings
 	 *
 	 * @since 1.1.6
 	 */
-	function supro_typography_css() {
+	function toffedassen_typography_css() {
 		$css        = '';
 		$properties = array(
 			'font-family'    => 'font-family',
@@ -449,8 +449,8 @@ if ( ! function_exists( 'supro_typography_css' ) ) :
 		);
 
 		foreach ( $settings as $setting => $selector ) {
-			$typography = supro_get_option( $setting );
-			$default    = (array) supro_get_option_default( $setting );
+			$typography = toffedassen_get_option( $setting );
+			$default    = (array) toffedassen_get_option_default( $setting );
 			$style      = '';
 
 			foreach ( $properties as $key => $property ) {

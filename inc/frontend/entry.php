@@ -2,7 +2,7 @@
 /**
  * Hooks for template archive
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 
@@ -19,7 +19,7 @@
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function supro_setup_author() {
+function toffedassen_setup_author() {
 	global $wp_query;
 
 	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
@@ -27,7 +27,7 @@ function supro_setup_author() {
 	}
 }
 
-add_action( 'wp', 'supro_setup_author' );
+add_action( 'wp', 'toffedassen_setup_author' );
 
 /**
  * Add CSS classes to posts
@@ -36,26 +36,26 @@ add_action( 'wp', 'supro_setup_author' );
  *
  * @return array
  */
-function supro_post_class( $classes ) {
+function toffedassen_post_class( $classes ) {
 
 	$classes[] = has_post_thumbnail() ? '' : 'no-thumb';
 
 	return $classes;
 }
 
-add_filter( 'post_class', 'supro_post_class' );
+add_filter( 'post_class', 'toffedassen_post_class' );
 
 /**
  * Open tag after start site content
  */
-if ( ! function_exists( 'supro_site_content_open' ) ) :
+if ( ! function_exists( 'toffedassen_site_content_open' ) ) :
 
-	function supro_site_content_open() {
+	function toffedassen_site_content_open() {
 		$container      = 'container';
-		$product_layout = supro_get_option( 'single_product_layout' );
-		$portfolio_style   = supro_get_option( 'portfolio_layout' );
+		$product_layout = toffedassen_get_option( 'single_product_layout' );
+		$portfolio_style   = toffedassen_get_option( 'portfolio_layout' );
 
-		if ( supro_is_page_template() ) {
+		if ( toffedassen_is_page_template() ) {
 			$container = 'container-fluid';
 		}
 
@@ -65,7 +65,7 @@ if ( ! function_exists( 'supro_site_content_open' ) ) :
 			}
 		}
 
-		if ( supro_is_catalog() && intval( supro_get_option( 'catalog_full_width' ) ) ) {
+		if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
 			$container = 'supro-catalog-container';
 		}
 
@@ -73,31 +73,31 @@ if ( ! function_exists( 'supro_site_content_open' ) ) :
 			$container = 'container-fluid';
 		}
 
-		if ( supro_is_portfolio() && $portfolio_style == 'masonry' ) {
+		if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) {
 			$container = 'container-fluid';
 		}
 
-		echo '<div class="' . esc_attr( apply_filters( 'supro_site_content_container_class', $container ) ) . '">';
+		echo '<div class="' . esc_attr( apply_filters( 'toffedassen_site_content_container_class', $container ) ) . '">';
 		echo '<div class="row">';
 	}
 
 endif;
 
-add_action( 'supro_site_content_open', 'supro_site_content_open', 20 );
+add_action( 'toffedassen_site_content_open', 'toffedassen_site_content_open', 20 );
 
 /**
  * Close tag before end site content
  */
-if ( ! function_exists( 'supro_site_content_close' ) ) :
+if ( ! function_exists( 'toffedassen_site_content_close' ) ) :
 
-	function supro_site_content_close() {
+	function toffedassen_site_content_close() {
 		echo '</div>';
 		echo '</div>';
 	}
 
 endif;
 
-add_action( 'supro_site_content_close', 'supro_site_content_close', 100 );
+add_action( 'toffedassen_site_content_close', 'toffedassen_site_content_close', 100 );
 
 
 /**
@@ -107,10 +107,10 @@ add_action( 'supro_site_content_close', 'supro_site_content_close', 100 );
  *
  *
  */
-if ( ! function_exists( 'supro_blog_text_categories' ) ) :
-	function supro_blog_text_categories() {
-		$blog_style = supro_get_option( 'blog_style' );
-		$cat_filter = intval( supro_get_option( 'blog_cat_filter' ) );
+if ( ! function_exists( 'toffedassen_blog_text_categories' ) ) :
+	function toffedassen_blog_text_categories() {
+		$blog_style = toffedassen_get_option( 'blog_style' );
+		$cat_filter = intval( toffedassen_get_option( 'blog_cat_filter' ) );
 
 		if ( ! $cat_filter ) {
 			return;
@@ -120,7 +120,7 @@ if ( ! function_exists( 'supro_blog_text_categories' ) ) :
 			echo '<div class="container">';
 		}
 
-		supro_taxs_list();
+		toffedassen_taxs_list();
 
 		if ( $blog_style == 'masonry' ) {
 			echo '</div>';
@@ -128,8 +128,8 @@ if ( ! function_exists( 'supro_blog_text_categories' ) ) :
 	}
 endif;
 
-add_action( 'supro_before_post_list', 'supro_blog_text_categories' );
-add_action( 'supro_before_archive_post_list', 'supro_blog_text_categories' );
+add_action( 'toffedassen_before_post_list', 'toffedassen_blog_text_categories' );
+add_action( 'toffedassen_before_archive_post_list', 'toffedassen_blog_text_categories' );
 
 /**
  * Add blog categories
@@ -138,22 +138,22 @@ add_action( 'supro_before_archive_post_list', 'supro_blog_text_categories' );
  *
  *
  */
-if ( ! function_exists( 'supro_portfolio_categories' ) ) :
-	function supro_portfolio_categories() {
-		$p_style = supro_get_option( 'portfolio_layout' );
-		$cat_filter = intval( supro_get_option( 'portfolio_category_filter' ) );
+if ( ! function_exists( 'toffedassen_portfolio_categories' ) ) :
+	function toffedassen_portfolio_categories() {
+		$p_style = toffedassen_get_option( 'portfolio_layout' );
+		$cat_filter = intval( toffedassen_get_option( 'portfolio_category_filter' ) );
 
 		if ( ! $cat_filter ) {
 			return;
 		}
 
-		supro_taxs_list( 'portfolio_category' );
+		toffedassen_taxs_list( 'portfolio_category' );
 	}
 
 endif;
 
-add_action( 'supro_before_portfolio_list', 'supro_portfolio_categories' );
-add_action( 'supro_before_taxonomy_portfolio_list', 'supro_portfolio_categories' );
+add_action( 'toffedassen_before_portfolio_list', 'toffedassen_portfolio_categories' );
+add_action( 'toffedassen_before_taxonomy_portfolio_list', 'toffedassen_portfolio_categories' );
 
 /**
  * Add Coming Soon Newsletter
@@ -162,10 +162,10 @@ add_action( 'supro_before_taxonomy_portfolio_list', 'supro_portfolio_categories'
  *
  *
  */
-if ( ! function_exists( 'supro_coming_soon_newsletter' ) ) :
-	function supro_coming_soon_newsletter() {
-		$newsletter = intval( supro_get_option( 'coming_soon_newsletter' ) );
-		$form       = do_shortcode( wp_kses( supro_get_option( 'coming_soon_newsletter_form' ), wp_kses_allowed_html( 'post' ) ) );
+if ( ! function_exists( 'toffedassen_coming_soon_newsletter' ) ) :
+	function toffedassen_coming_soon_newsletter() {
+		$newsletter = intval( toffedassen_get_option( 'coming_soon_newsletter' ) );
+		$form       = do_shortcode( wp_kses( toffedassen_get_option( 'coming_soon_newsletter_form' ), wp_kses_allowed_html( 'post' ) ) );
 		if ( ! intval( $newsletter ) ) {
 			return;
 		};
@@ -180,21 +180,21 @@ if ( ! function_exists( 'supro_coming_soon_newsletter' ) ) :
 	}
 endif;
 
-add_action( 'supro_coming_soon_page_content', 'supro_coming_soon_newsletter', 10 );
+add_action( 'toffedassen_coming_soon_page_content', 'toffedassen_coming_soon_newsletter', 10 );
 
 
-if ( ! function_exists( 'supro_coming_soon_socials' ) ) :
-	function supro_coming_soon_socials() {
+if ( ! function_exists( 'toffedassen_coming_soon_socials' ) ) :
+	function toffedassen_coming_soon_socials() {
 
-		if ( ! intval( supro_get_option( 'show_coming_soon_social_share' ) ) ) {
+		if ( ! intval( toffedassen_get_option( 'show_coming_soon_social_share' ) ) ) {
 			return;
 		}
 
-		$project_social = (array) supro_get_option( 'coming_soon_socials' );
+		$project_social = (array) toffedassen_get_option( 'coming_soon_socials' );
 
 		if ( $project_social ) {
 
-			$socials = (array) supro_get_socials();
+			$socials = (array) toffedassen_get_socials();
 
 			printf( '<div class="supro-coming-soon-socials-share">' );
 			printf( '<div class="container">' );
@@ -223,7 +223,7 @@ if ( ! function_exists( 'supro_coming_soon_socials' ) ) :
 
 endif;
 
-add_action( 'supro_coming_soon_page_content', 'supro_coming_soon_socials', 40 );
+add_action( 'toffedassen_coming_soon_page_content', 'toffedassen_coming_soon_socials', 40 );
 
 /**
  * Filter to archive title and add page title for singular pages
@@ -232,7 +232,7 @@ add_action( 'supro_coming_soon_page_content', 'supro_coming_soon_socials', 40 );
  *
  * @return string
  */
-function supro_the_archive_title( $title ) {
+function toffedassen_the_archive_title( $title ) {
 	if ( is_search() ) {
 		$title = esc_html__( 'Search Results', 'supro' );
 
@@ -245,7 +245,7 @@ function supro_the_archive_title( $title ) {
 		$title = esc_html__( 'The Latest Posts', 'supro' );
 
 	} elseif ( is_home() && ! is_front_page() ) {
-		$title = wp_kses_post( supro_get_option( 'blog_page_header_title' ) );
+		$title = wp_kses_post( toffedassen_get_option( 'blog_page_header_title' ) );
 
 		if ( empty( $title ) ) {
 			$title = get_the_title( get_option( 'page_for_posts' ) );
@@ -272,11 +272,11 @@ function supro_the_archive_title( $title ) {
 		} else {
 			$title = get_the_title( get_option( 'page_for_posts' ) );
 		}
-	} elseif ( supro_is_portfolio() ) {
-		$title = wp_kses( supro_get_option( 'portfolio_page_header_title' ), wp_kses_allowed_html( 'post' ) );
+	} elseif ( toffedassen_is_portfolio() ) {
+		$title = wp_kses( toffedassen_get_option( 'portfolio_page_header_title' ), wp_kses_allowed_html( 'post' ) );
 		if ( ! $title ) {
-			if ( get_option( 'supro_portfolio_page_id' ) ) {
-				$title = get_the_title( get_option( 'supro_portfolio_page_id' ) );
+			if ( get_option( 'toffedassen_portfolio_page_id' ) ) {
+				$title = get_the_title( get_option( 'toffedassen_portfolio_page_id' ) );
 			} else {
 				$title = esc_html__( 'Portfolio', 'supro' );
 			}
@@ -286,13 +286,13 @@ function supro_the_archive_title( $title ) {
 	return $title;
 }
 
-add_filter( 'get_the_archive_title', 'supro_the_archive_title' );
+add_filter( 'get_the_archive_title', 'toffedassen_the_archive_title' );
 
 /**
  * Open wrapper for catalog content sidebar
  */
-function supro_open_wrapper_catalog_content_sidebar() {
-	if ( ! supro_is_catalog() ) {
+function toffedassen_open_wrapper_catalog_content_sidebar() {
+	if ( ! toffedassen_is_catalog() ) {
 		return;
 	}
 
@@ -305,13 +305,13 @@ function supro_open_wrapper_catalog_content_sidebar() {
 	<?php
 }
 
-add_action( 'supro_before_sidebar_content', 'supro_open_wrapper_catalog_content_sidebar', 10 );
+add_action( 'toffedassen_before_sidebar_content', 'toffedassen_open_wrapper_catalog_content_sidebar', 10 );
 
 /**
  * Close wrapper for catalog content sidebar
  */
-function supro_close_wrapper_catalog_content_sidebar() {
-	if ( ! supro_is_catalog() ) {
+function toffedassen_close_wrapper_catalog_content_sidebar() {
+	if ( ! toffedassen_is_catalog() ) {
 		return;
 	}
 
@@ -321,13 +321,13 @@ function supro_close_wrapper_catalog_content_sidebar() {
 	<?php
 }
 
-add_action( 'supro_after_sidebar_content', 'supro_close_wrapper_catalog_content_sidebar', 100 );
+add_action( 'toffedassen_after_sidebar_content', 'toffedassen_close_wrapper_catalog_content_sidebar', 100 );
 
 /**
  * Footer Portfolio Carousel
  */
-function supro_footer_portfolio_carousel() {
-	$p_style = supro_get_option( 'portfolio_layout' );
+function toffedassen_footer_portfolio_carousel() {
+	$p_style = toffedassen_get_option( 'portfolio_layout' );
 
 	if ( 'carousel' != $p_style ) {
 		return;
@@ -344,4 +344,4 @@ function supro_footer_portfolio_carousel() {
 	<?php
 }
 
-add_action( 'supro_after_portfolio_content', 'supro_footer_portfolio_carousel' );
+add_action( 'toffedassen_after_portfolio_content', 'toffedassen_footer_portfolio_carousel' );

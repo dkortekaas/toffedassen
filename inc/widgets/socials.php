@@ -1,6 +1,6 @@
 <?php
 
-class Supro_Social_Links_Widget extends WP_Widget {
+class Toffedassen_Social_Links_Widget extends WP_Widget {
 	/**
 	 * Holds widget settings defaults, populated in constructor.
 	 *
@@ -20,18 +20,18 @@ class Supro_Social_Links_Widget extends WP_Widget {
 	 */
 	function __construct() {
 		$socials = array(
-			'facebook'   => esc_html__( 'Facebook', 'supro' ),
-			'twitter'    => esc_html__( 'Twitter', 'supro' ),
-			'googleplus' => esc_html__( 'Google Plus', 'supro' ),
-			'youtube'    => esc_html__( 'Youtube', 'supro' ),
-			'tumblr'     => esc_html__( 'Tumblr', 'supro' ),
-			'linkedin'   => esc_html__( 'Linkedin', 'supro' ),
-			'pinterest'  => esc_html__( 'Pinterest', 'supro' ),
-			'flickr'     => esc_html__( 'Flickr', 'supro' ),
-			'instagram'  => esc_html__( 'Instagram', 'supro' ),
-			'dribbble'   => esc_html__( 'Dribbble', 'supro' ),
-			'skype'      => esc_html__( 'Skype', 'supro' ),
-			'rss'        => esc_html__( 'RSS', 'supro' )
+			'facebook'   => esc_html__( 'Facebook', 'toffedassen' ),
+			'twitter'    => esc_html__( 'Twitter', 'toffedassen' ),
+			'googleplus' => esc_html__( 'Google Plus', 'toffedassen' ),
+			'youtube'    => esc_html__( 'Youtube', 'toffedassen' ),
+			'tumblr'     => esc_html__( 'Tumblr', 'toffedassen' ),
+			'linkedin'   => esc_html__( 'Linkedin', 'toffedassen' ),
+			'pinterest'  => esc_html__( 'Pinterest', 'toffedassen' ),
+			'flickr'     => esc_html__( 'Flickr', 'toffedassen' ),
+			'instagram'  => esc_html__( 'Instagram', 'toffedassen' ),
+			'dribbble'   => esc_html__( 'Dribbble', 'toffedassen' ),
+			'skype'      => esc_html__( 'Skype', 'toffedassen' ),
+			'rss'        => esc_html__( 'RSS', 'toffedassen' )
 		);
 
 		$this->socials = apply_filters( 'supro_social_media', $socials );
@@ -46,11 +46,11 @@ class Supro_Social_Links_Widget extends WP_Widget {
 		}
 
 		parent::__construct(
-			'supro-social-links-widget',
-			esc_html__( 'Supro - Social Links', 'supro' ),
+			'toffedassen-social-links-widget',
+			esc_html__( 'Toffedassen - Social Links', 'toffedassen' ),
 			array(
-				'classname'   => 'supro-social-links-widget',
-				'description' => esc_html__( 'Display links to social media networks.', 'supro' ),
+				'classname'   => 'toffedassen-social-links-widget',
+				'description' => esc_html__( 'Display links to social media networks.', 'toffedassen' ),
 			),
 			array( 'width' => 600 )
 		);
@@ -100,20 +100,20 @@ class Supro_Social_Links_Widget extends WP_Widget {
 	function form( $instance ) {
 		$instance = wp_parse_args( $instance, $this->default );
 		$style    = array(
-			'style-1' => esc_html__( 'Style 1', 'supro' ),
-			'style-2' => esc_html__( 'Style 2', 'supro' ),
+			'style-1' => esc_html__( 'Style 1', 'toffedassen' ),
+			'style-2' => esc_html__( 'Style 2', 'toffedassen' ),
 		);
 		?>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'toffedassen' ); ?></label>
             <input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>"
                    value="<?php echo esc_attr( $instance['title'] ); ?>"/>
         </p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php esc_html_e( 'Style', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>"><?php esc_html_e( 'Style', 'toffedassen' ); ?></label>
             <select name="<?php echo esc_attr( $this->get_field_name( 'style' ) ); ?>"
                     id="<?php echo esc_attr( $this->get_field_id( 'style' ) ); ?>" class="widefat">
 				<?php foreach ( $style as $name => $value ) : ?>
@@ -131,7 +131,7 @@ class Supro_Social_Links_Widget extends WP_Widget {
 				</div>',
 				$label,
 				$this->get_field_name( $social . '_url' ),
-				esc_html__( 'URL', 'supro' ),
+				esc_html__( 'URL', 'toffedassen' ),
 				$instance[ $social . '_url' ]
 			);
 		}

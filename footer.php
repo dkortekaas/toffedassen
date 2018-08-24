@@ -7,15 +7,35 @@
  * @package Toffedassen
  */
 ?>
+	<?php
 
-        <footer class="site-footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+    /*
+    *  toffedassen_site_content_close - 100
+    */
+    do_action( 'toffedassen_site_content_close' );
+    ?>
+    </div><!-- #content -->
+
+	<?php
+	/*
+	 * toffedassen_footer_newsletter - 10
+	 * toffedassen_footer_newsletter_fix -20
+	 */
+	do_action( 'toffedassen_before_footer' );
+	?>
+
+        <footer id="colophon" class="site-footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
             <nav class="footer-layout footer-layout-1 light-skin">
 
+            	<?php toffedassen_footer_widgets(); ?>
+	            <?php toffedassen_footer_copyright(); ?>
+
+                <!--
                 <div class="footer-widget columns-5">
                     <div class="container">
                         <div class="row">
 
-							<?php get_template_part( 'template-parts/footer/footer', 'widgets' ); ?>
+							<?php //get_template_part( 'template-parts/footer/footer', 'widgets' ); ?>
 
                         </div>
                     </div>
@@ -27,28 +47,31 @@
 
                             <div class="footer-sidebar footer-1 col-md-12 col-lg-4">
 
-								<?php get_template_part( 'template-parts/footer/footer', 'copyright' ); ?>
+								<?php //get_template_part( 'template-parts/footer/footer', 'copyright' ); ?>
 
                             </div>
 
                             <div class="footer-sidebar footer-2 col-md-12 col-lg-4">
 
-								<?php get_template_part( 'template-parts/footer/footer', 'social' ); ?>
+								<?php //get_template_part( 'template-parts/footer/footer', 'social' ); ?>
 
                             </div>
 
                             <div class="footer-sidebar footer-3 col-md-12 col-lg-4">
 
-								<?php get_template_part( 'template-parts/footer/footer', 'info' ); ?>
+								<?php //get_template_part( 'template-parts/footer/footer', 'info' ); ?>
 
                             </div>
 
                         </div>
                     </div>
                 </div>
+                -->
 
             </nav>
         </footer>
+
+        <?php do_action( 'toffedassen_after_footer' ) ?>
 
     </main>
 

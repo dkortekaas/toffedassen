@@ -1,37 +1,38 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The Template for displaying all single posts.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package Logiq
+ * @package Toffedassen
  */
 
-get_header();
-?>
+get_header(); ?>
 
-	<section class="container">
+<div id="primary" class="content-area <?php toffedassen_content_columns(); ?>">
+	<main id="main" class="site-main">
 
-		<div class="row">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+		<?php while ( have_posts() ) : the_post(); ?>
 
-			get_template_part( 'template-parts/post/', get_post_type() );
+			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			the_post_navigation();
+			<?php toffedassen_author_box(); ?>
 
+			<?php get_template_part( 'template-parts/related-posts' ); ?>
+
+			<?php
+			// If comments are open or we have at least one comment, load up the comment template
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+			?>
 
-		endwhile;
-		?>
+		<?php endwhile; // end of the loop. ?>
 
-		</div>
 
-	</section>
+	</main>
+	<!-- #main -->
+</div>
+<!-- #primary -->
 
-<?php
-get_footer();
+<?php get_sidebar(); ?>
+<?php get_footer();

@@ -2,7 +2,7 @@
 /**
  * Custom functions for displaying comments
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 /**
@@ -12,7 +12,7 @@
  * @param array  $args
  * @param int    $depth
  */
-function supro_comment( $comment, $args, $depth ) {
+function toffedassen_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 	extract( $args, EXTR_SKIP );
 
@@ -70,7 +70,7 @@ function supro_comment( $comment, $args, $depth ) {
 /*
  *  Custom comment form
  */
-function supro_comment_form( $fields ) {
+function toffedassen_comment_form( $fields ) {
 	$commenter = wp_get_current_commenter();
 	$req = get_option( 'require_name_email' );
 	$aria_req = ( $req ? " aria-required='true'" : '' );
@@ -91,4 +91,4 @@ function supro_comment_form( $fields ) {
 	return $fields;
 }
 
-add_filter('comment_form_default_fields','supro_comment_form');
+add_filter('comment_form_default_fields','toffedassen_comment_form');

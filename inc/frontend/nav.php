@@ -2,7 +2,7 @@
 /**
  * Hooks for template nav menus
  *
- * @package Supro
+ * @package Toffedassen
  */
 
 /**
@@ -12,10 +12,10 @@
  * @param array $args Configuration arguments.
  * @return array
  */
-function supro_page_menu_args( $args ) {
+function toffedassen_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'supro_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'toffedassen_page_menu_args' );
 
 

@@ -3,7 +3,7 @@
 /**
  *  Display footer widgets
  */
-function supro_footer_widgets() {
+function toffedassen_footer_widgets() {
 	if (
 		is_active_sidebar( 'footer-sidebar-1' ) == false &&
 		is_active_sidebar( 'footer-sidebar-2' ) == false &&
@@ -15,11 +15,11 @@ function supro_footer_widgets() {
 	}
 
 
-	if ( ! intval( supro_get_option( 'footer_widgets' ) ) ) {
+	if ( ! intval( toffedassen_get_option( 'footer_widgets' ) ) ) {
 		return;
 	}
 
-	$columns = max( 1, absint( supro_get_option( 'footer_widgets_columns' ) ) );
+	$columns = max( 1, absint( toffedassen_get_option( 'footer_widgets_columns' ) ) );
 	$col     = 'col-xs-12 col-sm-6';
 
 	if ( 5 == $columns ) {
@@ -39,7 +39,7 @@ function supro_footer_widgets() {
 						ob_start();
 						dynamic_sidebar( "footer-sidebar-$i" );
 						$output = ob_get_clean();
-						echo apply_filters('supro_footer_widget_content',$output,$i);
+						echo apply_filters('toffedassen_footer_widget_content',$output,$i);
 						?>
 					</div>
 
@@ -54,7 +54,7 @@ function supro_footer_widgets() {
 /**
  *  Display footer copyright
  */
-function supro_footer_copyright() {
+function toffedassen_footer_copyright() {
 	if (
 		is_active_sidebar( 'footer-copyright-1' ) == false &&
 		is_active_sidebar( 'footer-copyright-2' ) == false &&
@@ -63,11 +63,11 @@ function supro_footer_copyright() {
 		return;
 	}
 
-	if ( ! intval( supro_get_option( 'footer_copyright' ) ) ) {
+	if ( ! intval( toffedassen_get_option( 'footer_copyright' ) ) ) {
 		return;
 	}
 
-	$columns = max( 1, absint( supro_get_option( 'footer_copyright_columns' ) ) );
+	$columns = max( 1, absint( toffedassen_get_option( 'footer_copyright_columns' ) ) );
 	$col     = 'col-md-12';
 
 	if ( 5 == $columns ) {
@@ -79,7 +79,7 @@ function supro_footer_copyright() {
 	$classes = array(
 		'footer-copyright',
 		'columns-' . $columns,
-		'style-' . supro_get_option( 'footer_copyright_menu_style' )
+		'style-' . toffedassen_get_option( 'footer_copyright_menu_style' )
 	);
 
 	?>
@@ -93,7 +93,7 @@ function supro_footer_copyright() {
 						ob_start();
 						dynamic_sidebar( "footer-copyright-$i" );
 						$output = ob_get_clean();
-						echo apply_filters('supro_footer_copyright_content',$output,$i);
+						echo apply_filters('toffedassen_footer_copyright_content',$output,$i);
 						?>
 
 					</div>

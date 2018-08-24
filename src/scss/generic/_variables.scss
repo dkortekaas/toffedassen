@@ -1,119 +1,22 @@
+$gray-darker: #111;
+$gray-dark: #212121;
+$gray: #999;
+$gray-light: #ccc;
+$gray-lighter: #fafafa;
 
-$enable-grid-classes:       true !default;
-$enable-flex:               true !default;
-// Grid breakpoints
-//
-// Define the minimum and maximum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
+$light: #fff;
+$dark: #000;
 
+$primary-color: #f68872;
+$text-color: #777777;
 
-//== Media queries breakpoints
-//
-//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+$font-size: 16px;
+$font-size-h1: floor(($font-size * 2.25)); // ~36px
+$font-size-h2: floor(($font-size * 1.875)); // ~30px
+$font-size-h3: ceil(($font-size * 1.5)); // ~24px
+$font-size-h4: ceil(($font-size * 1.125)); // ~18px
+$font-size-h5: $font-size;
+$font-size-h6: ceil(($font-size * 0.75)); // ~12px
 
-// Extra small screen / phone
-//** Deprecated `$screen-xs` as of v3.0.1
-$screen-xs:                  320px;
-
-// Small screen / tablet
-//** Deprecated `$screen-sm` as of v3.0.1
-$screen-sm:                  768px;
-
-// Medium screen / desktop
-//** Deprecated `$screen-md` as of v3.0.1
-$screen-md:                  992px;
-
-// Large screen / wide desktop
-//** Deprecated `$screen-lg` as of v3.0.1
-$screen-lg:                  1200px;
-
-
-
-$grid-breakpoints: (
-  // Extra small screen / phone
-  xs: 320px,
-  // Small screen / phone
-  sm: 480px,
-  // Medium screen / tablet
-  md: 768px,
-  // Large screen / desktop
-  lg: 992px,
-  // Extra large screen / wide desktop
-  xl: 1200px,
-  // Extra large screen / wide desktop
-  xxl: 1440px
-) !default;
-
-
-// Grid containers
-//
-// Define the maximum width of `.container` for different screen sizes.
-
-$container-max-widths: (
-  xs: 290px,
-  sm: 420px,
-  md: 720px,
-  lg: 932px,
-  xl: 1000px,
-  xxl: 1200px
-) !default;
-
-
-// Grid columns
-//
-// Set the number of columns and specify the width of the gutters.
-
-$grid-columns:               12 !default;
-$grid-gutter-width:          20px; 
-$grid-gutter-width-responsive: (
-  xs: 20px,
-  sm: 20px,
-  md: 20px,
-  lg: 20px,
-  xl: 20px,
-  xxl: 20px
-) !default;
-
-$card-gutter: 20px;
-
-
-/// Colors
-$black:                     #000;
-$red:                       #FD000D;
-$gray-light:                #f7f7f7;
-$gray:                      #eeeeee;
-$gray-dark:                 #4d4d4f;
-$white:                     #fff;
-$green:                     #2bb076;
-$blue:                      #0094fe;
-
-/// text 
-$headings-color:              #000000;
-
-/// accent (icon) colors
-$icon-pink:               #de0073;
-$icon-yellow:             #ecc90a;
-$icon-green:              #009864;
-$icon-green-light:        #87c010;
-$icon-green-lighter:      #c7dd47;
-$icon-red:                #fd003b;
-$icon-purple:             #942190; 
-$icon-blue-light:         #00a4e8;
-$icon-blue-dark:          #0c65d5;
-$icon-orange:             #fd6500;
-
-
-// Zindex
-$zindex-header:             1000;
-$zindex-modal-background:   1040;
-$zindex-modal:              1050;
-$zindex-cookiealert:              9000;
-
-
-// Header bar
-$header-bg:#000;
-$header-color:#fff;
-$header-bar-height:50px;
-$header-item-height:50px;
-$header-bar-search-width: 84px;
-$header-bar-search-width-icon: 26px;
+$font-family-primary: 'Cerebri Sans', Arial, sans-serif;
+$font-family-secondary: 'Libre Baskerville', serif;
