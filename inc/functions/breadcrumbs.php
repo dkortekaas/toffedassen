@@ -18,15 +18,15 @@ function toffedassen_breadcrumbs( $args = '' ) {
 		'display_last_item' => true,
 		'show_on_front'     => false,
 		'labels'            => array(
-			'home'      => esc_html__( 'Home', 'supro' ),
-			'archive'   => esc_html__( 'Archives', 'supro' ),
-			'blog'      => esc_html__( 'Blog', 'supro' ),
-			'search'    => esc_html__( 'Search results for', 'supro' ),
-			'not_found' => esc_html__( 'Not Found', 'supro' ),
-			'author'    => esc_html__( 'Author Archives:', 'supro' ),
-			'day'       => esc_html__( 'Daily Archives:', 'supro' ),
-			'month'     => esc_html__( 'Monthly Archives:', 'supro' ),
-			'year'      => esc_html__( 'Yearly Archives:', 'supro' ),
+			'home'      => esc_html__( 'Home', 'toffedassen' ),
+			'archive'   => esc_html__( 'Archives', 'toffedassen' ),
+			'blog'      => esc_html__( 'Blog', 'toffedassen' ),
+			'search'    => esc_html__( 'Search results for', 'toffedassen' ),
+			'not_found' => esc_html__( 'Not Found', 'toffedassen' ),
+			'author'    => esc_html__( 'Author Archives:', 'toffedassen' ),
+			'day'       => esc_html__( 'Daily Archives:', 'toffedassen' ),
+			'month'     => esc_html__( 'Monthly Archives:', 'toffedassen' ),
+			'year'      => esc_html__( 'Yearly Archives:', 'toffedassen' ),
 		),
 	) );
 
@@ -176,19 +176,19 @@ function toffedassen_breadcrumbs( $args = '' ) {
 	elseif ( is_day() ) {
 		$items[] = sprintf(
 			$item_text_tpl,
-			sprintf( esc_html__( '%s %s', 'supro' ), $args['labels']['day'], get_the_date() )
+			sprintf( esc_html__( '%s %s', 'toffedassen' ), $args['labels']['day'], get_the_date() )
 		);
 	} // Month archive
 	elseif ( is_month() ) {
 		$items[] = sprintf(
 			$item_text_tpl,
-			sprintf( esc_html__( '%s %s', 'supro' ), $args['labels']['month'], get_the_date( 'F Y' ) )
+			sprintf( esc_html__( '%s %s', 'toffedassen' ), $args['labels']['month'], get_the_date( 'F Y' ) )
 		);
 	} // Year archive
 	elseif ( is_year() ) {
 		$items[] = sprintf(
 			$item_text_tpl,
-			sprintf( esc_html__( '%s %s', 'supro' ), $args['labels']['year'], get_the_date( 'Y' ) )
+			sprintf( esc_html__( '%s %s', 'toffedassen' ), $args['labels']['year'], get_the_date( 'Y' ) )
 		);
 	} // Archive
 	elseif ( is_post_type_archive( 'portfolio' ) ) {
@@ -198,7 +198,7 @@ function toffedassen_breadcrumbs( $args = '' ) {
 		if ( $portfolio_page_id && get_post( $portfolio_page_id ) ) {
 			$title = get_the_title( $portfolio_page_id );
 		} else {
-			$title = _x( 'Portfolio', 'Portfolio post type breadcrumb', 'supro' );
+			$title = _x( 'Portfolio', 'Portfolio post type breadcrumb', 'toffedassen' );
 		}
 
 		$items[] = sprintf(

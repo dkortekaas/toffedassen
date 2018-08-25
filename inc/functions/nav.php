@@ -21,18 +21,18 @@ function toffedassen_numeric_pagination() {
 
 	$type_nav  = toffedassen_get_option( 'portfolio_nav_type' );
 	$p_style   = toffedassen_get_option( 'portfolio_layout' );
-	$view_more = apply_filters( 'toffedassen_portfolio_nav_text', esc_html__( 'Discover More', 'supro' ) );
+	$view_more = apply_filters( 'toffedassen_portfolio_nav_text', esc_html__( 'Discover More', 'toffedassen' ) );
 
 	$next_html = sprintf(
-		'<span id="supro-portfolio-ajax" class="nav-previous-ajax">
+		'<span id="toffedassen-portfolio-ajax" class="nav-previous-ajax">
 			<span class="nav-text">%s</span>
 			<span class="loading-icon">
 				<span class="loading-text">%s</span>
-				<span class="icon_loading supro-spin su-icon"></span>
+				<span class="icon_loading toffedassen-spin su-icon"></span>
 			</span>
 		</span>',
 		$view_more,
-		esc_html__( 'Loading', 'supro' )
+		esc_html__( 'Loading', 'toffedassen' )
 	);
 
 	?>
@@ -88,7 +88,7 @@ function toffedassen_paging_nav() {
 
 			<?php if ( get_next_posts_link() ) : ?>
 				<?php if ( $type_nav == 'view_more' ) : ?>
-					<div id="supro-blog-previous-ajax" class="nav-previous-ajax">
+					<div id="toffedassen-blog-previous-ajax" class="nav-previous-ajax">
 						<?php next_posts_link( sprintf( '%s', $view_more ) ); ?>
 						<span class="loading-icon">
 							<span class="bubble">
@@ -103,14 +103,14 @@ function toffedassen_paging_nav() {
 						</span>
 					</div>
 				<?php else : ?>
-					<div class="nav-previous"><?php next_posts_link( sprintf( '<span class="meta-nav"><i class="icon-arrow-left"></i> </span> %s', esc_html__( 'Older posts', 'supro' ) ) ); ?></div>
+					<div class="nav-previous"><?php next_posts_link( sprintf( '<span class="meta-nav"><i class="icon-arrow-left"></i> </span> %s', esc_html__( 'Older posts', 'toffedassen' ) ) ); ?></div>
 				<?php endif; ?>
 
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
 				<?php if ( $type_nav != 'view_more' ) : ?>
-					<div class="nav-next"><?php previous_posts_link( sprintf( '%s <span class="meta-nav"><i class="icon-arrow-right"></i></span>', esc_html__( 'Newer posts', 'supro' ) ) ); ?></div>
+					<div class="nav-next"><?php previous_posts_link( sprintf( '%s <span class="meta-nav"><i class="icon-arrow-right"></i></span>', esc_html__( 'Newer posts', 'toffedassen' ) ) ); ?></div>
 				<?php endif; ?>
 			<?php endif; ?>
 
@@ -138,8 +138,8 @@ function toffedassen_post_nav() {
 	<nav class="navigation post-navigation">
 		<div class="nav-links">
 			<?php
-			previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>' . esc_html__( 'Prev', 'supro' ), 'Previous post link', 'supro' ) );
-			next_post_link( '<div class="nav-next">%link</div>', _x( esc_html__( 'Next', 'supro' ) . '<span class="meta-nav"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>', 'Next post link', 'supro' ) );
+			previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>' . esc_html__( 'Prev', 'toffedassen' ), 'Previous post link', 'toffedassen' ) );
+			next_post_link( '<div class="nav-next">%link</div>', _x( esc_html__( 'Next', 'toffedassen' ) . '<span class="meta-nav"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>', 'Next post link', 'toffedassen' ) );
 			?>
 		</div>
 		<!-- .nav-links -->
@@ -167,8 +167,8 @@ function toffedassen_single_portfolio_nav() {
 		return;
 	}
 
-	$next_icon = '<span>' . esc_html__( 'Next', 'supro' ) . '</span><i class="icon-arrow-right"></i>';
-	$prev_icon = '<i class="icon-arrow-left"></i><span>' . esc_html__( 'Prev', 'supro' ) . '</span>';
+	$next_icon = '<span>' . esc_html__( 'Next', 'toffedassen' ) . '</span><i class="icon-arrow-right"></i>';
+	$prev_icon = '<i class="icon-arrow-left"></i><span>' . esc_html__( 'Prev', 'toffedassen' ) . '</span>';
 
 	?>
 	<nav class="navigation portfolio-navigation">

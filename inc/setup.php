@@ -51,9 +51,9 @@ function toffedassen_setup() {
 		* This theme uses wp_nav_menu() in one location.
 		*/		
 	register_nav_menus( array(
-		'main-menu'   => esc_html__( 'Primary', 'toffedassen' ),
-		'top-menu'    => esc_html__( 'Top', 'toffedassen' ),
-		'footer-menu' => esc_html__( 'Footer Menu', 'toffedassen' ),			
+		'primary'   => esc_html__( 'Primary', 'toffedassen' ),
+		'top'    => esc_html__( 'Top', 'toffedassen' ),
+		'footer' => esc_html__( 'Footer', 'toffedassen' ),			
 	) );
 
 	/*

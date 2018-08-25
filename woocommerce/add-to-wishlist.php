@@ -30,7 +30,7 @@ $yith_exist_display = ( $exists && ! $available_multi_wishlist ) ? 'block' : 'no
         <div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
             <span class="feedback"><?php echo esc_html( $product_added_text ) ?></span>
             <a href="<?php echo esc_url( $wishlist_url ) ?>"
-               data-original-title="<?php esc_attr_e( 'View Wishlist', 'supro' ) ?>" data-rel="tooltip">
+               data-original-title="<?php esc_attr_e( 'View Wishlist', 'toffedassen' ) ?>" data-rel="tooltip">
                 <span class="indent-text"><?php echo apply_filters( 'yith-wcwl-browse-wishlist-label', $browse_wishlist_text ) ?></span>
             </a>
         </div>
@@ -39,7 +39,7 @@ $yith_exist_display = ( $exists && ! $available_multi_wishlist ) ? 'block' : 'no
              style="display:<?php echo esc_attr( $yith_exist_display ); ?>">
             <span class="feedback"><?php echo esc_html( $already_in_wishslist_text ) ?></span>
             <a href="<?php echo esc_url( $wishlist_url ) ?>"
-               data-original-title="<?php esc_attr_e( 'View Wishlist', 'supro' ) ?>" data-rel="tooltip">
+               data-original-title="<?php esc_attr_e( 'View Wishlist', 'toffedassen' ) ?>" data-rel="tooltip">
                 <span class="indent-text"><?php echo apply_filters( 'yith-wcwl-browse-wishlist-label', $browse_wishlist_text ) ?></span>
             </a>
         </div>
@@ -53,7 +53,7 @@ $yith_exist_display = ( $exists && ! $available_multi_wishlist ) ? 'block' : 'no
 					'add_to_wishlist' => $product_id
 				), get_permalink( wc_get_page_id( 'myaccount' ) ) ) ) ?>"
                 class="<?php echo str_replace( 'add_to_wishlist', '', $link_classes ) ?>"
-                data-original-title="<?php esc_attr_e( 'Save', 'supro' ) ?>"
+                data-original-title="<?php esc_attr_e( 'Save', 'toffedassen' ) ?>"
                 data-rel="tooltip"
         >
 			<?php echo '' . $icon; ?>

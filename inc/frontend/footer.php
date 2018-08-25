@@ -60,7 +60,7 @@ function toffedassen_footer_newsletter() {
 	}
 
 	$classes = array(
-		'footer-newsletter supro-newsletter',
+		'footer-newsletter toffedassen-newsletter',
 		$style . '-style',
 		'form-' . $shape,
 		$bg ? 'has-bg' : ''
@@ -189,16 +189,16 @@ function toffedassen_gallery_images_lightbox() {
                     <div class="pswp__counter"></div>
 
                     <button class="pswp__button pswp__button--close"
-                            title="<?php esc_attr_e( 'Close (Esc)', 'supro' ) ?>"></button>
+                            title="<?php esc_attr_e( 'Close (Esc)', 'toffedassen' ) ?>"></button>
 
                     <button class="pswp__button pswp__button--share"
-                            title="<?php esc_attr_e( 'Share', 'supro' ) ?>"></button>
+                            title="<?php esc_attr_e( 'Share', 'toffedassen' ) ?>"></button>
 
                     <button class="pswp__button pswp__button--fs"
-                            title="<?php esc_attr_e( 'Toggle fullscreen', 'supro' ) ?>"></button>
+                            title="<?php esc_attr_e( 'Toggle fullscreen', 'toffedassen' ) ?>"></button>
 
                     <button class="pswp__button pswp__button--zoom"
-                            title="<?php esc_attr_e( 'Zoom in/out', 'supro' ) ?>"></button>
+                            title="<?php esc_attr_e( 'Zoom in/out', 'toffedassen' ) ?>"></button>
 
                     <div class="pswp__preloader">
                         <div class="pswp__preloader__icn">
@@ -214,11 +214,11 @@ function toffedassen_gallery_images_lightbox() {
                 </div>
 
                 <button class="pswp__button pswp__button--arrow--left"
-                        title="<?php esc_attr_e( 'Previous (arrow left)', 'supro' ) ?>">
+                        title="<?php esc_attr_e( 'Previous (arrow left)', 'toffedassen' ) ?>">
                 </button>
 
                 <button class="pswp__button pswp__button--arrow--right"
-                        title="<?php esc_attr_e( 'Next (arrow right)', 'supro' ) ?>">
+                        title="<?php esc_attr_e( 'Next (arrow right)', 'toffedassen' ) ?>">
                 </button>
 
                 <div class="pswp__caption">
@@ -264,7 +264,7 @@ if ( ! function_exists( 'toffedassen_off_canvas_menu_sidebar' ) ) :
 
 
 		?>
-        <div id="menu-sidebar-panel" class="menu-sidebar supro-off-canvas-panel">
+        <div id="menu-sidebar-panel" class="menu-sidebar toffedassen-off-canvas-panel">
             <div class="widget-canvas-content">
                 <div class="widget-panel-header">
                     <a href="#" class="close-canvas-panel"><span aria-hidden="true" class="icon-cross2"></span></a>
@@ -311,7 +311,7 @@ add_action( 'wp_footer', 'toffedassen_off_canvas_menu_sidebar' );
 if ( ! function_exists( 'toffedassen_site_canvas_layer' ) ) :
 	function toffedassen_site_canvas_layer() {
 		?>
-        <div id="off-canvas-layer" class="supro-off-canvas-layer"></div>
+        <div id="off-canvas-layer" class="toffedassen-off-canvas-layer"></div>
 		<?php
 	}
 
@@ -343,7 +343,7 @@ if ( ! function_exists( 'toffedassen_off_canvas_cart' ) ) :
 		}
 
 		?>
-        <div id="cart-panel" class="cart-panel woocommerce mini-cart supro-off-canvas-panel">
+        <div id="cart-panel" class="cart-panel woocommerce mini-cart toffedassen-off-canvas-panel">
             <div class="widget-canvas-content">
                 <div class="widget-cart-header  widget-panel-header">
                     <a href="#" class="close-canvas-panel"><span aria-hidden="true" class="icon-cross2"></span></a>
@@ -352,7 +352,7 @@ if ( ! function_exists( 'toffedassen_off_canvas_cart' ) ) :
 					<?php woocommerce_mini_cart(); ?>
                 </div>
             </div>
-            <div class="mini-cart-loading"><span class="supro-loader"></span></div>
+            <div class="mini-cart-loading"><span class="toffedassen-loader"></span></div>
         </div>
 		<?php
 	}
@@ -372,9 +372,9 @@ if ( ! function_exists( 'toffedassen_search_modal' ) ) :
 		}
 
 		?>
-        <div id="search-modal" class="search-modal supro-modal" tabindex="-1" role="dialog">
+        <div id="search-modal" class="search-modal toffedassen-modal" tabindex="-1" role="dialog">
             <div class="modal-content">
-                <h2 class="modal-title"><?php esc_html_e( 'Search', 'supro' ); ?></h2>
+                <h2 class="modal-title"><?php esc_html_e( 'Search', 'toffedassen' ); ?></h2>
 
                 <div class="container">
                     <form method="get" class="instance-search" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -396,7 +396,7 @@ if ( ! function_exists( 'toffedassen_search_modal' ) ) :
                             <div class="product-cats">
                                 <label>
                                     <input type="radio" name="product_cat" value="" checked="checked">
-                                    <span class="line-hover"><?php esc_html_e( 'All', 'supro' ) ?></span>
+                                    <span class="line-hover"><?php esc_html_e( 'All', 'toffedassen' ) ?></span>
                                 </label>
 
 								<?php foreach ( $cats as $cat ) : ?>
@@ -410,7 +410,7 @@ if ( ! function_exists( 'toffedassen_search_modal' ) ) :
 						<?php endif; ?>
 
                         <div class="search-fields">
-                            <input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'supro' ); ?>"
+                            <input type="text" name="s" placeholder="<?php esc_attr_e( 'Search', 'toffedassen' ); ?>"
                                    class="search-field" autocomplete="off">
 							<?php if ( toffedassen_get_option( 'search_content_type' ) == 'products' ) { ?>
                                 <input type="hidden" name="post_type" value="product">
@@ -423,7 +423,7 @@ if ( ! function_exists( 'toffedassen_search_modal' ) ) :
 
                     <div class="search-results">
                         <div class="text-center loading">
-                            <span class="supro-loader"></span>
+                            <span class="toffedassen-loader"></span>
                         </div>
                         <div class="woocommerce"></div>
                     </div>
@@ -431,7 +431,7 @@ if ( ! function_exists( 'toffedassen_search_modal' ) ) :
             </div>
             <div class="modal-footer">
                 <a href="#" class="close-modal">
-                    <span class="hidden-md hidden-sm hidden-xs"><?php esc_html_e( 'Close', 'supro' ) ?></span>
+                    <span class="hidden-md hidden-sm hidden-xs"><?php esc_html_e( 'Close', 'toffedassen' ) ?></span>
                     <i class="hidden-lg icon-cross"></i>
                 </a>
             </div>
@@ -453,7 +453,7 @@ if ( ! function_exists( 'toffedassen_quick_view_modal' ) ) :
 		}
 		?>
 
-        <div id="quick-view-modal" class="quick-view-modal supro-modal woocommerce" tabindex="-1" role="dialog">
+        <div id="quick-view-modal" class="quick-view-modal toffedassen-modal woocommerce" tabindex="-1" role="dialog">
             <div class="modal-header">
                 <a href="#" class="close-modal">
                     <i class="icon-cross"></i>
@@ -462,7 +462,7 @@ if ( ! function_exists( 'toffedassen_quick_view_modal' ) ) :
 
             <div class="modal-content">
                 <div class="container">
-                    <div class="supro-product-content">
+                    <div class="toffedassen-product-content">
                         <div class="product">
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 col-xs-12 product-images-wrapper">
@@ -474,7 +474,7 @@ if ( ! function_exists( 'toffedassen_quick_view_modal' ) ) :
                     </div>
                 </div>
             </div>
-            <div class="supro-loader"></div>
+            <div class="toffedassen-loader"></div>
         </div>
 
 		<?php
@@ -505,14 +505,14 @@ if ( ! function_exists( 'toffedassen_login_modal' ) ) :
 		}
 		?>
 
-        <div id="login-modal" class="login-modal supro-modal woocommerce-account" tabindex="-1" role="dialog">
+        <div id="login-modal" class="login-modal toffedassen-modal woocommerce-account" tabindex="-1" role="dialog">
             <div class="modal-content">
                 <div class="container">
 					<?php echo do_shortcode( '[woocommerce_my_account]' ) ?>
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#" class="close-modal"><?php esc_html_e( 'Close', 'supro' ) ?></a>
+                <a href="#" class="close-modal"><?php esc_html_e( 'Close', 'toffedassen' ) ?></a>
             </div>
         </div>
 
@@ -542,14 +542,14 @@ if ( ! function_exists( 'toffedassen_newsletter_modal' ) ) :
 		}
 
 		?>
-        <span id="supro-newsletter-icon" class="newsletter-icon icon-paper-plane hidden-lg"></span>
-        <div id="footer-newsletter-modal" class="footer-newsletter-modal supro-modal">
+        <span id="toffedassen-newsletter-icon" class="newsletter-icon icon-paper-plane hidden-lg"></span>
+        <div id="footer-newsletter-modal" class="footer-newsletter-modal toffedassen-modal">
             <div class="form-wrapper-modal">
 				<?php toffedassen_footer_newsletter_full_slider(); ?>
             </div>
 
             <a href="#" class="close-modal">
-                <span><?php esc_html_e( 'Close', 'supro' ) ?></span>
+                <span><?php esc_html_e( 'Close', 'toffedassen' ) ?></span>
                 <i class="icon-cross"></i>
             </a>
         </div>

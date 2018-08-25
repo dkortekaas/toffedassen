@@ -1,14 +1,14 @@
 <?php
 /**
- * @package Supro
+ * @package toffedassen
  */
 
 global $wp_query;
 
 $current = $wp_query->current_post + 1;
 
-$p_style   = supro_get_option( 'portfolio_layout' );
-$size      = 'supro-portfolio-grid';
+$p_style   = toffedassen_get_option( 'portfolio_layout' );
+$size      = 'toffedassen-portfolio-grid';
 $css       = 'portfolio-wrapper';
 
 $thumbnail_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
@@ -22,16 +22,16 @@ if ( $p_style == 'grid' ) {
 	$css .= ' col-md-3 col-sm-4 col-xs-6';
 
 	if ( $current % 9 == 2 ) {
-		$size = 'supro-portfolio-masonry-s';
+		$size = 'toffedassen-portfolio-masonry-s';
 	} elseif ( $current % 9 == 4 || $current % 9 == 6 || $current % 9 == 7 ) {
-		$size = 'supro-portfolio-masonry-t';
+		$size = 'toffedassen-portfolio-masonry-t';
 	} else {
-		$size = 'supro-portfolio-grid';
+		$size = 'toffedassen-portfolio-grid';
 	}
 
 } elseif ( $p_style == 'carousel' ) {
-	$size = 'supro-portfolio-carousel';
-	$css .= ' swiper-slide color-' . supro_get_option( 'portfolio_text_color' );
+	$size = 'toffedassen-portfolio-carousel';
+	$css .= ' swiper-slide color-' . toffedassen_get_option( 'portfolio_text_color' );
 }
 
 ?>

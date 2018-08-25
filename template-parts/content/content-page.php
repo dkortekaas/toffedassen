@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package Supro
+ * @package toffedassen
  */
 ?>
 
@@ -12,7 +12,7 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'supro' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'toffedassen' ),
 				'after'  => '</div>',
 			) );
 		?>

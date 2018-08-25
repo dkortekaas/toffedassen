@@ -30,11 +30,11 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 
 			<?php /* Start the Loop */ ?>
 
-			<div class="supro-blog-content">
+			<div class="toffedassen-blog-content">
 				<?php if ( 'grid' == $blog_style ) : ?>
 					<div class="row">
 				<?php endif ?>
-					<div class="supro-post-list">
+					<div class="toffedassen-post-list">
 						<?php while ( have_posts() ) : the_post(); ?>
 
 							<?php
@@ -42,12 +42,12 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 							 * If you want to override this in a child theme, then include a file
 							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 							 */
-							get_template_part( 'template-parts/content', get_post_format() );
+							get_template_part( 'template-parts/content/content', get_post_format() );
 							?>
 
 						<?php endwhile; ?>
 					</div>
-					<!--.supro-post-list-->
+					<!--.toffedassen-post-list-->
 
 				<?php if ( 'grid' == $blog_style ) : ?>
 					</div>
@@ -61,7 +61,7 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 
 		<?php else : ?>
 
-			<?php get_template_part( 'template-parts/content', 'none' ); ?>
+			<?php get_template_part( 'template-parts/content/content', 'none' ); ?>
 
 		<?php endif; ?>
 

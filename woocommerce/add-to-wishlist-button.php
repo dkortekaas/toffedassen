@@ -18,7 +18,7 @@ global $product;
     href="<?php echo esc_url( add_query_arg( 'add_to_wishlist', $product_id ) )?>"
     data-product-id="<?php echo esc_attr( $product_id ) ?>" data-product-type="<?php echo esc_attr( $product_type )?>"
     class="<?php echo esc_attr( $link_classes ) ?>"
-    data-original-title="<?php esc_attr_e( 'Save', 'supro' ) ?>"
+    data-original-title="<?php esc_attr_e( 'Save', 'toffedassen' ) ?>"
     data-rel="tooltip"
     >
     <?php echo '' . $icon; ?>

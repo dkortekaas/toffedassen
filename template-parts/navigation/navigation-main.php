@@ -15,7 +15,7 @@
 				array(
 					'theme_location' => 'main-menu',
 					'container'      => false,
-					'walker'         => new Supro_Mega_Menu_Walker(),
+					'walker'         => new toffedassen_Mega_Menu_Walker(),
 					'menu_class'     => $classes,
 				)
 			);

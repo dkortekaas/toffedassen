@@ -69,7 +69,7 @@ add_filter( 'post_class', 'toffedassen_post_class' );
 	}
 
 	if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
-		$container = 'supro-catalog-container';
+		$container = 'toffedassen-catalog-container';
 	}
 
 	if ( is_singular( 'portfolio' ) ) {
@@ -197,7 +197,7 @@ if ( ! function_exists( 'toffedassen_coming_soon_socials' ) ) :
 
 			$socials = (array) toffedassen_get_socials();
 
-			printf( '<div class="supro-coming-soon-socials-share">' );
+			printf( '<div class="toffedassen-coming-soon-socials-share">' );
 			printf( '<div class="container">' );
 			printf( '<ul class="socials-inline">' );
 			foreach ( $project_social as $social ) {
@@ -235,15 +235,15 @@ add_action( 'toffedassen_coming_soon_page_content', 'toffedassen_coming_soon_soc
  */
 function toffedassen_the_archive_title( $title ) {
 	if ( is_search() ) {
-		$title = esc_html__( 'Search Results', 'supro' );
+		$title = esc_html__( 'Search Results', 'toffedassen' );
 
 	} elseif ( is_404() ) {
-		$title = esc_html__( 'Page Not Found', 'supro' );
+		$title = esc_html__( 'Page Not Found', 'toffedassen' );
 
 	} elseif ( is_page() ) {
 		$title = get_the_title();
 	} elseif ( is_home() && is_front_page() ) {
-		$title = esc_html__( 'The Latest Posts', 'supro' );
+		$title = esc_html__( 'The Latest Posts', 'toffedassen' );
 
 	} elseif ( is_home() && ! is_front_page() ) {
 		$title = wp_kses_post( toffedassen_get_option( 'blog_page_header_title' ) );
@@ -279,7 +279,7 @@ function toffedassen_the_archive_title( $title ) {
 			if ( get_option( 'toffedassen_portfolio_page_id' ) ) {
 				$title = get_the_title( get_option( 'toffedassen_portfolio_page_id' ) );
 			} else {
-				$title = esc_html__( 'Portfolio', 'supro' );
+				$title = esc_html__( 'Portfolio', 'toffedassen' );
 			}
 		}
 	}

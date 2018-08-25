@@ -76,6 +76,8 @@ else :
 	require get_template_directory() . '/inc/frontend/entry.php';
 	require get_template_directory() . '/inc/mega-menu/class-mega-menu-walker.php';
 
+	require get_template_directory() . '/inc/frontend/woo_functions.php';
+
 endif;
 
 /**

@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
 						'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s"></a>',
 						esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-						esc_html__( 'Remove this item', 'supro' ),
+						esc_html__( 'Remove this item', 'toffedassen' ),
 						esc_attr( $product_id ),
 						esc_attr( $cart_item_key ),
 						esc_attr( $_product->get_sku() )
@@ -75,7 +75,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						<?php endif; ?>
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>
 
-						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s: %s %s',esc_html__( 'Qty', 'supro' ), $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
+						<?php echo apply_filters( 'woocommerce_widget_cart_item_quantity', '<span class="quantity">' . sprintf( '%s: %s %s',esc_html__( 'Qty', 'toffedassen' ), $cart_item['quantity'], $product_price ) . '</span>', $cart_item, $cart_item_key ); ?>
 					</div>
 				</li>
 				<?php
@@ -87,7 +87,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 	</ul>
 	<div class="un-cart-panel-footer">
 		<p class="woocommerce-mini-cart__total total">
-			<strong><?php esc_html_e( 'Subtotal', 'supro' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?>
+			<strong><?php esc_html_e( 'Subtotal', 'toffedassen' ); ?>:</strong> <?php echo WC()->cart->get_cart_subtotal(); ?>
 		</p>
 
 		<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
@@ -96,7 +96,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 	</div>
 <?php else : ?>
 
-	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'supro' ); ?></p>
+	<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'toffedassen' ); ?></p>
 
 <?php endif; ?>
 <?php do_action( 'woocommerce_after_mini_cart' ); ?>

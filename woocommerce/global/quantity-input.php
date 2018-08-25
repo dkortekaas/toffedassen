@@ -25,7 +25,7 @@ if ( $max_value && $min_value === $max_value ) {
 	<?php
 } else {
 	/* translators: %s: Quantity. */
-	$labelledby = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'supro' ), strip_tags( $args['product_name'] ) ) : '';
+	$labelledby = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'toffedassen' ), strip_tags( $args['product_name'] ) ) : '';
 	?>
 	<div class="quantity">
 		<span class="decrease  icon_minus-06"></span>
@@ -38,7 +38,7 @@ if ( $max_value && $min_value === $max_value ) {
 			   max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>"
 			   name="<?php echo esc_attr( $input_name ); ?>"
 			   value="<?php echo esc_attr( $input_value ); ?>"
-			   title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'supro' ) ?>"
+			   title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'toffedassen' ) ?>"
 			   size="4"
 			/>
 		<span class="increase icon_plus"></span>

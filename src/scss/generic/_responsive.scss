@@ -58,20 +58,20 @@
 }
 
 @media ( max-width: 1366px ) {
-    .supro-container,
-    .header-layout-4 .supro-container {
+    .header-container,
+    .header-layout-4 .header-container {
         padding-left: 40px;
         padding-right: 40px;
     }
 
     // Woo
-    .supro-catalog-page {
+    .toffedassen-catalog-page {
         &.shop-view-list {
             &.catalog-full-width-layout {
                 ul.products {
                     li.product {
                         .un-product-thumbnail,
-                        .supro-product-categories-thumb {
+                        .toffedassen-product-categories-thumb {
                             padding-right: 15px;
                         }
 
@@ -157,7 +157,7 @@
     // Modal
     .header-layout-1,
     .header-layout-2 {
-        .supro-modal.open {
+        .toffedassen-modal.open {
             z-index: 100000;
             padding-top: 40px;
             padding-bottom: 40px;
@@ -165,8 +165,8 @@
     }
 
     body {
-        .supro-sliders {
-            .supro-slide {
+        .toffedassen-sliders {
+            .toffedassen-slide {
                 margin-left: 30px;
                 margin-right: 30px;
             }
@@ -189,13 +189,13 @@
 
 @media (max-width: 1200px) {
     body {
-        .supro-empty-space {
-            .supro_empty_space_md {
+        .toffedassen-empty-space {
+            .toffedassen_empty_space_md {
                 display: block;
             }
 
-            .supro_empty_space_lg,
-            .supro_empty_space_xs {
+            .toffedassen_empty_space_lg,
+            .toffedassen_empty_space_xs {
                 display: none;
             }
         }
@@ -346,7 +346,7 @@
             }
         }
 
-        .supro-off-canvas-panel {
+        .toffedassen-off-canvas-panel {
             right: -475px;
             left: auto;
 
@@ -356,7 +356,7 @@
         }
     }
 
-    .supro-off-canvas-panel.menu-sidebar {
+    .toffedassen-off-canvas-panel.menu-sidebar {
         ul.menu {
             padding: 0;
 
@@ -435,7 +435,7 @@
         }
     }
 
-    .supro-off-canvas-panel,
+    .toffedassen-off-canvas-panel,
     .filter-mobile-enable.content-sidebar .catalog-sidebar,
     .filter-mobile-enable.sidebar-content .catalog-sidebar {
         .widget-canvas-content {
@@ -557,12 +557,12 @@
     }
 
     // Woo
-    .supro-catalog-container {
+    .toffedassen-catalog-container {
         padding-left: 15px;
         padding-right: 15px;
     }
 
-    .supro-catalog-page {
+    .toffedassen-catalog-page {
         &.shop-view-list {
             &.catalog-full-width-layout {
                 ul.products {
@@ -578,7 +578,7 @@
         &.content-sidebar,
         &.sidebar-content {
             div.product {
-                &.supro-product-layout-1 {
+                &.toffedassen-product-layout-1 {
                     .product-summary {
                         padding-left: 15px;
                     }
@@ -601,11 +601,11 @@
         }
 
         &.filter-mobile-enable {
-            .supro-catalog-filter-mobile {
+            .toffedassen-catalog-filter-mobile {
                 display: block;
             }
 
-            .supro-catalog-filter {
+            .toffedassen-catalog-filter {
                 display: none;
             }
         }
@@ -617,7 +617,7 @@
                 }
             }
 
-            .supro-single-product-detail {
+            .toffedassen-single-product-detail {
                 margin-bottom: 0;
             }
 
@@ -693,12 +693,12 @@
         }
     }
 
-    .supro-catalog-page {
+    .toffedassen-catalog-page {
         &.shop-view-list {
             ul.products {
                 li.product {
                     .un-product-thumbnail,
-                    .supro-product-categories-thumb {
+                    .toffedassen-product-categories-thumb {
                         width: 50%;
                         padding-right: 15px;
                     }
@@ -725,7 +725,7 @@
     }
 
     body {
-        .supro-banner-grid {
+        .toffedassen-banner-grid {
             &.position-top-left,
             &.position-bottom-left,
             &.position-top-right,
@@ -761,7 +761,7 @@
             }
         }
 
-        .supro-banner-grid-3 {
+        .toffedassen-banner-grid-3 {
             .banner-grid__banner {
                 .banner-title {
                     font-size: 24px;
@@ -775,7 +775,7 @@
             }
         }
 
-        .supro-products-grid {
+        .toffedassen-products-grid {
             .woocommerce {
                 &.columns-3 {
                     ul.products {
@@ -798,24 +798,24 @@
             }
         }
 
-        .supro-instagram-shortcode {
+        .toffedassen-instagram-shortcode {
             &.columns-8,
             &.columns-6 {
-                .supro-instagram {
+                .toffedassen-instagram {
                     width: 20%;
                 }
             }
 
-            .supro-instagram-btn {
+            .toffedassen-instagram-btn {
                 display: none;
             }
         }
 
-        .supro-sale-product {
+        .toffedassen-sale-product {
             padding: 100px 0;
         }
 
-        .supro-product-banner {
+        .toffedassen-product-banner {
             .banner-url {
                 display: inline-block;
                 align-self: self-start;
@@ -839,7 +839,7 @@
             }
         }
 
-        .supro-banner-grid-4 {
+        .toffedassen-banner-grid-4 {
             .banner-grid__banner {
                 .banner-content {
                     top: 10px;
@@ -853,7 +853,7 @@
             }
         }
 
-        .supro-product-banner3 {
+        .toffedassen-product-banner3 {
             .banner-content {
                 top: 10px;
                 left: 20px;
@@ -872,43 +872,43 @@
         }
 
         // Custom CSS
-        .supro-reset-padding-left {
+        .toffedassen-reset-padding-left {
             padding-left: 15px !important;
         }
 
-        .supro-reset-padding-right {
+        .toffedassen-reset-padding-right {
             padding-right: 15px !important;
         }
 
-        .supro-vc_column_inner-reset-padding-left .vc_column-inner {
+        .toffedassen-vc_column_inner-reset-padding-left .vc_column-inner {
             padding-left: 15px !important;
         }
 
-        .supro-vc_column_inner-reset-padding-right .vc_column-inner {
+        .toffedassen-vc_column_inner-reset-padding-right .vc_column-inner {
             padding-right: 15px !important;
         }
 
-        .supro-no-padding-left {
+        .toffedassen-no-padding-left {
             padding-left: 0 !important;
         }
 
-        .supro-no-padding-right {
+        .toffedassen-no-padding-right {
             padding-right: 0 !important;
         }
 
-        .supro-no-margin-left {
+        .toffedassen-no-margin-left {
             margin-left: 0 !important;
         }
 
-        .supro-no-margin-right {
+        .toffedassen-no-margin-right {
             margin-right: 0 !important;
         }
 
-        .supro-no-margin {
+        .toffedassen-no-margin {
             margin: 0 !important;
         }
 
-        .supro-reset-letter-spacing {
+        .toffedassen-reset-letter-spacing {
             letter-spacing: inherit !important;
         }
     }
@@ -1047,7 +1047,7 @@
 
 @media (max-width: 1199px) and ( min-width: 992px ) {
     body {
-        .supro-banner-grid {
+        .toffedassen-banner-grid {
             .banner-content {
                 top: 30px;
             }
@@ -1168,7 +1168,7 @@
     }
 
     .woocommerce-checkout {
-        .supro-checkout-form-wrapper {
+        .toffedassen-checkout-form-wrapper {
             .woocommerce-form-coupon-toggle,
             .woocommerce-form-login-toggle {
                 width: 50%;
@@ -1177,14 +1177,14 @@
     }
 
     body {
-        .supro-sliders {
-            .supro-slide {
+        .toffedassen-sliders {
+            .toffedassen-slide {
                 margin-left: 15px;
                 margin-right: 15px;
             }
         }
 
-        .supro-banner-grid-4 {
+        .toffedassen-banner-grid-4 {
             .banner-grid__banner {
                 &.banner-s {
                     .banner-title {
@@ -1199,7 +1199,7 @@
 @media (max-width: 991px) {
     .site-content,
     .error404 .site-content,
-    .supro-portfolio-page .site-content {
+    .toffedassen-portfolio-page .site-content {
         padding-top: 60px;
         padding-bottom: 60px;
     }
@@ -1248,7 +1248,7 @@
     }
 
     // Blog
-    .supro-taxs-list {
+    .toffedassen-taxs-list {
         li {
             padding: 0 17px 10px;
         }
@@ -1297,7 +1297,7 @@
         }
     }
 
-    .supro-blog-page {
+    .toffedassen-blog-page {
         &.content-sidebar .content-area {
             padding-right: 15px;
         }
@@ -1330,12 +1330,12 @@
         }
     }
 
-    .supro-related-posts .list-post article.col-md-4:nth-child( 3n+1 ),
-    .supro-related-posts .list-post article.col-md-6:nth-child( 2n+1 ) {
+    .toffedassen-related-posts .list-post article.col-md-4:nth-child( 3n+1 ),
+    .toffedassen-related-posts .list-post article.col-md-6:nth-child( 2n+1 ) {
         clear: none;
     }
 
-    .supro-related-posts div.list-post article.col-md-6:nth-child( 2n+1 ) {
+    .toffedassen-related-posts div.list-post article.col-md-6:nth-child( 2n+1 ) {
         clear: left;
     }
 
@@ -1404,12 +1404,12 @@
                 }
             }
 
-            .supro-catalog-filter {
+            .toffedassen-catalog-filter {
                 display: none;
             }
 
             &.filter-mobile-enable {
-                .supro-catalog-filter-mobile {
+                .toffedassen-catalog-filter-mobile {
                     display: block;
                 }
             }
@@ -1440,7 +1440,7 @@
 
         &.single-product-layout-2 {
             div.product {
-                .supro-single-product-detail {
+                .toffedassen-single-product-detail {
                     margin-bottom: 60px;
                     padding-bottom: 60px;
                 }
@@ -1515,7 +1515,7 @@
     }
 
     // Footer
-    .supro-newsletter {
+    .toffedassen-newsletter {
         &.space-between-style {
             .title-area {
                 margin-bottom: 30px;
@@ -1550,7 +1550,7 @@
     }
 
     body {
-        .supro-banner-grid {
+        .toffedassen-banner-grid {
             .banner-url {
                 display: block;
             }
@@ -1560,17 +1560,17 @@
             }
         }
 
-        .supro-instagram-shortcode {
+        .toffedassen-instagram-shortcode {
             &.columns-8,
             &.columns-6,
             &.columns-5 {
-                .supro-instagram {
+                .toffedassen-instagram {
                     width: 25%;
                 }
             }
         }
 
-        .supro-products-grid {
+        .toffedassen-products-grid {
             .product-header {
                 margin-bottom: 20px;
             }
@@ -1608,7 +1608,7 @@
             }
         }
 
-        .supro-banner-grid-2 {
+        .toffedassen-banner-grid-2 {
             .banner-content {
                 width: 100%;
                 top: 30px;
@@ -1623,7 +1623,7 @@
             }
         }
 
-        .supro-banner-grid-3 {
+        .toffedassen-banner-grid-3 {
             .banner-grid__banner {
                 width: 50%;
 
@@ -1633,7 +1633,7 @@
             }
         }
 
-        .supro-banner-grid-4 {
+        .toffedassen-banner-grid-4 {
             .banner-grid__banner {
                 padding: 0 0 15px 0;
 
@@ -1651,7 +1651,7 @@
             }
         }
 
-        .supro-product-banner2 {
+        .toffedassen-product-banner2 {
             &.style-1 {
                 &.text-align-right {
                     text-align: left;
@@ -1659,7 +1659,7 @@
             }
         }
 
-        .supro-members {
+        .toffedassen-members {
             .row {
                 margin-left: -15px;
                 margin-right: -15px;
@@ -1672,7 +1672,7 @@
             }
         }
 
-        .supro-icons-box {
+        .toffedassen-icons-box {
             padding: 40px;
         }
     }
@@ -1739,13 +1739,13 @@
         }
     }
 
-    .supro-related-posts {
+    .toffedassen-related-posts {
         .related-title {
             font-size: 36px;
         }
     }
 
-    .supro-taxs-list {
+    .toffedassen-taxs-list {
         overflow-y: scroll;
         margin-bottom: 35px;
 
@@ -1878,7 +1878,7 @@
     }
 
     .woocommerce-checkout {
-        .supro-checkout-form-wrapper {
+        .toffedassen-checkout-form-wrapper {
             display: block;
 
             .woocommerce-form-coupon-toggle,
@@ -1911,7 +1911,7 @@
         }
     }
 
-    .supro-catalog-page {
+    .toffedassen-catalog-page {
         &.shop-view-list {
             ul.products {
                 li.product {
@@ -1942,9 +1942,9 @@
         }
     }
 
-    .supro-catalog-page.shop-view-grid,
-    .supro-products-grid,
-    .supro-products-carousel {
+    .toffedassen-catalog-page.shop-view-grid,
+    .toffedassen-products-grid,
+    .toffedassen-products-carousel {
         ul.products {
             li.product {
                 .un-product-thumbnail {
@@ -2000,18 +2000,18 @@
     }
 
     body {
-        .supro-empty-space {
-            .supro_empty_space_md,
-            .supro_empty_space_lg {
+        .toffedassen-empty-space {
+            .toffedassen_empty_space_md,
+            .toffedassen_empty_space_lg {
                 display: none;
             }
 
-            .supro_empty_space_xs {
+            .toffedassen_empty_space_xs {
                 display: block;
             }
         }
 
-        .supro-banner-grid {
+        .toffedassen-banner-grid {
             &.m-text-position-center {
                 text-align: center;
 
@@ -2027,14 +2027,14 @@
             }
         }
 
-        .supro-banner-grid-2 {
+        .toffedassen-banner-grid-2 {
             .banner-grid__banner {
                 height: 25%;
                 width: 100%;
             }
         }
 
-        .supro-icons-box {
+        .toffedassen-icons-box {
             ul {
                 li {
                     width: 50%;
@@ -2043,7 +2043,7 @@
             }
         }
 
-        .supro-products-grid {
+        .toffedassen-products-grid {
             .woocommerce {
                 &.columns-5 ul.products li.product {
                     &:nth-child( 3n + 1 ) {
@@ -2060,7 +2060,7 @@
             }
         }
 
-        .supro-contact-box.horizontal {
+        .toffedassen-contact-box.horizontal {
             h3 {
                 margin-bottom: 0;
             }
@@ -2072,7 +2072,7 @@
             }
         }
 
-        .supro-faq_group {
+        .toffedassen-faq_group {
             .g-title {
                 margin-bottom: 30px;
             }
@@ -2082,13 +2082,13 @@
             }
         }
 
-        .supro-testimonial {
+        .toffedassen-testimonial {
             .testi-content {
                 font-size: 20px;
             }
         }
 
-        .supro-products-grid {
+        .toffedassen-products-grid {
             &.style-2 {
                 .woocommerce ul.products li.product {
                     .footer-button {
@@ -2151,7 +2151,7 @@
         }
     }
 
-    .supro-modal .modal-title {
+    .toffedassen-modal .modal-title {
         margin-bottom: 60px;
     }
 
@@ -2194,7 +2194,7 @@
         }
     }
 
-    .supro-related-posts {
+    .toffedassen-related-posts {
         .list-post article {
             width: 100%;
         }
@@ -2262,8 +2262,8 @@
         }
     }
 
-    .supro-portfolio-page {
-        .supro-taxs-list ul {
+    .toffedassen-portfolio-page {
+        .toffedassen-taxs-list ul {
             margin-bottom: 0;
         }
     }
@@ -2304,12 +2304,12 @@
         &.filter-mobile-enable {
             .shop-toolbar {
                 .shop-toolbar-el {
-                    &.supro-catalog-filter {
+                    &.toffedassen-catalog-filter {
                         display: none;
                     }
 
                     &.woocommerce-ordering,
-                    &.supro-catalog-filter-mobile {
+                    &.toffedassen-catalog-filter-mobile {
                         text-align: right;
                     }
                 }
@@ -2319,11 +2319,11 @@
         &:not(.filter-mobile-enable) {
             .shop-toolbar {
                 .shop-toolbar-el {
-                    &.supro-catalog-filter-mobile {
+                    &.toffedassen-catalog-filter-mobile {
                         display: none;
                     }
 
-                    &.supro-catalog-filter,
+                    &.toffedassen-catalog-filter,
                     &.shop-view {
                         text-align: right;
                     }
@@ -2343,7 +2343,7 @@
     }
 
     // Canvas
-    .supro-off-canvas-panel,
+    .toffedassen-off-canvas-panel,
     .filter-mobile-enable.content-sidebar .catalog-sidebar,
     .filter-mobile-enable.sidebar-content .catalog-sidebar,
     .filter-mobile-enable.full-content .woocommerce-products-header {
@@ -2387,24 +2387,24 @@
     }
 
     body {
-        .supro-instagram-shortcode {
+        .toffedassen-instagram-shortcode {
             &.columns-8,
             &.columns-6,
             &.columns-5,
             &.columns-4 {
-                .supro-instagram {
+                .toffedassen-instagram {
                     width: 50%;
                 }
             }
         }
 
-        .supro-sliders {
+        .toffedassen-sliders {
             h2 {
                 font-size: 26px;
                 margin-bottom: 15px;
             }
 
-            .supro-slide {
+            .toffedassen-slide {
                 .slide-content {
                     left: 50px;
                 }
@@ -2415,8 +2415,8 @@
 
 @media (max-width: 480px) {
     // Header
-    .supro-container,
-    .header-layout-4 .supro-container,
+    .header-container,
+    .header-layout-4 .header-container,
     .header-left-sidebar .site-header {
         padding-left: 20px;
         padding-right: 20px;
@@ -2664,13 +2664,13 @@
         }
     }
 
-    .supro-catalog-page {
+    .toffedassen-catalog-page {
         &.shop-view-list {
             ul.products {
                 li.product {
                     .un-product-thumbnail,
                     .un-product-details,
-                    .supro-product-categories-thumb,
+                    .toffedassen-product-categories-thumb,
                     .woocommerce-loop-category__title {
                         width: 100%;
                         padding-left: 0;
@@ -2678,7 +2678,7 @@
                     }
 
                     .un-product-thumbnail,
-                    .supro-product-categories-thumb {
+                    .toffedassen-product-categories-thumb {
                         margin-bottom: 20px;
                     }
                 }
@@ -2686,34 +2686,34 @@
         }
     }
 
-    .supro-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .un-product-thumbnail,
-    .supro-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .un-product-details,
-    .supro-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .supro-product-categories-thumb,
-    .supro-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .woocommerce-loop-category__title {
+    .toffedassen-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .un-product-thumbnail,
+    .toffedassen-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .un-product-details,
+    .toffedassen-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .toffedassen-product-categories-thumb,
+    .toffedassen-catalog-page.shop-view-list.catalog-full-width-layout ul.products li.product .woocommerce-loop-category__title {
         width: 100%;
         padding-left: 0;
         padding-right: 0;
     }
 
     body {
-        .supro-banner-grid {
+        .toffedassen-banner-grid {
             .title {
                 font-size: 30px;
                 margin-bottom: 20px;
             }
         }
 
-        .supro-sale-product {
-            .supro-countdown {
+        .toffedassen-sale-product {
+            .toffedassen-countdown {
                 padding: 15px;
             }
         }
 
-        .supro-sale-product {
+        .toffedassen-sale-product {
             padding: 60px 0;
         }
 
-        .supro-product-banner {
+        .toffedassen-product-banner {
             .title,
             .price {
                 margin-bottom: 20px;
@@ -2748,7 +2748,7 @@
             }
         }
 
-        .supro-banner-grid-3 {
+        .toffedassen-banner-grid-3 {
             .banner-grid__banner {
                 width: 100%;
 
@@ -2762,7 +2762,7 @@
             }
         }
 
-        .supro-members {
+        .toffedassen-members {
             .member {
                 width: 100%;
             }
@@ -2773,7 +2773,7 @@
         }
 
         &:not( .page-template-template-home-no-footer ) {
-            .supro-newsletter {
+            .toffedassen-newsletter {
                 &.has-bg {
                     .mc4wp-form {
                         .mc4wp-form-fields {
@@ -2814,7 +2814,7 @@
                 }
             }
 
-            .supro-wishlist-button {
+            .toffedassen-wishlist-button {
                 .yith-wcwl-add-to-wishlist {
                     margin-left: 0;
                     float: none;
@@ -2859,7 +2859,7 @@
     }
 
     body {
-        .supro-sale-product {
+        .toffedassen-sale-product {
             .flip-clock-wrapper {
                 .flip-wrapper {
                     padding: 15px 0;
@@ -2867,7 +2867,7 @@
             }
         }
 
-        .supro-sliders {
+        .toffedassen-sliders {
             .desc {
                 display: none;
             }
@@ -2877,7 +2877,7 @@
             }
         }
 
-        .supro-icons-box {
+        .toffedassen-icons-box {
             padding: 20px 40px;
 
             ul li {
@@ -2885,7 +2885,7 @@
             }
         }
 
-        .supro-contact-box.horizontal {
+        .toffedassen-contact-box.horizontal {
             .title,
             .contact-info {
                 width: 100%;
@@ -2941,8 +2941,8 @@
 
 @media (max-width: 375px) {
     // Header
-    .supro-container,
-    .header-layout-4 .supro-container,
+    .header-container,
+    .header-layout-4 .header-container,
     .header-left-sidebar .site-header {
         padding-left: 15px;
         padding-right: 15px;
@@ -2953,7 +2953,7 @@
     }
 
     // Canvas
-    .supro-off-canvas-panel,
+    .toffedassen-off-canvas-panel,
     .filter-mobile-enable.content-sidebar .catalog-sidebar,
     .filter-mobile-enable.sidebar-content .catalog-sidebar,
     .filter-mobile-enable.full-content .woocommerce-products-header {
@@ -3000,7 +3000,7 @@
     }
 
     body {
-        .supro-product-banner {
+        .toffedassen-product-banner {
             .title {
                 font-size: 24px;
             }

@@ -25,28 +25,28 @@ if ( $wp_query->max_num_pages <= 1 ) {
 	return;
 }
 
-$catelog_nav_type = supro_get_option( 'shop_nav_type' );
+$catelog_nav_type = toffedassen_get_option( 'shop_nav_type' );
 
 $next = '<i class="icon-chevron-right"></i>';
 $prev = '<i class="icon-chevron-left"></i>';
-$paging_id = 'supro-woocommerce-pagination';
-$paging_class = 'supro-woocommerce-pagination';
+$paging_id = 'toffedassen-woocommerce-pagination';
+$paging_class = 'toffedassen-woocommerce-pagination';
 if ( $catelog_nav_type != 'numbers' ) {
-	$paging_id = 'supro-shop-infinite-loading';
+	$paging_id = 'toffedassen-shop-infinite-loading';
 	$paging_class = 'infinite';
 	$prev = '';
-	$view_more = apply_filters( 'supro_catalog_view_more_text', esc_html__( 'DISCOVER MORE', 'supro' ) );
+	$view_more = apply_filters( 'toffedassen_catalog_view_more_text', esc_html__( 'DISCOVER MORE', 'toffedassen' ) );
 
 	$next = sprintf(
-		'<span id="supro-products-loading" class="nav-previous-ajax">
+		'<span id="toffedassen-products-loading" class="nav-previous-ajax">
 			<span class="nav-text">%s</span>
 			<span class="loading-icon">
 				<span class="loading-text">%s</span>
-				<span class="icon_loading supro-spin su-icon"></span>
+				<span class="icon_loading toffedassen-spin su-icon"></span>
 			</span>
 		</span>',
 		$view_more,
-		esc_html__( 'Loading', 'supro' )
+		esc_html__( 'Loading', 'toffedassen' )
 	);
 }
 ?>

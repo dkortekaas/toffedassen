@@ -1,4 +1,4 @@
-.supro-off-canvas-panel {
+.toffedassen-off-canvas-panel {
 	width: 475px;
 	background-color: $light;
 	position: fixed;
@@ -146,7 +146,7 @@
 
 }
 
-.supro-off-canvas-layer {
+.toffedassen-off-canvas-layer {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -159,7 +159,7 @@
 }
 
 .open-canvas-panel {
-	.supro-off-canvas-layer {
+	.toffedassen-off-canvas-layer {
 		display: block;
 	}
 
@@ -188,7 +188,7 @@
 		z-index: -999;
 		opacity: 0;
 
-		.supro-loader {
+		.toffedassen-loader {
 			position: absolute;
 			top: 30%;
 			left: 50%;

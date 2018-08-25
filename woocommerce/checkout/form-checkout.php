@@ -26,7 +26,7 @@ do_action( 'woocommerce_before_checkout_form', $checkout );
 
 // If checkout registration is disabled and not logged in, the user cannot checkout
 if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', esc_html__( 'You must be logged in to checkout.', 'supro' ) );
+	echo apply_filters( 'woocommerce_checkout_must_be_logged_in_message', esc_html__( 'You must be logged in to checkout.', 'toffedassen' ) );
 	return;
 }
 
@@ -56,7 +56,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		</div>
 
 		<div class="col-md-6 col-xs-12 col-sm-12">
-			<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'supro' ); ?></h3>
+			<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'toffedassen' ); ?></h3>
 
 			<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
 

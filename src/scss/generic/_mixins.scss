@@ -133,7 +133,7 @@
 	}
 }
 
-.supro-spin {
+.toffedassen-spin {
 	-webkit-animation: spin 1s infinite linear;
 	-moz-animation: spin 1s infinite linear;
 	-ms-animation: spin 1s infinite linear;
@@ -173,7 +173,7 @@
 	}
 }
 
-@mixin supro-loader() {
+@mixin toffedassen-loader() {
 	position: relative;
 
 	&:after {
@@ -199,11 +199,11 @@
 	}
 }
 
-.supro-loader {
-	@include supro-loader();
+.toffedassen-loader {
+	@include toffedassen-loader();
 }
 
-@mixin supro-small-loading() {
+@mixin toffedassen-small-loading() {
 	border-width: 1px;
 	border-color: #666 #666 #666 transparent;
 	border-radius: 50%;
@@ -284,7 +284,7 @@
 }
 
 // Fade
-@keyframes suproFadeInUp {
+@keyframes toffedassenFadeInUp {
 	from {
 		opacity: 0;
 		transform: translate3d(0, 50px, 0);
@@ -296,11 +296,11 @@
 	}
 }
 
-.suproFadeInUp {
-	animation-name: suproFadeInUp;
+.toffedassenFadeInUp {
+	animation-name: toffedassenFadeInUp;
 }
 
-@keyframes suproFadeIn {
+@keyframes toffedassenFadeIn {
 	from {
 		opacity: 0;
 	}
@@ -310,11 +310,11 @@
 	}
 }
 
-.suproFadeIn {
-	animation-name: suproFadeIn;
+.toffedassenFadeIn {
+	animation-name: toffedassenFadeIn;
 }
 
-.suproAnimation {
+.toffedassenAnimation {
 	animation-duration: 1s;
 	animation-fill-mode: both;
 }

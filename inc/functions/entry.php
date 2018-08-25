@@ -30,11 +30,11 @@ function toffedassen_entry_footer() {
 	     '<div class="entry-footer-wrapper">';
 
 	if ( has_tag() ) :
-		the_tags( '<div class="tag-list"><span class="tag-title">' . esc_html__( 'Tags: ', 'supro' ) . '</span>', ', ', '</div>' );
+		the_tags( '<div class="tag-list"><span class="tag-title">' . esc_html__( 'Tags: ', 'toffedassen' ) . '</span>', ', ', '</div>' );
 	endif;
 
 	if ( intval( toffedassen_get_option( 'show_post_social_share' ) ) ) {
-		echo '<div class="supro-single-post-socials-share">';
+		echo '<div class="toffedassen-single-post-socials-share">';
 		echo toffedassen_addons_share_link_socials( get_the_title(), get_the_permalink(), get_the_post_thumbnail() );
 		echo '</div>';
 	};
@@ -74,7 +74,7 @@ function toffedassen_content_limit( $num_words, $more = "&hellip;" ) {
 			'<p>%s <a href="%s" class="more-link" title="%s">%s</a></p>',
 			$content,
 			get_permalink(),
-			sprintf( esc_html__( 'Continue reading &quot;%s&quot;', 'supro' ), the_title_attribute( 'echo=0' ) ),
+			sprintf( esc_html__( 'Continue reading &quot;%s&quot;', 'toffedassen' ), the_title_attribute( 'echo=0' ) ),
 			esc_html( $more )
 		);
 	} else {
@@ -305,7 +305,7 @@ function toffedassen_single_entry_meta() {
 					'<span class="entry-meta entry-author">' .
 					'<label>%s</label>' .
 					'<a class="url fn n" href="%s">%s</a></span>',
-					esc_html__( 'Author:', 'supro' ),
+					esc_html__( 'Author:', 'toffedassen' ),
 					esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 					esc_html( get_the_author() )
 				);
@@ -329,7 +329,7 @@ function toffedassen_single_entry_meta() {
 					'<span class="entry-meta entry-date">' .
 					'<label>%s</label>' .
 					'<a href="%s">%s</a></span>',
-					esc_html__( 'Published in:', 'supro' ),
+					esc_html__( 'Published in:', 'toffedassen' ),
 					esc_url( get_day_link( $archive_year, $archive_month, $archive_day ) ),
 					$time_string
 				);
@@ -485,27 +485,27 @@ endif;
  */
 function toffedassen_get_socials() {
 	$socials = array(
-		'facebook'   => esc_html__( 'Facebook', 'supro' ),
-		'twitter'    => esc_html__( 'Twitter', 'supro' ),
-		'google'     => esc_html__( 'Google', 'supro' ),
-		'tumblr'     => esc_html__( 'Tumblr', 'supro' ),
-		'flickr'     => esc_html__( 'Flickr', 'supro' ),
-		'vimeo'      => esc_html__( 'Vimeo', 'supro' ),
-		'youtube'    => esc_html__( 'Youtube', 'supro' ),
-		'linkedin'   => esc_html__( 'LinkedIn', 'supro' ),
-		'pinterest'  => esc_html__( 'Pinterest', 'supro' ),
-		'dribbble'   => esc_html__( 'Dribbble', 'supro' ),
-		'spotify'    => esc_html__( 'Spotify', 'supro' ),
-		'instagram'  => esc_html__( 'Instagram', 'supro' ),
-		'tumbleupon' => esc_html__( 'Tumbleupon', 'supro' ),
-		'wordpress'  => esc_html__( 'WordPress', 'supro' ),
-		'rss'        => esc_html__( 'Rss', 'supro' ),
-		'deviantart' => esc_html__( 'Deviantart', 'supro' ),
-		'share'      => esc_html__( 'Share', 'supro' ),
-		'skype'      => esc_html__( 'Skype', 'supro' ),
-		'behance'    => esc_html__( 'Behance', 'supro' ),
-		'apple'      => esc_html__( 'Apple', 'supro' ),
-		'yelp'       => esc_html__( 'Yelp', 'supro' ),
+		'facebook'   => esc_html__( 'Facebook', 'toffedassen' ),
+		'twitter'    => esc_html__( 'Twitter', 'toffedassen' ),
+		'google'     => esc_html__( 'Google', 'toffedassen' ),
+		'tumblr'     => esc_html__( 'Tumblr', 'toffedassen' ),
+		'flickr'     => esc_html__( 'Flickr', 'toffedassen' ),
+		'vimeo'      => esc_html__( 'Vimeo', 'toffedassen' ),
+		'youtube'    => esc_html__( 'Youtube', 'toffedassen' ),
+		'linkedin'   => esc_html__( 'LinkedIn', 'toffedassen' ),
+		'pinterest'  => esc_html__( 'Pinterest', 'toffedassen' ),
+		'dribbble'   => esc_html__( 'Dribbble', 'toffedassen' ),
+		'spotify'    => esc_html__( 'Spotify', 'toffedassen' ),
+		'instagram'  => esc_html__( 'Instagram', 'toffedassen' ),
+		'tumbleupon' => esc_html__( 'Tumbleupon', 'toffedassen' ),
+		'wordpress'  => esc_html__( 'WordPress', 'toffedassen' ),
+		'rss'        => esc_html__( 'Rss', 'toffedassen' ),
+		'deviantart' => esc_html__( 'Deviantart', 'toffedassen' ),
+		'share'      => esc_html__( 'Share', 'toffedassen' ),
+		'skype'      => esc_html__( 'Skype', 'toffedassen' ),
+		'behance'    => esc_html__( 'Behance', 'toffedassen' ),
+		'apple'      => esc_html__( 'Apple', 'toffedassen' ),
+		'yelp'       => esc_html__( 'Yelp', 'toffedassen' ),
 	);
 
 	$socials = apply_filters( 'toffedassen_header_socials', $socials );
@@ -713,7 +713,7 @@ if ( ! function_exists( 'toffedassen_taxs_list' ) ) :
 		$found     = false;
 		$number    = intval( toffedassen_get_option( 'blog_categories_numbers' ) );
 		$cats_slug = wp_kses_post( toffedassen_get_option( 'blog_categories' ) );
-		$id        = 'supro-taxs-list';
+		$id        = 'toffedassen-taxs-list';
 
 		if ( is_tax( $taxonomy ) || is_category() ) {
 
@@ -764,10 +764,10 @@ if ( ! function_exists( 'toffedassen_taxs_list' ) ) :
 
 		$cat_selected = $found ? '' : 'selected';
 
-		$text = esc_html__( 'All Categories', 'supro' );
+		$text = esc_html__( 'All Categories', 'toffedassen' );
 
 		if ( toffedassen_is_portfolio() ) {
-			$text = esc_html__( 'All', 'supro' );
+			$text = esc_html__( 'All', 'toffedassen' );
 		}
 
 		if ( $cats ) {
@@ -795,7 +795,7 @@ if ( ! function_exists( 'toffedassen_taxs_list' ) ) :
 		if ( $output ) {
 			$output = apply_filters( 'toffedassen_tax_html', $output );
 
-			printf( '<div id="%s" class="supro-taxs-list">%s</div>', esc_attr( $id ), $output );
+			printf( '<div id="%s" class="toffedassen-taxs-list">%s</div>', esc_attr( $id ), $output );
 		}
 	}
 
@@ -1053,7 +1053,7 @@ if ( ! function_exists( 'toffedassen_get_product_video' ) ) :
 			$video_html = sprintf(
 				' <a href="#" data-href="%s" class="video-item-icon item-icon"><span>%s</span></a>',
 				esc_attr( $video_html ),
-				esc_html__( 'Play Video', 'supro' )
+				esc_html__( 'Play Video', 'toffedassen' )
 			);
 
 		}
@@ -1079,7 +1079,7 @@ if ( ! function_exists( 'toffedassen_get_product_zoom' ) ) :
 
 		return sprintf(
 			'<a href="#" class="gallery-item-icon item-icon"><span>%s</span></a>',
-			esc_html__( 'Click to enlarge', 'supro' )
+			esc_html__( 'Click to enlarge', 'toffedassen' )
 		);
 	}
 endif;

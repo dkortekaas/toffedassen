@@ -3,9 +3,9 @@
 /**
  * Class menu walker
  *
- * @package Supro
+ * @package toffedassen
  */
-class Supro_Mega_Menu_Walker extends Walker_Nav_Menu {
+class toffedassen_Mega_Menu_Walker extends Walker_Nav_Menu {
 	/**
 	 * Store state of top level item
 	 *
@@ -100,7 +100,7 @@ class Supro_Mega_Menu_Walker extends Walker_Nav_Menu {
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
 		$item_content         = get_post_meta( $item->ID, 'tamm_menu_item_content', true );
-		$item_is_mega         = apply_filters( 'supro_menu_item_mega', get_post_meta( $item->ID, 'tamm_menu_item_mega', true ), $item->ID );
+		$item_is_mega         = apply_filters( 'toffedassen_menu_item_mega', get_post_meta( $item->ID, 'tamm_menu_item_mega', true ), $item->ID );
 		$item_mega_width      = get_post_meta( $item->ID, 'tamm_menu_item_mega_width', true );
 		$item_width           = get_post_meta( $item->ID, 'tamm_menu_item_width', true );
 		$item_hide_text       = get_post_meta( $item->ID, 'tamm_menu_item_hide_text', true );
@@ -331,13 +331,13 @@ class Supro_Mega_Menu_Walker extends Walker_Nav_Menu {
 		if ( $item_hot || $item_new || $item_trending ) {
 			$badge[] = '<span class="items-badge">';
 			if ( $item_hot ) {
-				$badge[] = '<span class="hot-badge">' . esc_html__( 'Hot', 'supro' ) . '</span>';
+				$badge[] = '<span class="hot-badge">' . esc_html__( 'Hot', 'toffedassen' ) . '</span>';
 			}
 			if ( $item_new ) {
-				$badge[] = '<span class="new-badge">' . esc_html__( 'New', 'supro' ) . '</span>';
+				$badge[] = '<span class="new-badge">' . esc_html__( 'New', 'toffedassen' ) . '</span>';
 			}
 			if ( $item_trending ) {
-				$badge[] = '<span class="trending-badge">' . esc_html__( 'Trending', 'supro' ) . '</span>';
+				$badge[] = '<span class="trending-badge">' . esc_html__( 'Trending', 'toffedassen' ) . '</span>';
 			}
 			$badge[] = '</span>';
 		}

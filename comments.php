@@ -37,7 +37,7 @@ if ( 'full-content' == $layout ) {
 		<h2 class="comments-title">
 			<?php
 			printf( // WPCS: XSS OK.
-				esc_html( _nx( 'No Comments', '%1$s Comments', get_comments_number(), 'comments title', 'supro' ) ),
+				esc_html( _nx( 'No Comments', '%1$s Comments', get_comments_number(), 'comments title', 'toffedassen' ) ),
 				number_format_i18n( get_comments_number() )
 			);
 			?>
@@ -45,11 +45,11 @@ if ( 'full-content' == $layout ) {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 			<nav id="comment-nav-above" class="navigation comment-navigation">
-				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'supro' ); ?></h2>
+				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'toffedassen' ); ?></h2>
 				<div class="nav-links">
 
-					<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'supro' ) ); ?></div>
-					<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'supro' ) ); ?></div>
+					<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'toffedassen' ) ); ?></div>
+					<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'toffedassen' ) ); ?></div>
 
 				</div><!-- .nav-links -->
 			</nav><!-- #comment-nav-above -->
@@ -67,11 +67,11 @@ if ( 'full-content' == $layout ) {
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // Are there comments to navigate through? ?>
 			<nav id="comment-nav-below" class="navigation comment-navigation">
-				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'supro' ); ?></h2>
+				<h2 class="screen-reader-text"><?php esc_html_e( 'Comment navigation', 'toffedassen' ); ?></h2>
 				<div class="nav-links">
 
-					<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'supro' ) ); ?></div>
-					<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'supro' ) ); ?></div>
+					<div class="nav-previous"><?php previous_comments_link( esc_html__( 'Older Comments', 'toffedassen' ) ); ?></div>
+					<div class="nav-next"><?php next_comments_link( esc_html__( 'Newer Comments', 'toffedassen' ) ); ?></div>
 
 				</div><!-- .nav-links -->
 			</nav><!-- #comment-nav-below -->
@@ -83,16 +83,16 @@ if ( 'full-content' == $layout ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'supro' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'toffedassen' ); ?></p>
 		<?php endif; ?>
 
 		<?php
 
 		$args = array(
-			'comment_field'         =>  '<p class="comment-form-comment"><textarea placeholder="' . esc_attr__( 'Your comment...', 'supro' ) . '" required id="comment" name="comment" cols="45" rows="6">' .
+			'comment_field'         =>  '<p class="comment-form-comment"><textarea placeholder="' . esc_attr__( 'Your comment...', 'toffedassen' ) . '" required id="comment" name="comment" cols="45" rows="6">' .
 				'</textarea></p>',
 			'comment_notes_before'  => '<p class="comment-notes">' .
-				esc_html__( 'Your email address will not be published.', 'supro' ) .
+				esc_html__( 'Your email address will not be published.', 'toffedassen' ) .
 				'</p>',
 			'format'        => 'xhtml',
 		);

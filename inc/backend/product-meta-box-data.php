@@ -2,7 +2,7 @@
 /**
  * Functions and Hooks for product meta box data
  *
- * @package Supro
+ * @package toffedassen
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -10,9 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * supro_Meta_Box_Product_Data class.
+ * toffedassen_Meta_Box_Product_Data class.
  */
-class Supro_Meta_Box_Product_Data {
+class toffedassen_Meta_Box_Product_Data {
 
 	/**
 	 * Constructor.
@@ -49,8 +49,8 @@ class Supro_Meta_Box_Product_Data {
 	 */
 	public function product_meta_tab( $product_data_tabs ) {
 
-		$product_data_tabs['supro_attributes_extra'] = array(
-			'label'  => esc_html__( 'Extra', 'supro' ),
+		$product_data_tabs['toffedassen_attributes_extra'] = array(
+			'label'  => esc_html__( 'Extra', 'toffedassen' ),
 			'target' => 'product_attributes_extra',
 			'class'  => 'product-attributes-extra'
 		);
@@ -109,21 +109,21 @@ class Supro_Meta_Box_Product_Data {
 
 		if ( ! $attributes ) : ?>
 			<div id="message" class="inline notice woocommerce-message">
-				<p><?php esc_html_e( 'You need to add attributes on the Attributes tab.', 'supro' ); ?></p>
+				<p><?php esc_html_e( 'You need to add attributes on the Attributes tab.', 'toffedassen' ); ?></p>
 			</div>
 
 		<?php else :
 			$options         = array();
-			$options['']     = esc_html__( 'Default', 'supro' );
-			$options['none'] = esc_html__( 'None', 'supro' );
+			$options['']     = esc_html__( 'Default', 'toffedassen' );
+			$options['none'] = esc_html__( 'None', 'toffedassen' );
 			foreach ( $attributes as $attribute ) {
 				$options[sanitize_title( $attribute['name'] )] = wc_attribute_label( $attribute['name'] );
 			}
 			woocommerce_wp_select(
 				array(
 					'id'       => 'attributes_extra',
-					'label'    => esc_html__( 'Product Attribute', 'supro' ),
-					'desc_tip' => esc_html__( 'Show product attribute for each item listed under the item name.', 'supro' ),
+					'label'    => esc_html__( 'Product Attribute', 'toffedassen' ),
+					'desc_tip' => esc_html__( 'Show product attribute for each item listed under the item name.', 'toffedassen' ),
 					'options'  => $options
 				)
 			);
@@ -133,15 +133,15 @@ class Supro_Meta_Box_Product_Data {
 		woocommerce_wp_text_input(
 			array(
 				'id'       => 'custom_badges_text',
-				'label'    => esc_html__( 'Custom Badge Text', 'supro' ),
-				'desc_tip' => esc_html__( 'Enter this optional to show your badges.', 'supro' ),
+				'label'    => esc_html__( 'Custom Badge Text', 'toffedassen' ),
+				'desc_tip' => esc_html__( 'Enter this optional to show your badges.', 'toffedassen' ),
 			)
 		);
 		woocommerce_wp_checkbox(
 			array(
 				'id'          => '_is_new',
-				'label'       => esc_html__( 'New product?', 'supro' ),
-				'description' => esc_html__( 'Enable to set this product as a new product. A "New" badge will be added to this product.', 'supro' ),
+				'label'       => esc_html__( 'New product?', 'toffedassen' ),
+				'description' => esc_html__( 'Enable to set this product as a new product. A "New" badge will be added to this product.', 'toffedassen' ),
 			)
 		);
 

@@ -34,7 +34,7 @@ class Toffedassen_Social_Links_Widget extends WP_Widget {
 			'rss'        => esc_html__( 'RSS', 'toffedassen' )
 		);
 
-		$this->socials = apply_filters( 'supro_social_media', $socials );
+		$this->socials = apply_filters( 'toffedassen_social_media', $socials );
 		$this->default = array(
 			'title' => '',
 			'style' => 'style-1',

@@ -31,11 +31,11 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 
 			<?php /* Start the Loop */ ?>
 
-			<div class="supro-blog-content">
+			<div class="toffedassen-blog-content">
 				<?php if ( 'grid' == $blog_style ) : ?>
 					<div class="row">
 				<?php endif ?>
-					<div class="supro-post-list">
+					<div class="toffedassen-post-list">
 						<?php while ( have_posts() ) : the_post(); ?>
 
 							<?php

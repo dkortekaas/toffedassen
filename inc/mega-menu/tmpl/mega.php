@@ -2,13 +2,13 @@
 	<p class="mr-tamm-panel-box">
 		<label>
 			<input type="checkbox" name="<%= taMegaMenu.getFieldName( 'mega', data['menu-item-db-id'] ) %>" value="1" <% if ( megaData.mega ) { print( 'checked="checked"' ); } %> >
-			<?php esc_html_e( 'Mega Menu', 'supro' ) ?>
+			<?php esc_html_e( 'Mega Menu', 'toffedassen' ) ?>
 		</label>
 	</p>
 
 	<p class="mr-tamm-panel-box-large">
 		<label>
-			<?php esc_html_e( 'Mega Width', 'supro' ) ?><br>
+			<?php esc_html_e( 'Mega Width', 'toffedassen' ) ?><br>
 			<input type="text" name="<%= taMegaMenu.getFieldName( 'mega_width', data['menu-item-db-id'] ) %>" placeholder="100%" value="<%= megaData.mega_width %>">
 		</label>
 	</p>

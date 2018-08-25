@@ -48,7 +48,7 @@ function toffedassen_comment( $comment, $args, $depth ) {
 		?>
 
 		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'supro' ); ?></em>
+			<em class="comment-awaiting-moderation"><?php esc_html_e( 'Your comment is awaiting moderation.', 'toffedassen' ); ?></em>
 		<?php endif; ?>
 		</div>
 		<div class="comment-content">
@@ -56,8 +56,8 @@ function toffedassen_comment( $comment, $args, $depth ) {
 		</div>
 
 		<?php
-		comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => esc_html__( 'Reply', 'supro' ) ) ) );
-		edit_comment_link( esc_html__( 'Edit', 'supro' ), '  ', '' );
+		comment_reply_link( array_merge( $args, array( 'add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth'], 'reply_text' => esc_html__( 'Reply', 'toffedassen' ) ) ) );
+		edit_comment_link( esc_html__( 'Edit', 'toffedassen' ), '  ', '' );
 		?>
 	</div>
 	<?php if ( 'div' != $args['style'] ) : ?>
@@ -76,15 +76,15 @@ function toffedassen_comment_form( $fields ) {
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 
 	$fields['author'] = '<p class="comment-form-author">
-						<input id="author" placeholder="' . esc_attr__( 'Name', 'supro' ) . '" required name="author" type="text" value="' .
+						<input id="author" placeholder="' . esc_attr__( 'Name', 'toffedassen' ) . '" required name="author" type="text" value="' .
 		esc_attr( $commenter['comment_author'] ) . '" size="30" />'.
 		'</p>';
 	$fields['email'] = '<p class="comment-form-email">
-						<input id="email" placeholder="' . esc_attr__( 'Email', 'supro' ) . '" required name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+						<input id="email" placeholder="' . esc_attr__( 'Email', 'toffedassen' ) . '" required name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
 		'" size="30" />'  .
 		'</p>';
 	$fields['url'] = '<p class="comment-form-url">
-					 <input id="url" name="url" placeholder="' . esc_attr__( 'Website', 'supro' ) . '" type="text" size="30" /> ' .
+					 <input id="url" name="url" placeholder="' . esc_attr__( 'Website', 'toffedassen' ) . '" type="text" size="30" /> ' .
 		'</p>';
 	$fields['clear'] = '<div class="clearfix"></div>';
 

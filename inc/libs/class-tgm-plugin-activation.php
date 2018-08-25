@@ -331,77 +331,77 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
             // Load class strings.
             $this->strings = array(
-                'page_title'                      => esc_html__( 'Install Required Plugins', 'supro' ),
-                'menu_title'                      => esc_html__( 'Install Plugins', 'supro' ),
+                'page_title'                      => esc_html__( 'Install Required Plugins', 'toffedassen' ),
+                'menu_title'                      => esc_html__( 'Install Plugins', 'toffedassen' ),
                 /* translators: %s: plugin name. */
-                'installing'                      => esc_html__( 'Installing Plugin: %s', 'supro' ),
+                'installing'                      => esc_html__( 'Installing Plugin: %s', 'toffedassen' ),
                 /* translators: %s: plugin name. */
-                'updating'                        => esc_html__( 'Updating Plugin: %s', 'supro' ),
-                'oops'                            => esc_html__( 'Something went wrong with the plugin API.', 'supro' ),
+                'updating'                        => esc_html__( 'Updating Plugin: %s', 'toffedassen' ),
+                'oops'                            => esc_html__( 'Something went wrong with the plugin API.', 'toffedassen' ),
                 'notice_can_install_required'     => _n_noop(
                 /* translators: 1: plugin name(s). */
                     'This theme requires the following plugin: %1$s.',
                     'This theme requires the following plugins: %1$s.',
-                    'supro'
+                    'toffedassen'
                 ),
                 'notice_can_install_recommended'  => _n_noop(
                 /* translators: 1: plugin name(s). */
                     'This theme recommends the following plugin: %1$s.',
                     'This theme recommends the following plugins: %1$s.',
-                    'supro'
+                    'toffedassen'
                 ),
                 'notice_ask_to_update'            => _n_noop(
                 /* translators: 1: plugin name(s). */
                     'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
                     'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-                    'supro'
+                    'toffedassen'
                 ),
                 'notice_ask_to_update_maybe'      => _n_noop(
                 /* translators: 1: plugin name(s). */
                     'There is an update available for: %1$s.',
                     'There are updates available for the following plugins: %1$s.',
-                    'supro'
+                    'toffedassen'
                 ),
                 'notice_can_activate_required'    => _n_noop(
                 /* translators: 1: plugin name(s). */
                     'The following required plugin is currently inactive: %1$s.',
                     'The following required plugins are currently inactive: %1$s.',
-                    'supro'
+                    'toffedassen'
                 ),
                 'notice_can_activate_recommended' => _n_noop(
                 /* translators: 1: plugin name(s). */
                     'The following recommended plugin is currently inactive: %1$s.',
                     'The following recommended plugins are currently inactive: %1$s.',
-                    'supro'
+                    'toffedassen'
                 ),
                 'install_link'                    => _n_noop(
                     'Begin installing plugin',
                     'Begin installing plugins',
-                    'supro'
+                    'toffedassen'
                 ),
                 'update_link'                     => _n_noop(
                     'Begin updating plugin',
                     'Begin updating plugins',
-                    'supro'
+                    'toffedassen'
                 ),
                 'activate_link'                   => _n_noop(
                     'Begin activating plugin',
                     'Begin activating plugins',
-                    'supro'
+                    'toffedassen'
                 ),
-                'return'                          => esc_html__( 'Return to Required Plugins Installer', 'supro' ),
-                'dashboard'                       => esc_html__( 'Return to the Dashboard', 'supro' ),
-                'plugin_activated'                => esc_html__( 'Plugin activated successfully.', 'supro' ),
-                'activated_successfully'          => esc_html__( 'The following plugin was activated successfully:', 'supro' ),
+                'return'                          => esc_html__( 'Return to Required Plugins Installer', 'toffedassen' ),
+                'dashboard'                       => esc_html__( 'Return to the Dashboard', 'toffedassen' ),
+                'plugin_activated'                => esc_html__( 'Plugin activated successfully.', 'toffedassen' ),
+                'activated_successfully'          => esc_html__( 'The following plugin was activated successfully:', 'toffedassen' ),
                 /* translators: 1: plugin name. */
-                'plugin_already_active'           => esc_html__( 'No action taken. Plugin %1$s was already active.', 'supro' ),
+                'plugin_already_active'           => esc_html__( 'No action taken. Plugin %1$s was already active.', 'toffedassen' ),
                 /* translators: 1: plugin name. */
-                'plugin_needs_higher_version'     => esc_html__( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'supro' ),
+                'plugin_needs_higher_version'     => esc_html__( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'toffedassen' ),
                 /* translators: 1: dashboard link. */
-                'complete'                        => esc_html__( 'All plugins installed and activated successfully. %1$s', 'supro' ),
-                'dismiss'                         => esc_html__( 'Dismiss this notice', 'supro' ),
-                'notice_cannot_install_activate'  => esc_html__( 'There are one or more required or recommended plugins to install, update or activate.', 'supro' ),
-                'contact_admin'                   => esc_html__( 'Please contact the administrator of this site for help.', 'supro' ),
+                'complete'                        => esc_html__( 'All plugins installed and activated successfully. %1$s', 'toffedassen' ),
+                'dismiss'                         => esc_html__( 'Dismiss this notice', 'toffedassen' ),
+                'notice_cannot_install_activate'  => esc_html__( 'There are one or more required or recommended plugins to install, update or activate.', 'toffedassen' ),
+                'contact_admin'                   => esc_html__( 'Please contact the administrator of this site for help.', 'toffedassen' ),
             );
 
             do_action( 'tgmpa_register' );
@@ -604,8 +604,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
             $actions['update'] = sprintf(
                 '<a href="%1$s" title="%2$s" class="edit">%3$s</a>',
                 esc_url( $this->get_tgmpa_status_url( 'update' ) ),
-                esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'supro' ),
-                esc_html__( 'Update Required', 'supro' )
+                esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'toffedassen' ),
+                esc_html__( 'Update Required', 'toffedassen' )
             );
 
             return $actions;
@@ -909,7 +909,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
                 // Display message based on if all plugins are now active or not.
                 if ( $this->is_tgmpa_complete() ) {
-                    echo '<p>', sprintf( esc_html( $this->strings['complete'] ), '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'supro' ) . '</a>' ), '</p>';
+                    echo '<p>', sprintf( esc_html( $this->strings['complete'] ), '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'toffedassen' ) . '</a>' ), '</p>';
                     echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                 } else {
                     echo '<p><a href="', esc_url( $this->get_tgmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
@@ -1016,10 +1016,10 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     if ( true === $GLOBALS['wp_filesystem']->move( $from_path, $to_path ) ) {
                         return trailingslashit( $to_path );
                     } else {
-                        return new WP_Error( 'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'supro' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'supro' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
+                        return new WP_Error( 'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'toffedassen' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'toffedassen' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
                     }
                 } elseif ( empty( $subdir_name ) ) {
-                    return new WP_Error( 'packaged_wrong', esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'supro' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'supro' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
+                    return new WP_Error( 'packaged_wrong', esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'toffedassen' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'toffedassen' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
                 }
             }
 
@@ -1203,7 +1203,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                         $count          = count( $plugin_group );
                         $linked_plugins = array_map( array( 'TGMPA_Utils', 'wrap_in_em' ), $linked_plugins );
                         $last_plugin    = array_pop( $linked_plugins ); // Pop off last name to prep for readability.
-                        $imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'supro' ) . ' ' . $last_plugin );
+                        $imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'toffedassen' ) . ' ' . $last_plugin );
 
                         $rendered .= sprintf(
                             $line_template,
@@ -2064,7 +2064,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
             esc_html(
                 sprintf(
                 /* translators: %s: version number */
-                    esc_html__( 'TGMPA v%s', 'supro' ),
+                    esc_html__( 'TGMPA v%s', 'toffedassen' ),
                     self::TGMPA_VERSION
                 )
             ),
@@ -2355,10 +2355,10 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          */
         protected function get_plugin_advise_type_text( $required ) {
             if ( true === $required ) {
-                return esc_html__( 'Required', 'supro' );
+                return esc_html__( 'Required', 'toffedassen' );
             }
 
-            return esc_html__( 'Recommended', 'supro' );
+            return esc_html__( 'Recommended', 'toffedassen' );
         }
 
         /**
@@ -2374,13 +2374,13 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             switch ( $type ) {
                 case 'repo':
-                    $string = esc_html__( 'WordPress Repository', 'supro' );
+                    $string = esc_html__( 'WordPress Repository', 'toffedassen' );
                     break;
                 case 'external':
-                    $string = esc_html__( 'External Source', 'supro' );
+                    $string = esc_html__( 'External Source', 'toffedassen' );
                     break;
                 case 'bundled':
-                    $string = esc_html__( 'Pre-Packaged', 'supro' );
+                    $string = esc_html__( 'Pre-Packaged', 'toffedassen' );
                     break;
             }
 
@@ -2397,25 +2397,25 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          */
         protected function get_plugin_status_text( $slug ) {
             if ( ! $this->tgmpa->is_plugin_installed( $slug ) ) {
-                return esc_html__( 'Not Installed', 'supro' );
+                return esc_html__( 'Not Installed', 'toffedassen' );
             }
 
             if ( ! $this->tgmpa->is_plugin_active( $slug ) ) {
-                $install_status = esc_html__( 'Installed But Not Activated', 'supro' );
+                $install_status = esc_html__( 'Installed But Not Activated', 'toffedassen' );
             } else {
-                $install_status = esc_html__( 'Active', 'supro' );
+                $install_status = esc_html__( 'Active', 'toffedassen' );
             }
 
             $update_status = '';
 
             if ( $this->tgmpa->does_plugin_require_update( $slug ) && false === $this->tgmpa->does_plugin_have_update( $slug ) ) {
-                $update_status = esc_html__( 'Required Update not Available', 'supro' );
+                $update_status = esc_html__( 'Required Update not Available', 'toffedassen' );
 
             } elseif ( $this->tgmpa->does_plugin_require_update( $slug ) ) {
-                $update_status = esc_html__( 'Requires Update', 'supro' );
+                $update_status = esc_html__( 'Requires Update', 'toffedassen' );
 
             } elseif ( false !== $this->tgmpa->does_plugin_have_update( $slug ) ) {
-                $update_status = esc_html__( 'Update recommended', 'supro' );
+                $update_status = esc_html__( 'Update recommended', 'toffedassen' );
             }
 
             if ( '' === $update_status ) {
@@ -2424,7 +2424,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             return sprintf(
             /* translators: 1: install status, 2: update status */
-                _x( '%1$s, %2$s', 'Install/Update Status', 'supro' ),
+                _x( '%1$s, %2$s', 'Install/Update Status', 'toffedassen' ),
                 $install_status,
                 $update_status
             );
@@ -2470,19 +2470,19 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 switch ( $type ) {
                     case 'all':
                         /* translators: 1: number of plugins. */
-                        $text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'supro' );
+                        $text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'toffedassen' );
                         break;
                     case 'install':
                         /* translators: 1: number of plugins. */
-                        $text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'supro' );
+                        $text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'toffedassen' );
                         break;
                     case 'update':
                         /* translators: 1: number of plugins. */
-                        $text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'supro' );
+                        $text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'toffedassen' );
                         break;
                     case 'activate':
                         /* translators: 1: number of plugins. */
-                        $text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'supro' );
+                        $text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'toffedassen' );
                         break;
                     default:
                         $text = '';
@@ -2564,7 +2564,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             $output = array();
 
             if ( $this->tgmpa->is_plugin_installed( $item['slug'] ) ) {
-                $installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'supro' );
+                $installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'toffedassen' );
 
                 $color = '';
                 if ( ! empty( $item['minimum_version'] ) && $this->tgmpa->does_plugin_require_update( $item['slug'] ) ) {
@@ -2572,7 +2572,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 }
 
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Installed version:', 'supro' ) . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Installed version:', 'toffedassen' ) . '</p>',
                     $color,
                     $installed
                 );
@@ -2580,7 +2580,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             if ( ! empty( $item['minimum_version'] ) ) {
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . esc_html__( 'Minimum required version:', 'supro' ) . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . esc_html__( 'Minimum required version:', 'toffedassen' ) . '</p>',
                     $item['minimum_version']
                 );
             }
@@ -2592,7 +2592,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 }
 
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Available version:', 'supro' ) . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Available version:', 'toffedassen' ) . '</p>',
                     $color,
                     $item['available_version']
                 );
@@ -2615,7 +2615,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          * @since 2.2.0
          */
         public function no_items() {
-            echo esc_html__( 'No plugins to install, update or activate.', 'supro' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html__( 'Return to the Dashboard', 'supro' ) . '</a>';
+            echo esc_html__( 'No plugins to install, update or activate.', 'toffedassen' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html__( 'Return to the Dashboard', 'toffedassen' ) . '</a>';
             echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
         }
 
@@ -2629,14 +2629,14 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
         public function get_columns() {
             $columns = array(
                 'cb'     => '<input type="checkbox" />',
-                'plugin' => esc_html__( 'Plugin', 'supro' ),
-                'source' => esc_html__( 'Source', 'supro' ),
-                'type'   => esc_html__( 'Type', 'supro' ),
+                'plugin' => esc_html__( 'Plugin', 'toffedassen' ),
+                'source' => esc_html__( 'Source', 'toffedassen' ),
+                'type'   => esc_html__( 'Type', 'toffedassen' ),
             );
 
             if ( 'all' === $this->view_context || 'update' === $this->view_context ) {
-                $columns['version'] = esc_html__( 'Version', 'supro' );
-                $columns['status']  = esc_html__( 'Status', 'supro' );
+                $columns['version'] = esc_html__( 'Version', 'toffedassen' );
+                $columns['status']  = esc_html__( 'Status', 'toffedassen' );
             }
 
             return apply_filters( 'tgmpa_table_columns', $columns );
@@ -2685,18 +2685,18 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             // Display the 'Install' action link if the plugin is not yet available.
             if ( ! $this->tgmpa->is_plugin_installed( $item['slug'] ) ) {
                 /* translators: %2$s: plugin name in screen reader markup */
-                $actions['install'] = esc_html__( 'Install %2$s', 'supro' );
+                $actions['install'] = esc_html__( 'Install %2$s', 'toffedassen' );
             } else {
                 // Display the 'Update' action link if an update is available and WP complies with plugin minimum.
                 if ( false !== $this->tgmpa->does_plugin_have_update( $item['slug'] ) && $this->tgmpa->can_plugin_update( $item['slug'] ) ) {
                     /* translators: %2$s: plugin name in screen reader markup */
-                    $actions['update'] = esc_html__( 'Update %2$s', 'supro' );
+                    $actions['update'] = esc_html__( 'Update %2$s', 'toffedassen' );
                 }
 
                 // Display the 'Activate' action link, but only if the plugin meets the minimum version.
                 if ( $this->tgmpa->can_plugin_activate( $item['slug'] ) ) {
                     /* translators: %2$s: plugin name in screen reader markup */
-                    $actions['activate'] = esc_html__( 'Activate %2$s', 'supro' );
+                    $actions['activate'] = esc_html__( 'Activate %2$s', 'toffedassen' );
                 }
             }
 
@@ -2766,7 +2766,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				<tr class="plugin-update-tr">
 					<td colspan="', absint( $this->get_column_count() ), '" class="plugin-update colspanchange">
 						<div class="update-message">',
-            esc_html__( 'Upgrade message from the plugin author:', 'supro' ),
+            esc_html__( 'Upgrade message from the plugin author:', 'toffedassen' ),
             ' <strong>', wp_kses_data( $item['upgrade_notice'] ), '</strong>
 						</div>
 					</td>
@@ -2799,16 +2799,16 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             if ( 'update' !== $this->view_context && 'activate' !== $this->view_context ) {
                 if ( current_user_can( 'install_plugins' ) ) {
-                    $actions['tgmpa-bulk-install'] = esc_html__( 'Install', 'supro' );
+                    $actions['tgmpa-bulk-install'] = esc_html__( 'Install', 'toffedassen' );
                 }
             }
 
             if ( 'install' !== $this->view_context ) {
                 if ( current_user_can( 'update_plugins' ) ) {
-                    $actions['tgmpa-bulk-update'] = esc_html__( 'Update', 'supro' );
+                    $actions['tgmpa-bulk-update'] = esc_html__( 'Update', 'toffedassen' );
                 }
                 if ( current_user_can( 'activate_plugins' ) ) {
-                    $actions['tgmpa-bulk-activate'] = esc_html__( 'Activate', 'supro' );
+                    $actions['tgmpa-bulk-activate'] = esc_html__( 'Activate', 'toffedassen' );
                 }
             }
 
@@ -2839,9 +2839,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 // Did user actually select any plugins to install/update ?
                 if ( empty( $_POST['plugin'] ) ) {
                     if ( 'install' === $install_type ) {
-                        $message = esc_html__( 'No plugins were selected to be installed. No action taken.', 'supro' );
+                        $message = esc_html__( 'No plugins were selected to be installed. No action taken.', 'toffedassen' );
                     } else {
-                        $message = esc_html__( 'No plugins were selected to be updated. No action taken.', 'supro' );
+                        $message = esc_html__( 'No plugins were selected to be updated. No action taken.', 'toffedassen' );
                     }
 
                     echo '<div id="message" class="error"><p>', esc_html( $message ), '</p></div>';
@@ -2882,9 +2882,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 // No need to proceed further if we have no plugins to handle.
                 if ( empty( $plugins_to_install ) ) {
                     if ( 'install' === $install_type ) {
-                        $message = esc_html__( 'No plugins are available to be installed at this time.', 'supro' );
+                        $message = esc_html__( 'No plugins are available to be installed at this time.', 'toffedassen' );
                     } else {
-                        $message = esc_html__( 'No plugins are available to be updated at this time.', 'supro' );
+                        $message = esc_html__( 'No plugins are available to be updated at this time.', 'toffedassen' );
                     }
 
                     echo '<div id="message" class="error"><p>', esc_html( $message ), '</p></div>';
@@ -2990,7 +2990,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
                 // Did user actually select any plugins to activate ?
                 if ( empty( $_POST['plugin'] ) ) {
-                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins were selected to be activated. No action taken.', 'supro' ), '</p></div>';
+                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins were selected to be activated. No action taken.', 'toffedassen' ), '</p></div>';
 
                     return false;
                 }
@@ -3016,7 +3016,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
                 // Return early if there are no plugins to activate.
                 if ( empty( $plugins_to_activate ) ) {
-                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins are available to be activated at this time.', 'supro' ), '</p></div>';
+                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins are available to be activated at this time.', 'toffedassen' ), '</p></div>';
 
                     return false;
                 }
@@ -3030,11 +3030,11 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                     $count        = count( $plugin_names ); // Count so we can use _n function.
                     $plugin_names = array_map( array( 'TGMPA_Utils', 'wrap_in_strong' ), $plugin_names );
                     $last_plugin  = array_pop( $plugin_names ); // Pop off last name to prep for readability.
-                    $imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'supro' ) . ' ' . $last_plugin );
+                    $imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'toffedassen' ) . ' ' . $last_plugin );
 
                     printf( // WPCS: xss ok.
                         '<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
-                        esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'supro' ) ),
+                        esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'toffedassen' ) ),
                         $imploded
                     );
 
@@ -3240,8 +3240,8 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
                      * @since 2.2.0
                      */
                     public function activate_strings() {
-                        $this->strings['activation_failed']  = esc_html__( 'Plugin activation failed.', 'supro' );
-                        $this->strings['activation_success'] = esc_html__( 'Plugin activated successfully.', 'supro' );
+                        $this->strings['activation_failed']  = esc_html__( 'Plugin activation failed.', 'toffedassen' );
+                        $this->strings['activation_success'] = esc_html__( 'Plugin activated successfully.', 'toffedassen' );
                     }
 
                     /**
@@ -3580,29 +3580,29 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
                         if ( 'update' === $this->options['install_type'] ) {
                             parent::add_strings();
                             /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                            $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Updating Plugin %1$s (%2$d/%3$d)', 'supro' );
+                            $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Updating Plugin %1$s (%2$d/%3$d)', 'toffedassen' );
                         } else {
                             /* translators: 1: plugin name, 2: error message. */
-                            $this->upgrader->strings['skin_update_failed_error'] = esc_html__( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'supro' );
+                            $this->upgrader->strings['skin_update_failed_error'] = esc_html__( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'toffedassen' );
                             /* translators: 1: plugin name. */
-                            $this->upgrader->strings['skin_update_failed'] = esc_html__( 'The installation of %1$s failed.', 'supro' );
+                            $this->upgrader->strings['skin_update_failed'] = esc_html__( 'The installation of %1$s failed.', 'toffedassen' );
 
                             if ( $this->tgmpa->is_automatic ) {
                                 // Automatic activation strings.
-                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'supro' );
+                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'toffedassen' );
                                 /* translators: 1: plugin name. */
-                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed and activated successfully.', 'supro' );
-                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations and activations have been completed.', 'supro' );
+                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed and activated successfully.', 'toffedassen' );
+                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations and activations have been completed.', 'toffedassen' );
                                 /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'supro' );
+                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'toffedassen' );
                             } else {
                                 // Default installation strings.
-                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'supro' );
+                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'toffedassen' );
                                 /* translators: 1: plugin name. */
-                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed successfully.', 'supro' );
-                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations have been completed.', 'supro' );
+                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed successfully.', 'toffedassen' );
+                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations have been completed.', 'toffedassen' );
                                 /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing Plugin %1$s (%2$d/%3$d)', 'supro' );
+                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing Plugin %1$s (%2$d/%3$d)', 'toffedassen' );
                             }
                         }
                     }
@@ -3662,7 +3662,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
                             echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                             $update_actions['dashboard'] = sprintf(
                                 esc_html( $this->tgmpa->strings['complete'] ),
-                                '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'supro' ) . '</a>'
+                                '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'toffedassen' ) . '</a>'
                             );
                         } else {
                             $update_actions['tgmpa_page'] = '<a href="' . esc_url( $this->tgmpa->get_tgmpa_url() ) . '" target="_parent">' . esc_html( $this->tgmpa->strings['return'] ) . '</a>';

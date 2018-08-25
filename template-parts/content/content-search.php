@@ -1,10 +1,10 @@
 <?php
 /**
- * @package Supro
+ * @package toffedassen
  */
 
-$size = 'supro-blog-list';
-$excerpt_length = intval( supro_get_option( 'excerpt_length' ) );
+$size = 'toffedassen-blog-list';
+$excerpt_length = intval( toffedassen_get_option( 'excerpt_length' ) );
 
 ?>
 
@@ -19,9 +19,9 @@ $excerpt_length = intval( supro_get_option( 'excerpt_length' ) );
 		<div class="entry-summary">
 			<div class="entry-header">
 				<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-				<?php supro_entry_meta() ?>
+				<?php toffedassen_entry_meta() ?>
 			</div>
-			<div class="entry-excerpt"><?php echo supro_content_limit( $excerpt_length, '' ); ?></div>
+			<div class="entry-excerpt"><?php echo toffedassen_content_limit( $excerpt_length, '' ); ?></div>
 
 		</div><!-- .entry-content -->
 	</div>

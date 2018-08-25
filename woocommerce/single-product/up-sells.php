@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$upsell_title = supro_get_option( 'product_upsells_title' );
-$columns      = intval( supro_get_option( 'upsells_products_columns' ) );
+$upsell_title = toffedassen_get_option( 'product_upsells_title' );
+$columns      = intval( toffedassen_get_option( 'upsells_products_columns' ) );
 
 if ( $upsells ) : ?>
 

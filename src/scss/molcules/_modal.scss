@@ -27,7 +27,7 @@
 
 }
 
-.supro-modal {
+.toffedassen-modal {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -101,7 +101,7 @@
 .header-layout-3,
 .header-layout-4,
 .header-layout-5 {
-	.supro-modal.open {
+	.toffedassen-modal.open {
 		z-index: 999;
 		padding-top: 40px;
 		padding-bottom: 40px;
@@ -386,7 +386,7 @@
 .quick-view-modal {
 	background: rgba(35, 35, 44, .5);
 
-	.supro-loader {
+	.toffedassen-loader {
 		display: none;
 		position: absolute;
 		top: 50%;
@@ -403,7 +403,7 @@
 		}
 	}
 
-	&.loading .supro-loader {
+	&.loading .toffedassen-loader {
 		display: block;
 	}
 
@@ -556,7 +556,7 @@
 	z-index: 99999;
 }
 
-.notifyjs-supro-base {
+.notifyjs-toffedassen-base {
 	font-weight: 400;
 	position: relative;
 	padding: 15px 40px 15px 60px;
@@ -592,7 +592,7 @@
 	}
 }
 
-.notifyjs-supro-success {
+.notifyjs-toffedassen-success {
 	color: #299c77;
 	background-color: #bff9d0;
 
@@ -601,7 +601,7 @@
 		stroke: #299c77;
 	}
 }
-.notifyjs-supro-error {
+.notifyjs-toffedassen-error {
 	color: #d45757;
 	background-color: #ffd0d0;
 
@@ -654,7 +654,7 @@
 		}
 	}
 
-	&.supro-modal {
+	&.toffedassen-modal {
 		.close-modal {
 			position: absolute;
 			z-index: 999;

@@ -17,7 +17,7 @@
 				<i class="t-icon icon-magnifier"></i>
 			</form>
 			<div class="loading">
-				<span class="supro-loader"></span>
+				<span class="toffedassen-loader"></span>
 			</div>
 			<div class="search-results">
 				<div class="woocommerce"></div>

@@ -13,24 +13,24 @@
  *
  * @return string
  */
-if ( ! function_exists( 'toffedassen_nav_menu' ) ) :
-	function toffedassen_nav_menu() {
-		$color   = toffedassen_get_option( 'menu_hover_color' );
-		$class   = array( 'menu', $color );
-		$classes = implode( ' ', $class );
 
-		if ( has_nav_menu( 'primary' ) ) {
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'container'      => false,
-					'walker'         => new toffedassen_Mega_Menu_Walker(),
-					'menu_class'     => $classes,
-				)
-			);
-		}
+function toffedassen_nav_menu() {
+	$color   = toffedassen_get_option( 'menu_hover_color' );
+	$class   = array( 'menu', $color );
+	$classes = implode( ' ', $class );
+
+	if ( has_nav_menu( 'primary' ) ) {
+		wp_nav_menu(
+			array(
+				'theme_location' => 'primary',
+				'container'      => false,
+				'walker'         => new toffedassen_Mega_Menu_Walker(),
+				'menu_class'     => $classes,
+			)
+		);
 	}
-endif;
+}
+
 
 /**
  * Get Menu extra cart
@@ -58,7 +58,7 @@ if ( ! function_exists( 'toffedassen_extra_cart' ) ) :
 
 		$cart_html = esc_html( get_post_meta( get_the_ID(), 'header_cart_text', true ) );
 
-		$cart_html = $cart_html ? $cart_html : esc_html__( 'Shopping Cart', 'supro' );
+		$cart_html = $cart_html ? $cart_html : esc_html__( 'Shopping Cart', 'toffedassen' );
 
 		printf(
 			'<li class="menu-item-cart extra-menu-item">
@@ -117,13 +117,13 @@ if ( ! function_exists( 'toffedassen_extra_search' ) ) :
 			'<i class="t-icon icon-magnifier"></i>' .
 			'</form>' .
 			'<div class="loading">' .
-			'<span class="supro-loader"></span>' .
+			'<span class="toffedassen-loader"></span>' .
 			'</div>' .
 			'<div class="search-results">' .
 			'<div class="woocommerce"></div>' .
 			'</div>',
 			esc_url( home_url( '/' ) ),
-			esc_html__( 'Start Searching', 'supro' ),
+			esc_html__( 'Start Searching', 'toffedassen' ),
 			$post_type_html
 		);
 
@@ -165,7 +165,7 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 					<a href="%s">%s</a>
 				</li>',
 				esc_url( get_permalink( get_option( 'yith_wcwl_wishlist_page_id' ) ) ),
-				esc_html__( 'My Wishlist', 'supro' )
+				esc_html__( 'My Wishlist', 'toffedassen' )
 			);
 		}
 
@@ -177,7 +177,7 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 
 		$acc_label = esc_html( get_post_meta( get_the_ID(), 'header_account_text', true ) );
 
-		$acc_label = $acc_label ? $acc_label : esc_html__( 'My Account', 'supro' );
+		$acc_label = $acc_label ? $acc_label : esc_html__( 'My Account', 'toffedassen' );
 
 		$icon_acc = '<i class="t-icon icon-user"></i>';
 		$icon_acc = apply_filters( 'toffedassen_icon_account', $icon_acc );
@@ -215,11 +215,11 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 				$acc_html,
 				$wishlist,
 				esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ),
-				esc_html__( 'Account Settings', 'supro' ),
+				esc_html__( 'Account Settings', 'toffedassen' ),
 				esc_url( $account ),
-				esc_html__( 'Orders History', 'supro' ),
+				esc_html__( 'Orders History', 'toffedassen' ),
 				esc_url( wp_logout_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) ),
-				esc_html__( 'Logout', 'supro' )
+				esc_html__( 'Logout', 'toffedassen' )
 			);
 		} else {
 
@@ -257,7 +257,7 @@ if ( ! function_exists( 'toffedassen_extra_wishlist' ) ) :
 
 		$wishlist_label = esc_html( get_post_meta( get_the_ID(), 'header_wishlist_text', true ) );
 
-		$wishlist_label = $wishlist_label ? $wishlist_label : esc_html__( 'My Wishlist', 'supro' );
+		$wishlist_label = $wishlist_label ? $wishlist_label : esc_html__( 'My Wishlist', 'toffedassen' );
 
 		$icon_wishlist = '<i class="t-icon icon-heart"></i>';
 		$icon_wishlist = apply_filters( 'toffedassen_icon_wishlist', $icon_wishlist );

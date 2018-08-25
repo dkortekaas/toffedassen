@@ -51,7 +51,7 @@
     &.content-sidebar,
     &.sidebar-content {
         div.product {
-            &.supro-product-layout-1 {
+            &.toffedassen-product-layout-1 {
                 .product-summary {
                     padding-left: 55px;
                 }
@@ -101,7 +101,7 @@
         }
     }
 
-    .supro-shop-content {
+    .toffedassen-shop-content {
         position: relative;
     }
 
@@ -304,7 +304,7 @@
                         opacity: 0;
                     }
                     &:after {
-                        @include supro-small-loading();
+                        @include toffedassen-small-loading();
                         position: absolute;
                         top: 10px;
                         left: 0;
@@ -334,7 +334,7 @@
                     }
                 }
 
-                .supro-product-quick-view {
+                .toffedassen-product-quick-view {
                     color: #bbb;
                     float: right;
                     text-align: center;
@@ -374,7 +374,7 @@
 
                     &.loading {
                         &:after {
-                            @include supro-small-loading();
+                            @include toffedassen-small-loading();
                         }
                     }
 
@@ -754,7 +754,7 @@
             }
         }
 
-        .supro-single-product-detail {
+        .toffedassen-single-product-detail {
             padding-bottom: 30px;
             margin-bottom: 70px;
         }
@@ -960,7 +960,7 @@
             }
         }
 
-        .supro-social-share {
+        .toffedassen-social-share {
             li {
                 padding: 0 10px;
 
@@ -1021,7 +1021,7 @@
                         opacity: 0;
                     }
                     &:after {
-                        @include supro-small-loading();
+                        @include toffedassen-small-loading();
                         position: absolute;
                         top: 15px;
                         left: 14px;
@@ -1056,7 +1056,7 @@
             }
         }
 
-        .supro-wishlist-button {
+        .toffedassen-wishlist-button {
             .yith-wcwl-add-to-wishlist {
                 display: block;
                 margin-top: 0;
@@ -1075,7 +1075,7 @@
                 letter-spacing: 2px;
 
                 &:after {
-                    @include supro-small-loading();
+                    @include toffedassen-small-loading();
                     border-color: #fff #fff #fff transparent;
                     opacity: 0;
                     top: 16px;
@@ -1397,7 +1397,7 @@
                 flex-direction: row-reverse;
                 justify-content: space-between;
 
-                .supro-wishlist-button .yith-wcwl-add-to-wishlist {
+                .toffedassen-wishlist-button .yith-wcwl-add-to-wishlist {
                     margin-left: 0;
                 }
 
@@ -1473,7 +1473,7 @@
                 margin-right: 10px;
             }
 
-            .supro-wishlist-button .yith-wcwl-add-to-wishlist {
+            .toffedassen-wishlist-button .yith-wcwl-add-to-wishlist {
                 margin-left: 0;
             }
         }
@@ -1627,7 +1627,7 @@
                         text-align: left;
                         font-size: 14px;
 
-                        .supro-attr-value {
+                        .toffedassen-attr-value {
                             display: inline-block;
                             padding-left: 5px;
                         }
@@ -2489,7 +2489,7 @@
             }
         }
 
-        &.supro-woocommerce-pagination {
+        &.toffedassen-woocommerce-pagination {
             .next,
             .prev {
                 font-size: 16px;
@@ -2651,7 +2651,7 @@
                 }
             }
         }
-        .supro_attributes_filter,
+        .toffedassen_attributes_filter,
         .widget_layered_nav_filters {
             ul li {
                 display: block;
@@ -2752,14 +2752,14 @@
         }
     }
 
-    .supro-catalog-filter-mobile {
+    .toffedassen-catalog-filter-mobile {
         display: none;
     }
 
     &.content-sidebar,
     &.sidebar-content {
-        .supro-catalog-filter,
-        .supro-catalog-filter-mobile {
+        .toffedassen-catalog-filter,
+        .toffedassen-catalog-filter-mobile {
             display: none;
         }
     }
@@ -2807,8 +2807,8 @@
             }
         }
 
-        .supro-catalog-filter,
-        .supro-catalog-filter-mobile {
+        .toffedassen-catalog-filter,
+        .toffedassen-catalog-filter-mobile {
             a {
                 font-weight: 500;
                 color: #222;
@@ -3034,7 +3034,7 @@
         }
     }
 
-    .supro-taxs-list {
+    .toffedassen-taxs-list {
         float: left;
         margin-right: 100px;
 
@@ -3105,7 +3105,7 @@
     }
 
     div.product {
-        .supro-single-product-detail {
+        .toffedassen-single-product-detail {
             margin-left: -15px;
             margin-right: -15px;
             margin-bottom: 90px;
@@ -3450,7 +3450,7 @@
         }
     }
 
-    .supro-single-product-detail {
+    .toffedassen-single-product-detail {
         @include clearfix();
     }
 
@@ -3787,7 +3787,7 @@
 }
 
 .woocommerce-checkout {
-    .supro-checkout-form-wrapper {
+    .toffedassen-checkout-form-wrapper {
         display: flex;
         justify-content: center;
         margin-bottom: 70px;
@@ -5003,7 +5003,7 @@
         max-width: 320px;
     }
 
-    .supro_attributes_filter {
+    .toffedassen_attributes_filter {
         ul li {
             display: block;
             width: 100%;
@@ -5151,7 +5151,7 @@
     }
 }
 
-.supro-catalog-page {
+.toffedassen-catalog-page {
     &.shop-view-list {
         ul.products {
             li.product {
@@ -5185,12 +5185,12 @@
                     }
                 }
 
-                .supro-product-categories-thumb {
+                .toffedassen-product-categories-thumb {
                     display: block;
                 }
 
                 .un-product-thumbnail,
-                .supro-product-categories-thumb {
+                .toffedassen-product-categories-thumb {
                     float: left;
                     margin-bottom: 0;
                     width: 40%;

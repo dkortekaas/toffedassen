@@ -33,16 +33,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php echo get_avatar( get_current_user_id(), 125 ); ?>
 				</li>
 				<li>
-					<?php printf( '<span class="m-title">%s %s</span>', esc_html__( 'Hello!', 'supro' ), $user->display_name ); ?>
+					<?php printf( '<span class="m-title">%s %s</span>', esc_html__( 'Hello!', 'toffedassen' ), $user->display_name ); ?>
 				</li>
 				<li>
-					<?php printf( '<span>%s:</span>%s', esc_html__( 'Full Name', 'supro' ), get_user_meta( get_current_user_id(), 'billing_first_name', true ) . ' ' . get_user_meta( get_current_user_id(), 'billing_last_name', true ) ); ?>
+					<?php printf( '<span>%s:</span>%s', esc_html__( 'Full Name', 'toffedassen' ), get_user_meta( get_current_user_id(), 'billing_first_name', true ) . ' ' . get_user_meta( get_current_user_id(), 'billing_last_name', true ) ); ?>
 				</li>
 				<li>
-					<?php printf( '<span>%s:</span>%s', esc_html__( 'Email', 'supro' ), $user->user_email ); ?>
+					<?php printf( '<span>%s:</span>%s', esc_html__( 'Email', 'toffedassen' ), $user->user_email ); ?>
 				</li>
 				<li>
-					<?php printf( '<span>%s:</span>%s', esc_html__( 'Phone', 'supro' ), get_user_meta( get_current_user_id(), 'billing_phone', true ) ); ?>
+					<?php printf( '<span>%s:</span>%s', esc_html__( 'Phone', 'toffedassen' ), get_user_meta( get_current_user_id(), 'billing_phone', true ) ); ?>
 				</li>
 				<li>
 					<?php
@@ -51,13 +51,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						$country = WC()->countries->countries[$country];
 					}
 					?>
-					<?php printf( '<span>%s:</span>%s', esc_html__( 'Country', 'supro' ), $country ) ?>
+					<?php printf( '<span>%s:</span>%s', esc_html__( 'Country', 'toffedassen' ), $country ) ?>
 				</li>
 				<li>
-					<?php printf( '<span>%s:</span>%s', esc_html__( 'Postcode', 'supro' ), get_user_meta( get_current_user_id(), 'billing_postcode', true ) ); ?>
+					<?php printf( '<span>%s:</span>%s', esc_html__( 'Postcode', 'toffedassen' ), get_user_meta( get_current_user_id(), 'billing_postcode', true ) ); ?>
 				</li>
 				<li>
-					<?php printf( '<a href="%s" class="m-button">%s</a>', esc_url( wc_get_endpoint_url( 'edit-account' ) ), esc_html__( 'Edit Profile', 'supro' ) ); ?>
+					<?php printf( '<a href="%s" class="m-button">%s</a>', esc_url( wc_get_endpoint_url( 'edit-account' ) ), esc_html__( 'Edit Profile', 'toffedassen' ) ); ?>
 				</li>
 			</ul>
 		<?php } ?>

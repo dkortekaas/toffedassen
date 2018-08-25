@@ -30,7 +30,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 				<?php if ( $is_custom_list ): ?>
                     <a class="btn button show-title-form">
 						<?php echo apply_filters( 'yith_wcwl_edit_title_icon', '<i class="fa fa-pencil"></i>' ) ?>
-						<?php esc_html_e( 'Edit title', 'supro' ) ?>
+						<?php esc_html_e( 'Edit title', 'toffedassen' ) ?>
                     </a>
 				<?php endif; ?>
             </div>
@@ -39,11 +39,11 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                 <input type="text" value="<?php echo esc_attr( $page_title ) ?>" name="wishlist_name"/>
                 <button>
 					<?php echo apply_filters( 'yith_wcwl_save_wishlist_title_icon', '<i class="fa fa-check"></i>' ) ?>
-					<?php esc_html_e( 'Save', 'supro' ) ?>
+					<?php esc_html_e( 'Save', 'toffedassen' ) ?>
                 </button>
                 <a class="hide-title-form btn button">
 					<?php echo apply_filters( 'yith_wcwl_cancel_wishlist_title_icon', '<i class="fa fa-remove"></i>' ) ?>
-					<?php esc_html_e( 'Cancel', 'supro' ) ?>
+					<?php esc_html_e( 'Cancel', 'toffedassen' ) ?>
                 </a>
             </div>
 		<?php endif; ?>
@@ -82,14 +82,14 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                 <th class="product-thumbnail"></th>
 
                 <th class="product-name">
-                    <span class="nobr"><?php echo apply_filters( 'yith_wcwl_wishlist_view_name_heading', esc_html__( 'Product', 'supro' ) ) ?></span>
+                    <span class="nobr"><?php echo apply_filters( 'yith_wcwl_wishlist_view_name_heading', esc_html__( 'Product', 'toffedassen' ) ) ?></span>
                 </th>
 
 				<?php if ( $show_price ) : ?>
 
                     <th class="product-price hidden-sm hidden-xs">
                     <span class="nobr">
-                        <?php echo apply_filters( 'yith_wcwl_wishlist_view_price_heading', esc_html__( 'Unit Price', 'supro' ) ) ?>
+                        <?php echo apply_filters( 'yith_wcwl_wishlist_view_price_heading', esc_html__( 'Unit Price', 'toffedassen' ) ) ?>
                     </span>
                     </th>
 
@@ -102,7 +102,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 
                     <th class="product-stock-status hidden-sm hidden-xs">
                     <span class="nobr">
-                        <?php echo apply_filters( 'yith_wcwl_wishlist_view_stock_heading', esc_html__( 'Stock Status', 'supro' ) ) ?>
+                        <?php echo apply_filters( 'yith_wcwl_wishlist_view_stock_heading', esc_html__( 'Stock Status', 'toffedassen' ) ) ?>
                     </span>
                     </th>
 
@@ -156,7 +156,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                                     <div>
                                         <a href="<?php echo esc_url( add_query_arg( 'remove_from_wishlist', $item['prod_id'] ) ) ?>"
                                            class="remove remove_from_wishlist"
-                                           title="<?php esc_html_e( 'Remove this product', 'supro' ) ?>">&times;</a>
+                                           title="<?php esc_html_e( 'Remove this product', 'toffedassen' ) ?>">&times;</a>
                                     </div>
                                 </td>
 							<?php endif; ?>
@@ -178,7 +178,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 									if ( $base_product ) {
 										echo wp_kses_post( $product->get_price_html() );
 									} else {
-										echo apply_filters( 'yith_free_text', esc_html__( 'Free!', 'supro' ) );
+										echo apply_filters( 'yith_free_text', esc_html__( 'Free!', 'toffedassen' ) );
 									}
 									?>
                                 </p>
@@ -187,9 +187,9 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                                 <p class="m-stock-status hidden-lg hidden-md">
 									<?php
 									if ( $stock_status == 'out-of-stock' ) {
-										echo '<span class="wishlist-out-of-stock">' . esc_html__( 'Out of Stock', 'supro' ) . '</span>';
+										echo '<span class="wishlist-out-of-stock">' . esc_html__( 'Out of Stock', 'toffedassen' ) . '</span>';
 									} else {
-										echo '<span class="wishlist-in-stock">' . esc_html__( 'In Stock', 'supro' ) . '</span>';
+										echo '<span class="wishlist-in-stock">' . esc_html__( 'In Stock', 'toffedassen' ) . '</span>';
 									} ?>
                                 </p>
                             </td>
@@ -201,7 +201,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 									if ( $base_product ) {
 										echo wp_kses_post( $product->get_price_html() );
 									} else {
-										echo apply_filters( 'yith_free_text', esc_html__( 'Free!', 'supro' ) );
+										echo apply_filters( 'yith_free_text', esc_html__( 'Free!', 'toffedassen' ) );
 									}
 									?>
                                 </td>
@@ -210,9 +210,9 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 							<?php if ( $show_stock_status ) : ?>
                                 <td class="product-stock-status hidden-sm hidden-xs">
 									<?php if ( $stock_status == 'out-of-stock' ) {
-										echo '<span class="wishlist-out-of-stock">' . esc_html__( 'Out of Stock', 'supro' ) . '</span>';
+										echo '<span class="wishlist-out-of-stock">' . esc_html__( 'Out of Stock', 'toffedassen' ) . '</span>';
 									} else {
-										echo '<span class="wishlist-in-stock">' . esc_html__( 'In Stock', 'supro' ) . '</span>';
+										echo '<span class="wishlist-in-stock">' . esc_html__( 'In Stock', 'toffedassen' ) . '</span>';
 									} ?>
                                 </td>
 							<?php endif ?>
@@ -222,7 +222,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                                     <!-- Date added -->
 									<?php
 									if ( $show_dateadded && isset( $item['dateadded'] ) ):
-										echo '<span class="dateadded">' . sprintf( esc_html__( 'Added on : %s', 'supro' ), date_i18n( get_option( 'date_format' ), strtotime( $item['dateadded'] ) ) ) . '</span>';
+										echo '<span class="dateadded">' . sprintf( esc_html__( 'Added on : %s', 'toffedassen' ), date_i18n( get_option( 'date_format' ), strtotime( $item['dateadded'] ) ) ) . '</span>';
 									endif;
 									?>
 
@@ -234,7 +234,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                                     <!-- Change wishlist -->
 									<?php if ( $available_multi_wishlist && is_user_logged_in() && count( $users_wishlists ) > 1 && $move_to_another_wishlist && $is_user_owner ): ?>
                                         <select class="change-wishlist selectBox">
-                                            <option value=""><?php esc_html_e( 'Move', 'supro' ) ?></option>
+                                            <option value=""><?php esc_html_e( 'Move', 'toffedassen' ) ?></option>
 											<?php
 											foreach ( $users_wishlists as $wl ):
 												if ( $wl['wishlist_token'] == $wishlist_meta['wishlist_token'] ) {
@@ -246,11 +246,11 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 													<?php
 													$wl_title = ! empty( $wl['wishlist_name'] ) ? esc_html( $wl['wishlist_name'] ) : esc_html( $default_wishlsit_title );
 													if ( $wl['wishlist_privacy'] == 1 ) {
-														$wl_privacy = esc_html__( 'Shared', 'supro' );
+														$wl_privacy = esc_html__( 'Shared', 'toffedassen' );
 													} elseif ( $wl['wishlist_privacy'] == 2 ) {
-														$wl_privacy = esc_html__( 'Private', 'supro' );
+														$wl_privacy = esc_html__( 'Private', 'toffedassen' );
 													} else {
-														$wl_privacy = esc_html__( 'Public', 'supro' );
+														$wl_privacy = esc_html__( 'Public', 'toffedassen' );
 													}
 
 													echo sprintf( '%s - %s', $wl_title, $wl_privacy );
@@ -266,7 +266,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 									<?php if ( $is_user_owner && $repeat_remove_button ): ?>
                                         <a href="<?php echo esc_url( add_query_arg( 'remove_from_wishlist', $item['prod_id'] ) ) ?>"
                                            class="remove_from_wishlist button"
-                                           title="<?php esc_html_e( 'Remove this product', 'supro' ) ?>"><?php esc_html_e( 'Remove', 'supro' ) ?></a>
+                                           title="<?php esc_html_e( 'Remove this product', 'toffedassen' ) ?>"><?php esc_html_e( 'Remove', 'toffedassen' ) ?></a>
 									<?php endif; ?>
                                 </td>
 							<?php endif; ?>
@@ -277,7 +277,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 			else: ?>
                 <tr>
                     <td colspan="<?php echo esc_attr( $column_count ) ?>"
-                        class="wishlist-empty"><?php echo apply_filters( 'yith_wcwl_no_product_to_remove_message', esc_html__( 'No products were added to the wishlist', 'supro' ) ) ?></td>
+                        class="wishlist-empty"><?php echo apply_filters( 'yith_wcwl_no_product_to_remove_message', esc_html__( 'No products were added to the wishlist', 'toffedassen' ) ) ?></td>
                 </tr>
 			<?php
 			endif;
@@ -298,7 +298,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 								'wishlist_products_to_add_to_cart' => '',
 								'wishlist_token'                   => $wishlist_token
 							) ) ) ?>" class="button alt"
-                               id="custom_add_to_cart"><?php echo apply_filters( 'yith_wcwl_custom_add_to_cart_text', esc_html__( 'Add the selected products to the cart', 'supro' ) ) ?></a>
+                               id="custom_add_to_cart"><?php echo apply_filters( 'yith_wcwl_custom_add_to_cart_text', esc_html__( 'Add the selected products to the cart', 'toffedassen' ) ) ?></a>
                         </div>
 					<?php endif; ?>
 	                <?php if ( $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
@@ -307,7 +307,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                             <a href="<?php echo ( $additional_info || ! is_user_logged_in() ) ? '#ask_an_estimate_popup' : esc_url( $ask_estimate_url ) ?>"
                                class="btn button ask-an-estimate-button" <?php echo ( $additional_info ) ? 'data-rel="prettyPhoto[ask_an_estimate]"' : '' ?> >
 				                <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' ) ?>
-				                <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', esc_html__( 'Ask for an estimate', 'supro' ) ) ?>
+				                <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', esc_html__( 'Ask for an estimate', 'toffedassen' ) ) ?>
                             </a>
                         </div>
 	                <?php endif; ?>
@@ -344,7 +344,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
     <div id="ask_an_estimate_popup">
         <form action="<?php echo esc_url( $ask_estimate_url ); ?>" method="post" class="wishlist-ask-an-estimate-popup">
 			<?php if ( ! is_user_logged_in() ): ?>
-                <label for="reply_email"><?php echo apply_filters( 'yith_wcwl_ask_estimate_reply_mail_label', esc_html__( 'Your email', 'supro' ) ) ?></label>
+                <label for="reply_email"><?php echo apply_filters( 'yith_wcwl_ask_estimate_reply_mail_label', esc_html__( 'Your email', 'toffedassen' ) ) ?></label>
                 <input type="email" value="" name="reply_email" id="reply_email">
 			<?php endif; ?>
 			<?php if ( ! empty( $additional_info_label ) ): ?>
@@ -354,7 +354,7 @@ if ( ! defined( 'YITH_WCWL' ) ) {
 
             <button class="btn button ask-an-estimate-button ask-an-estimate-button-popup">
 				<?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' ) ?>
-				<?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', esc_html__( 'Ask for an estimate', 'supro' ) ) ?>
+				<?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', esc_html__( 'Ask for an estimate', 'toffedassen' ) ) ?>
             </button>
         </form>
     </div>

@@ -25,8 +25,8 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 	<table cellspacing="0" class="woocommerce-grouped-product-list group_table">
 		<thead>
 		<tr>
-			<th class="product-name"><?php esc_html_e( 'Name', 'supro' ); ?></th>
-			<th class="product-quantity"><?php esc_html_e( 'Qty', 'supro' ); ?></th>
+			<th class="product-name"><?php esc_html_e( 'Name', 'toffedassen' ); ?></th>
+			<th class="product-quantity"><?php esc_html_e( 'Qty', 'toffedassen' ); ?></th>
 		</tr>
 		</thead>
 		<tbody>

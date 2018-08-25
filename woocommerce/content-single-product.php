@@ -29,17 +29,17 @@ if ( post_password_required() ) {
 	return;
 }
 
-$product_layout = supro_get_option( 'single_product_layout' );
+$product_layout = toffedassen_get_option( 'single_product_layout' );
 ?>
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class(); ?>>
 
-	<div class="supro-single-product-detail">
+	<div class="toffedassen-single-product-detail">
 		<?php if ( ! in_array( $product_layout, array( '5', '6' ) ) ) : ?>
 			<div class="container">
 		<?php endif; ?>
 			<?php
-			do_action( 'supro_before_single_product' );
+			do_action( 'toffedassen_before_single_product' );
 			?>
 			<div class="product-images-wrapper">
 				<?php

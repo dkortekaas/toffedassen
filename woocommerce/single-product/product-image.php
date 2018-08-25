@@ -37,14 +37,14 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 <div class="<?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>"
      data-columns="<?php echo esc_attr( $columns ); ?>" style="opacity: 0; transition: opacity .25s ease-in-out;">
 
-	<?php if ( supro_get_option( 'single_product_layout' ) == '5' ) { ?>
+	<?php if ( toffedassen_get_option( 'single_product_layout' ) == '5' ) { ?>
         <div class="slick-arrow-wrapper container"></div>
 	<?php } ?>
 
     <div class="product-gallery-control">
 		<?php
-		echo supro_get_product_zoom();
-		echo supro_get_product_video();
+		echo toffedassen_get_product_zoom();
+		echo toffedassen_get_product_video();
 		?>
     </div>
 
@@ -54,7 +54,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 			$html = wc_get_gallery_image_html( $post_thumbnail_id, true );
 		} else {
 			$html = '<div class="woocommerce-product-gallery__image--placeholder">';
-			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'supro' ) );
+			$html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'toffedassen' ) );
 			$html .= '</div>';
 		}
 

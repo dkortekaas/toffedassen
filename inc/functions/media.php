@@ -20,7 +20,7 @@ function toffedassen_fonts_url() {
 	* supported by Montserrat, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	if ( 'off' !== _x( 'on', 'LibreBaskerville font: on or off', 'supro' ) ) {
+	if ( 'off' !== _x( 'on', 'LibreBaskerville font: on or off', 'toffedassen' ) ) {
 		$font_families[] = 'Libre Baskerville:400,400i,700';
 	}
 

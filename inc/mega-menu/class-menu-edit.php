@@ -11,7 +11,7 @@ if ( ! class_exists( 'Walker_Nav_Menu_Edit' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
 }
 
-class Supro_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
+class toffedassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 	/**
 	 * Start the element output.
 	 *
@@ -90,7 +90,7 @@ class Supro_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 
 		if( $cancel ) {
 			$link            = $dom->createElement( 'a' );
-			$link->nodeValue = esc_html__( 'Settings', 'supro' );
+			$link->nodeValue = esc_html__( 'Settings', 'toffedassen' );
 			$link->setAttribute( 'class', 'item-config-mega opensettings submitcancel hide-if-no-js' );
 			$link->setAttribute( 'href', '#' );
 			$sep            = $dom->createElement( 'span' );
@@ -106,9 +106,9 @@ class Supro_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 	}
 }
 
-class Supro_Mega_Menu_Edit {
+class toffedassen_Mega_Menu_Edit {
 	/**
-	 * Supro_Mega_Menu_Edit constructor.
+	 * toffedassen_Mega_Menu_Edit constructor.
 	 */
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );
@@ -127,12 +127,12 @@ class Supro_Mega_Menu_Edit {
 			return;
 		}
 
-		wp_register_style( 'supro-mega-menu', get_template_directory_uri() . '/inc/mega-menu/css/mega-menu.css', array( 'media-views', 'wp-color-picker' ), '20160530' );
-		wp_enqueue_style( 'supro-mega-menu' );
+		wp_register_style( 'toffedassen-mega-menu', get_template_directory_uri() . '/inc/mega-menu/css/mega-menu.css', array( 'media-views', 'wp-color-picker' ), '20160530' );
+		wp_enqueue_style( 'toffedassen-mega-menu' );
 
-		wp_register_script( 'supro-mega-menu', get_template_directory_uri() . '/inc/mega-menu/js/mega-menu.js', array( 'jquery', 'jquery-ui-resizable', 'backbone', 'underscore', 'wp-color-picker' ), '20160530', true );
+		wp_register_script( 'toffedassen-mega-menu', get_template_directory_uri() . '/inc/mega-menu/js/mega-menu.js', array( 'jquery', 'jquery-ui-resizable', 'backbone', 'underscore', 'wp-color-picker' ), '20160530', true );
 		wp_enqueue_media();
-		wp_enqueue_script( 'supro-mega-menu' );
+		wp_enqueue_script( 'toffedassen-mega-menu' );
 	}
 
 	/**
@@ -143,7 +143,7 @@ class Supro_Mega_Menu_Edit {
 		<div id="tamm-settings" tabindex="0" class="tamm-settings">
 			<div class="tamm-modal media-modal wp-core-ui">
 				<button type="button" class="button-link media-modal-close tamm-modal-close">
-					<span class="media-modal-icon"><span class="screen-reader-text"><?php esc_html_e( 'Close', 'supro' ) ?></span></span>
+					<span class="media-modal-icon"><span class="screen-reader-text"><?php esc_html_e( 'Close', 'toffedassen' ) ?></span></span>
 				</button>
 				<div class="media-modal-content">
 					<div class="tamm-frame-menu media-frame-menu">
@@ -158,8 +158,8 @@ class Supro_Mega_Menu_Edit {
 					<div class="tamm-frame-toolbar media-frame-toolbar">
 						<div class="tamm-toolbar media-toolbar">
 							<div class="tamm-toolbar-primary media-toolbar-primary search-form">
-								<button type="button" class="button tamm-button tamm-button-save media-button button-primary button-large"><?php esc_html_e( 'Save Changes', 'supro' ) ?></button>
-								<button type="button" class="button tamm-button tamm-button-cancel media-button button-secondary button-large"><?php esc_html_e( 'Cancel', 'supro' ) ?></button>
+								<button type="button" class="button tamm-button tamm-button-save media-button button-primary button-large"><?php esc_html_e( 'Save Changes', 'toffedassen' ) ?></button>
+								<button type="button" class="button tamm-button tamm-button-cancel media-button button-secondary button-large"><?php esc_html_e( 'Cancel', 'toffedassen' ) ?></button>
 								<span class="spinner"></span>
 							</div>
 						</div>

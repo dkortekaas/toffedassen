@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // get form action url
-$form_action = supro_get_page_base_url();
+$form_action = toffedassen_get_page_base_url();
 
 // Keep query string vars intact
 
@@ -60,7 +60,7 @@ foreach ( $catalog_orderby_options as $id => $name ) {
 
 ?>
 <ul class="shop-toolbar-el woocommerce-ordering">
-	<li class="current"><span><?php echo esc_html__( 'Sort by', 'supro' ) ?><span class="sort-by"><?php echo esc_html( $order_current ); ?></span></span>
+	<li class="current"><span><?php echo esc_html__( 'Sort by', 'toffedassen' ) ?><span class="sort-by"><?php echo esc_html( $order_current ); ?></span></span>
 		<ul>
 			<?php echo wp_kses_post( $order_html ); ?>
 		</ul>

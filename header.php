@@ -32,33 +32,41 @@
 		<div id="su-header-minimized" class="su-header-minimized su-header-1"></div>
 
 		<header id="masthead" class="site-header" itemscope itemtype="http://schema.org/WPHeader">
-		
-			<?php do_action( 'toffedassen_header' ); ?>
 
-			<div class="supro-container">
+			<div class="header-container">
 				<div class="header-main">
 					<div class="header-row">
-
 						<div class="menu-logo s-left">
-						
-							<?php get_template_part( 'template-parts/header/header', 'branding' ); ?>
-
+							<div class="site-logo">
+								<?php get_template_part( 'template-parts/header/header', 'branding' ); ?>
+							</div>
 						</div>
 						<div class="container s-center menu-main">
-
-							<?php get_template_part( 'template-parts/navigation/navigation', 'main' ); ?>
-
+							<div class="menu-nav">
+								<nav class="primary-nav nav">
+									<?php toffedassen_nav_menu(); ?>
+								</nav>
+								<div class="menu-extra menu-extra-au">
+									<ul class="no-flex">
+										<?php toffedassen_extra_search(); ?>
+									</ul>
+								</div>
+							</div>
 						</div>
-
 						<div class="menu-extra s-right">
-
-							<?php get_template_part( 'template-parts/navigation/navigation', 'right' ); ?>
-
+							<ul>
+								<?php toffedassen_extra_search(); ?>
+								<?php toffedassen_extra_account(); ?>
+								<?php toffedassen_extra_wishlist(); ?>
+								<?php toffedassen_extra_cart(); ?>
+								<?php toffedassen_extra_sidebar(); ?>
+								<?php toffedassen_menu_mobile(); ?>
+							</ul>
 						</div>
-
 					</div>
 				</div>
 			</div>
+
 		</header>
 
 		<?php

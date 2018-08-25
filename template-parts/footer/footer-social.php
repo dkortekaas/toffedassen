@@ -7,7 +7,7 @@
 
 ?>
 
-	<div class="widget supro-social-links-widget">
+	<div class="widget toffedassen-social-links-widget">
 		<ul class="socials-list style-1">
 			<li>
 				<a href="#" class="share-facebook tooltip-enable social" rel="nofollow" title="Facebook" data-toggle="tooltip" data-placement="top" target="_blank">

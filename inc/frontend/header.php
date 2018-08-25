@@ -289,10 +289,8 @@ add_action( 'toffedassen_before_header', 'toffedassen_header_minimized' );
  * @since 1.0.0
  */
 function toffedassen_show_page_header() {
-
-	if ( toffedassen_is_home() ||
-		is_page_template( 'template-coming-soon-page.php' )
-	) {
+echo '<h1>'. $page_header .'</h1>';
+	if ( toffedassen_is_home() || is_page_template( 'template-coming-soon-page.php' ) ) {
 		return;
 	}
 

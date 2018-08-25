@@ -1,16 +1,16 @@
 <?php
 /**
- * @package Supro
+ * @package toffedassen
  */
 
 global $wp_query;
 
 $current = $wp_query->current_post + 1;
 
-$size           = 'supro-blog-grid';
-$blog_style     = supro_get_option( 'blog_style' );
-$blog_layout    = supro_get_option( 'blog_layout' );
-$excerpt_length = intval( supro_get_option( 'excerpt_length' ) );
+$size           = 'toffedassen-blog-grid';
+$blog_style     = toffedassen_get_option( 'blog_style' );
+$blog_layout    = toffedassen_get_option( 'blog_layout' );
+$excerpt_length = intval( toffedassen_get_option( 'excerpt_length' ) );
 
 $css_class = 'blog-wrapper';
 
@@ -22,16 +22,16 @@ if ( 'grid' == $blog_style ) {
 	}
 
 } elseif ( 'list' == $blog_style ) {
-	$size = 'supro-blog-list';
+	$size = 'toffedassen-blog-list';
 
 } elseif ( 'masonry' == $blog_style ) {
 
 	if ( $current % 9 == 1 || $current % 9 == 6 || $current % 9 == 8 ) {
-		$size = 'supro-blog-masonry-1';
+		$size = 'toffedassen-blog-masonry-1';
 	} elseif ( $current % 9 == 3 || $current % 9 == 4 || $current % 9 == 7 ) {
-		$size = 'supro-blog-masonry-3';
+		$size = 'toffedassen-blog-masonry-3';
 	} else {
-		$size = 'supro-blog-masonry-2';
+		$size = 'toffedassen-blog-masonry-2';
 	}
 }
 
@@ -50,12 +50,12 @@ if ( 'grid' == $blog_style ) {
 	<div class="entry-summary">
 		<div class="entry-header">
 			<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-			<?php supro_entry_meta(); ?>
+			<?php toffedassen_entry_meta(); ?>
 		</div>
 		<?php if ( 'list' == $blog_style ) : ?>
-			<div class="entry-excerpt"><?php echo supro_content_limit( $excerpt_length, '' ); ?></div>
+			<div class="entry-excerpt"><?php echo toffedassen_content_limit( $excerpt_length, '' ); ?></div>
 			<a href="<?php the_permalink() ?>" class="read-more">
-				<?php echo apply_filters( 'supro_blog_read_more_text', esc_html__( 'READ MORE', 'supro' ) ); ?>
+				<?php echo apply_filters( 'toffedassen_blog_read_more_text', esc_html__( 'READ MORE', 'toffedassen' ) ); ?>
 			</a>
 		<?php endif ?>
 	</div>

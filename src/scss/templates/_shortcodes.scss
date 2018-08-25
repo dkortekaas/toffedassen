@@ -187,7 +187,7 @@
 }
 
 // Banner Grid Space
-.supro-banner-grid__gap-0 {
+.toffedassen-banner-grid__gap-0 {
     margin: 0;
 
     .banner-grid__banner {
@@ -195,7 +195,7 @@
     }
 }
 
-.supro-banner-grid__gap-1 {
+.toffedassen-banner-grid__gap-1 {
     margin: -0.5px;
 
     .banner-grid__banner {
@@ -203,7 +203,7 @@
     }
 }
 
-.supro-banner-grid__gap-2 {
+.toffedassen-banner-grid__gap-2 {
     margin: -1px;
 
     .banner-grid__banner {
@@ -211,7 +211,7 @@
     }
 }
 
-.supro-banner-grid__gap-3 {
+.toffedassen-banner-grid__gap-3 {
     margin: -1.5px;
 
     .banner-grid__banner {
@@ -219,7 +219,7 @@
     }
 }
 
-.supro-banner-grid__gap-4 {
+.toffedassen-banner-grid__gap-4 {
     margin: -2px;
 
     .banner-grid__banner {
@@ -227,7 +227,7 @@
     }
 }
 
-.supro-banner-grid__gap-5 {
+.toffedassen-banner-grid__gap-5 {
     margin: -2.5px;
 
     .banner-grid__banner {
@@ -235,7 +235,7 @@
     }
 }
 
-.supro-banner-grid__gap-10 {
+.toffedassen-banner-grid__gap-10 {
     margin: -5px;
 
     .banner-grid__banner {
@@ -243,7 +243,7 @@
     }
 }
 
-.supro-banner-grid__gap-15 {
+.toffedassen-banner-grid__gap-15 {
     margin: -7.5px;
 
     .banner-grid__banner {
@@ -251,7 +251,7 @@
     }
 }
 
-.supro-banner-grid__gap-20 {
+.toffedassen-banner-grid__gap-20 {
     margin: -10px;
 
     .banner-grid__banner {
@@ -259,7 +259,7 @@
     }
 }
 
-.supro-banner-grid__gap-25 {
+.toffedassen-banner-grid__gap-25 {
     margin: -12.5px;
 
     .banner-grid__banner {
@@ -267,7 +267,7 @@
     }
 }
 
-.supro-banner-grid__gap-30 {
+.toffedassen-banner-grid__gap-30 {
     margin: -15px;
 
     .banner-grid__banner {
@@ -277,26 +277,26 @@
 
 // Shortcodes
 
-.supro-medium {
+.toffedassen-medium {
     font-weight: 500;
 }
 
-.supro-regular {
+.toffedassen-regular {
     font-weight: 400;
 }
 
-.supro-light {
+.toffedassen-light {
     font-weight: 300;
 }
 
-.supro-empty-space {
-    .supro_empty_space_md,
-    .supro_empty_space_xs {
+.toffedassen-empty-space {
+    .toffedassen_empty_space_md,
+    .toffedassen_empty_space_xs {
         display: none;
     }
 }
 
-.supro-heading {
+.toffedassen-heading {
     .subtitle {
         font-size: 14px;
         font-weight: 300;
@@ -323,7 +323,7 @@
     }
 }
 
-.supro-button {
+.toffedassen-button {
     a {
         display: inline-block;
         position: relative;
@@ -380,7 +380,7 @@
     }
 }
 
-.supro-icons-box {
+.toffedassen-icons-box {
     padding: 40px 80px;
     background-color: #fff;
     color: #999999;
@@ -426,8 +426,8 @@
     }
 }
 
-.supro-images-box {
-    .supro-box {
+.toffedassen-images-box {
+    .toffedassen-box {
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -445,7 +445,7 @@
             box-shadow: 0 40px 70px 0 rgba(238, 239, 241, 1);
         }
 
-        & > .supro-link {
+        & > .toffedassen-link {
             display: block;
             margin: auto;
         }
@@ -473,22 +473,22 @@
         transform: translateY(0)
     }
 
-    .supro-left-arrow {
+    .toffedassen-left-arrow {
         left: -3px;
     }
 
-    .supro-right-arrow {
+    .toffedassen-right-arrow {
         right: -3px;
     }
 }
 
-.supro-images {
+.toffedassen-images {
    .image-item {
        margin-bottom: 30px;
    }
 }
 
-.supro-latest-post {
+.toffedassen-latest-post {
     .blog-wrapper {
         .entry-thumbnail {
             margin-bottom: 15px;
@@ -551,7 +551,7 @@
     }
 }
 
-.supro-products {
+.toffedassen-products {
     h3 {
         font-size: 36px;
         margin-top: 0;
@@ -599,7 +599,7 @@
     }
 }
 
-.supro-products-carousel {
+.toffedassen-products-carousel {
     .product-header {
         margin-bottom: 30px;
     }
@@ -641,7 +641,7 @@
             color: #222;
         }
 
-        &.supro-right-arrow {
+        &.toffedassen-right-arrow {
             left: auto;
             right: -62px;
         }
@@ -653,7 +653,7 @@
     }
 }
 
-.supro-products-grid {
+.toffedassen-products-grid {
     .product-btn {
         margin-top: 20px;
         text-align: center;
@@ -878,7 +878,7 @@
     }
 }
 
-.supro-banner-grid {
+.toffedassen-banner-grid {
     .banner-url {
         display: inline-block;
         position: relative;
@@ -989,7 +989,7 @@
     }
 }
 
-.supro-banner-grid-2 {
+.toffedassen-banner-grid-2 {
     position: relative;
     overflow: hidden;
 
@@ -1058,7 +1058,7 @@
     }
 }
 
-.supro-banner-grid-3 {
+.toffedassen-banner-grid-3 {
     .banner-group {
         margin: -5px;
         @include clearfix();
@@ -1168,7 +1168,7 @@
     }
 }
 
-.supro-banner-grid-4 {
+.toffedassen-banner-grid-4 {
     .banner-group {
         @include clearfix();
         margin: -15px;
@@ -1224,7 +1224,7 @@
     }
 }
 
-.supro-product-banner {
+.toffedassen-product-banner {
     color: #222;
 
     .banner-url {
@@ -1334,7 +1334,7 @@
     }
 }
 
-.supro-product-banner2 {
+.toffedassen-product-banner2 {
     &.style-1 {
         &.text-align-left {
             text-align: left;
@@ -1390,7 +1390,7 @@
     }
 }
 
-.supro-product-banner3 {
+.toffedassen-product-banner3 {
     .banner-image {
         display: block;
         transition: 0.7s;
@@ -1436,7 +1436,7 @@
     }
 }
 
-.supro-sale-product {
+.toffedassen-sale-product {
     padding: 150px 0;
     background-position: center;
 
@@ -1493,7 +1493,7 @@
         }
     }
 
-    .supro-countdown {
+    .toffedassen-countdown {
         display: inline-block;
         background-color: $light;
         padding: 18px 40px;
@@ -1567,7 +1567,7 @@
             margin-bottom: 20px;
         }
 
-        .supro-countdown {
+        .toffedassen-countdown {
             padding: 0;
             background-color: transparent;
             box-shadow: none;
@@ -1614,10 +1614,10 @@
     }
 }
 
-.supro-sliders {
+.toffedassen-sliders {
     min-height: 200px;
 
-    @include supro-loader();
+    @include toffedassen-loader();
     position: relative;
 
     .slider-wrapper,
@@ -1637,7 +1637,7 @@
         }
     }
 
-    .supro-slide {
+    .toffedassen-slide {
         position: relative;
         margin-left: 60px;
         margin-right: 60px;
@@ -1707,11 +1707,11 @@
             font-size: 30px;
         }
 
-        .supro-left-arrow {
+        .toffedassen-left-arrow {
             left: -70px;
         }
 
-        .supro-right-arrow {
+        .toffedassen-right-arrow {
             right: -70px;
             left: auto;
         }
@@ -1724,7 +1724,7 @@
     }
 }
 
-.supro-testimonial {
+.toffedassen-testimonial {
     .title {
         color: #999;
         font-size: 16px;
@@ -1760,7 +1760,7 @@
     }
 }
 
-.supro-counter {
+.toffedassen-counter {
     color: #000;
 
     .counter {
@@ -1795,7 +1795,7 @@
     }
 }
 
-.supro-faq_group {
+.toffedassen-faq_group {
     .g-title {
         margin: 0;
         font-size: 18px;
@@ -1824,7 +1824,7 @@
     }
 }
 
-.supro-partner {
+.toffedassen-partner {
     .list-item {
         display: flex;
         align-items: center;
@@ -1855,7 +1855,7 @@
     }
 }
 
-.supro-members {
+.toffedassen-members {
     .row {
         margin-left: -30px;
         margin-right: -30px;
@@ -1891,7 +1891,7 @@
     }
 }
 
-.supro-video-banner {
+.toffedassen-video-banner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1901,7 +1901,7 @@
     }
 }
 
-.supro-contact-box {
+.toffedassen-contact-box {
     font-size: 15px;
 
     h3 {
@@ -1944,7 +1944,7 @@
     }
 }
 
-.supro-socials {
+.toffedassen-socials {
     .title {
         margin-top: 0;
         margin-bottom: 30px;
@@ -1992,7 +1992,7 @@
     }
 }
 
-.supro-newsletter {
+.toffedassen-newsletter {
     &.space-between-style {
         .form-row {
             display: flex;
@@ -2046,11 +2046,11 @@
     }
 }
 
-.supro-instagram-shortcode {
+.toffedassen-instagram-shortcode {
     text-align: center;
     position: relative;
 
-    .supro-instagram {
+    .toffedassen-instagram {
         float: left;
         display: block;
         position: relative;
@@ -2098,31 +2098,31 @@
     }
 
     &.columns-8 {
-        .supro-instagram {
+        .toffedassen-instagram {
             width: 12.5%;
         }
     }
 
     &.columns-6 {
-        .supro-instagram {
+        .toffedassen-instagram {
             width: 16.6666%;
         }
     }
 
     &.columns-5 {
-        .supro-instagram {
+        .toffedassen-instagram {
             width: 20%;
         }
     }
 
     &.columns-4 {
-        .supro-instagram {
+        .toffedassen-instagram {
             width: 25%;
         }
     }
 }
 
-.supro-coming-soon {
+.toffedassen-coming-soon {
     .flip-clock-wrapper {
         .flip-wrapper {
             .inn,
@@ -2197,7 +2197,7 @@
     }
 }
 
-.supro-list {
+.toffedassen-list {
     list-style: none;
     margin: 0;
     padding: 0;

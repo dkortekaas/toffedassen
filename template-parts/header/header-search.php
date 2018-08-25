@@ -21,7 +21,7 @@
                 </form>
 
                 <div class="loading">
-                    <span class="supro-loader"></span>
+                    <span class="toffedassen-loader"></span>
                 </div>
 
                 <div class="search-results">

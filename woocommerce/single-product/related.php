@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$related_title = supro_get_option( 'product_related_title' );
-$columns       = intval( supro_get_option( 'related_products_columns' ) );
+$related_title = toffedassen_get_option( 'product_related_title' );
+$columns       = intval( toffedassen_get_option( 'related_products_columns' ) );
 
 if ( $related_products ) : ?>
 

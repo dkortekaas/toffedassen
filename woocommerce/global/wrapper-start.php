@@ -21,4 +21,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<div id="primary" class="content-area <?php supro_content_columns() ?>" role="main">
+<div id="primary" class="content-area <?php toffedassen_content_columns() ?>" role="main">

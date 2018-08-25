@@ -34,7 +34,7 @@ function toffedassen_body_classes( $classes ) {
 		$classes[] = toffedassen_get_option( 'single_post_layout' );
 
 	} elseif ( toffedassen_is_blog() ) {
-		$classes[] = 'supro-blog-page';
+		$classes[] = 'toffedassen-blog-page';
 		$classes[] = 'blog-' . toffedassen_get_option( 'blog_style' );
 		$classes[] = toffedassen_get_option( 'blog_layout' );
 
@@ -43,7 +43,7 @@ function toffedassen_body_classes( $classes ) {
 	}
 
 	if ( toffedassen_is_catalog() ) {
-		$classes[] = 'supro-catalog-page';
+		$classes[] = 'toffedassen-catalog-page';
 
 		$view      = isset( $_COOKIE['shop_view'] ) ? $_COOKIE['shop_view'] : toffedassen_get_option( 'shop_view' );
 		$classes[] = 'shop-view-' . $view;
@@ -109,7 +109,7 @@ function toffedassen_body_classes( $classes ) {
 	if ( toffedassen_is_portfolio() ) {
 		$classes[] = 'portfolio-' . $p_style;
 		$classes[] = 'portfolio-' . $p_nav_type;
-		$classes[] = 'supro-portfolio-page';
+		$classes[] = 'toffedassen-portfolio-page';
 	}
 
 	return $classes;

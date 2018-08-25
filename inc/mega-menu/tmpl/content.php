@@ -6,5 +6,5 @@ global $wp_widget_factory;
 		<textarea name="<%= taMegaMenu.getFieldName( 'content', data['menu-item-db-id'] ) %>" class="widefat" rows="20" contenteditable="true"><%= megaData.content %></textarea>
 	</p>
 
-	<p class="description"><?php esc_html_e( 'Allow HTML and Shortcodes', 'supro' ) ?></p>
+	<p class="description"><?php esc_html_e( 'Allow HTML and Shortcodes', 'toffedassen' ) ?></p>
 </div>

@@ -18,17 +18,17 @@
     }
 }
 
-.supro-container {
+.header-container {
     padding-left: 80px;
     padding-right: 80px;
 }
 
-.supro-catalog-container {
+.toffedassen-catalog-container {
     padding-left: 80px;
     padding-right: 80px;
 }
 
-.supro-row {
+.toffedassen-row {
     @include clearfix();
 }
 
@@ -195,7 +195,7 @@
         }
     }
 
-    .supro-social-share {
+    .toffedassen-social-share {
         li {
             padding: 0 10px;
 
@@ -280,7 +280,7 @@
     }
 }
 
-.supro-taxs-list {
+.toffedassen-taxs-list {
     text-align: center;
 
     ul {
@@ -385,7 +385,7 @@
     }
 }
 
-.supro-blog-page {
+.toffedassen-blog-page {
     &.sidebar-content {
         .content-area {
             padding-left: 45px;
@@ -578,7 +578,7 @@
     }
 }
 
-.supro-related-posts {
+.toffedassen-related-posts {
     margin-top: 60px;
     padding-bottom: 30px;
     border-bottom: 1px solid #eaeaea;
@@ -784,7 +784,7 @@
         }
     }
 
-    .supro-coming-soon-socials-share {
+    .toffedassen-coming-soon-socials-share {
         padding-bottom: 45px;
 
         li {
