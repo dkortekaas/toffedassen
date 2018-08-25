@@ -17,16 +17,16 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * @version  2.6.0
  * @extends  WC_Widget
  */
-class Supro_Widget_Attributes_Filter extends WC_Widget {
+class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->widget_cssclass    = 'woocommerce supro_attributes_filter widget_layered_nav';
-		$this->widget_description = esc_html__( 'Shows a custom attribute in a widget which lets you narrow down the list of products when viewing product categories.', 'supro' );
-		$this->widget_id          = 'supro_attributes_filter';
-		$this->widget_name        = esc_html__( 'Supro Attributes Filter', 'supro' );
+		$this->widget_cssclass    = 'woocommerce Toffedassen_attributes_filter widget_layered_nav';
+		$this->widget_description = esc_html__( 'Shows a custom attribute in a widget which lets you narrow down the list of products when viewing product categories.', 'Toffedassen' );
+		$this->widget_id          = 'Toffedassen_attributes_filter';
+		$this->widget_name        = esc_html__( 'Toffedassen Attributes Filter', 'Toffedassen' );
 		parent::__construct();
 	}
 
@@ -76,22 +76,22 @@ class Supro_Widget_Attributes_Filter extends WC_Widget {
 		$this->settings = array(
 			'title'      => array(
 				'type'  => 'text',
-				'std'   => esc_html__( 'Filter by', 'supro' ),
-				'label' => esc_html__( 'Title', 'supro' )
+				'std'   => esc_html__( 'Filter by', 'Toffedassen' ),
+				'label' => esc_html__( 'Title', 'Toffedassen' )
 			),
 			'attribute'  => array(
 				'type'    => 'select',
 				'std'     => '',
-				'label'   => esc_html__( 'Attribute', 'supro' ),
+				'label'   => esc_html__( 'Attribute', 'Toffedassen' ),
 				'options' => $attribute_array
 			),
 			'query_type' => array(
 				'type'    => 'select',
 				'std'     => 'and',
-				'label'   => esc_html__( 'Query type', 'supro' ),
+				'label'   => esc_html__( 'Query type', 'Toffedassen' ),
 				'options' => array(
-					'and' => esc_html__( 'AND', 'supro' ),
-					'or'  => esc_html__( 'OR', 'supro' )
+					'and' => esc_html__( 'AND', 'Toffedassen' ),
+					'or'  => esc_html__( 'OR', 'Toffedassen' )
 				)
 			),
 		);
@@ -446,7 +446,7 @@ class Supro_Widget_Attributes_Filter extends WC_Widget {
 				echo '</span> ';
 			}
 
-			echo apply_filters( 'supro_color_filter_nav_count', '<span class="count">' . absint( $count ) . '</span>', $count, $term );
+			echo apply_filters( 'Toffedassen_color_filter_nav_count', '<span class="count">' . absint( $count ) . '</span>', $count, $term );
 
 			echo '</li>';
 		}

@@ -1,6 +1,6 @@
 <?php
 
-class Supro_PopularPost_Widget extends WP_Widget {
+class Toffedassen_PopularPost_Widget extends WP_Widget {
 	/**
 	 * Holds widget settings defaults, populated in constructor.
 	 *
@@ -12,7 +12,7 @@ class Supro_PopularPost_Widget extends WP_Widget {
 	 * Class constructor
 	 * Set up the widget
 	 *
-	 * @return Supro_PopularPost_Widget
+	 * @return Toffedassen_PopularPost_Widget
 	 */
 	function __construct() {
 		$this->defaults = array(
@@ -22,10 +22,10 @@ class Supro_PopularPost_Widget extends WP_Widget {
 
 		parent::__construct(
 			'popular-posts-widget',
-			esc_html__( 'Supro - PopularPost', 'supro' ),
+			esc_html__( 'Toffedassen - PopularPost', 'Toffedassen' ),
 			array(
 				'classname'   => 'popular-posts-widget',
-				'description' => esc_html__( 'Display most popular posts', 'supro' ),
+				'description' => esc_html__( 'Display most popular posts', 'Toffedassen' ),
 			)
 		);
 	}
@@ -108,7 +108,7 @@ class Supro_PopularPost_Widget extends WP_Widget {
 		?>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'Toffedassen' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
                    value="<?php echo esc_attr( $instance['title'] ); ?>">
@@ -118,7 +118,7 @@ class Supro_PopularPost_Widget extends WP_Widget {
             <input id="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'limit' ) ); ?>" type="text" size="2"
                    value="<?php echo intval( $instance['limit'] ); ?>">
-            <label for="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"><?php esc_html_e( 'Number Of Posts', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"><?php esc_html_e( 'Number Of Posts', 'Toffedassen' ); ?></label>
         </p>
 
 		<?php

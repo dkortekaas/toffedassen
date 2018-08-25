@@ -13,7 +13,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * Tag Cloud Widget.
  *
  */
-class Supro_Widget_Product_Cat extends WC_Widget {
+class Toffedassen_Widget_Product_Cat extends WC_Widget {
 
 	/**
 	 * Constructor.
@@ -22,23 +22,23 @@ class Supro_Widget_Product_Cat extends WC_Widget {
 
 
 		$this->widget_cssclass    = 'woocommerce widget_product_categories';
-		$this->widget_description = esc_html__( 'A list of product categories.', 'supro' );
-		$this->widget_id          = 'supro_product_cat';
-		$this->widget_name        = esc_html__( 'Supro Product Categories', 'supro' );
+		$this->widget_description = esc_html__( 'A list of product categories.', 'Toffedassen' );
+		$this->widget_id          = 'Toffedassen_product_cat';
+		$this->widget_name        = esc_html__( 'Toffedassen Product Categories', 'Toffedassen' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
-				'std'   => esc_html__( 'Product Categories', 'supro' ),
-				'label' => esc_html__( 'Title', 'supro' )
+				'std'   => esc_html__( 'Product Categories', 'Toffedassen' ),
+				'label' => esc_html__( 'Title', 'Toffedassen' )
 			),
 			'style' => array(
 				'type'    => 'select',
 				'std'     => '1',
 				'options' => array(
-					'1' => esc_html__( 'Style 1', 'supro' ),
-					'2' => esc_html__( 'Style 2', 'supro' )
+					'1' => esc_html__( 'Style 1', 'Toffedassen' ),
+					'2' => esc_html__( 'Style 2', 'Toffedassen' )
 				),
-				'label'   => esc_html__( 'Style', 'supro' )
+				'label'   => esc_html__( 'Style', 'Toffedassen' )
 			)
 		);
 
@@ -100,7 +100,7 @@ class Supro_Widget_Product_Cat extends WC_Widget {
 				'</ul>',
 				esc_attr( $css_class ),
 				esc_url( esc_url( get_permalink( get_option( 'woocommerce_shop_page_id' ) ) ) ),
-				esc_html__( 'All', 'supro' ),
+				esc_html__( 'All', 'Toffedassen' ),
 				implode( ' ', $output )
 			);
 		} else {
@@ -125,6 +125,6 @@ class Supro_Widget_Product_Cat extends WC_Widget {
 	 */
 	public function _topic_count_text( $count ) {
 		/* translators: %s: product count */
-		return sprintf( _n( '%s product', '%s products', $count, 'supro' ), number_format_i18n( $count ) );
+		return sprintf( _n( '%s product', '%s products', $count, 'Toffedassen' ), number_format_i18n( $count ) );
 	}
 }

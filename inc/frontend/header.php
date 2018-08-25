@@ -14,16 +14,16 @@ function toffedassen_enqueue_scripts() {
 	/**
 	 * Register and enqueue styles
 	 */
-	wp_register_style( 'supro-fonts', toffedassen_fonts_url(), array(), '20180307' );
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
-	wp_register_style( 'eleganticons', get_template_directory_uri() . '/css/eleganticons.min.css', array(), '1.0.0' );
-	wp_register_style( 'linearicons', get_template_directory_uri() . '/css/linearicons.min.css', array(), '1.0.0' );
-	wp_register_style( 'ionicons', get_template_directory_uri() . '/css/ionicons.min.css', array(), '2.0.0' );
-	wp_register_style( 'photoswipe', get_template_directory_uri() . '/css/photoswipe.css', array(), '4.1.1' );
+	wp_register_style( 'fonts', toffedassen_fonts_url(), array(), '20180307' );
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '3.3.7' );
+	wp_register_style( 'eleganticons', get_template_directory_uri() . '/assets/css/eleganticons.min.css', array(), '1.0.0' );
+	wp_register_style( 'linearicons', get_template_directory_uri() . '/assets/css/linearicons.min.css', array(), '1.0.0' );
+	wp_register_style( 'ionicons', get_template_directory_uri() . '/assets/css/ionicons.min.css', array(), '2.0.0' );
+	wp_register_style( 'photoswipe', get_template_directory_uri() . '/assets/css/photoswipe.css', array(), '4.1.1' );
 
 	wp_enqueue_style(
-		'supro', get_template_directory_uri() . '/style.css', array(
-		'supro-fonts',
+		'toffedassen', get_template_directory_uri() . '/assets/css/theme.css', array(
+		'fonts',
 		'bootstrap',
 		'eleganticons',
 		'linearicons',
@@ -32,21 +32,21 @@ function toffedassen_enqueue_scripts() {
 	), '20161025'
 	);
 
-	wp_add_inline_style( 'supro', toffedassen_customize_css() );
+	wp_add_inline_style( 'toffedassen', toffedassen_customize_css() );
 
 	/**
 	 * Register and enqueue scripts
 	 */
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/js/plugins/html5shiv.min.js', array(), '3.7.2' );
+	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/assets/js/plugins/html5shiv.min.js', array(), '3.7.2' );
 	wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'respond', get_template_directory_uri() . '/js/plugins/respond.min.js', array(), '1.4.2' );
+	wp_enqueue_script( 'respond', get_template_directory_uri() . '/assets/js/plugins/respond.min.js', array(), '1.4.2' );
 	wp_script_add_data( 'respond', 'conditional', 'lt IE 9' );
 
-	wp_register_script( 'photoswipe', get_template_directory_uri() . '/js/plugins/photoswipe.min.js', array(), '4.1.1', true );
-	wp_register_script( 'photoswipe-ui', get_template_directory_uri() . '/js/plugins/photoswipe-ui.min.js', array( 'photoswipe' ), '4.1.1', true );
+	wp_register_script( 'photoswipe', get_template_directory_uri() . '/assets/js/plugins/photoswipe.min.js', array(), '4.1.1', true );
+	wp_register_script( 'photoswipe-ui', get_template_directory_uri() . '/assets/js/plugins/photoswipe-ui.min.js', array( 'photoswipe' ), '4.1.1', true );
 
 	$lightbox = 'no';
 	if ( is_singular() ) {
@@ -61,17 +61,18 @@ function toffedassen_enqueue_scripts() {
 		}
 	}
 
-	wp_register_script( 'slick', get_template_directory_uri() . '/js/plugins/slick.min.js', array( 'jquery' ), '2.0.2', true );
-	wp_register_script( 'isotope', get_template_directory_uri() . '/js/plugins/isotope.pkgd.min.js', array( 'jquery' ), '2.2.2', true );
-	wp_register_script( 'parallax', get_template_directory_uri() . '/js/plugins/jquery.parallax.min.js', array(), '1.0', true );
-	wp_register_script( 'flipclock', get_template_directory_uri() . '/js/plugins/flipclock.min.js', array(), '1.0', true );
-	wp_register_script( 'sticky-kit', get_template_directory_uri() . '/js/plugins/sticky-kit.min.js', array( 'jquery' ), '1.1.3', true );
-	wp_register_script( 'tabs', get_template_directory_uri() . '/js/plugins/jquery.tabs.js', array(), '1.0', true );
-	wp_register_script( 'notify', get_template_directory_uri() . '/js/plugins/notify.min.js', array(), '1.0.0', true );
-	wp_register_script( 'tooltip', get_template_directory_uri() . '/js/plugins/jquery-tooltip.js', array(), '2.1.1', true );
-	wp_register_script( 'viewport', get_template_directory_uri() . '/js/plugins/isInViewport.min.js', array(), '1.0', true );
-	wp_register_script( 'nprogress', get_template_directory_uri() . '/js/plugins/nprogress.js', array(), '1.0.0', true );
-	wp_register_script( 'swiper', get_template_directory_uri() . '/js/plugins/swiper.min.js', array(), '4.3.2', true );
+	wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/plugins/bootstrap.min.js', array( 'jquery' ), '3.3.7', true );
+	wp_register_script( 'slick', get_template_directory_uri() . '/assets/js/plugins/slick.min.js', array( 'jquery' ), '2.0.2', true );
+	wp_register_script( 'isotope', get_template_directory_uri() . '/assets/js/plugins/isotope.pkgd.min.js', array( 'jquery' ), '2.2.2', true );
+	wp_register_script( 'parallax', get_template_directory_uri() . '/assets/js/plugins/jquery.parallax.min.js', array(), '1.0', true );
+	wp_register_script( 'flipclock', get_template_directory_uri() . '/assets/js/plugins/flipclock.min.js', array(), '1.0', true );
+	wp_register_script( 'sticky-kit', get_template_directory_uri() . '/assets/js/plugins/sticky-kit.min.js', array( 'jquery' ), '1.1.3', true );
+	wp_register_script( 'tabs', get_template_directory_uri() . '/assets/js/plugins/jquery.tabs.js', array(), '1.0', true );
+	wp_register_script( 'notify', get_template_directory_uri() . '/assets/js/plugins/notify.min.js', array(), '1.0.0', true );
+	wp_register_script( 'tooltip', get_template_directory_uri() . '/assets/js/plugins/jquery-tooltip.js', array(), '2.1.1', true );
+	wp_register_script( 'viewport', get_template_directory_uri() . '/assets/js/plugins/isInViewport.min.js', array(), '1.0', true );
+	wp_register_script( 'nprogress', get_template_directory_uri() . '/assets/js/plugins/nprogress.js', array(), '1.0.0', true );
+	wp_register_script( 'swiper', get_template_directory_uri() . '/assets/js/plugins/swiper.min.js', array(), '4.3.2', true );
 
 	$script_name = 'wc-add-to-cart-variation';
 	if ( wp_script_is( $script_name, 'registered' ) && ! wp_script_is( $script_name, 'enqueued' ) ) {
@@ -79,8 +80,9 @@ function toffedassen_enqueue_scripts() {
 	}
 
 	wp_enqueue_script(
-		'supro', get_template_directory_uri() . "/js/scripts$min.js", array(
+		'toffedassen', get_template_directory_uri() . "/assets/js/scripts$min.js", array(
 		'jquery',
+		'bootstrap',
 		'slick',
 		'imagesloaded',
 		'isotope',
@@ -114,7 +116,7 @@ function toffedassen_enqueue_scripts() {
 	}
 
 	wp_localize_script(
-		'supro', 'suproData', array(
+		'toffedassen', 'toffedassenData', array(
 			'ajax_url'            => admin_url( 'admin-ajax.php' ),
 			'nonce'               => wp_create_nonce( '_toffedassen_nonce' ),
 			'menu_animation'      => toffedassen_get_option( 'menu_animation' ),
@@ -130,9 +132,9 @@ function toffedassen_enqueue_scripts() {
 			),
 			'l10n'                => array(
 				'added_to_cart_notice'  => intval( toffedassen_get_option( 'added_to_cart_notice' ) ),
-				'notice_text'           => esc_html__( 'has been added to your cart.', 'supro' ),
-				'notice_texts'          => esc_html__( 'have been added to your cart.', 'supro' ),
-				'cart_text'             => esc_html__( 'View Cart', 'supro' ),
+				'notice_text'           => esc_html__( 'has been added to your cart.', 'toffedassen' ),
+				'notice_texts'          => esc_html__( 'have been added to your cart.', 'toffedassen' ),
+				'cart_text'             => esc_html__( 'View Cart', 'toffedassen' ),
 				'cart_link'             => function_exists( 'wc_get_cart_url' ) ? esc_url( wc_get_cart_url() ) : '',
 				'cart_notice_auto_hide' => intval( toffedassen_get_option( 'cart_notice_auto_hide' ) ) > 0 ? intval( toffedassen_get_option( 'cart_notice_auto_hide' ) ) * 1000 : 0,
 			),
@@ -189,13 +191,13 @@ function toffedassen_customize_css() {
 	}
 
 	if ( $n_color ) {
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form input[type="email"] { color:' . $n_color . '; }';
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form input[type="submit"] { color:' . $n_color . '; }';
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form .mc4wp-form-fields:after { color:' . $n_color . '; }';
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form ::-webkit-input-placeholder { color:' . $n_color . '; }';
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form :-moz-placeholder { color:' . $n_color . '; }';
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form ::-moz-placeholder { color:' . $n_color . '; }';
-		$css .= '.footer-newsletter.supro-newsletter .mc4wp-form :-ms-input-placeholder { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form input[type="email"] { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form input[type="submit"] { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form .mc4wp-form-fields:after { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form ::-webkit-input-placeholder { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form :-moz-placeholder { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form ::-moz-placeholder { color:' . $n_color . '; }';
+		$css .= '.footer-newsletter.toffedassen-newsletter .mc4wp-form :-ms-input-placeholder { color:' . $n_color . '; }';
 	}
 
 	// Footer
@@ -219,7 +221,7 @@ function toffedassen_customize_css() {
 	if ( $single_product_bg ) {
 		$css .= '.woocommerce.single-product-layout-2 .site-header { background-color:' . $single_product_bg . '; }';
 		$css .= '.woocommerce.single-product-layout-2 .product-toolbar { background-color:' . $single_product_bg . '; }';
-		$css .= '.woocommerce.single-product-layout-2 div.product .supro-single-product-detail { background-color:' . $single_product_bg . '; }';
+		$css .= '.woocommerce.single-product-layout-2 div.product .toffedassen-single-product-detail { background-color:' . $single_product_bg . '; }';
 		$css .= '.woocommerce.single-product-layout-2 .su-header-minimized { background-color:' . $single_product_bg . '; }';
 	}
 
@@ -248,12 +250,12 @@ function toffedassen_show_header() {
 
 	if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 		echo '<div class="container">';
-		get_template_part( 'parts/logo' );
+		get_template_part( 'template-parts/logo' );
 		echo '</div>';
 	} elseif ( is_page_template( 'template-home-left-sidebar.php' ) ) {
-		get_template_part( 'parts/headers/header-left-sidebar' );
+		get_template_part( 'template-parts/headers/header-left-sidebar' );
 	} else {
-		get_template_part( 'parts/headers/header', $header_layout );
+		get_template_part( 'template-parts/headers/header', $header_layout );
 	}
 }
 
@@ -315,9 +317,9 @@ function toffedassen_show_page_header() {
 	}
 
 	if ( toffedassen_is_blog() ) {
-		get_template_part( 'parts/page-headers/blog', $layout );
+		get_template_part( 'template-parts/page-headers/blog', $layout );
 	} else {
-		get_template_part( 'parts/page-headers/default' );
+		get_template_part( 'template-parts/page-headers/default' );
 	}
 
 	?>
@@ -349,10 +351,10 @@ function toffedassen_get_color_scheme_css( $colors ) {
 	.woocommerce div.product div.images .product-gallery-control .item-icon span,
 	.woocommerce .widget_price_filter .ui-slider .ui-slider-range,
 	span.mb-siwc-tag,
-	.supro-products-grid.style-2 a.ajax-load-products .button-text,
-	.supro-banner-grid.btn-style-2 .banner-btn,
-	.supro-socials.socials-border a:hover,
-	.footer-layout.dark-skin .supro-social-links-widget .socials-list.style-2 a:hover,
+	.toffedassen-products-grid.style-2 a.ajax-load-products .button-text,
+	.toffedassen-banner-grid.btn-style-2 .banner-btn,
+	.toffedassen-socials.socials-border a:hover,
+	.footer-layout.dark-skin .toffedassen-social-links-widget .socials-list.style-2 a:hover,
 	.blog-page-header h1:after{background-color: $colors}
 
 	/* Border Color */
@@ -360,8 +362,8 @@ function toffedassen_get_color_scheme_css( $colors ) {
 	.slick-dots li,
 	.owl-nav div:hover,
 	.owl-dots .owl-dot span,
-	.supro-social-links-widget .socials-list.style-2 a:hover,
-	.supro-socials.socials-border a:hover{border-color: $colors}
+	.toffedassen-social-links-widget .socials-list.style-2 a:hover,
+	.toffedassen-socials.socials-border a:hover{border-color: $colors}
 
 	/* Color */
 	.search-modal .product-cats label span:hover,
@@ -375,34 +377,34 @@ function toffedassen_get_color_scheme_css( $colors ) {
 	.blog-wrapper .entry-metas .entry-cat,
 	.blog-wrapper.sticky .entry-title:before,
 	.single-post .entry-cat,
-	.supro-related-posts .blog-wrapper .entry-cat,
+	.toffedassen-related-posts .blog-wrapper .entry-cat,
 	.error404 .error-404 .page-content a,
 	.error404 .error-404 .page-content .error-icon,
 	.list-portfolio .portfolio-wrapper .entry-title:hover,
 	.list-portfolio .portfolio-wrapper .entry-title:hover a,
 	.single-portfolio-entry-meta .socials a:hover,
 	.widget-about a:hover,
-	.supro-social-links-widget .socials-list a:hover,
-	.supro-social-links-widget .socials-list.style-2 a:hover,
-	.supro-language-currency .widget-lan-cur ul li.actived a,
+	.toffedassen-social-links-widget .socials-list a:hover,
+	.toffedassen-social-links-widget .socials-list.style-2 a:hover,
+	.toffedassen-language-currency .widget-lan-cur ul li.actived a,
 	.shop-widget-info .w-icon,
 	.woocommerce ul.products li.product.product-category:hover .woocommerce-loop-category__title,.woocommerce ul.products li.product.product-category:hover .count,
 	.woocommerce div.product div.images .product-gallery-control .item-icon:hover:before,
 	.woocommerce-checkout table.shop_table .order-total .woocommerce-Price-amount,
 	.woocommerce-account .woocommerce .woocommerce-Addresses .woocommerce-Address .woocommerce-Address-edit .edit:hover,
 	.woocommerce-account .customer-login .form-row-password .lost-password,
-	.supro-icons-box i,
-	.supro-banner-grid-4 .banner-grid__banner .banner-grid__link:hover .banner-title,
-	.supro-product-banner .banner-url:hover .title,
-	.supro-product-banner3 .banner-wrapper:hover .banner-title,
-	.supro-sale-product.style-2 .flip-clock-wrapper .flip-wrapper .inn,
-	.supro-faq_group .g-title,
+	.toffedassen-icons-box i,
+	.toffedassen-banner-grid-4 .banner-grid__banner .banner-grid__link:hover .banner-title,
+	.toffedassen-product-banner .banner-url:hover .title,
+	.toffedassen-product-banner3 .banner-wrapper:hover .banner-title,
+	.toffedassen-sale-product.style-2 .flip-clock-wrapper .flip-wrapper .inn,
+	.toffedassen-faq_group .g-title,
 	.wpcf7-form .require{color: $colors}
 
 	/* Other */
-	.supro-loader:after,
-	.supro-sliders:after,
-	.supro-sliders:after,
+	.toffedassen-loader:after,
+	.toffedassen-sliders:after,
+	.toffedassen-sliders:after,
 	.woocommerce .blockUI.blockOverlay:after { border-color: $colors $colors $colors transparent }
 
 	.woocommerce div.product div.images .product-gallery-control .item-icon span:before { border-color: transparent transparent transparent $colors; }
@@ -444,7 +446,7 @@ if ( ! function_exists( 'toffedassen_typography_css' ) ) :
 			'heading5_typo'    => 'h5',
 			'heading6_typo'    => 'h6',
 			'menu_typo'        => '.nav a, .nav .menu .is-mega-menu .dropdown-submenu .menu-item-mega > a',
-			'sub_menu_typo'    => '.nav li li a, .supro-language-currency .widget-lan-cur ul li a',
+			'sub_menu_typo'    => '.nav li li a, .toffedassen-language-currency .widget-lan-cur ul li a',
 			'footer_text_typo' => '.site-footer',
 		);
 

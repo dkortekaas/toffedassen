@@ -78,7 +78,7 @@
 	}
 
 	li {
-		.clearfix();
+		@include clearfix();
 		font-size: 15px;
 		padding-top: 5px;
 		padding-bottom: 6px;
@@ -164,7 +164,7 @@
 .widget_tag_cloud,
 .widget_product_tag_cloud {
 	.tagcloud {
-		.clearfix();
+		@include clearfix();
 		margin: -5px;
 	}
 
@@ -313,7 +313,7 @@
 	background-color: #f5f5f5;
 
 	&:after {
-		.icon("\e922");
+		@include icon("\e922");
 		position: absolute;
 		top: 50%;
 		right: 17px;

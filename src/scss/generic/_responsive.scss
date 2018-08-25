@@ -384,7 +384,7 @@
                     position: relative;
 
                     &:hover {
-                        color: @dark;
+                        color: $dark;
                     }
                 }
 
@@ -394,7 +394,7 @@
                     }
 
                     & > a {
-                        color: @dark;
+                        color: $dark;
                     }
                 }
 
@@ -402,7 +402,7 @@
                 &.current-menu-item > a,
                 &.current-menu-ancestor > a,
                 &.current-menu-parent > a {
-                    color: @dark;
+                    color: $dark;
                 }
             }
 
@@ -944,7 +944,7 @@
         &.sidebar-content {
             .catalog-sidebar {
                 width: 475px;
-                background-color: @light;
+                background-color: $light;
                 position: fixed;
                 right: -475px;
                 top: 0;
@@ -975,7 +975,7 @@
                     color: #999;
 
                     &:hover {
-                        color: @dark;
+                        color: $dark;
                     }
                 }
 
@@ -984,7 +984,7 @@
                     top: 0;
                     left: 0;
                     right: 0;
-                    background-color: @light;
+                    background-color: $light;
                     padding: 50px 50px 45px;
                     z-index: 10;
                 }
@@ -994,7 +994,7 @@
         &.full-content {
             .woocommerce-products-header {
                 width: 475px;
-                background-color: @light;
+                background-color: $light;
                 position: fixed;
                 right: -475px;
                 top: 0;
@@ -1285,7 +1285,7 @@
 
         .blog-wrapper,
         .blog-masonry-sizer {
-            width: calc(~'50% - 15px');
+            width: calc('50% - 15px');
         }
 
         .blog-wrapper {
@@ -2272,7 +2272,7 @@
     .woocommerce {
         .shop-toolbar {
             display: block;
-            .clearfix();
+            @include clearfix();
 
             .shop-toolbar-el {
                 width: 50%;

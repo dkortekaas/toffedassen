@@ -131,7 +131,7 @@
 
 		&.open {
 
-			.loopWidget(10);
+			@include loopWidget(10);
 
 			.widget {
 				transform: translateY(0);
@@ -291,7 +291,7 @@
 			background-color: transparent !important;
 
 			&:before {
-				.icon('\e935');
+				@include icon('\e935');
 				font-size: 18px;
 				transition: 0.5s;
 			}
@@ -329,7 +329,7 @@
 	.buttons {
 		margin-bottom: 0;
 		a {
-			.btn-secondary();
+			@include btn-secondary();
 			width: 100%;
 			margin-bottom: 15px;
 		}
@@ -501,7 +501,7 @@
 			}
 
 			.i-icon:before {
-				.icon('\e93a');
+				@include icon('\e93a');
 			}
 
 			.woocs_flag_view_item {

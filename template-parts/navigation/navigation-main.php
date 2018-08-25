@@ -10,12 +10,15 @@
 	<div class="menu-nav">
 		<nav class="primary-nav nav">
 		<?php
-			wp_nav_menu( array(
-				'theme_location'  => 'main-menu',
-				'container'       => '',
-				'menu_class'      => 'navbar-nav mr-auto',
-				'walker'          => new WP_Bootstrap_Navwalker(),
-			) );
+			$classes = 'menu none';
+			wp_nav_menu(
+				array(
+					'theme_location' => 'main-menu',
+					'container'      => false,
+					'walker'         => new Supro_Mega_Menu_Walker(),
+					'menu_class'     => $classes,
+				)
+			);
 		?>
 		</nav>
 

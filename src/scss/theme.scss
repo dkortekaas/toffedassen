@@ -20,6 +20,10 @@
 @import 'generic/variables';
 @import 'vendors/slick';
 @import 'generic/mixins';
+
+/* -- TEMP - VC ----*/
+@import 'vendors/visual_composer';
+
 @import 'vendors/bootstrap-5-columns';
 @import 'vendors/owl-carousel';
 @import 'molcules/modal';
@@ -51,6 +55,8 @@
 @import 'templates/wordpress';
 @import 'templates/canvas-panel';
 
+@import 'objects/slider';
+
 /*--------------------------------------------------------------
 4.0 - Header
 --------------------------------------------------------------*/
@@ -69,7 +75,7 @@
  * 6.1 Posts and Pages
  */
 @import 'objects/content';
-//@import 'objects/portfolio';
+@import 'templates/portfolio';
 
 /**
  * 6.3 Comments
@@ -99,3 +105,6 @@
 9.0 - Media Queries
 --------------------------------------------------------------*/
 @import 'generic/responsive';
+
+
+

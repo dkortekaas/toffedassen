@@ -48,40 +48,41 @@ add_filter( 'post_class', 'toffedassen_post_class' );
 /**
  * Open tag after start site content
  */
-if ( ! function_exists( 'toffedassen_site_content_open' ) ) :
 
-	function toffedassen_site_content_open() {
-		$container      = 'container';
-		$product_layout = toffedassen_get_option( 'single_product_layout' );
-		$portfolio_style   = toffedassen_get_option( 'portfolio_layout' );
+ function toffedassen_site_content_open() {
+	$container       = 'container';
+	$product_layout  = toffedassen_get_option( 'single_product_layout' );
+	$portfolio_style = toffedassen_get_option( 'portfolio_layout' );
 
-		if ( toffedassen_is_page_template() ) {
-			$container = 'container-fluid';
-		}
-
-		if (  function_exists( 'is_product' ) && is_product() ) {
-			if ( in_array( $product_layout, array( '2', '5' ) ) ) {
-				$container = 'container-fluid';
-			}
-		}
-
-		if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
-			$container = 'supro-catalog-container';
-		}
-
-		if ( is_singular( 'portfolio' ) ) {
-			$container = 'container-fluid';
-		}
-
-		if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) {
-			$container = 'container-fluid';
-		}
-
-		echo '<div class="' . esc_attr( apply_filters( 'toffedassen_site_content_container_class', $container ) ) . '">';
-		echo '<div class="row">';
+	if ( is_front_page() ) {
+		$container = 'container-fluid';
 	}
 
-endif;
+	if ( toffedassen_is_page_template() ) {
+		$container = 'container-fluid';
+	}
+
+	if (  function_exists( 'is_product' ) && is_product() ) {
+		if ( in_array( $product_layout, array( '2', '5' ) ) ) {
+			$container = 'container-fluid';
+		}
+	}
+
+	if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
+		$container = 'supro-catalog-container';
+	}
+
+	if ( is_singular( 'portfolio' ) ) {
+		$container = 'container-fluid';
+	}
+
+	if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) {
+		$container = 'container-fluid';
+	}
+
+	echo '<div class="' . esc_attr( apply_filters( 'toffedassen_site_content_container_class', $container ) ) . '">';
+	echo '<div class="row">';
+}
 
 add_action( 'toffedassen_site_content_open', 'toffedassen_site_content_open', 20 );
 

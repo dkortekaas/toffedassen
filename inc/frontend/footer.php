@@ -18,7 +18,7 @@ if ( ! function_exists( 'toffedassen_show_footer' ) ) :
 		}
 
 		$footer_layout = 1;
-		get_template_part( 'parts/footers/layout', $footer_layout );
+		get_template_part( 'template-parts/footers/layout', $footer_layout );
 	}
 
 endif;
@@ -244,7 +244,7 @@ function toffedassen_preloader() {
 		return;
 	}
 
-	get_template_part( 'parts/preloader' );
+	get_template_part( 'template-parts/preloader' );
 }
 
 add_action( 'toffedassen_after_footer', 'toffedassen_preloader' );

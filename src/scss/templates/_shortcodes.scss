@@ -1,5 +1,5 @@
 .rev-btn {
-    font-family: @font-family-primary;
+    font-family: $font-family-primary;
 }
 
 .site-content {
@@ -415,7 +415,7 @@
     }
 
     i {
-        color: @primary-color;
+        color: $primary-color;
         font-size: 24px;
         float: left;
         line-height: 1;
@@ -803,7 +803,7 @@
                 color: #fff;
                 height: 50px;
                 line-height: 50px;
-                background-color: @primary-color;
+                background-color: $primary-color;
                 padding: 0 30px;
                 border-radius: 50px;
 
@@ -966,7 +966,7 @@
             line-height: 50px;
             border-radius: 50px;
             padding: 0 30px;
-            background-color: @primary-color;
+            background-color: $primary-color;
             border: none;
         }
     }
@@ -1061,7 +1061,7 @@
 .supro-banner-grid-3 {
     .banner-group {
         margin: -5px;
-        .clearfix();
+        @include clearfix();
     }
 
     .banner-grid__banner {
@@ -1170,7 +1170,7 @@
 
 .supro-banner-grid-4 {
     .banner-group {
-        .clearfix();
+        @include clearfix();
         margin: -15px;
     }
 
@@ -1217,7 +1217,7 @@
                 }
 
                 .banner-title {
-                    color: @primary-color;
+                    color: $primary-color;
                 }
             }
         }
@@ -1233,7 +1233,7 @@
 
         &:hover {
             .title {
-                color: @primary-color;
+                color: $primary-color;
             }
         }
     }
@@ -1430,7 +1430,7 @@
             }
 
             .banner-title {
-                color: @primary-color;
+                color: $primary-color;
             }
         }
     }
@@ -1478,7 +1478,7 @@
 
     .onsale {
         font-size: 13px;
-        color: @light;
+        color: $light;
         margin-bottom: 50px;
 
         .percentage {
@@ -1487,7 +1487,7 @@
 
         & > span {
             display: inline-block;
-            background-color: @primary-color;
+            background-color: $primary-color;
             border-radius: 3px;
             padding: 2px 10px;
         }
@@ -1495,7 +1495,7 @@
 
     .supro-countdown {
         display: inline-block;
-        background-color: @light;
+        background-color: $light;
         padding: 18px 40px;
         box-shadow: 0 36px 68px 0 rgba(243, 243, 243, 1);
     }
@@ -1582,7 +1582,7 @@
                 }
 
                 .inn {
-                    color: @primary-color;
+                    color: $primary-color;
                 }
             }
         }
@@ -1617,7 +1617,7 @@
 .supro-sliders {
     min-height: 200px;
 
-    .supro-loader();
+    @include supro-loader();
     position: relative;
 
     .slider-wrapper,
@@ -1787,10 +1787,10 @@
     }
 
     &.light-color {
-        color: @light;
+        color: $light;
 
         .title {
-            color: @light;
+            color: $light;
         }
     }
 }
@@ -1799,7 +1799,7 @@
     .g-title {
         margin: 0;
         font-size: 18px;
-        color: @primary-color;
+        color: $primary-color;
         font-weight: 700;
     }
 
@@ -1984,9 +1984,9 @@
             }
 
             &:hover {
-                background-color: @primary-color;
+                background-color: $primary-color;
                 color: #fff;
-                border-color: @primary-color;
+                border-color: $primary-color;
             }
         }
     }
@@ -2127,7 +2127,7 @@
         .flip-wrapper {
             .inn,
             .flip-clock-label {
-                color: @light;
+                color: $light;
             }
         }
     }
@@ -2188,11 +2188,11 @@
     }
 
     .require {
-        color: @primary-color;
+        color: $primary-color;
     }
 
     .wpcf7-submit {
-        .btn-primary();
+        @include btn-primary();
         margin-top: 45px;
     }
 }

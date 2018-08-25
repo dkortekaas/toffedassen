@@ -252,7 +252,7 @@
             supro.openCanvasPanel($('#cart-panel'));
         });
 
-        if (suproData.open_cart_mini == '1') {
+        if (toffedassenData.open_cart_mini == '1') {
             $(document.body).on('added_to_cart', function () {
                 supro.openCanvasPanel($('#cart-panel'));
             });
@@ -305,7 +305,7 @@
      */
     supro.instanceSearch = function () {
 
-        if (suproData.ajax_search === '0') {
+        if (toffedassenData.ajax_search === '0') {
             return;
         }
 
@@ -386,15 +386,15 @@
                 $modal.addClass('searched actived');
             } else {
                 xhr = $.ajax({
-                    url: suproData.ajax_url,
+                    url: toffedassenData.ajax_url,
                     dataType: 'json',
                     method: 'post',
                     data: {
                         action: 'supro_search_products',
-                        nonce: suproData.nonce,
+                        nonce: toffedassenData.nonce,
                         term: keyword,
                         cat: cat,
-                        search_type: suproData.search_content_type
+                        search_type: toffedassenData.search_content_type
                     },
                     success: function (response) {
                         var $products = response.data;
@@ -504,7 +504,7 @@
             slide: ['slideDown', 'slideUp']
         };
 
-        var animation = suproData.menu_animation ? animations[suproData.menu_animation] : 'fade';
+        var animation = toffedassenData.menu_animation ? animations[toffedassenData.menu_animation] : 'fade';
 
         $('.primary-nav li, .menu-extra li.menu-item-account').on('mouseenter', function () {
             $(this).addClass('active').children('.dropdown-submenu').stop(true, true)[animation[0]]();
@@ -843,7 +843,7 @@
     };
 
     supro.viewPort = function () {
-        if ('infinite' !== suproData.shop_nav_type) {
+        if ('infinite' !== toffedassenData.shop_nav_type) {
             return;
         }
 
@@ -864,7 +864,7 @@
             return;
         }
 
-        if ('no' == suproData.product.lightbox) {
+        if ('no' == toffedassenData.product.lightbox) {
             $images.on('click', 'a.gallery-item-icon, a.video-item-icon', function () {
                 return false;
             });
@@ -979,7 +979,7 @@
      */
     supro.productThumbnail = function () {
 
-        if (suproData.product.thumb_slider != '1') {
+        if (toffedassenData.product.thumb_slider != '1') {
             return;
         }
 
@@ -993,7 +993,7 @@
                 var columns = $gallery.data('columns');
                 var count = $thumbnail.find('li').length;
                 if (count > columns) {
-                    if (suproData.product.thumb_vertical == '1') {
+                    if (toffedassenData.product.thumb_vertical == '1') {
                         var vertical = true;
 
                         if (supro.$window.width() <= 480) {
@@ -1047,7 +1047,7 @@
 
     supro.productGalleryCarousel = function () {
 
-        if (suproData.product.gallery_carousel != '1') {
+        if (toffedassenData.product.gallery_carousel != '1') {
             return;
         }
 
@@ -1439,7 +1439,7 @@
     supro.showAddedToCartNotice = function () {
 
         $(document.body).on('added_to_cart', function (event, fragments, cart_hash, $thisbutton) {
-            var product_title = $thisbutton.attr('data-title') + ' ' + suproData.l10n.notice_text,
+            var product_title = $thisbutton.attr('data-title') + ' ' + toffedassenData.l10n.notice_text,
                 $message = '';
 
             supro.addedToCartNotice($message, product_title, false, 'success');
@@ -1448,11 +1448,11 @@
     };
 
     supro.addedToCartNotice = function ($message, $content, single, className) {
-        if (suproData.l10n.added_to_cart_notice != '1' || !$.fn.notify) {
+        if (toffedassenData.l10n.added_to_cart_notice != '1' || !$.fn.notify) {
             return;
         }
 
-        $message += '<a href="' + suproData.l10n.cart_link + '" class="btn-button">' + suproData.l10n.cart_text + '</a>';
+        $message += '<a href="' + toffedassenData.l10n.cart_link + '" class="btn-button">' + toffedassenData.l10n.cart_text + '</a>';
 
         if (single) {
             $message = '<div class="message-box">' + $message + '</div>';
@@ -1462,7 +1462,7 @@
             html: '<div><i class="icon-checkmark-circle message-icon"></i><span data-notify-text/>' + $message + '<span class="close icon-cross2"></span> </div>'
         });
         $.notify($content, {
-            autoHideDelay: suproData.l10n.cart_notice_auto_hide,
+            autoHideDelay: toffedassenData.l10n.cart_notice_auto_hide,
             className: className,
             style: 'supro',
             showAnimation: 'fadeIn',
@@ -1474,7 +1474,7 @@
     // Add to cart ajax
     supro.addToCartAjax = function () {
 
-        if (suproData.add_to_cart_ajax == '0') {
+        if (toffedassenData.add_to_cart_ajax == '0') {
             return;
         }
 
@@ -1795,4 +1795,5 @@
         supro.init();
     });
 
+    
 })(jQuery);

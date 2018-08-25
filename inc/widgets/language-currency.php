@@ -14,7 +14,7 @@
  *
  * @see   WP_Widget
  */
-class Supro_Language_Currency_Widget extends WP_Widget {
+class Toffedassen_Language_Currency_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Text widget instance.
@@ -24,11 +24,11 @@ class Supro_Language_Currency_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops  = array(
-			'classname'   => 'widget_text supro-language-currency',
-			'description' => esc_html__( 'Shows language list by WPML plugin and currency list by WooCommerce Currency Switcher plugin', 'supro' ),
+			'classname'   => 'widget_text Toffedassen-language-currency',
+			'description' => esc_html__( 'Shows language list by WPML plugin and currency list by WooCommerce Currency Switcher plugin', 'Toffedassen' ),
 		);
 		$control_ops = array( 'width' => 400, 'height' => 350 );
-		parent::__construct( 'supro-language-currency', esc_html__( 'Supro Language & Currency', 'supro' ), $widget_ops, $control_ops );
+		parent::__construct( 'Toffedassen-language-currency', esc_html__( 'Toffedassen Language & Currency', 'Toffedassen' ), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -61,7 +61,7 @@ class Supro_Language_Currency_Widget extends WP_Widget {
 				if ( $instance['type'] == 'desc' ) {
 					$show_name = 'name';
 				}
-				echo apply_filters( 'supro_language_switcher_widget', supro_language_switcher( $show_name ), $show_name );
+				echo apply_filters( 'Toffedassen_language_switcher_widget', Toffedassen_language_switcher( $show_name ), $show_name );
 				?>
             </div>
 		<?php endif; ?>
@@ -75,7 +75,7 @@ class Supro_Language_Currency_Widget extends WP_Widget {
 				if ( $instance['type'] == 'desc' ) {
 					$show_desc = true;
 				}
-				echo supro_currency_switcher( $show_desc );
+				echo Toffedassen_currency_switcher( $show_desc );
 				?>
             </div>
 		<?php endif; ?>
@@ -123,34 +123,34 @@ class Supro_Language_Currency_Widget extends WP_Widget {
 		?>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'language' ) ); ?>"><?php esc_html_e( 'Language Text:', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'language' ) ); ?>"><?php esc_html_e( 'Language Text:', 'Toffedassen' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'language' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'language' ) ); ?>" type="text"
                    value="<?php echo esc_attr( $language ); ?>"/>
         </p>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'currency' ) ); ?>"><?php esc_html_e( 'Currency Text:', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'currency' ) ); ?>"><?php esc_html_e( 'Currency Text:', 'Toffedassen' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'currency' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'currency' ) ); ?>" type="text"
                    value="<?php echo esc_attr( $currency ); ?>"/>
         </p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php esc_html_e( 'Type:', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php esc_html_e( 'Type:', 'Toffedassen' ); ?></label>
             <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"
                     name="<?php echo esc_attr( $this->get_field_name( 'type' ) ); ?>">
-                <option value="code" <?php echo ( 'code' == $type ) ? 'selected' : '' ?>><?php esc_html_e( 'Code', 'supro' ); ?></option>
-                <option value="desc" <?php echo ( 'desc' == $type ) ? 'selected' : '' ?>><?php esc_html_e( 'Description', 'supro' ); ?></option>
+                <option value="code" <?php echo ( 'code' == $type ) ? 'selected' : '' ?>><?php esc_html_e( 'Code', 'Toffedassen' ); ?></option>
+                <option value="desc" <?php echo ( 'desc' == $type ) ? 'selected' : '' ?>><?php esc_html_e( 'Description', 'Toffedassen' ); ?></option>
             </select>
         </p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'show' ) ); ?>"><?php esc_html_e( 'Show:', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'show' ) ); ?>"><?php esc_html_e( 'Show:', 'Toffedassen' ); ?></label>
             <select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'show' ) ); ?>"
                     name="<?php echo esc_attr( $this->get_field_name( 'show' ) ); ?>">
-                <option value="" <?php echo ( '' == $show ) ? 'selected' : '' ?>><?php esc_html_e( 'Default', 'supro' ); ?></option>
-                <option value="currency" <?php echo ( 'currency' == $show ) ? 'selected' : '' ?>><?php esc_html_e( 'Only Currency', 'supro' ); ?></option>
-                <option value="language" <?php echo ( 'language' == $show ) ? 'selected' : '' ?>><?php esc_html_e( 'Only Language', 'supro' ); ?></option>
+                <option value="" <?php echo ( '' == $show ) ? 'selected' : '' ?>><?php esc_html_e( 'Default', 'Toffedassen' ); ?></option>
+                <option value="currency" <?php echo ( 'currency' == $show ) ? 'selected' : '' ?>><?php esc_html_e( 'Only Currency', 'Toffedassen' ); ?></option>
+                <option value="language" <?php echo ( 'language' == $show ) ? 'selected' : '' ?>><?php esc_html_e( 'Only Language', 'Toffedassen' ); ?></option>
             </select>
         </p>
 

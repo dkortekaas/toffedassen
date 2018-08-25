@@ -10,6 +10,8 @@
 /**
  * Set site owner for custom login.
  */
+define( 'LOGIN_WEBLOGIQ', true );
+
 if ( LOGIN_WEBLOGIQ === true ) :
 	$developer     = 'internetbureau Weblogiq';
 	$developer_url = 'https://weblogiq.nl';
@@ -42,7 +44,7 @@ require get_template_directory() . '/inc/cleanup.php';
 /**
  * Sets up theme scripts and styles.
  */
-require get_template_directory() . '/inc/enqueue.php';
+//require get_template_directory() . '/inc/enqueue.php';
 
 if ( is_admin() ) :
 	/**

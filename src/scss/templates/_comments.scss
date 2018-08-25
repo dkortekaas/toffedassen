@@ -44,7 +44,7 @@
 
 .comment,
 .pingback {
-	.clearfix;
+	@include clearfix;
 	float: left;
 	clear: both;
 	width: 100%;
@@ -204,7 +204,7 @@
 
 	.form-submit {
 		.submit {
-			.btn-primary();
+			@include btn-primary();
 		}
 	}
 
@@ -234,7 +234,7 @@
 			font-weight: 400;
 
 			&:before {
-				.icon('\e98d');
+				@include icon('\e98d');
 				font-size: 18px;
 				position: absolute;
 				top: 0;

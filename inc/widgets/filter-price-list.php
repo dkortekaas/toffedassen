@@ -14,7 +14,7 @@
  *
  * @see   WP_Widget
  */
-class Supro_Price_Filter_List_Widget extends WP_Widget {
+class Toffedassen_Price_Filter_List_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Text widget instance.
@@ -24,11 +24,11 @@ class Supro_Price_Filter_List_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops  = array(
-			'classname'   => 'widget_text supro-price-filter-list',
-			'description' => esc_html__( 'Shows a price filter list in a widget which lets you narrow down the list of shown products when viewing product categories.', 'supro' ),
+			'classname'   => 'widget_text Toffedassen-price-filter-list',
+			'description' => esc_html__( 'Shows a price filter list in a widget which lets you narrow down the list of shown products when viewing product categories.', 'Toffedassen' ),
 		);
 		$control_ops = array( 'width' => 400, 'height' => 350 );
-		parent::__construct( 'supro-price-filter-list', esc_html__( 'Supro Price Filter List', 'supro' ), $widget_ops, $control_ops );
+		parent::__construct( 'Toffedassen-price-filter-list', esc_html__( 'Toffedassen Price Filter List', 'Toffedassen' ), $widget_ops, $control_ops );
 	}
 
 	/**
@@ -138,7 +138,7 @@ class Supro_Price_Filter_List_Widget extends WP_Widget {
 						if ( $min_price == $min_price_actived ) {
 							$css_class = 'actived';
 						}
-						$link = supro_get_page_base_url();
+						$link = Toffedassen_get_page_base_url();
 						if ( $min_price == $min_price_actived ) {
 							if ( $params ) {
 								$link .= '?' . $params;
@@ -246,21 +246,21 @@ class Supro_Price_Filter_List_Widget extends WP_Widget {
 		$title    = sanitize_text_field( $instance['title'] );
 		?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'Toffedassen' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
                    name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
                    value="<?php echo esc_attr( $title ); ?>"/>
         </p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Content:', 'supro' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Content:', 'Toffedassen' ); ?></label>
             <textarea class="widefat" rows="16" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"
                       name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>"><?php echo esc_textarea( $instance['text'] ); ?></textarea>
         </p>
 
-        <p><?php esc_html_e( 'Enter the price by format: min_price|max_price. Divide price list with linebreaks (Enter). Example:', 'supro' ); ?></p>
-        <p><?php esc_html_e( '100|200', 'supro' ); ?><br><?php esc_html_e( '200|300', 'supro' ); ?>
-            <br><?php esc_html_e( '300|400', 'supro' ); ?></p>
+        <p><?php esc_html_e( 'Enter the price by format: min_price|max_price. Divide price list with linebreaks (Enter). Example:', 'Toffedassen' ); ?></p>
+        <p><?php esc_html_e( '100|200', 'Toffedassen' ); ?><br><?php esc_html_e( '200|300', 'Toffedassen' ); ?>
+            <br><?php esc_html_e( '300|400', 'Toffedassen' ); ?></p>
 		<?php
 	}
 }

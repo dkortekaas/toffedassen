@@ -69,20 +69,6 @@ dt {
 	font-size: 100%;
 }
 
-.clearfix() {
-    zoom: 1;
-
-    &:before,
-    &:after {
-        content: "";
-        display: table;
-    }
-
-    &:after {
-        clear: both;
-    }
-}
-
 .clearfix {
 	zoom: 1;
 
@@ -99,30 +85,6 @@ dt {
 
 .supro-tabs,
 .tabs {
-	$-webkit-keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-	$-moz-keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-	$keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
 
 	.tabs-nav {
 		margin: 0;
@@ -217,6 +179,7 @@ ul.nav-filter {
 	list-style: none;
 	margin: 0 -12px;
 	padding: 0;
+	border-bottom: none;
 
 	li {
 		display: inline-block;
@@ -224,6 +187,7 @@ ul.nav-filter {
 		color: #bbbbbb;
 		transition: 0.5s;
 		cursor: pointer;
+		float: none;
 
 		&:hover,
 		&.active {

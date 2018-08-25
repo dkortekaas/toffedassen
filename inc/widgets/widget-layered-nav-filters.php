@@ -17,21 +17,21 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * @version  2.3.0
  * @extends  WC_Widget
  */
-class Supro_Widget_Layered_Nav_Filters extends WC_Widget {
+class Toffedassen_Widget_Layered_Nav_Filters extends WC_Widget {
 
 	/**
 	 * Constructor.
 	 */
 	public function __construct() {
 		$this->widget_cssclass    = 'woocommerce widget_layered_nav_filters';
-		$this->widget_description = esc_html__( 'Display a list of active product filters.', 'supro' );
-		$this->widget_id          = 'supro_layered_nav_filters';
-		$this->widget_name        = esc_html__( 'Supro - Active Product Filters', 'supro' );
+		$this->widget_description = esc_html__( 'Display a list of active product filters.', 'Toffedassen' );
+		$this->widget_id          = 'Toffedassen_layered_nav_filters';
+		$this->widget_name        = esc_html__( 'Toffedassen - Active Product Filters', 'Toffedassen' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
-				'std'   => esc_html__( 'Active filters', 'supro' ),
-				'label' => esc_html__( 'Title', 'supro' ),
+				'std'   => esc_html__( 'Active filters', 'Toffedassen' ),
+				'label' => esc_html__( 'Title', 'Toffedassen' ),
 			),
 		);
 
@@ -167,26 +167,26 @@ class Supro_Widget_Layered_Nav_Filters extends WC_Widget {
 							$link = add_query_arg( $filter_name, implode( ',', $new_filter ), $link );
 						}
 
-						echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'supro' ) . '" href="' . esc_url( $link ) . '">' . esc_html( $term->name ) . '</a></li>';
+						echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'Toffedassen' ) . '" href="' . esc_url( $link ) . '">' . esc_html( $term->name ) . '</a></li>';
 					}
 				}
 			}
 
 			if ( $min_price ) {
 				$link = remove_query_arg( 'min_price', $base_link );
-				echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'supro' ) . '" href="' . esc_url( $link ) . '">' . sprintf( __( 'Min %s', 'supro' ), wc_price( $min_price ) ) . '</a></li>';
+				echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'Toffedassen' ) . '" href="' . esc_url( $link ) . '">' . sprintf( __( 'Min %s', 'Toffedassen' ), wc_price( $min_price ) ) . '</a></li>';
 			}
 
 			if ( $max_price ) {
 				$link = remove_query_arg( 'max_price', $base_link );
-				echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'supro' ) . '" href="' . esc_url( $link ) . '">' . sprintf( __( 'Max %s', 'supro' ), wc_price( $max_price ) ) . '</a></li>';
+				echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'Toffedassen' ) . '" href="' . esc_url( $link ) . '">' . sprintf( __( 'Max %s', 'Toffedassen' ), wc_price( $max_price ) ) . '</a></li>';
 			}
 
 			if ( ! empty( $rating_filter ) ) {
 				foreach ( $rating_filter as $rating ) {
 					$link_ratings = implode( ',', array_diff( $rating_filter, array( $rating ) ) );
 					$link         = $link_ratings ? add_query_arg( 'rating_filter', $link_ratings ) : remove_query_arg( 'rating_filter', $base_link );
-					echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'supro' ) . '" href="' . esc_url( $link ) . '">' . sprintf( esc_html__( 'Rated %s out of 5', 'supro' ), esc_html( $rating ) ) . '</a></li>';
+					echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'Toffedassen' ) . '" href="' . esc_url( $link ) . '">' . sprintf( esc_html__( 'Rated %s out of 5', 'Toffedassen' ), esc_html( $rating ) ) . '</a></li>';
 				}
 			}
 
@@ -197,12 +197,12 @@ class Supro_Widget_Layered_Nav_Filters extends WC_Widget {
 					}
 					$link_brands = implode( ',', array_diff( $product_brands, array( $brand ) ) );
 					$link         = $link_brands ? add_query_arg( 'product_brand', $link_brands ) : remove_query_arg( 'product_brand', $base_link );
-					echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'supro' ) . '" href="' . esc_url( $link ) . '">' . esc_html( $term->name )  . '</a></li>';
+					echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove filter', 'Toffedassen' ) . '" href="' . esc_url( $link ) . '">' . esc_html( $term->name )  . '</a></li>';
 				}
 			}
 
 			$link = $this->get_page_current_url();
-			echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove all filters', 'supro' ) . '" href="' . esc_url( $link ) . '">' . esc_attr__( 'Remove all filters', 'supro' )   . '</a></li>';
+			echo '<li class="chosen"><a rel="nofollow" aria-label="' . esc_attr__( 'Remove all filters', 'Toffedassen' ) . '" href="' . esc_url( $link ) . '">' . esc_attr__( 'Remove all filters', 'Toffedassen' )   . '</a></li>';
 
 			echo '</ul>';
 

@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package Logiq
+ * @package Toffedassen
  */
 
 if ( ! defined( 'ABSPATH' ) ) :
@@ -15,9 +15,9 @@ endif;
  * @param array $classes Classes for the body element.
  * @return array
  */
-if ( ! function_exists( 'logiq_wp_body_classes' ) ) :
+if ( ! function_exists( 'toffedassen_wp_body_classes' ) ) :
 
-	function logiq_wp_body_classes( $classes ) {
+	function toffedassen_wp_body_classes( $classes ) {
 
 		// Add class of group-blog to blogs with more than 1 published author.
 		if ( is_multi_author() ) :
@@ -31,12 +31,12 @@ if ( ! function_exists( 'logiq_wp_body_classes' ) ) :
 
 		// Add class if we're viewing the Customizer for easier styling of theme options.
 		if ( is_customize_preview() ) :
-			$classes[] = 'logiq-customizer';
+			$classes[] = 'toffedassen-customizer';
 		endif;
 
 		// Add class on front page.
 		if ( is_front_page() && 'posts' !== get_option( 'show_on_front' ) ) :
-			$classes[] = 'logiq-front-page';
+			$classes[] = 'toffedassen-front-page';
 		endif;
 
 		// Add a class if there is a custom header.
@@ -67,16 +67,16 @@ if ( ! function_exists( 'logiq_wp_body_classes' ) ) :
 
 	}
 
-	add_filter( 'body_class', 'logiq_wp_body_classes' );
+	add_filter( 'body_class', 'toffedassen_wp_body_classes' );
 
 endif;
 
 /**
 * Add a pingback url auto-discovery header for single posts, pages, or attachments.
 */
-if ( ! function_exists( 'logiq_wp_pingback_header' ) ) :
+if ( ! function_exists( 'toffedassen_wp_pingback_header' ) ) :
 
-	function logiq_wp_pingback_header() {
+	function toffedassen_wp_pingback_header() {
 
 		if ( is_singular() && pings_open() ) :
 			echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
@@ -84,16 +84,16 @@ if ( ! function_exists( 'logiq_wp_pingback_header' ) ) :
 
 	}
 
-	add_action( 'wp_head', 'logiq_wp_pingback_header' );
+	add_action( 'wp_head', 'toffedassen_wp_pingback_header' );
 
 endif;
 
 /**
  * Checks to see if we're on the homepage or not.
  */
-if ( ! function_exists( 'logiq_is_frontpage' ) ) :
+if ( ! function_exists( 'toffedassen_is_frontpage' ) ) :
 
-	function logiq_is_frontpage() {
+	function toffedassen_is_frontpage() {
 
 		return ( is_front_page() && ! is_home() );
 
@@ -104,9 +104,9 @@ endif;
 /**
  * Adds title to the images.
  */
-if ( ! function_exists( 'logiq_add_img_title' ) ) :
+if ( ! function_exists( 'toffedassen_add_img_title' ) ) :
 
-	function logiq_add_img_title( $attr, $attachment = null ) {
+	function toffedassen_add_img_title( $attr, $attachment = null ) {
 
     	$img_title = trim( strip_tags( $attachment->post_title ) );
 
@@ -117,55 +117,49 @@ if ( ! function_exists( 'logiq_add_img_title' ) ) :
 
 	}
 
-	add_filter( 'wp_get_attachment_image_attributes','logiq_add_img_title', 10, 2 );
+	add_filter( 'wp_get_attachment_image_attributes','toffedassen_add_img_title', 10, 2 );
 
 endif;
 
 /**
  * Gets Post slug.
  */
-if ( ! function_exists( 'logiq_get_post_slug' ) ) :
 
-	function logiq_get_post_slug( ) {
- 
-		$slug = get_post_field( 'post_name', get_post() );
+function toffedassen_get_post_slug( ) {
+	$slug = get_post_field( 'post_name', get_post() );
 
-		return $slug;
+	return $slug;
+}
 
-	}
-
-endif;
 
 /**
  * Adds Google Tagmanager support.
  */
-if ( ! function_exists( 'logiq_gtm_scripts' ) ) :
 
-	function logiq_gtm_scripts() {
+function toffedassen_gtm_scripts() {
 
-		$tagmanager = get_option( 'google_tagmanager' );
+	$tagmanager = get_option( 'google_tagmanager' );
 
-		if( @$tagmanager == 1 ) : ?>
-		<!-- Google Tag Manager -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-XXXXXXXXXX');</script>
-		<!-- End Google Tag Manager -->
-		<?php
-		endif;
+	if( @$tagmanager == 1 ) : ?>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-XXXXXXXXXX');</script>
+	<!-- End Google Tag Manager -->
+	<?php
+	endif;
 
-	}
+}
 
-endif;
 
 /**
  * Paging.
  */
-if ( ! function_exists( 'logiq_page_navi' ) ) :
+if ( ! function_exists( 'toffedassen_page_navi' ) ) :
 
-	function logiq_page_navi() {
+	function toffedassen_page_navi() {
 
 		global $wp_query;
 
@@ -176,8 +170,8 @@ if ( ! function_exists( 'logiq_page_navi' ) ) :
 			'total'     => $wp_query->max_num_pages,
 			'mid_size'  => 5,
 			'prev_next' => true,
-			'prev_text' => __( '&laquo;', 'logiq' ),
-			'next_text' => __( '&raquo;', 'logiq' ),
+			'prev_text' => __( '&laquo;', 'toffedassen' ),
+			'next_text' => __( '&raquo;', 'toffedassen' ),
 			'type'      => 'list',
 		) );
 
@@ -202,9 +196,9 @@ endif;
 /**
  * Schema.org JSON for Yoast breadcrumbs.
  */
-if ( ! function_exists( 'logiq_add_crumb_schema' ) ) :
+if ( ! function_exists( 'toffedassen_add_crumb_schema' ) ) :
 
-	function logiq_add_crumb_schema($crumbs) {
+	function toffedassen_add_crumb_schema($crumbs) {
 
     	if( ! is_array( $crumbs ) || $crumbs === array()) :
         	return $crumbs;
@@ -290,6 +284,6 @@ if ( ! function_exists( 'logiq_add_crumb_schema' ) ) :
 
 	}
 
-	add_filter('wpseo_breadcrumb_links', 'logiq_add_crumb_schema', 10, 1);
+	add_filter('wpseo_breadcrumb_links', 'toffedassen_add_crumb_schema', 10, 1);
 
 endif;

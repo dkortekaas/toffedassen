@@ -12,67 +12,61 @@ endif;
 /**
  * Sets the custom login style.
  */
-if ( ! function_exists( 'toffedassen_custom_login_style' ) ) :
-	function toffedassen_custom_login_style() {
 
-		if ( LOGIN_WEBLOGIQ === true ) :
+function toffedassen_custom_login_style() {
 
-			echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/css/login.css" />';
+	if ( LOGIN_WEBLOGIQ === true ) :
 
-		else :
+		echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/css/login.css" />';
 
-			echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/css/login-bmc.css" />';
+	else :
 
-		endif;
+		echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/css/login-bmc.css" />';
 
-	}
+	endif;
 
-	add_action( 'login_head', 'toffedassen_custom_login_style' );
+}
 
-endif;
+add_action( 'login_head', 'toffedassen_custom_login_style' );
+
 
 /**
  * Sets the custom login Url.
  */	
-if ( ! function_exists( 'toffedassen_custom_login_url' ) ) :
 
-	function toffedassen_custom_login_url() {
+function toffedassen_custom_login_url() {
 
-		if ( LOGIN_WEBLOGIQ === true ) :
+	if ( LOGIN_WEBLOGIQ === true ) :
 
-			return 'https://weblogiq.nl';
+		return 'https://weblogiq.nl';
 
-		else :
+	else :
 
-			return 'https://www.bmcinternetmarketing.nl';
+		return 'https://www.bmcinternetmarketing.nl';
 
-		endif;
+	endif;
 
-	}
+}
 
-	add_filter( 'login_headerurl', 'toffedassen_custom_login_url' );
+add_filter( 'login_headerurl', 'toffedassen_custom_login_url' );
 
-endif;
 
 /**
  * Sets the custom login Url title.
  */	
-if ( ! function_exists( 'toffedassen_custom_login_url_title' ) ) :
 
-	function toffedassen_custom_login_url_title() {
+function toffedassen_custom_login_url_title() {
 
-		if ( LOGIN_WEBLOGIQ === true ) :
+	if ( LOGIN_WEBLOGIQ === true ) :
 
-			return esc_html__( 'Developed by internetbureau Weblogiq', 'toffedassen' );
+		return esc_html__( 'Developed by internetbureau Weblogiq', 'toffedassen' );
 
-		else :
+	else :
 
-			return esc_html__( 'Developed by BMC Internet Marketing', 'toffedassen' );
+		return esc_html__( 'Developed by BMC Internet Marketing', 'toffedassen' );
 
-		endif;
+	endif;
 
-	}
+}
 
-	add_filter( 'login_headertitle', 'toffedassen_custom_login_url_title' );
-
-endif;
+add_filter( 'login_headertitle', 'toffedassen_custom_login_url_title' );
