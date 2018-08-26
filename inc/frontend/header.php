@@ -289,36 +289,38 @@ add_action( 'toffedassen_before_header', 'toffedassen_header_minimized' );
  * @since 1.0.0
  */
 function toffedassen_show_page_header() {
-echo '<h1>'. $page_header .'</h1>';
-	if ( toffedassen_is_home() || is_page_template( 'template-coming-soon-page.php' ) ) {
-		return;
-	}
 
-	if ( toffedassen_is_catalog() ) {
+	if ( toffedassen_is_home() || is_page_template( 'template-coming-soon-page.php' ) ) :
 		return;
-	}
+	endif;
 
-	if ( is_singular( 'portfolio' ) ) {
+	if ( toffedassen_is_catalog() ) :
 		return;
-	}
+	endif;
+
+	if ( is_singular( 'portfolio' ) ) :
+		return;
+	endif;
 
 	$page_header = toffedassen_get_page_header();
 
-	if ( ! $page_header ) {
+	if ( ! $page_header ) :
 		return;
-	}
+	endif;
 
 	$layout = 1;
 
-	if ( $page_header && isset( $page_header['layout'] ) ) {
+	if ( $page_header && isset( $page_header['layout'] ) ) :
 		$layout = $page_header['layout'];
-	}
+	endif;
 
-	if ( toffedassen_is_blog() ) {
+	if ( toffedassen_is_blog() ) :
 		get_template_part( 'template-parts/page-headers/blog', $layout );
-	} else {
+	elseif ( is_front_page() ) :
+
+	else :
 		get_template_part( 'template-parts/page-headers/default' );
-	}
+	endif;
 
 	?>
 	<?php

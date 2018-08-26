@@ -56,6 +56,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+
+		.nav {
+			padding-left: 15px;
+		}
 	}
 
 	.menu-extra {
@@ -385,7 +389,7 @@
 	.site-header {
 		.menu-logo,
 		.menu-extra {
-			width: 15%;
+			width: 18%;
 		}
 
 		.menu-extra-au {

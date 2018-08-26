@@ -18,7 +18,7 @@
 
                                 <div class="product-header">
                                     <ul class="nav nav-tabs nav-filter filter" role="tablist">
-                                        <li role="presentation"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Meest verkocht</a></li>
+                                        <li role="presentation" class="active"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Meest verkocht</a></li>
                                         <li role="presentation"><a href="#new" aria-controls="new" role="tab" data-toggle="tab">Nieuwe producten</a></li>
                                         <li role="presentation"><a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">Meest populair</a></li>
                                     </ul>

@@ -8,7 +8,7 @@
 $logo  = toffedassen_get_option( 'logo' );
 
 if ( ! $logo ) :
-	$logo = get_template_directory_uri() . 'assets/images/logo.svg';
+	$logo = get_template_directory_uri() . '/assets/images/toffedassen-logo.svg';
 endif;
 
 ?>
