@@ -68,8 +68,9 @@ add_filter( 'post_class', 'toffedassen_post_class' );
 		}
 	}
 
-	if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
-		$container = 'toffedassen-catalog-container';
+	//if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
+	if ( toffedassen_is_catalog() ) {
+		$container = 'container sidebar-content';
 	}
 
 	if ( is_singular( 'portfolio' ) ) {

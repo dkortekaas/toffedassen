@@ -13,6 +13,8 @@ get_header();
 
 	<?php get_template_part( 'template-parts/general/content', 'hero' ); ?>
 
+	<?php get_template_part( 'template-parts/general/content', 'cta' ); ?>
+
 	<?php get_template_part( 'template-parts/shop/products', 'home' ); ?>
 
 <?php

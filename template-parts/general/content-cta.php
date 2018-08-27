@@ -4,30 +4,53 @@
  *
  * @package Logiq
  */
-
-$cta = get_option("site_settings");
-if ($cta) :
-
 ?>
 
-    <section class="cta">
-
-        <div class="cta_text">
-
-            <h3><?php echo $cta['cta_title']; ?></h3>
-
-            <p><?php echo $cta['cta_content']; ?></p>
-
-        </div>
-
-        <div class="cta_link">
-
-            <a href="<?php echo $cta['cta_button_link']; ?>" class="btn"><?php echo $cta['cta_button_text']; ?></a>
-
-        </div>
-
-    </section>
-
-<?php
-endif;
-?>
+    <div class="cta-icons-box">
+        <ul>
+            <li class="cta-icon-box">
+                <div class="box-icon">
+                    <i class="icon-location"></i>
+                </div>
+                <div class="box-wrapper">
+                    <h4 class="box-title">
+                        <a class="box-link" href="#">FREE SHIPPING</a>
+                    </h4>
+                    <div class="box-desc">Orders over $100</div>
+                </div>
+            </li>
+            <li class="cta-icon-box">
+                <div class="box-icon">
+                    <i class="icon-redo2"></i>
+                </div>
+                <div class="box-wrapper">
+                    <h4 class="box-title">
+                        <a class="box-link" href="#">FREE RETURNS</a>
+                    </h4>
+                    <div class="box-desc">Within 30 days</div>
+                </div>
+            </li>
+            <li class="cta-icon-box">
+                <div class="box-icon">
+                    <i class="icon-lock"></i>
+                </div>
+                <div class="box-wrapper">
+                    <h4 class="box-title">
+                        <a class="box-link" href="#">100% SECURE</a>
+                    </h4>
+                    <div class="box-desc">Online Shopping</div>
+                </div>
+            </li>
+            <li class="cta-icon-box">
+                <div class="box-icon">
+                    <i class="icon-tag"></i>
+                </div>
+                <div class="box-wrapper">
+                    <h4 class="box-title">
+                        <a class="box-link" href="#">BEST PRICE</a>
+                    </h4>
+                    <div class="box-desc">Guaranted</div>
+                </div>
+            </li>
+        </ul>
+    </div>

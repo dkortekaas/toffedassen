@@ -43,6 +43,7 @@ function toffedassen_body_classes( $classes ) {
 	}
 
 	if ( toffedassen_is_catalog() ) {
+
 		$classes[] = 'toffedassen-catalog-page';
 
 		$view      = isset( $_COOKIE['shop_view'] ) ? $_COOKIE['shop_view'] : toffedassen_get_option( 'shop_view' );

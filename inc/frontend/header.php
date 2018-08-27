@@ -294,9 +294,9 @@ function toffedassen_show_page_header() {
 		return;
 	endif;
 
-	if ( toffedassen_is_catalog() ) :
-		return;
-	endif;
+	// if ( toffedassen_is_catalog() ) :
+	// 	return;
+	// endif;
 
 	if ( is_singular( 'portfolio' ) ) :
 		return;
@@ -318,6 +318,8 @@ function toffedassen_show_page_header() {
 		get_template_part( 'template-parts/page-headers/blog', $layout );
 	elseif ( is_front_page() ) :
 
+	elseif ( toffedassen_is_catalog() ) :
+		//get_template_part( 'template-parts/page-headers/catalog' );
 	else :
 		get_template_part( 'template-parts/page-headers/default' );
 	endif;

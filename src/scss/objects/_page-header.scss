@@ -4,6 +4,14 @@
     padding: 150px 0 150px;
     position: relative;
 
+    &.page-header-catalog {
+
+        .header-transparent & {
+            padding-top: 0;
+    
+        }
+    }
+
     .header-transparent & {
         padding-top: 230px;
 

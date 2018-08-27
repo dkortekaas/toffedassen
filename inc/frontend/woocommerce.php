@@ -771,23 +771,28 @@ class Toffedassen_WooCommerce {
 
 		$output = array();
 
-		if ( in_array( 'result', $elements ) ) {
-			$found = '';
+		// if ( in_array( 'result', $elements ) ) {
+		// 	$found = '';
 
-			global $wp_query;
-			if ( $wp_query && isset( $wp_query->found_posts ) ) {
-				if ( $wp_query->found_posts > 1 ) {
-					$label = esc_html__( ' Products', 'toffedassen' );
-				} else {
-					$label = esc_html__( ' Product', 'toffedassen' );
-				}
-				$found = '<span>' . $wp_query->found_posts . ' </span>' . $label . ' ' . esc_html__( 'Found', 'toffedassen' );
-			}
+		// 	//global $wp_query;
+			
+		// 	$args = array( 'post_type' => 'product', 'post_status' => 'publish', 
+		// 	'posts_per_page' => -1 );
+		// 	$products = new WP_Query( $args );
 
-			if ( $found ) {
-				$output[] = sprintf( '<div class="shop-toolbar-el product-found">%s</div>', $found );
-			}
-		}
+		// 	if ( $products && isset( $products->found_posts ) ) {
+		// 		if ( $products->found_posts > 1 ) {
+		// 			$label = esc_html__( ' Products', 'toffedassen' );
+		// 		} else {
+		// 			$label = esc_html__( ' Product', 'toffedassen' );
+		// 		}
+		// 		$found = '<span>' . $products->found_posts . ' </span>' . $label . ' ' . esc_html__( 'Found', 'toffedassen' );
+		// 	}
+
+		// 	if ( $found ) {
+		// 		$output[] = sprintf( '<div class="shop-toolbar-el product-found">%s</div>', $found );
+		// 	}
+		// }
 
 		if ( in_array( 'filter', $elements ) ) {
 			$output[] = '<div id="toffedassen-catalog-filter" class="shop-toolbar-el toffedassen-catalog-filter">
