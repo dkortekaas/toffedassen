@@ -136,8 +136,12 @@ function toffedassen_get_post_slug( ) {
  */
 
 function toffedassen_gtm_head() {
-	$gtm = get_option( 'google_tagmanager' );
-	$gtm_code = get_option( 'google_tagmanager_code' );
+	//Temp
+	//$gtm = get_option( 'google_tagmanager' );
+	//$gtm_code = get_option( 'google_tagmanager_code' );
+	
+	$gtm = 1;
+	$gtm_code = 'GTM-5RH4BV7';
 
 	if( @$gtm == 1 ) : ?>
 	<!-- Google Tag Manager -->
@@ -156,8 +160,12 @@ function toffedassen_gtm_head() {
  */
 
 function toffedassen_gtm_body() {
-	$gtm = get_option( 'google_tagmanager' );
-	$gtm_code = get_option( 'google_tagmanager_code' );
+	//Temp
+	//$gtm = get_option( 'google_tagmanager' );
+	//$gtm_code = get_option( 'google_tagmanager_code' );
+	
+	$gtm = 1;
+	$gtm_code = 'GTM-5RH4BV7';
 
 	if( @$gtm == 1 ) : ?>
 	<!-- Google Tag Manager (noscript) -->
