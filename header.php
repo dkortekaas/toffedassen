@@ -11,6 +11,7 @@
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
+	<?php toffedassen_gtm_head(); ?>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
@@ -20,12 +21,12 @@
 	<?php 
 	get_template_part( 'template-parts/header/header', 'favicons' );
 	wp_head();
-	//toffedassen_gtm_scripts();
 	?>
 </head>
 
-<!--<body <?php //body_class( toffedassen_get_post_slug() ); ?> <?php //toffedassen_html_tag_schema(); ?>>-->
-<body <?php body_class( 'header-no-border header-transparent' ); ?>>
+<body <?php body_class( 'header-no-border header-transparent' toffedassen_get_post_slug() ); ?> <?php toffedassen_html_tag_schema(); ?>>
+
+	<?php toffedassen_gtm_body(); ?>
 
 	<div id="page" class="hfeed site">
 

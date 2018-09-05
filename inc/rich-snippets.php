@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) :
 	exit;
 endif;
 
-if ( ! function_exists( 'logiq_html_tag_schema' ) ) :
+if ( ! function_exists( 'toffedassen_html_tag_schema' ) ) :
 
-	function logiq_html_tag_schema() {
+	function toffedassen_html_tag_schema() {
 
 		$schema = 'http://schema.org/';
 

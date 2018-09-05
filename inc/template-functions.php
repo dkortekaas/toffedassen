@@ -127,32 +127,46 @@ endif;
 
 function toffedassen_get_post_slug( ) {
 	$slug = get_post_field( 'post_name', get_post() );
-
 	return $slug;
 }
 
 
 /**
- * Adds Google Tagmanager support.
+ * Adds Google Tagmanager support in Head.
  */
 
-function toffedassen_gtm_scripts() {
+function toffedassen_gtm_head() {
+	$gtm = get_option( 'google_tagmanager' );
+	$gtm_code = get_option( 'google_tagmanager_code' );
 
-	$tagmanager = get_option( 'google_tagmanager' );
-
-	if( @$tagmanager == 1 ) : ?>
+	if( @$gtm == 1 ) : ?>
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-XXXXXXXXXX');</script>
+	})(window,document,'script','dataLayer','<?php echo $gtm_code ?>');</script>
 	<!-- End Google Tag Manager -->
 	<?php
 	endif;
-
 }
 
+/**
+ * Adds Google Tagmanager support direct after body.
+ */
+
+function toffedassen_gtm_body() {
+	$gtm = get_option( 'google_tagmanager' );
+	$gtm_code = get_option( 'google_tagmanager_code' );
+
+	if( @$gtm == 1 ) : ?>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo $gtm_code ?>"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<?php
+	endif;
+}
 
 /**
  * Paging.
