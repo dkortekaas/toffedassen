@@ -13,7 +13,7 @@
 
 get_header();
 
-$blog_style = toffedassen_get_option( 'blog_style' );
+$blog_style     = toffedassen_get_option( 'blog_style' );
 ?>
 
 <div id="primary" class="content-area <?php toffedassen_content_columns(); ?>">
@@ -42,7 +42,7 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 							 * If you want to override this in a child theme, then include a file
 							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 							 */
-							get_template_part( 'template-parts/content/content', get_post_format() );
+							get_template_part( 'parts/content', get_post_format() );
 							?>
 
 						<?php endwhile; ?>
@@ -61,7 +61,7 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 
 		<?php else : ?>
 
-			<?php get_template_part( 'template-parts/content/content', 'none' ); ?>
+			<?php get_template_part( 'parts/content', 'none' ); ?>
 
 		<?php endif; ?>
 
@@ -71,4 +71,5 @@ $blog_style = toffedassen_get_option( 'blog_style' );
 </div><!-- #primary -->
 
 <?php get_sidebar(); ?>
-<?php get_footer();
+<?php get_footer(); ?>
+

@@ -40,8 +40,6 @@ $product_layout = toffedassen_get_option( 'single_product_layout' );
 		<?php endif; ?>
 			<?php
 			do_action( 'toffedassen_before_single_product' );
-
-			do_action( 'woocommerce_before_main_content' );
 			?>
 			<div class="product-images-wrapper">
 				<?php

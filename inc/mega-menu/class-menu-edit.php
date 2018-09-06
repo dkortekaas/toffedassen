@@ -11,7 +11,7 @@ if ( ! class_exists( 'Walker_Nav_Menu_Edit' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
 }
 
-class toffedassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
+class Toffedassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 	/**
 	 * Start the element output.
 	 *
@@ -106,9 +106,9 @@ class toffedassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 	}
 }
 
-class toffedassen_Mega_Menu_Edit {
+class Toffedassen_Mega_Menu_Edit {
 	/**
-	 * toffedassen_Mega_Menu_Edit constructor.
+	 * Toffedassen_Mega_Menu_Edit constructor.
 	 */
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );

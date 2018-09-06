@@ -22,23 +22,23 @@ class Toffedassen_Widget_Product_Tag_Cloud extends WC_Widget {
 
 
 		$this->widget_cssclass    = 'woocommerce widget_product_tag_cloud';
-		$this->widget_description = esc_html__( 'Your most used product tags in cloud format.', 'Toffedassen' );
-		$this->widget_id          = 'Toffedassen_product_tag_cloud';
-		$this->widget_name        = esc_html__( 'Toffedassen Product Tags', 'Toffedassen' );
+		$this->widget_description = esc_html__( 'Your most used product tags in cloud format.', 'toffedassen' );
+		$this->widget_id          = 'toffedassen_product_tag_cloud';
+		$this->widget_name        = esc_html__( 'Toffedassen Product Tags', 'toffedassen' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
-				'std'   => esc_html__( 'Product Tags', 'Toffedassen' ),
-				'label' => esc_html__( 'Title', 'Toffedassen' )
+				'std'   => esc_html__( 'Product Tags', 'toffedassen' ),
+				'label' => esc_html__( 'Title', 'toffedassen' )
 			),
 			'style' => array(
 				'type'    => 'select',
 				'std'     => '1',
 				'options' => array(
-					'1' => esc_html__( 'Style 1', 'Toffedassen' ),
-					'2' => esc_html__( 'Style 2', 'Toffedassen' )
+					'1' => esc_html__( 'Style 1', 'toffedassen' ),
+					'2' => esc_html__( 'Style 2', 'toffedassen' )
 				),
-				'label'   => esc_html__( 'Style', 'Toffedassen' )
+				'label'   => esc_html__( 'Style', 'toffedassen' )
 			)
 		);
 
@@ -95,7 +95,7 @@ class Toffedassen_Widget_Product_Tag_Cloud extends WC_Widget {
 				'</div>',
 				esc_url( esc_url( get_permalink( get_option( 'woocommerce_shop_page_id' ) ) ) ),
 				esc_attr( $css_class ),
-				esc_html__( 'All', 'Toffedassen' ),
+				esc_html__( 'All', 'toffedassen' ),
 				implode( ' ', $output )
 			);
 		} else {
@@ -127,7 +127,7 @@ class Toffedassen_Widget_Product_Tag_Cloud extends WC_Widget {
 	 */
 	public function _topic_count_text( $count ) {
 		/* translators: %s: product count */
-		return sprintf( _n( '%s product', '%s products', $count, 'Toffedassen' ), number_format_i18n( $count ) );
+		return sprintf( _n( '%s product', '%s products', $count, 'toffedassen' ), number_format_i18n( $count ) );
 	}
 
 

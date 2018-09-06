@@ -1,8 +1,6 @@
 <?php
 /**
- * Toffe Dassen functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ * Toffedassen functions and definitions
  *
  * @package Toffedassen
  */
@@ -20,45 +18,179 @@ else :
 	$developer_url = 'https://bmcinternetmarketing.nl';
 endif;
 
-
 /**
- * Theme setup and custom theme supports.
+ * Sets up theme defaults and registers support for various WordPress features.
+ *
+ * @since  1.0
+ *
+ * @return void
  */
-require get_template_directory() . '/inc/setup.php';
+function toffedassen_setup() {
+	// Sets the content width in pixels, based on the theme's design and stylesheet.
+	$GLOBALS['content_width'] = apply_filters( 'toffedassen_content_width', 840 );
+
+	// Make theme available for translation.
+	load_theme_textdomain( 'toffedassen', get_template_directory() . '/lang' );
+
+	// Supports WooCommerce plugin.
+	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-slider' );
+	// Theme supports
+	add_theme_support( 'automatic-feed-links' );
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'post-formats', array( 'gallery', 'video' ) );
+	add_theme_support(
+		'html5', array(
+			'comment-list',
+			'search-form',
+			'comment-form',
+			'gallery',
+		)
+	);
+
+	/*
+	 * This theme styles the visual editor to resemble the theme style,
+	 * specifically font, colors.
+ 	 */
+	add_editor_style( array( 'css/editor-style.css' ) );
+
+	add_image_size( 'toffedassen-blog-grid', 666, 540, true );
+	add_image_size( 'toffedassen-blog-grid-2', 555, 375, true );
+	add_image_size( 'toffedassen-blog-list', 1170, 500, true );
+	add_image_size( 'toffedassen-blog-masonry-1', 450, 450, true );
+	add_image_size( 'toffedassen-blog-masonry-2', 450, 300, true );
+	add_image_size( 'toffedassen-blog-masonry-3', 450, 600, true );
+
+	// Register theme nav menu
+	register_nav_menus(
+		array(
+			'primary' => esc_html__( 'Primary Menu', 'toffedassen' ),
+		)
+	);
+
+	// if ( is_admin() ) {
+	// 	new Toffedassen_Meta_Box_Product_Data;
+	// }
+
+}
+
+add_action( 'after_setup_theme', 'toffedassen_setup', 100 );
+
+function toffedassen_init() {
+	global $toffedassen_woocommerce;
+	$toffedassen_woocommerce = new Toffedassen_WooCommerce;
+}
+
+add_action( 'wp_loaded', 'toffedassen_init' );
 
 /**
- * Sidebars
+ * Register widgetized area and update sidebar with default widgets.
+ *
+ * @since 1.0
+ *
+ * @return void
  */
-require get_template_directory() . '/inc/sidebars.php';
+function toffedassen_register_sidebar() {
+	$sidebars = array(
+		'blog-sidebar'    => esc_html__( 'Blog Sidebar', 'toffedassen' ),
+		'menu-sidebar'    => esc_html__( 'Menu Sidebar', 'toffedassen' ),
+		'catalog-sidebar' => esc_html__( 'Catalog Sidebar', 'toffedassen' ),
+		'product-sidebar' => esc_html__( 'Product Sidebar', 'toffedassen' ),
+		'catalog-filter'  => esc_html__( 'Catalog Filter', 'toffedassen' ),
+	);
+
+	// Register sidebars
+	foreach ( $sidebars as $id => $name ) {
+		register_sidebar(
+			array(
+				'name'          => $name,
+				'id'            => $id,
+				'description'   => esc_html__( 'Add widgets here in order to display on pages', 'toffedassen' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
+			)
+		);
+	}
+
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Mobile Menu Sidebar', 'toffedassen' ),
+			'id'            => 'mobile-menu-sidebar',
+			'description'   => esc_html__( 'Add widgets here in order to display menu sidebar on mobile', 'toffedassen' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h4 class="widget-title">',
+			'after_title'   => '</h4>',
+		)
+	);
+
+	// Register footer sidebars
+	for ( $i = 1; $i <= 5; $i ++ ) {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Widget', 'toffedassen' ) . " $i",
+				'id'            => "footer-sidebar-$i",
+				'description'   => esc_html__( 'Add widgets here in order to display on footer', 'toffedassen' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
+			)
+		);
+	}
+
+	// Register footer sidebars
+	for ( $i = 1; $i <= 3; $i ++ ) {
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Footer Copyright', 'toffedassen' ) . " $i",
+				'id'            => "footer-copyright-$i",
+				'description'   => esc_html__( 'Add widgets here in order to display on footer', 'toffedassen' ),
+				'before_widget' => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h4 class="widget-title">',
+				'after_title'   => '</h4>',
+			)
+		);
+	}
+}
+
+add_action( 'widgets_init', 'toffedassen_register_sidebar' );
 
 /**
- * Widgets
- */ 
+ * Load theme
+ */
+
+// Cleanup and secure WP
+require get_template_directory() . '/inc/functions/cleanup.php';
+
+// Widgets
 require get_template_directory() . '/inc/widgets/widgets.php';
 
-/**
- * Cleanup and secure WP
- */
-require get_template_directory() . '/inc/cleanup.php';
+// Customizer
+require get_template_directory() . '/inc/backend/customizer.php';
 
-/**
- * Sets up theme scripts and styles.
- */
-//require get_template_directory() . '/inc/enqueue.php';
+require get_template_directory() . '/inc/functions/layout.php';
 
-if ( is_admin() ) :
-	/**
- 	* Theme plugin activation.
- 	*/
+
+// Woocommerce hooks
+require get_template_directory() . '/inc/frontend/woocommerce.php';
+
+
+if ( is_admin() ) {
 	require get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
 	require get_template_directory() . '/inc/tgm/plugins.php';
 
-	require get_template_directory() . '/inc/backend/meta-boxes.php';
-	require get_template_directory() . '/inc/mega-menu/class-mega-menu.php';
-	require get_template_directory() . '/inc/backend/product-meta-box-data.php';
-
-else :
-
+	require get_template_directory() . '/inc/backend/custom-login.php';
+	require get_template_directory() . '/inc/backend/theme-options.php';
+	//require get_template_directory() . '/inc/backend/meta-boxes.php';
+	//require get_template_directory() . '/inc/mega-menu/class-mega-menu.php';
+	//require get_template_directory() . '/inc/backend/product-meta-box-data.php';
+} else {
 	// Frontend functions and shortcodes
 	require get_template_directory() . '/inc/functions/media.php';
 	require get_template_directory() . '/inc/functions/nav.php';
@@ -75,98 +207,4 @@ else :
 	require get_template_directory() . '/inc/frontend/nav.php';
 	require get_template_directory() . '/inc/frontend/entry.php';
 	require get_template_directory() . '/inc/mega-menu/class-mega-menu-walker.php';
-
-	require get_template_directory() . '/inc/frontend/woo_functions.php';
-
-endif;
-
-/**
- * Configure WP Admin.
- */
-//require get_template_directory() . '/inc/admin.php';
-
-/**
- * Custom template tags for this theme.
- */
-//require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-require get_template_directory() . '/inc/backend/customizer.php';
-require get_template_directory() . '/inc/functions/layout.php';
-
-/**
- * Implement the Custom Header feature.
- */
-//require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Load custom WordPress nav walker.
- */
-//require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
-
-/**
- * Load Custom login.
- */
-require get_template_directory() . '/inc/backend/custom-login.php';
-
-/**
- * Create Custom Post Types.
- */
-//require get_template_directory() . '/inc/custom-posts/portfolio.php';
-
-/**
- * Support Rich Snippets - Schema.org
- */
-//require get_template_directory() . '/inc/rich-snippets.php';
-
-/**
- * Theme Admin options.
- */
-require get_template_directory() . '/inc/backend/theme-options.php';
-
-/**
- * Load Yoast functions.
- */
-//if ( in_array( 'wordpress-seo/wp-seo.php' , apply_filters( 'active_plugins' , get_option( 'active_plugins' ) ) ) ) : 
-
-	//require get_parent_theme_file_path( '/inc/plugins/yoast.php' );
-
-//endif;
-
-/**
- * Load Jetpack compatibility file.
- */
-// if ( defined( 'JETPACK__VERSION' ) ) :
-
-// 	require get_template_directory() . '/inc/plugins/jetpack.php';
-
-// endif;
-
-/**
- * Load WooCommerce functions.
- */
-require get_template_directory() . '/inc/frontend/woocommerce.php';
-
-// 	/**
-// 	 * Enhanced E-commerce for Woocommerce store.
-// 	 */
-// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/enhanced-ecommerce.php' );
-
-// 	/**
-// 	 * Disable messages.
-// 	 */
-// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/disable-messages.php' );
-
-// 	/**
-// 	 * Table Rate Shipping Plugin Amendments.
-// 	 */
-// 	require get_parent_theme_file_path( '/inc/plugins/woocommerce/table-rate-shipping.php' );
-
-// endif;
+}

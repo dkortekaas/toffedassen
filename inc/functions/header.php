@@ -13,24 +13,24 @@
  *
  * @return string
  */
+if ( ! function_exists( 'toffedassen_nav_menu' ) ) :
+	function toffedassen_nav_menu() {
+		$color   = toffedassen_get_option( 'menu_hover_color' );
+		$class   = array( 'menu', $color );
+		$classes = implode( ' ', $class );
 
-function toffedassen_nav_menu() {
-	$color   = toffedassen_get_option( 'menu_hover_color' );
-	$class   = array( 'menu', $color );
-	$classes = implode( ' ', $class );
-
-	if ( has_nav_menu( 'primary' ) ) {
-		wp_nav_menu(
-			array(
-				'theme_location' => 'primary',
-				'container'      => false,
-				'walker'         => new toffedassen_Mega_Menu_Walker(),
-				'menu_class'     => $classes,
-			)
-		);
+		if ( has_nav_menu( 'primary' ) ) {
+			wp_nav_menu(
+				array(
+					'theme_location' => 'primary',
+					'container'      => false,
+					'walker'         => new Toffedassen_Mega_Menu_Walker(),
+					'menu_class'     => $classes,
+				)
+			);
+		}
 	}
-}
-
+endif;
 
 /**
  * Get Menu extra cart

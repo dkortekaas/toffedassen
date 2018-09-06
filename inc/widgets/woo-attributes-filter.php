@@ -23,10 +23,10 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 	 * Constructor.
 	 */
 	public function __construct() {
-		$this->widget_cssclass    = 'woocommerce Toffedassen_attributes_filter widget_layered_nav';
-		$this->widget_description = esc_html__( 'Shows a custom attribute in a widget which lets you narrow down the list of products when viewing product categories.', 'Toffedassen' );
-		$this->widget_id          = 'Toffedassen_attributes_filter';
-		$this->widget_name        = esc_html__( 'Toffedassen Attributes Filter', 'Toffedassen' );
+		$this->widget_cssclass    = 'woocommerce toffedassen_attributes_filter widget_layered_nav';
+		$this->widget_description = esc_html__( 'Shows a custom attribute in a widget which lets you narrow down the list of products when viewing product categories.', 'toffedassen' );
+		$this->widget_id          = 'toffedassen_attributes_filter';
+		$this->widget_name        = esc_html__( 'Toffedassen Attributes Filter', 'toffedassen' );
 		parent::__construct();
 	}
 
@@ -76,22 +76,22 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 		$this->settings = array(
 			'title'      => array(
 				'type'  => 'text',
-				'std'   => esc_html__( 'Filter by', 'Toffedassen' ),
-				'label' => esc_html__( 'Title', 'Toffedassen' )
+				'std'   => esc_html__( 'Filter by', 'toffedassen' ),
+				'label' => esc_html__( 'Title', 'toffedassen' )
 			),
 			'attribute'  => array(
 				'type'    => 'select',
 				'std'     => '',
-				'label'   => esc_html__( 'Attribute', 'Toffedassen' ),
+				'label'   => esc_html__( 'Attribute', 'toffedassen' ),
 				'options' => $attribute_array
 			),
 			'query_type' => array(
 				'type'    => 'select',
 				'std'     => 'and',
-				'label'   => esc_html__( 'Query type', 'Toffedassen' ),
+				'label'   => esc_html__( 'Query type', 'toffedassen' ),
 				'options' => array(
-					'and' => esc_html__( 'AND', 'Toffedassen' ),
-					'or'  => esc_html__( 'OR', 'Toffedassen' )
+					'and' => esc_html__( 'AND', 'toffedassen' ),
+					'or'  => esc_html__( 'OR', 'toffedassen' )
 				)
 			),
 		);
@@ -446,7 +446,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 				echo '</span> ';
 			}
 
-			echo apply_filters( 'Toffedassen_color_filter_nav_count', '<span class="count">' . absint( $count ) . '</span>', $count, $term );
+			echo apply_filters( 'toffedassen_color_filter_nav_count', '<span class="count">' . absint( $count ) . '</span>', $count, $term );
 
 			echo '</li>';
 		}

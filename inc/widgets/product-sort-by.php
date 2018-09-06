@@ -10,10 +10,10 @@ class Toffedassen_Product_SortBy_Widget extends WP_Widget {
 
 		parent::__construct(
 			'product-sort-by',
-			esc_html__( 'Toffedassen - Product Sort By', 'Toffedassen' ),
+			esc_html__( 'Toffedassen - Product Sort By', 'toffedassen' ),
 			array(
 				'classname'   => 'product-sort-by',
-				'description' => esc_html__( 'Sort Product By', 'Toffedassen' ),
+				'description' => esc_html__( 'Sort Product By', 'toffedassen' ),
 			)
 		);
 	}
@@ -68,7 +68,7 @@ class Toffedassen_Product_SortBy_Widget extends WP_Widget {
 		$instance = wp_parse_args( $instance, $this->defaults );
 		?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'Toffedassen' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'toffedassen' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $instance['title'] ); ?>">
 		</p>
 		<?php

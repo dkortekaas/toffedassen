@@ -3,9 +3,9 @@
 /**
  * Class menu walker
  *
- * @package toffedassen
+ * @package Toffedassen
  */
-class toffedassen_Mega_Menu_Walker extends Walker_Nav_Menu {
+class Toffedassen_Mega_Menu_Walker extends Walker_Nav_Menu {
 	/**
 	 * Store state of top level item
 	 *

@@ -1,20 +1,21 @@
 <?php
 /**
- * The template for displaying the footer
+ * The template for displaying the footer.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * Contains the closing of the #content div and all content after
  *
  * @package Toffedassen
  */
+
 ?>
 	<?php
 
-    /*
-    *  toffedassen_site_content_close - 100
-    */
-    do_action( 'toffedassen_site_content_close' );
-    ?>
-    </main>
+	/*
+	 *  toffedassen_site_content_close - 100
+	 */
+	do_action( 'toffedassen_site_content_close' );
+	?>
+</div><!-- #content -->
 
 	<?php
 	/*
@@ -24,20 +25,14 @@
 	do_action( 'toffedassen_before_footer' );
 	?>
 
-        <footer id="colophon" class="site-footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
-            <nav class="footer-layout footer-layout-1 light-skin">
+	<footer id="colophon" class="site-footer">
+		<?php do_action( 'toffedassen_footer' ) ?>
+	</footer><!-- #colophon -->
 
-            	<?php toffedassen_footer_widgets(); ?>
-	            <?php toffedassen_footer_copyright(); ?>
+	<?php do_action( 'toffedassen_after_footer' ) ?>
+</div><!-- #page -->
 
-            </nav>
-        </footer>
-
-        <?php do_action( 'toffedassen_after_footer' ) ?>
-
-    </div>
-
-	<?php wp_footer(); ?>
+<?php wp_footer(); ?>
 
 </body>
 </html>

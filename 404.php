@@ -1,14 +1,12 @@
-
 <?php
 /**
  * The template for displaying 404 pages (Not Found).
- * 
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
- * @package Toffedassen
+ * @package Martfury
  */
 
 get_header();
+
 ?>
 
 <div id="primary" class="content-area">
@@ -26,21 +24,6 @@ get_header();
 
 				<?php get_search_form(); ?>
 
-				<aside class="widget widget_categories">
-					<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'logiq' ); ?></h2>
-					<ul>
-						<?php
-						wp_list_categories( array(
-							'orderby'    => 'count',
-							'order'      => 'DESC',
-							'show_count' => 1,
-							'title_li'   => '',
-							'number'     => 10,
-						) );
-						?>
-					</ul>
-				</aside>
-
 			</div>
 			<!-- .page-content -->
 		</section>
@@ -50,4 +33,4 @@ get_header();
 	<!-- #main -->
 </div><!-- #primary -->
 
-<?php get_footer();
+<?php get_footer(); ?>

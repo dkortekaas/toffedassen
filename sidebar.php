@@ -4,11 +4,9 @@
  *
  * @package Toffedassen
  */
-
-//  echo toffedassen_get_layout();
-// if ( 'full-content' == toffedassen_get_layout() ) {
-// 	return;
-// }
+if ( 'full-content' == toffedassen_get_layout() ) {
+	return;
+}
 
 $sidebar = 'blog-sidebar';
 

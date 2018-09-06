@@ -2,7 +2,7 @@
 /**
  * Load and register widgets
  *
- * @package Toffe Dassen
+ * @package Toffedassen
  */
 
 require_once get_template_directory() . '/inc/widgets/popular-posts.php';

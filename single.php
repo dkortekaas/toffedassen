@@ -10,13 +10,14 @@ get_header(); ?>
 <div id="primary" class="content-area <?php toffedassen_content_columns(); ?>">
 	<main id="main" class="site-main">
 
+
 		<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php get_template_part( 'template-parts/content/content', 'single' ); ?>
+			<?php get_template_part( 'parts/content', 'single' ); ?>
 
 			<?php toffedassen_author_box(); ?>
 
-			<?php get_template_part( 'template-parts/related-posts' ); ?>
+			<?php get_template_part( 'parts/related-posts' ); ?>
 
 			<?php
 			// If comments are open or we have at least one comment, load up the comment template
@@ -31,7 +32,7 @@ get_header(); ?>
 	</main>
 	<!-- #main -->
 </div>
-<!-- #primary -->
+		<!-- #primary -->
 
 <?php get_sidebar(); ?>
-<?php get_footer();
+<?php get_footer(); ?>
