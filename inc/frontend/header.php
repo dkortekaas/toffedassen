@@ -22,7 +22,8 @@ function toffedassen_enqueue_scripts() {
 	wp_register_style( 'photoswipe', get_template_directory_uri() . '/css/photoswipe.css', array(), '4.1.1' );
 
 	wp_enqueue_style(
-		'toffedassen', get_template_directory_uri() . '/style.css', array(
+		//'toffedassen', get_template_directory_uri() . '/style.css', array(
+		'toffedassen', get_template_directory_uri() . '/assets/css/theme.css', array(
 		'toffedassen-fonts',
 		'bootstrap',
 		'eleganticons',
@@ -32,7 +33,7 @@ function toffedassen_enqueue_scripts() {
 	), '20161025'
 	);
 
-	wp_add_inline_style( 'toffedassen', toffedassen_customize_css() );
+	//wp_add_inline_style( 'toffedassen', toffedassen_customize_css() );
 
 	/**
 	 * Register and enqueue scripts
@@ -316,10 +317,11 @@ function toffedassen_show_page_header() {
 
 	if ( toffedassen_is_blog() ) {
 		get_template_part( 'parts/page-headers/blog', $layout );
+	} elseif ( is_front_page() ) {
+
 	} else {
 		get_template_part( 'parts/page-headers/default' );
 	}
-
 	?>
 	<?php
 }

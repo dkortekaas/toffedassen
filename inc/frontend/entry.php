@@ -55,27 +55,31 @@ if ( ! function_exists( 'toffedassen_site_content_open' ) ) :
 		$product_layout = toffedassen_get_option( 'single_product_layout' );
 		$portfolio_style   = toffedassen_get_option( 'portfolio_layout' );
 
-		if ( toffedassen_is_page_template() ) {
+		if ( is_front_page() ) :
 			$container = 'container-fluid';
-		}
+		endif;
 
-		if (  function_exists( 'is_product' ) && is_product() ) {
-			if ( in_array( $product_layout, array( '2', '5' ) ) ) {
+		if ( toffedassen_is_page_template() ) :
+			$container = 'container-fluid';
+		endif;
+
+		if (  function_exists( 'is_product' ) && is_product() ) :
+			if ( in_array( $product_layout, array( '2', '5' ) ) ) :
 				$container = 'container-fluid';
-			}
-		}
+			endif;
+		endif;
 
-		if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
+		if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) :
 			$container = 'toffedassen-catalog-container';
-		}
+		endif;
 
-		if ( is_singular( 'portfolio' ) ) {
+		if ( is_singular( 'portfolio' ) ) :
 			$container = 'container-fluid';
-		}
+		endif;
 
-		if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) {
+		if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) :
 			$container = 'container-fluid';
-		}
+		endif;
 
 		echo '<div class="' . esc_attr( apply_filters( 'toffedassen_site_content_container_class', $container ) ) . '">';
 		echo '<div class="row">';

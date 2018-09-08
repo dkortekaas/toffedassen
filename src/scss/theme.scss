@@ -1,4 +1,5 @@
-﻿/*--------------------------------------------------------------
+
+/*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 1.0 - Normalize
@@ -16,29 +17,37 @@
 8.0 - Footer
 9.0 - Media Queries
 --------------------------------------------------------------*/
-@import 'base/fonts';
-@import 'generic/variables';
-@import 'vendors/slick';
-@import 'generic/mixins';
 
-/* -- TEMP - VC ----*/
-@import 'vendors/visual_composer';
+/*--------------------------------------------------------------
+0.0 - Vendors
+--------------------------------------------------------------*/
+//@import 'vendors/bootstrap';
+//@import 'vendors/eleganticons';
+//@import 'vendors/linearicons';
+//@import 'vendors/ionicons';
+//@import 'vendors/photoswipe';
 
-@import 'vendors/bootstrap-5-columns';
-@import 'vendors/owl-carousel';
-@import 'molcules/modal';
-@import 'vendors/nprogress';
-@import 'vendors/swiper';
+
+@import 'fonts';
+@import 'variables';
+@import 'slick';
+@import 'mixins';
+@import 'bootstrap-5-columns';
+@import 'owl-carousel';
+@import 'modal';
+@import 'nprogress';
+@import 'swiper';
+@import 'slider';
 
 /*--------------------------------------------------------------
 1.0 - Normalize
 --------------------------------------------------------------*/
-@import 'generic/normalize';
+@import 'normalize';
 
 /*--------------------------------------------------------------
 2.0 - Typography
 --------------------------------------------------------------*/
-@import 'base/typography';
+@import 'typography';
 
 /*--------------------------------------------------------------
 3.0 - Elements
@@ -47,25 +56,23 @@
 /**
  * 3.1 - Common Elements
  */
-@import 'base/elements';
+@import 'elements';
 
 /**
  * 3.2 - WordPress Elements
  */
-@import 'templates/wordpress';
-@import 'templates/canvas-panel';
-
-@import 'objects/slider';
+@import 'wordpress';
+@import 'canvas-panel';
 
 /*--------------------------------------------------------------
 4.0 - Header
 --------------------------------------------------------------*/
-@import 'objects/header';
+@import 'header';
 
 /*--------------------------------------------------------------
 5.0 - Navigations
 --------------------------------------------------------------*/
-@import 'objects/nav';
+@import 'nav';
 
 /*--------------------------------------------------------------
 6.0 - Content
@@ -74,38 +81,43 @@
 /**
  * 6.1 Posts and Pages
  */
-@import 'objects/content';
-@import 'templates/portfolio';
-@import 'templates/portfolio';
+@import 'content';
+@import 'portfolio';
+
+@import 'cta';
 
 /**
  * 6.3 Comments
  */
-@import 'molcules/cta';
+@import 'comments';
 
 /*--------------------------------------------------------------
 7.0 - Widgets
 --------------------------------------------------------------*/
-@import 'objects/widgets';
+@import 'widgets';
 
-@import 'templates/woocommerce';
+@import 'woocommerce';
 
-@import 'templates/shortcodes';
+@import 'shortcodes';
 
 /*--------------------------------------------------------------
 8.0 - Footer
 --------------------------------------------------------------*/
-@import 'objects/footer';
+@import 'footer';
 
 /*--------------------------------------------------------------
 8.0 - Page Header
 --------------------------------------------------------------*/
-@import 'objects/page-header';
+@import 'page-header';
 
 /*--------------------------------------------------------------
 9.0 - Media Queries
 --------------------------------------------------------------*/
-@import 'generic/responsive';
+@import 'responsive';
+
+
+
+
 
 
 

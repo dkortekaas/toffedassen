@@ -1112,6 +1112,10 @@ class Toffedassen_WooCommerce {
 			return false;
 		}
 
+		if ( is_home() && ! is_front_page() ) {
+			return false;
+		}
+
 		get_template_part( 'parts/page-headers/catalog' );
 	}
 
