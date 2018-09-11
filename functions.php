@@ -10,160 +10,11 @@
  */
 define( 'LOGIN_WEBLOGIQ', true );
 
-if ( LOGIN_WEBLOGIQ === true ) :
-	$developer     = 'internetbureau Weblogiq';
-	$developer_url = 'https://weblogiq.nl';
-else :
-	$developer     = 'BMC Internetmarketing';
-	$developer_url = 'https://bmcinternetmarketing.nl';
-endif;
+// Load theme
+require get_template_directory() . '/inc/backend/theme-setup.php';
 
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- *
- * @since  1.0
- *
- * @return void
- */
-function toffedassen_setup() {
-	// Sets the content width in pixels, based on the theme's design and stylesheet.
-	$GLOBALS['content_width'] = apply_filters( 'toffedassen_content_width', 840 );
-
-	// Make theme available for translation.
-	load_theme_textdomain( 'toffedassen', get_template_directory() . '/lang' );
-
-	// Supports WooCommerce plugin.
-	add_theme_support( 'woocommerce' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-slider' );
-	// Theme supports
-	add_theme_support( 'automatic-feed-links' );
-	add_theme_support( 'title-tag' );
-	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'post-formats', array( 'gallery', 'video' ) );
-	add_theme_support(
-		'html5', array(
-			'comment-list',
-			'search-form',
-			'comment-form',
-			'gallery',
-		)
-	);
-
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors.
- 	 */
-	add_editor_style( array( 'css/editor-style.css' ) );
-
-	add_image_size( 'toffedassen-blog-grid', 666, 540, true );
-	add_image_size( 'toffedassen-blog-grid-2', 555, 375, true );
-	add_image_size( 'toffedassen-blog-list', 1170, 500, true );
-	add_image_size( 'toffedassen-blog-masonry-1', 450, 450, true );
-	add_image_size( 'toffedassen-blog-masonry-2', 450, 300, true );
-	add_image_size( 'toffedassen-blog-masonry-3', 450, 600, true );
-
-	// Register theme nav menu
-	register_nav_menus(
-		array(
-			'primary' => esc_html__( 'Primary Menu', 'toffedassen' ),
-		)
-	);
-
-	// if ( is_admin() ) {
-	// 	new Toffedassen_Meta_Box_Product_Data;
-	// }
-
-}
-
-add_action( 'after_setup_theme', 'toffedassen_setup', 100 );
-
-function toffedassen_init() {
-	global $toffedassen_woocommerce;
-	$toffedassen_woocommerce = new Toffedassen_WooCommerce;
-}
-
-add_action( 'wp_loaded', 'toffedassen_init' );
-
-/**
- * Register widgetized area and update sidebar with default widgets.
- *
- * @since 1.0
- *
- * @return void
- */
-function toffedassen_register_sidebar() {
-	$sidebars = array(
-		'blog-sidebar'    => esc_html__( 'Blog Sidebar', 'toffedassen' ),
-		'menu-sidebar'    => esc_html__( 'Menu Sidebar', 'toffedassen' ),
-		'catalog-sidebar' => esc_html__( 'Catalog Sidebar', 'toffedassen' ),
-		'product-sidebar' => esc_html__( 'Product Sidebar', 'toffedassen' ),
-		'catalog-filter'  => esc_html__( 'Catalog Filter', 'toffedassen' ),
-	);
-
-	// Register sidebars
-	foreach ( $sidebars as $id => $name ) {
-		register_sidebar(
-			array(
-				'name'          => $name,
-				'id'            => $id,
-				'description'   => esc_html__( 'Add widgets here in order to display on pages', 'toffedassen' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="widget-title">',
-				'after_title'   => '</h4>',
-			)
-		);
-	}
-
-	register_sidebar(
-		array(
-			'name'          => esc_html__( 'Mobile Menu Sidebar', 'toffedassen' ),
-			'id'            => 'mobile-menu-sidebar',
-			'description'   => esc_html__( 'Add widgets here in order to display menu sidebar on mobile', 'toffedassen' ),
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h4 class="widget-title">',
-			'after_title'   => '</h4>',
-		)
-	);
-
-	// Register footer sidebars
-	for ( $i = 1; $i <= 5; $i ++ ) {
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer Widget', 'toffedassen' ) . " $i",
-				'id'            => "footer-sidebar-$i",
-				'description'   => esc_html__( 'Add widgets here in order to display on footer', 'toffedassen' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="widget-title">',
-				'after_title'   => '</h4>',
-			)
-		);
-	}
-
-	// Register footer sidebars
-	for ( $i = 1; $i <= 3; $i ++ ) {
-		register_sidebar(
-			array(
-				'name'          => esc_html__( 'Footer Copyright', 'toffedassen' ) . " $i",
-				'id'            => "footer-copyright-$i",
-				'description'   => esc_html__( 'Add widgets here in order to display on footer', 'toffedassen' ),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h4 class="widget-title">',
-				'after_title'   => '</h4>',
-			)
-		);
-	}
-}
-
-add_action( 'widgets_init', 'toffedassen_register_sidebar' );
-
-/**
- * Load theme
- */
+// Theme sidebars
+require get_template_directory() . '/inc/functions/sidebars.php';
 
 // Cleanup and secure WP
 require get_template_directory() . '/inc/functions/cleanup.php';
@@ -176,10 +27,8 @@ require get_template_directory() . '/inc/backend/customizer.php';
 
 require get_template_directory() . '/inc/functions/layout.php';
 
-
 // Woocommerce hooks
 require get_template_directory() . '/inc/frontend/woocommerce.php';
-
 
 if ( is_admin() ) {
 	require get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
