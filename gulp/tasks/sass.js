@@ -14,14 +14,14 @@ var cssnanoOptions = {
 
 module.exports = function (gulp, plugins, output) {
     return function () {
-        gulp.src('src/scss/theme.scss')
-            .pipe(changed(output))
+        gulp.src('src/scss/style.scss')
+            .pipe(changed('./'))
             .pipe(plugins.sass())
             .pipe(plugins.autoprefixer(autoprefixerOptions))
             .pipe(plugins.cssnano(cssnanoOptions))
-            .pipe(gulp.dest(output))
+            .pipe(gulp.dest('./'))
             .pipe(plugins.gzip())
-            .pipe(gulp.dest(output));
+            .pipe(gulp.dest('./'));
 
         gulp.src('src/scss/login.scss')
             .pipe(changed(output))
