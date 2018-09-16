@@ -871,6 +871,7 @@ class Toffedassen_WooCommerce {
             <div class="shop-topbar-content">
 				<?php
 				$sidebar = 'catalog-filter';
+
 				if ( is_active_sidebar( $sidebar ) ) {
 					dynamic_sidebar( $sidebar );
 				}

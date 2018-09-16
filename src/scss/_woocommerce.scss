@@ -5160,6 +5160,12 @@
 }
 
 .toffedassen-catalog-page {
+    .content-area {
+        float: right;
+    }
+    #primary-sidebar {
+        float: left;
+    }
     &.shop-view-list {
         ul.products {
             li.product {

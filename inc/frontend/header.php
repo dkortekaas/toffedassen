@@ -22,8 +22,8 @@ function toffedassen_enqueue_scripts() {
 	wp_register_style( 'photoswipe', get_template_directory_uri() . '/assets/css/photoswipe.css', array(), '4.1.1' );
 
 	wp_enqueue_style(
-		//'toffedassen', get_template_directory_uri() . '/style.css', array(
-		'toffedassen', get_template_directory_uri() . '/assets/css/theme.css', array(
+		'toffedassen', get_template_directory_uri() . '/style.css', array(
+		//'toffedassen', get_template_directory_uri() . '/assets/css/theme.css', array(
 		'toffedassen-fonts',
 		'bootstrap',
 		'eleganticons',

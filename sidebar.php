@@ -4,8 +4,9 @@
  *
  * @package Toffedassen
  */
+
 if ( 'full-content' == toffedassen_get_layout() ) {
-	return;
+//	return;
 }
 
 $sidebar = 'blog-sidebar';
