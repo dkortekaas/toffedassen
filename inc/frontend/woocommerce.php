@@ -84,6 +84,7 @@ class Toffedassen_WooCommerce {
 
 		// add product attribute
 		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'product_attribute' ), 15 );
+		
 	}
 
 	/**
@@ -263,6 +264,19 @@ class Toffedassen_WooCommerce {
 		add_action( 'woocommerce_before_checkout_form', array( $this, 'close_checkout_form_wrapper' ), 150 );
 
 		add_action( 'toffedassen_home_products', array( $this, 'toffedassen_product' ), 10 );
+
+		// Add additonal information below product info
+		function woocommerce_template_product_additionalinformation() {
+			wc_get_template( 'single-product/tabs/additional-information.php' );
+		}
+		add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_additionalinformation', 20 );
+
+		// Remove the additional information tab
+		function woocommerce_remove_product_tabs( $tabs ) {
+    		unset( $tabs['additional_information'] );
+    		return $tabs;
+		}
+		add_filter( 'woocommerce_product_tabs', 'woocommerce_remove_product_tabs', 98 );
 	}
 
 	/**
