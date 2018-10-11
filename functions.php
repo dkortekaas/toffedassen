@@ -30,11 +30,13 @@ require get_template_directory() . '/inc/functions/layout.php';
 // Woocommerce hooks
 require get_template_directory() . '/inc/frontend/woocommerce.php';
 
+// Custom login
+require get_template_directory() . '/inc/backend/custom-login.php';
+
 if ( is_admin() ) {
 	require get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
 	require get_template_directory() . '/inc/tgm/plugins.php';
 
-	require get_template_directory() . '/inc/backend/custom-login.php';
 	require get_template_directory() . '/inc/backend/theme-options.php';
 	//require get_template_directory() . '/inc/backend/meta-boxes.php';
 	//require get_template_directory() . '/inc/mega-menu/class-mega-menu.php';
