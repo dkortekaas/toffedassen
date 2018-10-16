@@ -17,7 +17,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * @version  2.6.0
  * @extends  WC_Widget
  */
-class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
+class Toffe Dassen_Widget_Attributes_Filter extends WC_Widget {
 
 	/**
 	 * Constructor.
@@ -26,7 +26,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 		$this->widget_cssclass    = 'woocommerce toffedassen_attributes_filter widget_layered_nav';
 		$this->widget_description = esc_html__( 'Shows a custom attribute in a widget which lets you narrow down the list of products when viewing product categories.', 'toffedassen' );
 		$this->widget_id          = 'toffedassen_attributes_filter';
-		$this->widget_name        = esc_html__( 'Toffedassen Attributes Filter', 'toffedassen' );
+		$this->widget_name        = esc_html__( 'Toffe Dassen Attributes Filter', 'toffedassen' );
 		parent::__construct();
 	}
 
@@ -94,6 +94,11 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 					'or'  => esc_html__( 'OR', 'toffedassen' )
 				)
 			),
+			'height'     => array(
+				'type'  => 'text',
+				'std'   => '',
+				'label' => esc_html__( 'Height', 'toffedassen' )
+			),
 		);
 	}
 
@@ -113,6 +118,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
 		$taxonomy           = isset( $instance['attribute'] ) ? wc_attribute_taxonomy_name( $instance['attribute'] ) : $this->settings['attribute']['std'];
 		$query_type         = isset( $instance['query_type'] ) ? $instance['query_type'] : $this->settings['query_type']['std'];
+		$height             = isset( $instance['height'] ) ? intval( $instance['height'] ) : '';
 
 		if ( ! taxonomy_exists( $taxonomy ) ) {
 			return;
@@ -161,7 +167,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		}
 
-		$found = $this->layered_nav_list( $terms, $taxonomy, $query_type );
+		$found = $this->layered_nav_list( $terms, $taxonomy, $query_type, $height );
 
 
 		$this->widget_end( $args );
@@ -289,7 +295,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 
 		if ( 'or' === $query_type ) {
 			foreach ( $tax_query as $key => $query ) {
-				if ( isset($query['taxonomy']) && $taxonomy === $query['taxonomy'] ) {
+				if ( isset( $query['taxonomy'] ) && $taxonomy === $query['taxonomy'] ) {
 					unset( $tax_query[$key] );
 				}
 			}
@@ -338,9 +344,15 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 	 *
 	 * @return bool Will nav display?
 	 */
-	protected function layered_nav_list( $terms, $taxonomy, $query_type ) {
+	protected function layered_nav_list( $terms, $taxonomy, $query_type, $height ) {
+		$attr = '';
+
+		if ( isset( $height ) && $height ) {
+			$attr = 'data-height="' . $height . '"';
+		}
+
 		// List display
-		echo '<ul>';
+		echo '<ul ' . $attr . '>';
 
 		$term_counts        = $this->get_filtered_term_product_counts( wp_list_pluck( $terms, 'term_id' ), $taxonomy, $query_type );
 		$_chosen_attributes = WC_Query::get_layered_nav_chosen_attributes();
@@ -395,7 +407,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 				}
 			}
 
-			$css_class = '';
+			$css_class  = '';
 			$color_html = '';
 
 			if ( function_exists( 'TA_WCVS' ) ) {
@@ -430,7 +442,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 			echo '<li class="wc-layered-nav-term ' . esc_attr( $css_class ) . ( $option_is_set ? ' chosen' : '' ) . '">';
 
 
-			if( $count > 0 || $option_is_set ) {
+			if ( $count > 0 || $option_is_set ) {
 				echo '<a href="' . esc_url( apply_filters( 'woocommerce_layered_nav_link', $link ) ) . '">';
 			} else {
 				echo '<span>';
@@ -440,7 +452,7 @@ class Toffedassen_Widget_Attributes_Filter extends WC_Widget {
 
 			echo '<span class="nav-title">' . esc_html( $term->name ) . '</span>';
 
-			if( $count > 0 || $option_is_set ) {
+			if ( $count > 0 || $option_is_set ) {
 				echo '</a> ';
 			} else {
 				echo '</span> ';

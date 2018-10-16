@@ -2,7 +2,7 @@
 /**
  * Load and register widgets
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 require_once get_template_directory() . '/inc/widgets/popular-posts.php';
@@ -24,17 +24,17 @@ require_once get_template_directory() . '/inc/widgets/widget-layered-nav-filters
  */
 function toffedassen_register_widgets() {
 	if ( class_exists( 'WC_Widget' ) ) {
-		register_widget( 'Toffedassen_Widget_Attributes_Filter' );
-		register_widget( 'Toffedassen_Widget_Product_Tag_Cloud' );
-		register_widget( 'Toffedassen_Widget_Product_Cat' );
-		register_widget( 'Toffedassen_Widget_Layered_Nav_Filters' );
+		register_widget( 'Toffe Dassen_Widget_Attributes_Filter' );
+		register_widget( 'Toffe Dassen_Widget_Product_Tag_Cloud' );
+		register_widget( 'Toffe Dassen_Widget_Product_Cat' );
+		register_widget( 'Toffe Dassen_Widget_Layered_Nav_Filters' );
 	}
 
-	register_widget( 'Toffedassen_Product_SortBy_Widget' );
-	register_widget( 'Toffedassen_Price_Filter_List_Widget' );
-	register_widget( 'Toffedassen_PopularPost_Widget' );
-	register_widget( 'Toffedassen_Social_Links_Widget' );
-	register_widget( 'Toffedassen_Language_Currency_Widget' );
+	register_widget( 'Toffe Dassen_Product_SortBy_Widget' );
+	register_widget( 'Toffe Dassen_Price_Filter_List_Widget' );
+	register_widget( 'Toffe Dassen_PopularPost_Widget' );
+	register_widget( 'Toffe Dassen_Social_Links_Widget' );
+	register_widget( 'Toffe Dassen_Language_Currency_Widget' );
 }
 add_action( 'widgets_init', 'toffedassen_register_widgets' );
 

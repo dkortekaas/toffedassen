@@ -2,7 +2,7 @@
 /**
  * Custom functions for header.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 /**
@@ -24,7 +24,7 @@ if ( ! function_exists( 'toffedassen_nav_menu' ) ) :
 				array(
 					'theme_location' => 'primary',
 					'container'      => false,
-					'walker'         => new Toffedassen_Mega_Menu_Walker(),
+					'walker'         => new Toffe Dassen_Mega_Menu_Walker(),
 					'menu_class'     => $classes,
 				)
 			);
@@ -184,7 +184,8 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 
 		$acc_html = sprintf(
 			'<a id="%s" href="%s">%s<span class="label-item acc-label">%s</span></a>',
-			esc_attr( $login_id ), esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ),
+			esc_attr( $login_id ),
+			esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ),
 			$icon_acc,
 			esc_html( $acc_label )
 		);
@@ -514,7 +515,8 @@ if ( ! function_exists( 'toffedassen_header_css' ) ) :
 
 		if ( $h_color ) {
 			$css .= '.header-color-custom .nav ul.menu > li > a,
-			 		.header-color-custom .menu-extra ul > li > a { color: ' . $h_color . '; }';
+			 		.header-color-custom .menu-extra ul > li > a,
+			 		.header-color-custom .site-header .menu-extra .menu-item-search .t-icon { color: ' . $h_color . '; }';
 			$css .= '.header-color-custom .nav ul.menu > li > a:after { background-color: ' . $h_color . '; }';
 		}
 

@@ -67,10 +67,10 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 					</div>
 					<div class="un-mini-cart-content">
 						<?php if ( ! $_product->is_visible() ) : ?>
-							<?php echo esc_html($product_name); ?>
+							<?php echo $product_name; ?>
 						<?php else : ?>
 							<a href="<?php echo esc_url( $product_permalink ); ?>">
-								<?php echo esc_html($product_name); ?>
+								<?php echo $product_name; ?>
 							</a>
 						<?php endif; ?>
 						<?php echo wc_get_formatted_cart_item_data( $cart_item ); ?>

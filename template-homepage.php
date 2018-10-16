@@ -4,7 +4,7 @@
  *
  * The template file for displaying Home page.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 get_header(); ?>

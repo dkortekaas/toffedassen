@@ -2,7 +2,7 @@
 /**
  * Template for displaying single portfolio
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 get_header();

@@ -2,7 +2,7 @@
 /**
  * Custom functions for displaying comments
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 /**

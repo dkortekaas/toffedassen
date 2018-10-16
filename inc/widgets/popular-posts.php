@@ -1,6 +1,6 @@
 <?php
 
-class Toffedassen_PopularPost_Widget extends WP_Widget {
+class Toffe Dassen_PopularPost_Widget extends WP_Widget {
 	/**
 	 * Holds widget settings defaults, populated in constructor.
 	 *
@@ -12,7 +12,7 @@ class Toffedassen_PopularPost_Widget extends WP_Widget {
 	 * Class constructor
 	 * Set up the widget
 	 *
-	 * @return Toffedassen_PopularPost_Widget
+	 * @return Toffe Dassen_PopularPost_Widget
 	 */
 	function __construct() {
 		$this->defaults = array(
@@ -22,7 +22,7 @@ class Toffedassen_PopularPost_Widget extends WP_Widget {
 
 		parent::__construct(
 			'popular-posts-widget',
-			esc_html__( 'Toffedassen - PopularPost', 'toffedassen' ),
+			esc_html__( 'Toffe Dassen - PopularPost', 'toffedassen' ),
 			array(
 				'classname'   => 'popular-posts-widget',
 				'description' => esc_html__( 'Display most popular posts', 'toffedassen' ),

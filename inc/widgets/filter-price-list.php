@@ -14,7 +14,7 @@
  *
  * @see   WP_Widget
  */
-class Toffedassen_Price_Filter_List_Widget extends WP_Widget {
+class Toffe Dassen_Price_Filter_List_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Text widget instance.
@@ -28,7 +28,7 @@ class Toffedassen_Price_Filter_List_Widget extends WP_Widget {
 			'description' => esc_html__( 'Shows a price filter list in a widget which lets you narrow down the list of shown products when viewing product categories.', 'toffedassen' ),
 		);
 		$control_ops = array( 'width' => 400, 'height' => 350 );
-		parent::__construct( 'toffedassen-price-filter-list', esc_html__( 'Toffedassen Price Filter List', 'toffedassen' ), $widget_ops, $control_ops );
+		parent::__construct( 'toffedassen-price-filter-list', esc_html__( 'Toffe Dassen Price Filter List', 'toffedassen' ), $widget_ops, $control_ops );
 	}
 
 	/**

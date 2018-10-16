@@ -17,7 +17,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * @version  2.3.0
  * @extends  WC_Widget
  */
-class Toffedassen_Widget_Layered_Nav_Filters extends WC_Widget {
+class Toffe Dassen_Widget_Layered_Nav_Filters extends WC_Widget {
 
 	/**
 	 * Constructor.
@@ -26,7 +26,7 @@ class Toffedassen_Widget_Layered_Nav_Filters extends WC_Widget {
 		$this->widget_cssclass    = 'woocommerce widget_layered_nav_filters';
 		$this->widget_description = esc_html__( 'Display a list of active product filters.', 'toffedassen' );
 		$this->widget_id          = 'toffedassen_layered_nav_filters';
-		$this->widget_name        = esc_html__( 'Toffedassen - Active Product Filters', 'toffedassen' );
+		$this->widget_name        = esc_html__( 'Toffe Dassen - Active Product Filters', 'toffedassen' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

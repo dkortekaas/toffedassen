@@ -2,16 +2,9 @@
 /**
  * Toffedassen theme Setup
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
-if ( LOGIN_WEBLOGIQ === true ) :
-	$developer     = 'internetbureau Weblogiq';
-	$developer_url = 'https://weblogiq.nl';
-else :
-	$developer     = 'BMC Internetmarketing';
-	$developer_url = 'https://bmcinternetmarketing.nl';
-endif;
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -65,9 +58,9 @@ function toffedassen_setup() {
 		)
 	);
 
-	// if ( is_admin() ) {
-	// 	new Toffedassen_Meta_Box_Product_Data;
-	// }
+	if ( is_admin() ) {
+		new Toffe_Dassen_Meta_Box_Product_Data;
+	}
 
 }
 
@@ -75,7 +68,7 @@ add_action( 'after_setup_theme', 'toffedassen_setup', 100 );
 
 function toffedassen_init() {
 	global $toffedassen_woocommerce;
-	$toffedassen_woocommerce = new Toffedassen_WooCommerce;
+	$toffedassen_woocommerce = new Toffe_Dassen_WooCommerce;
 }
 
 add_action( 'wp_loaded', 'toffedassen_init' );

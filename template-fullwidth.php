@@ -4,7 +4,7 @@
  *
  * The template file for displaying service page.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 get_header(); ?>

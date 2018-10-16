@@ -1,19 +1,19 @@
 <?php
 /**
- * Toffedassen functions and definitions
+ * Toffe Dassen functions and definitions
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
+
 
 /**
- * Set site owner for custom login.
+ * Load theme
  */
-define( 'LOGIN_WEBLOGIQ', true );
 
-// Load theme
+// Theme setup
 require get_template_directory() . '/inc/backend/theme-setup.php';
 
-// Theme sidebars
+// Sidebars
 require get_template_directory() . '/inc/functions/sidebars.php';
 
 // Cleanup and secure WP
@@ -34,7 +34,7 @@ require get_template_directory() . '/inc/frontend/woocommerce.php';
 require get_template_directory() . '/inc/backend/custom-login.php';
 
 if ( is_admin() ) {
-	require get_template_directory() . '/inc/tgm/class-tgm-plugin-activation.php';
+	require get_template_directory() . '/inc/libs/class-tgm-plugin-activation.php';
 	require get_template_directory() . '/inc/tgm/plugins.php';
 
 	require get_template_directory() . '/inc/backend/theme-options.php';
@@ -57,5 +57,5 @@ if ( is_admin() ) {
 	require get_template_directory() . '/inc/frontend/footer.php';
 	require get_template_directory() . '/inc/frontend/nav.php';
 	require get_template_directory() . '/inc/frontend/entry.php';
-	require get_template_directory() . '/inc/mega-menu/class-mega-menu-walker.php';
+	//require get_template_directory() . '/inc/mega-menu/class-mega-menu-walker.php';
 }

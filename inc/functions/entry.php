@@ -2,7 +2,7 @@
 /**
  * Custom functions for entry.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 

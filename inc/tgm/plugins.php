@@ -154,6 +154,15 @@ if ( ! function_exists( 'toffedassen_register_required_plugins' ) ) :
 				'force_activation'   => false,
 				'force_deactivation' => false,
 			),
+			array(
+				'name'               => esc_html__( 'Toffe Dassen Addons', 'toffedassen' ),
+				'slug'               => 'toffedassen-addons',
+				'source'             => get_template_directory() . '/inc/tgm/plugins/toffedassen-addons.zip',
+				'required'           => true,
+				'force_activation'   => false,
+				'force_deactivation' => false,
+				'version'            => '1.0.0',
+			),			
 
 			// Woocommerce combo only
 			array(

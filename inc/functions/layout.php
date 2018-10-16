@@ -2,7 +2,7 @@
 /**
  * Hooks for frontend display
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 if ( ! function_exists( 'toffedassen_get_layout' ) ) :
@@ -13,9 +13,9 @@ if ( ! function_exists( 'toffedassen_get_layout' ) ) :
 	 */
 	function toffedassen_get_layout() {
 		$layout = 'full-content';
-		
+
 		if ( toffedassen_is_catalog() ) {
-			$layout = 'catalog_layout'; //toffedassen_get_option( 'catalog_layout' );
+			$layout = toffedassen_get_option( 'catalog_layout' );
 		} elseif ( is_singular( 'post' ) ) {
 			if ( get_post_meta( get_the_ID(), 'custom_page_layout', true ) ) {
 				$layout = get_post_meta( get_the_ID(), 'layout', true );

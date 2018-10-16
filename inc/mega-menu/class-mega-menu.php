@@ -1,7 +1,7 @@
 <?php
-class Toffedassen_Mega_Menu {
+class Toffe Dassen_Mega_Menu {
 	/**
-	 * Toffedassen_Mega_Menu constructor.
+	 * Toffe Dassen_Mega_Menu constructor.
 	 */
 	public function __construct() {
 
@@ -23,7 +23,7 @@ class Toffedassen_Mega_Menu {
 	 */
 	private function init() {
 		if ( is_admin() ) {
-			new Toffedassen_Mega_Menu_Edit();
+			new Toffe Dassen_Mega_Menu_Edit();
 		}
 	}
 
@@ -33,12 +33,12 @@ class Toffedassen_Mega_Menu {
 	 * @return string
 	 */
 	public function edit_nav_menu_walker() {
-		return 'Toffedassen_Mega_Menu_Walker_Edit';
+		return 'Toffe Dassen_Mega_Menu_Walker_Edit';
 	}
 }
 
 add_action( 'init', function() {
 	global $mrbara_mega_menu;
 
-	$mrbara_mega_menu = new Toffedassen_Mega_Menu();
+	$mrbara_mega_menu = new Toffe Dassen_Mega_Menu();
 } );

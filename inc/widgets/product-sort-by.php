@@ -1,6 +1,6 @@
 <?php
 
-class Toffedassen_Product_SortBy_Widget extends WP_Widget {
+class Toffe Dassen_Product_SortBy_Widget extends WP_Widget {
 	protected $defaults;
 
 	function __construct() {
@@ -10,7 +10,7 @@ class Toffedassen_Product_SortBy_Widget extends WP_Widget {
 
 		parent::__construct(
 			'product-sort-by',
-			esc_html__( 'Toffedassen - Product Sort By', 'toffedassen' ),
+			esc_html__( 'Toffe Dassen - Product Sort By', 'toffedassen' ),
 			array(
 				'classname'   => 'product-sort-by',
 				'description' => esc_html__( 'Sort Product By', 'toffedassen' ),

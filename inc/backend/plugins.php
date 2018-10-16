@@ -2,7 +2,7 @@
 /**
  * Register required, recommended plugins for theme
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 /**
@@ -42,7 +42,7 @@ function toffedassen_register_required_plugins() {
 			'force_deactivation' => false,
 		),
 		array(
-			'name'               => esc_html__( 'Toffedassen Addons', 'toffedassen' ),
+			'name'               => esc_html__( 'Toffe Dassen Addons', 'toffedassen' ),
 			'slug'               => 'toffedassen-addons',
 			'source'             => get_template_directory() . '/plugins/toffedassen-addons.zip',
 			'required'           => true,

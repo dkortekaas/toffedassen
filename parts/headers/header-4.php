@@ -2,7 +2,7 @@
 /**
  * Template part for displaying header v1.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 ?>

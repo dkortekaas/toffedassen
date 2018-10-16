@@ -2,11 +2,10 @@
 /**
  * The Sidebar containing the main widget areas.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
-
 if ( 'full-content' == toffedassen_get_layout() ) {
-//	return;
+	return;
 }
 
 $sidebar = 'blog-sidebar';

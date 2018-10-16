@@ -2,7 +2,7 @@
 /**
  * Hooks for template archive
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 
@@ -55,31 +55,27 @@ if ( ! function_exists( 'toffedassen_site_content_open' ) ) :
 		$product_layout = toffedassen_get_option( 'single_product_layout' );
 		$portfolio_style   = toffedassen_get_option( 'portfolio_layout' );
 
-		if ( is_front_page() ) :
+		if ( toffedassen_is_page_template() ) {
 			$container = 'container-fluid';
-		endif;
+		}
 
-		if ( toffedassen_is_page_template() ) :
-			$container = 'container-fluid';
-		endif;
-
-		if (  function_exists( 'is_product' ) && is_product() ) :
-			if ( in_array( $product_layout, array( '2', '5' ) ) ) :
+		if (  function_exists( 'is_product' ) && is_product() ) {
+			if ( in_array( $product_layout, array( '2', '5' ) ) ) {
 				$container = 'container-fluid';
-			endif;
-		endif;
+			}
+		}
 
-		if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) :
+		if ( toffedassen_is_catalog() && intval( toffedassen_get_option( 'catalog_full_width' ) ) ) {
 			$container = 'toffedassen-catalog-container';
-		endif;
+		}
 
-		if ( is_singular( 'portfolio' ) ) :
+		if ( is_singular( 'portfolio' ) ) {
 			$container = 'container-fluid';
-		endif;
+		}
 
-		if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) :
+		if ( toffedassen_is_portfolio() && $portfolio_style == 'masonry' ) {
 			$container = 'container-fluid';
-		endif;
+		}
 
 		echo '<div class="' . esc_attr( apply_filters( 'toffedassen_site_content_container_class', $container ) ) . '">';
 		echo '<div class="row">';
@@ -239,25 +235,13 @@ add_action( 'toffedassen_coming_soon_page_content', 'toffedassen_coming_soon_soc
 function toffedassen_the_archive_title( $title ) {
 	if ( is_search() ) {
 		$title = esc_html__( 'Search Results', 'toffedassen' );
-
 	} elseif ( is_404() ) {
 		$title = esc_html__( 'Page Not Found', 'toffedassen' );
 
 	} elseif ( is_page() ) {
 		$title = get_the_title();
-	} elseif ( is_home() && is_front_page() ) {
-		$title = esc_html__( 'The Latest Posts', 'toffedassen' );
-
-	} elseif ( is_home() && ! is_front_page() ) {
-		$title = wp_kses_post( toffedassen_get_option( 'blog_page_header_title' ) );
-
-		if ( empty( $title ) ) {
-			$title = get_the_title( get_option( 'page_for_posts' ) );
-		}
-
 	} elseif ( function_exists( 'is_shop' ) && is_shop() ) {
-		$title = get_the_title( get_option( 'woocommerce_shop_page_id' ) );
-
+		$title = get_the_title( wc_get_page_id( 'shop' ) );
 	} elseif ( function_exists( 'is_product' ) && is_product() ) {
 		$cats = get_the_terms( get_the_ID(), 'product_cat' );
 		if ( ! is_wp_error( $cats ) && $cats ) {
@@ -284,6 +268,21 @@ function toffedassen_the_archive_title( $title ) {
 			} else {
 				$title = esc_html__( 'Portfolio', 'toffedassen' );
 			}
+		}
+	} elseif ( is_home() && is_front_page() ) {
+		$title = esc_html__( 'The Latest Posts', 'toffedassen' );
+
+	} elseif ( is_home() && ! is_front_page() ) {
+		$title = wp_kses_post( toffedassen_get_option( 'blog_page_header_title' ) );
+
+		if ( empty( $title ) ) {
+			$title = get_the_title( get_option( 'page_for_posts' ) );
+		}
+	}
+
+	if ( get_option( 'woocommerce_shop_page_id' ) ) {
+		if ( is_front_page() && ( get_option( 'woocommerce_shop_page_id' ) == get_option( 'page_on_front' ) ) ) {
+			$title = get_the_title( get_option( 'woocommerce_shop_page_id' ) );
 		}
 	}
 

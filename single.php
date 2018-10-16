@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 get_header(); ?>

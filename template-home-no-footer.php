@@ -4,7 +4,7 @@
  *
  * The template file for displaying Home page - Home No Footer.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 get_header(); ?>

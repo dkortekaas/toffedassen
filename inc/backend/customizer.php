@@ -1,8 +1,8 @@
 <?php
 /**
- * Toffedassen theme customizer
+ * Toffe Dassen theme customizer
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 // Exit if accessed directly
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Toffedassen_Customize {
+class Toffe Dassen_Customize {
 	/**
 	 * Customize settings
 	 *
@@ -248,175 +248,189 @@ function toffedassen_customize_settings() {
 	);
 
 	$sections = array(
-		'body_typo'                   => array(
+		'body_typo'                          => array(
 			'title'       => esc_html__( 'Body', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'heading_typo'                => array(
+		'heading_typo'                       => array(
 			'title'       => esc_html__( 'Heading', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'header_typo'                 => array(
+		'header_typo'                        => array(
 			'title'       => esc_html__( 'Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'footer_typo'                 => array(
+		'footer_typo'                        => array(
 			'title'       => esc_html__( 'Footer', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'header'                      => array(
+		'topbar'                             => array(
+			'title'       => esc_html__( 'Topbar', 'toffedassen' ),
+			'description' => '',
+			'priority'    => 5,
+			'capability'  => 'edit_theme_options',
+			'panel'       => 'header',
+		),
+		'header'                             => array(
 			'title'       => esc_html__( 'Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'header',
 		),
-		'logo'                        => array(
+		'logo'                               => array(
 			'title'       => esc_html__( 'Logo', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'header',
 		),
-		'backtotop'                   => array(
+		'backtotop'                          => array(
 			'title'       => esc_html__( 'Back to Top', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'preloader'                   => array(
+		'preloader'                          => array(
 			'title'       => esc_html__( 'Preloader', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'color_scheme'                => array(
+		'color_scheme'                       => array(
 			'title'       => esc_html__( 'Color Scheme', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'page_header'                 => array(
+		'page_header'                        => array(
 			'title'       => esc_html__( 'Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'page',
 		),
-		'coming_soon'                 => array(
+		'coming_soon'                        => array(
 			'title'       => esc_html__( 'Coming Soon', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'page',
 		),
-		'blog_page_header'            => array(
+		'blog_page_header'                   => array(
 			'title'       => esc_html__( 'Blog Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'blog',
 		),
-		'blog_page'                   => array(
+		'blog_page'                          => array(
 			'title'       => esc_html__( 'Blog Page', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'blog',
 		),
-		'single_post'                 => array(
+		'single_post'                        => array(
 			'title'       => esc_html__( 'Single Post', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'blog',
 		),
-		'catalog_page_header'         => array(
+		'catalog_page_header'                => array(
 			'title'       => esc_html__( 'Catalog Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'woocommerce',
 		),
-		'woocommerce_product_catalog' => array(
+		'woocommerce_product_catalog'        => array(
 			'title'       => esc_html__( 'Product Catalog', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'shop_badge'                  => array(
+		'woocommerce_product_catalog_mobile' => array(
+			'title'       => esc_html__( 'Product Catalog Mobile', 'toffedassen' ),
+			'description' => '',
+			'priority'    => 10,
+			'panel'       => 'woocommerce',
+			'capability'  => 'edit_theme_options',
+		),
+		'shop_badge'                         => array(
 			'title'       => esc_html__( 'Badges', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 40,
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'single_product'              => array(
+		'single_product'                     => array(
 			'title'       => esc_html__( 'Single Product', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'portfolio_page_header'       => array(
+		'portfolio_page_header'              => array(
 			'title'       => esc_html__( 'Portfolio Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'portfolio',
 			'capability'  => 'edit_theme_options',
 		),
-		'portfolio'                   => array(
+		'portfolio'                          => array(
 			'title'       => esc_html__( 'Portfolio', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'portfolio',
 			'capability'  => 'edit_theme_options',
 		),
-		'single_portfolio'            => array(
+		'single_portfolio'                   => array(
 			'title'       => esc_html__( 'Single Portfolio', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'portfolio',
 			'capability'  => 'edit_theme_options',
 		),
-		'footer_newsletter'           => array(
+		'footer_newsletter'                  => array(
 			'title'       => esc_html__( 'Footer Newsletter', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'footer_layout'               => array(
+		'footer_layout'                      => array(
 			'title'       => esc_html__( 'Footer Layout', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'footer_widgets'              => array(
+		'footer_widgets'                     => array(
 			'title'       => esc_html__( 'Footer Widgets', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'footer_copyright'            => array(
+		'footer_copyright'                   => array(
 			'title'       => esc_html__( 'Footer Copyright', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
@@ -577,6 +591,34 @@ function toffedassen_customize_settings() {
 				'variant'     => 'regular',
 				'subsets'     => array( 'latin-ext' ),
 				'font-size'   => '15px',
+			),
+		),
+
+		// Topbar
+		'topbar_enable'                    => array(
+			'type'     => 'toggle',
+			'label'    => esc_html__( 'Show topbar', 'toffedassen' ),
+			'section'  => 'topbar',
+			'default'  => 1,
+			'priority' => 10,
+		),
+		'topbar_custom_field_1'            => array(
+			'type'    => 'custom',
+			'section' => 'topbar',
+			'default' => '<hr/>',
+		),
+
+		'topbar_mobile_content'            => array(
+			'type'     => 'select',
+			'label'    => esc_html__( 'Topbar Mobile justify content', 'toffedassen' ),
+			'section'  => 'topbar',
+			'default'  => 'flex-start',
+			'priority' => 10,
+			'choices'  => array(
+				'flex-start'    => esc_html__( 'Flex Start', 'toffedassen' ),
+				'flex-end'      => esc_html__( 'Flex End', 'toffedassen' ),
+				'center'        => esc_html__( 'Center', 'toffedassen' ),
+				'space-between' => esc_html__( 'Space Between', 'toffedassen' ),
 			),
 		),
 
@@ -1156,7 +1198,7 @@ function toffedassen_customize_settings() {
 		),
 		'blog_layout'                      => array(
 			'type'            => 'select',
-			'label'           => esc_html__( 'Blog Classic Layout', 'toffedassen' ),
+			'label'           => esc_html__( 'Blog Grid Layout', 'toffedassen' ),
 			'section'         => 'blog_page',
 			'default'         => 'content-sidebar',
 			'priority'        => 10,
@@ -1406,14 +1448,6 @@ function toffedassen_customize_settings() {
 				),
 			),
 		),
-		'catalog_filter_mobile'            => array(
-			'type'        => 'toggle',
-			'label'       => esc_html__( 'Filter Mobile Sidebar', 'toffedassen' ),
-			'default'     => '0',
-			'section'     => 'woocommerce_product_catalog',
-			'priority'    => 70,
-			'description' => esc_html__( 'The Catalog filter display as sidebar', 'toffedassen' ),
-		),
 		'product_attribute'                => array(
 			'type'        => 'select',
 			'label'       => esc_html__( 'Product Attribute', 'toffedassen' ),
@@ -1423,18 +1457,28 @@ function toffedassen_customize_settings() {
 			'choices'     => toffedassen_product_attributes(),
 			'description' => esc_html__( 'Show product attribute for each item listed under the item name.', 'toffedassen' ),
 		),
+		'catalog_custom_2'       => array(
+			'type'            => 'custom',
+			'section'         => 'woocommerce_product_catalog',
+			'default'         => '<hr>',
+			'priority'        => 70,
+		),
+		'add_to_cart_action'               => array(
+			'type'            => 'select',
+			'label'           => esc_html__( 'Catalog Add to Cart Action', 'toffedassen' ),
+			'section'         => 'woocommerce_product_catalog',
+			'priority'        => 70,
+			'default'         => 'notice',
+			'choices'         => array(
+				'notice' => esc_html__( 'Show Notice', 'toffedassen' ),
+				'cart'   => esc_html__( 'Show Cart Sidebar', 'toffedassen' ),
+			),
+		),
 		'catalog_page_header_custom'       => array(
 			'type'            => 'custom',
 			'section'         => 'woocommerce_product_catalog',
 			'default'         => '<hr>',
 			'priority'        => 70,
-			'active_callback' => array(
-				array(
-					'setting'  => 'catalog_layout',
-					'operator' => 'in',
-					'value'    => array( 'sidebar-content', 'content-sidebar', 'full-content' ),
-				),
-			),
 		),
 		// Catalog Page Header
 		'catalog_page_header'              => array(
@@ -1577,6 +1621,28 @@ function toffedassen_customize_settings() {
 				'ajax'     => esc_html__( 'Ajax Loading', 'toffedassen' ),
 				'infinite' => esc_html__( 'Infinite Scroll', 'toffedassen' ),
 			),
+		),
+
+		// Catalog Mobile
+		'catalog_mobile_columns'           => array(
+			'type'        => 'select',
+			'label'       => esc_html__( 'Catalog Columns', 'toffedassen' ),
+			'default'     => '1',
+			'section'     => 'woocommerce_product_catalog_mobile',
+			'priority'    => 70,
+			'description' => esc_html__( 'Select catalog columns on mobile.', 'toffedassen' ),
+			'choices'     => array(
+				'1' => esc_html__( '1 Column', 'toffedassen' ),
+				'2' => esc_html__( '2 Columns', 'toffedassen' ),
+			),
+		),
+		'catalog_filter_mobile'            => array(
+			'type'        => 'toggle',
+			'label'       => esc_html__( 'Filter Mobile Sidebar', 'toffedassen' ),
+			'default'     => '0',
+			'section'     => 'woocommerce_product_catalog_mobile',
+			'priority'    => 70,
+			'description' => esc_html__( 'The Catalog filter display as sidebar', 'toffedassen' ),
 		),
 
 		//Badge
@@ -1757,7 +1823,7 @@ function toffedassen_customize_settings() {
 		'product_add_to_cart_ajax'         => array(
 			'type'        => 'toggle',
 			'label'       => esc_html__( 'Add to cart with AJAX', 'toffedassen' ),
-			'section'     => 'product_page',
+			'section'     => 'single_product',
 			'default'     => 1,
 			'priority'    => 40,
 			'description' => esc_html__( 'Check this option to enable add to cart with AJAX on the product page.', 'toffedassen' ),
@@ -2391,4 +2457,4 @@ function toffedassen_customize_settings() {
 	return $settings;
 }
 
-$toffedassen_customize = new Toffedassen_Customize( toffedassen_customize_settings() );
+$toffedassen_customize = new Toffe Dassen_Customize( toffedassen_customize_settings() );

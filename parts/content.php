@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 global $wp_query;

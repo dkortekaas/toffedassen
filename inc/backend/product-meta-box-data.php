@@ -2,7 +2,7 @@
 /**
  * Functions and Hooks for product meta box data
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * toffedassen_Meta_Box_Product_Data class.
  */
-class Toffedassen_Meta_Box_Product_Data {
+class Toffe_Dassen_Meta_Box_Product_Data {
 
 	/**
 	 * Constructor.

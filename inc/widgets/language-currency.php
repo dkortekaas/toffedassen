@@ -14,7 +14,7 @@
  *
  * @see   WP_Widget
  */
-class Toffedassen_Language_Currency_Widget extends WP_Widget {
+class Toffe Dassen_Language_Currency_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Text widget instance.
@@ -28,7 +28,7 @@ class Toffedassen_Language_Currency_Widget extends WP_Widget {
 			'description' => esc_html__( 'Shows language list by WPML plugin and currency list by WooCommerce Currency Switcher plugin', 'toffedassen' ),
 		);
 		$control_ops = array( 'width' => 400, 'height' => 350 );
-		parent::__construct( 'toffedassen-language-currency', esc_html__( 'Toffedassen Language & Currency', 'toffedassen' ), $widget_ops, $control_ops );
+		parent::__construct( 'toffedassen-language-currency', esc_html__( 'Toffe Dassen Language & Currency', 'toffedassen' ), $widget_ops, $control_ops );
 	}
 
 	/**

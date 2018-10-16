@@ -2,7 +2,7 @@
 /**
  * Hooks for template nav menus
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 /**

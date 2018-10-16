@@ -15,6 +15,9 @@
  */
 function toffedassen_register_sidebar() {
 	$sidebars = array(
+		'topbar-left'     => esc_html__( 'Topbar Left', 'toffedassen' ),
+		'topbar-right'    => esc_html__( 'Topbar Right', 'toffedassen' ),
+		'topbar-mobile'   => esc_html__( 'Mobile Topbar', 'toffedassen' ),
 		'blog-sidebar'    => esc_html__( 'Blog Sidebar', 'toffedassen' ),
 		'menu-sidebar'    => esc_html__( 'Menu Sidebar', 'toffedassen' ),
 		'catalog-sidebar' => esc_html__( 'Catalog Sidebar', 'toffedassen' ),

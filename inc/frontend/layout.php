@@ -2,7 +2,7 @@
 /**
  * Hooks for frontend display
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 
@@ -24,6 +24,10 @@ function toffedassen_body_classes( $classes ) {
 	$header_layout = toffedassen_get_option( 'header_layout' );
 	$custom_header = toffedassen_get_post_meta( 'custom_header' );
 
+	if ( intval( toffedassen_get_option( 'topbar_enable' ) ) ) {
+		$classes[] = 'topbar-enable';
+	}
+
 	if ( is_page_template( 'template-home-left-sidebar.php' ) ) {
 		$classes[] = 'header-left-sidebar';
 	} else {
@@ -44,6 +48,7 @@ function toffedassen_body_classes( $classes ) {
 
 	if ( toffedassen_is_catalog() ) {
 		$classes[] = 'toffedassen-catalog-page';
+		$classes[] = 'toffedassen-catalog-mobile-' . intval( toffedassen_get_option( 'catalog_mobile_columns' ) ) . '-columns';
 
 		$view      = isset( $_COOKIE['shop_view'] ) ? $_COOKIE['shop_view'] : toffedassen_get_option( 'shop_view' );
 		$classes[] = 'shop-view-' . $view;

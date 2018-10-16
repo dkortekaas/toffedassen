@@ -13,7 +13,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * Tag Cloud Widget.
  *
  */
-class Toffedassen_Widget_Product_Tag_Cloud extends WC_Widget {
+class Toffe Dassen_Widget_Product_Tag_Cloud extends WC_Widget {
 
 	/**
 	 * Constructor.
@@ -24,7 +24,7 @@ class Toffedassen_Widget_Product_Tag_Cloud extends WC_Widget {
 		$this->widget_cssclass    = 'woocommerce widget_product_tag_cloud';
 		$this->widget_description = esc_html__( 'Your most used product tags in cloud format.', 'toffedassen' );
 		$this->widget_id          = 'toffedassen_product_tag_cloud';
-		$this->widget_name        = esc_html__( 'Toffedassen Product Tags', 'toffedassen' );
+		$this->widget_name        = esc_html__( 'Toffe Dassen Product Tags', 'toffedassen' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',

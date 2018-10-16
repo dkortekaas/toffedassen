@@ -1,6 +1,6 @@
 <?php
 
-class Toffedassen_Social_Links_Widget extends WP_Widget {
+class Toffe Dassen_Social_Links_Widget extends WP_Widget {
 	/**
 	 * Holds widget settings defaults, populated in constructor.
 	 *
@@ -47,7 +47,7 @@ class Toffedassen_Social_Links_Widget extends WP_Widget {
 
 		parent::__construct(
 			'toffedassen-social-links-widget',
-			esc_html__( 'Toffedassen - Social Links', 'toffedassen' ),
+			esc_html__( 'Toffe Dassen - Social Links', 'toffedassen' ),
 			array(
 				'classname'   => 'toffedassen-social-links-widget',
 				'description' => esc_html__( 'Display links to social media networks.', 'toffedassen' ),

@@ -2,7 +2,7 @@
 /**
  * Custom functions for images, audio, videos.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 

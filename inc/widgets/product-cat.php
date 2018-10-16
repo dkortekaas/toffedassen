@@ -13,7 +13,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * Tag Cloud Widget.
  *
  */
-class Toffedassen_Widget_Product_Cat extends WC_Widget {
+class Toffe Dassen_Widget_Product_Cat extends WC_Widget {
 
 	/**
 	 * Constructor.
@@ -21,10 +21,10 @@ class Toffedassen_Widget_Product_Cat extends WC_Widget {
 	public function __construct() {
 
 
-		$this->widget_cssclass    = 'woocommerce widget_product_categories';
+		$this->widget_cssclass    = 'woocommerce widget_product_categories toffedassen_widget_product_categories';
 		$this->widget_description = esc_html__( 'A list of product categories.', 'toffedassen' );
 		$this->widget_id          = 'toffedassen_product_cat';
-		$this->widget_name        = esc_html__( 'Toffedassen Product Categories', 'toffedassen' );
+		$this->widget_name        = esc_html__( 'Toffe Dassen Product Categories', 'toffedassen' );
 		$this->settings           = array(
 			'title' => array(
 				'type'  => 'text',
@@ -39,7 +39,12 @@ class Toffedassen_Widget_Product_Cat extends WC_Widget {
 					'2' => esc_html__( 'Style 2', 'toffedassen' )
 				),
 				'label'   => esc_html__( 'Style', 'toffedassen' )
-			)
+			),
+			'height' => array(
+				'type'  => 'text',
+				'std'   => '',
+				'label' => esc_html__( 'Height', 'toffedassen' )
+			),
 		);
 
 		parent::__construct();
@@ -67,6 +72,14 @@ class Toffedassen_Widget_Product_Cat extends WC_Widget {
 			$instance['title'] = $taxonomy->labels->name;
 		}
 
+		$attr = '';
+
+		if ( isset( $instance['height'] ) && $instance['height'] ) {
+			$height = $instance['height'];
+
+			$attr = 'data-height="' . intval( $height ) . '"';
+		}
+
 		if ( isset( $instance['style'] ) && $instance['style'] != '2' ) {
 			$term_id        = 0;
 			$queried_object = get_queried_object();
@@ -91,20 +104,22 @@ class Toffedassen_Widget_Product_Cat extends WC_Widget {
 				}
 
 			}
+
 			$css_class = $found ? '' : 'chosen';
 
 			printf(
-				'<ul class="product-categories">' .
+				'<ul class="product-categories" %s>' .
 				'<li class="%s"><a href="%s">%s</a></li>' .
 				'%s' .
 				'</ul>',
+				$attr,
 				esc_attr( $css_class ),
 				esc_url( esc_url( get_permalink( get_option( 'woocommerce_shop_page_id' ) ) ) ),
 				esc_html__( 'All', 'toffedassen' ),
 				implode( ' ', $output )
 			);
 		} else {
-			echo '<ul class="product-categories">';
+			echo '<ul class="product-categories" ' . $attr . '>';
 
 			wp_list_categories( apply_filters( 'woocommerce_product_categories_widget_args', $list_args ) );
 

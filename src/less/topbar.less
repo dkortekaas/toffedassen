@@ -1,0 +1,156 @@
+.topbar {
+	.row-flex {
+		align-items: stretch;
+		min-height: 55px;
+	}
+
+	.topbar-widgets {
+		flex-grow: 1;
+		align-items: center;
+		padding-left: 15px;
+		padding-right: 15px;
+
+		.widget {
+			margin: 10px 0;
+			padding: 0 15px;
+		}
+	}
+
+	.topbar-right {
+		justify-content: flex-end;
+	}
+
+	.widget_search {
+		.search-form {
+			position: relative;
+			max-width: 200px;
+
+			&:before {
+				font-size: 16px;
+				padding-bottom: 5px;
+			}
+
+			.search-field {
+				padding-bottom: 10px;
+				padding-left: 25px;
+			}
+
+			.search-submit {
+				height: 33px;
+			}
+		}
+	}
+
+	.toffedassen-social-links-widget {
+		ul {
+			margin-right: -10px;
+			margin-left: -10px;
+
+			a {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.widget_categories,
+	.widget_archive,
+	.widget_pages,
+	.widget_meta,
+	.widget_nav_menu,
+	.widget_dl-custom-menu {
+		margin: 0;
+
+		ul {
+			li {
+				padding: 0 10px;
+				display: inline-block;
+
+				&:first-child {
+					padding-left: 0;
+				}
+			}
+		}
+
+		li:before {
+			display: none;
+		}
+	}
+}
+
+.topbar.topbar-mobile {
+	.topbar-widgets {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.topbar-enable {
+	.su-header-minimized {
+		display: none;
+	}
+
+	&.header-sticky {
+		.site-header {
+			position: static;
+			transition: unset;
+
+			&.minimized {
+				position: fixed;
+				right: 0;
+				left: 0;
+				top: 0;
+				padding-top: 20px;
+				padding-bottom: 20px;
+				background-color: #fff;
+				box-shadow: 0 1px 1px 0 #f0f0f0;
+				z-index: 999;
+				animation-name: fadeInDown;
+				animation-duration: .25s;
+			}
+		}
+
+		&.admin-bar {
+			.site-header {
+				&.minimized {
+					top: 32px;
+				}
+			}
+		}
+
+		.su-header-minimized {
+			&.minimized {
+				display: block;
+			}
+		}
+	}
+
+	&.header-transparent {
+		.site-header {
+			position: absolute;
+
+			&.minimized {
+				position: fixed;
+			}
+		}
+
+		.topbar {
+			position: absolute;
+			background-color: transparent;
+			top: 0;
+			right: 0;
+			left: 0;
+			z-index: 999;
+
+			.widget_search .search-form label input {
+				border: 0;
+			}
+		}
+
+		&.admin-bar {
+			.topbar {
+				top: 32px;
+			}
+		}
+	}
+}
+

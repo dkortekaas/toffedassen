@@ -2,7 +2,7 @@
 /**
  * Template part for displaying header left sidebar.
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 $header_copyright = get_post_meta( get_the_ID(), 'header_copyright', true );
