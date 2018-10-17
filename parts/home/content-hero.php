@@ -13,7 +13,7 @@
                 <li>
                     <img src="<?php echo get_template_directory_uri() . '/assets/images/slide01.jpg'; ?>" alt="" title="" width="1920" height="960" class="slide">
                     <div class="slider-caption">
-                        SPECIALPRICE
+                        De perfecte stropdas voor jou.
                     </div>
                 </li>
             </ul>

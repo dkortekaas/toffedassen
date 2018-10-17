@@ -14,9 +14,9 @@
                 </div>
                 <div class="box-wrapper">
                     <h4 class="box-title">
-                        <a class="box-link" href="#">FREE SHIPPING</a>
+                        <a class="box-link" href="#"><?php _e('Free Shipping', 'toffedassen'); ?></a>
                     </h4>
-                    <div class="box-desc">Orders over $100</div>
+                    <div class="box-desc"><?php _e('Orders over &euro; 25,-', 'toffedassen'); ?></div>
                 </div>
             </li>
             <li class="cta-icon-box">
@@ -25,9 +25,9 @@
                 </div>
                 <div class="box-wrapper">
                     <h4 class="box-title">
-                        <a class="box-link" href="#">FREE RETURNS</a>
+                        <a class="box-link" href="#"><?php _e('Fast Delivery', 'toffedassen'); ?></a>
                     </h4>
-                    <div class="box-desc">Within 30 days</div>
+                    <div class="box-desc"><?php _e('Within 3 days', 'toffedassen'); ?></div>
                 </div>
             </li>
             <li class="cta-icon-box">
@@ -36,9 +36,9 @@
                 </div>
                 <div class="box-wrapper">
                     <h4 class="box-title">
-                        <a class="box-link" href="#">100% SECURE</a>
+                        <a class="box-link" href="#"><?php _e('100% Secure', 'toffedassen'); ?></a>
                     </h4>
-                    <div class="box-desc">Online Shopping</div>
+                    <div class="box-desc"><?php _e('Online Shopping', 'toffedassen'); ?></div>
                 </div>
             </li>
             <li class="cta-icon-box">
@@ -47,9 +47,10 @@
                 </div>
                 <div class="box-wrapper">
                     <h4 class="box-title">
-                        <a class="box-link" href="#">BEST PRICE</a>
+                        <a class="box-link" href="#"><?php _e('Best Price', 'toffedassen'); ?></a>
                     </h4>
-                    <div class="box-desc">Guaranted</div>
+                    <div class="box-desc"><?php _e('Guarante
+                    ed', 'toffedassen'); ?></div>
                 </div>
             </li>
         </ul>
