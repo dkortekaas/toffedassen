@@ -1,6 +1,6 @@
 <?php
 
-class Toffe Dassen_Product_SortBy_Widget extends WP_Widget {
+class Toffe_Dassen_Product_SortBy_Widget extends WP_Widget {
 	protected $defaults;
 
 	function __construct() {

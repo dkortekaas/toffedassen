@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Toffe Dassen_Customize {
+class Toffe_Dassen_Customize {
 	/**
 	 * Customize settings
 	 *
@@ -2457,4 +2457,4 @@ function toffedassen_customize_settings() {
 	return $settings;
 }
 
-$toffedassen_customize = new Toffe Dassen_Customize( toffedassen_customize_settings() );
+$toffedassen_customize = new Toffe_Dassen_Customize( toffedassen_customize_settings() );

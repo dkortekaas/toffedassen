@@ -13,7 +13,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * Tag Cloud Widget.
  *
  */
-class Toffe Dassen_Widget_Product_Cat extends WC_Widget {
+class Toffe_Dassen_Widget_Product_Cat extends WC_Widget {
 
 	/**
 	 * Constructor.

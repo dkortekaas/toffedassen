@@ -11,7 +11,7 @@ if ( ! class_exists( 'Walker_Nav_Menu_Edit' ) ) {
 	require_once ABSPATH . 'wp-admin/includes/nav-menu.php';
 }
 
-class Toffe Dassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
+class Toffe_Dassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 	/**
 	 * Start the element output.
 	 *
@@ -106,7 +106,7 @@ class Toffe Dassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 	}
 }
 
-class Toffe Dassen_Mega_Menu_Edit {
+class Toffe_Dassen_Mega_Menu_Edit {
 	/**
 	 * Toffe Dassen_Mega_Menu_Edit constructor.
 	 */

@@ -14,7 +14,7 @@
  *
  * @see   WP_Widget
  */
-class Toffe Dassen_Price_Filter_List_Widget extends WP_Widget {
+class Toffe_Dassen_Price_Filter_List_Widget extends WP_Widget {
 
 	/**
 	 * Sets up a new Text widget instance.

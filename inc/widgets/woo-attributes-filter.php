@@ -17,7 +17,7 @@ if ( ! class_exists( 'WC_Widget' ) ) {
  * @version  2.6.0
  * @extends  WC_Widget
  */
-class Toffe Dassen_Widget_Attributes_Filter extends WC_Widget {
+class Toffe_Dassen_Widget_Attributes_Filter extends WC_Widget {
 
 	/**
 	 * Constructor.

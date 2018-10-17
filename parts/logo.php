@@ -9,18 +9,18 @@ $logo  = toffedassen_get_option( 'logo' );
 $logo_light  = toffedassen_get_option( 'logo_light' );
 
 if ( ! $logo ) {
-	$logo = get_template_directory_uri() . '/img/logo.svg';
+	$logo = get_template_directory_uri() . '/svg/logo.svg';
 }
 
 if ( ! $logo_light ) {
-	$logo_light = get_template_directory_uri() . '/img/logo-light.svg';
+	$logo_light = get_template_directory_uri() . '/svg/logo-light.svg';
 }
 
 if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 	$logo = toffedassen_get_option( 'coming_soon_logo' );
 
 	if ( ! $logo ) {
-		$logo = get_template_directory_uri() . '/img/logo-light.svg';
+		$logo = get_template_directory_uri() . '/svg/logo-light.svg';
 	}
 }
 

@@ -1,5 +1,5 @@
 <?php
-class Toffe Dassen_Mega_Menu {
+class Toffe_Dassen_Mega_Menu {
 	/**
 	 * Toffe Dassen_Mega_Menu constructor.
 	 */
@@ -33,7 +33,7 @@ class Toffe Dassen_Mega_Menu {
 	 * @return string
 	 */
 	public function edit_nav_menu_walker() {
-		return 'Toffe Dassen_Mega_Menu_Walker_Edit';
+		return 'Toffe_Dassen_Mega_Menu_Walker_Edit';
 	}
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-class Toffe Dassen_Social_Links_Widget extends WP_Widget {
+class Toffe_Dassen_Social_Links_Widget extends WP_Widget {
 	/**
 	 * Holds widget settings defaults, populated in constructor.
 	 *

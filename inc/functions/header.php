@@ -24,7 +24,7 @@ if ( ! function_exists( 'toffedassen_nav_menu' ) ) :
 				array(
 					'theme_location' => 'primary',
 					'container'      => false,
-					'walker'         => new Toffe Dassen_Mega_Menu_Walker(),
+					//'walker'         => new Toffe_Dassen_Mega_Menu_Walker(),
 					'menu_class'     => $classes,
 				)
 			);

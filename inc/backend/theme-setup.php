@@ -58,9 +58,9 @@ function toffedassen_setup() {
 		)
 	);
 
-	if ( is_admin() ) {
-		new Toffe_Dassen_Meta_Box_Product_Data;
-	}
+	// if ( is_admin() ) {
+	// 	new Toffe_Dassen_Meta_Box_Product_Data;
+	// }
 
 }
 

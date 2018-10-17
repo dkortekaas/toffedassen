@@ -5,7 +5,7 @@
  *
  * @package Toffe Dassen
  */
-class Toffe Dassen_Mega_Menu_Walker extends Walker_Nav_Menu {
+class Toffe_Dassen_Mega_Menu_Walker extends Walker_Nav_Menu {
 	/**
 	 * Store state of top level item
 	 *

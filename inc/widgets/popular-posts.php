@@ -1,6 +1,6 @@
 <?php
 
-class Toffe Dassen_PopularPost_Widget extends WP_Widget {
+class Toffe_Dassen_PopularPost_Widget extends WP_Widget {
 	/**
 	 * Holds widget settings defaults, populated in constructor.
 	 *
@@ -12,7 +12,7 @@ class Toffe Dassen_PopularPost_Widget extends WP_Widget {
 	 * Class constructor
 	 * Set up the widget
 	 *
-	 * @return Toffe Dassen_PopularPost_Widget
+	 * @return Toffe_Dassen_PopularPost_Widget
 	 */
 	function __construct() {
 		$this->defaults = array(

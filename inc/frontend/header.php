@@ -15,14 +15,15 @@ function toffedassen_enqueue_scripts() {
 	 * Register and enqueue styles
 	 */
 	wp_register_style( 'toffedassen-fonts', toffedassen_fonts_url(), array(), '20180307' );
-	wp_register_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
-	wp_register_style( 'eleganticons', get_template_directory_uri() . '/css/eleganticons.min.css', array(), '1.0.0' );
-	wp_register_style( 'linearicons', get_template_directory_uri() . '/css/linearicons.min.css', array(), '1.0.0' );
-	wp_register_style( 'ionicons', get_template_directory_uri() . '/css/ionicons.min.css', array(), '2.0.0' );
-	wp_register_style( 'photoswipe', get_template_directory_uri() . '/css/photoswipe.css', array(), '4.1.1' );
+	//wp_register_style( 'toffedassen-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.2.0' );
+	wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '3.3.7' );
+	wp_register_style( 'eleganticons', get_template_directory_uri() . '/assets/css/eleganticons.min.css', array(), '1.0.0' );
+	wp_register_style( 'linearicons', get_template_directory_uri() . '/assets/css/linearicons.min.css', array(), '1.0.0' );
+	wp_register_style( 'ionicons', get_template_directory_uri() . '/assets/css/ionicons.min.css', array(), '2.0.0' );
+	wp_register_style( 'photoswipe', get_template_directory_uri() . '/assets/css/photoswipe.css', array(), '4.1.1' );
 
 	wp_enqueue_style(
-		'toffedassen', get_template_directory_uri() . '/style.css', array(
+		'toffedassen', get_template_directory_uri() . '/assets/css/style.css', array(
 		'toffedassen-fonts',
 		'bootstrap',
 		'eleganticons',
@@ -32,21 +33,21 @@ function toffedassen_enqueue_scripts() {
 	), '20161025'
 	);
 
-	wp_add_inline_style( 'toffedassen', toffedassen_customize_css() );
+	//wp_add_inline_style( 'toffedassen', toffedassen_customize_css() );
 
 	/**
 	 * Register and enqueue scripts
 	 */
 	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/js/plugins/html5shiv.min.js', array(), '3.7.2' );
+	wp_enqueue_script( 'html5shiv', get_template_directory_uri() . '/assets/js/plugins/html5shiv.min.js', array(), '3.7.2' );
 	wp_script_add_data( 'html5shiv', 'conditional', 'lt IE 9' );
 
-	wp_enqueue_script( 'respond', get_template_directory_uri() . '/js/plugins/respond.min.js', array(), '1.4.2' );
+	wp_enqueue_script( 'respond', get_template_directory_uri() . '/assets/js/plugins/respond.min.js', array(), '1.4.2' );
 	wp_script_add_data( 'respond', 'conditional', 'lt IE 9' );
 
-	wp_register_script( 'photoswipe', get_template_directory_uri() . '/js/plugins/photoswipe.min.js', array(), '4.1.1', true );
-	wp_register_script( 'photoswipe-ui', get_template_directory_uri() . '/js/plugins/photoswipe-ui.min.js', array( 'photoswipe' ), '4.1.1', true );
+	wp_register_script( 'photoswipe', get_template_directory_uri() . '/assets/js/plugins/photoswipe.min.js', array(), '4.1.1', true );
+	wp_register_script( 'photoswipe-ui', get_template_directory_uri() . '/assets/js/plugins/photoswipe-ui.min.js', array( 'photoswipe' ), '4.1.1', true );
 
 	$lightbox = 'no';
 	if ( is_singular() ) {
@@ -61,17 +62,18 @@ function toffedassen_enqueue_scripts() {
 		}
 	}
 
-	wp_register_script( 'slick', get_template_directory_uri() . '/js/plugins/slick.min.js', array( 'jquery' ), '2.0.2', true );
-	wp_register_script( 'isotope', get_template_directory_uri() . '/js/plugins/isotope.pkgd.min.js', array( 'jquery' ), '2.2.2', true );
-	wp_register_script( 'parallax', get_template_directory_uri() . '/js/plugins/jquery.parallax.min.js', array(), '1.0', true );
-	wp_register_script( 'flipclock', get_template_directory_uri() . '/js/plugins/flipclock.min.js', array(), '1.0', true );
-	wp_register_script( 'sticky-kit', get_template_directory_uri() . '/js/plugins/sticky-kit.min.js', array( 'jquery' ), '1.1.3', true );
-	wp_register_script( 'tabs', get_template_directory_uri() . '/js/plugins/jquery.tabs.js', array(), '1.0', true );
-	wp_register_script( 'notify', get_template_directory_uri() . '/js/plugins/notify.min.js', array(), '1.0.0', true );
-	wp_register_script( 'tooltip', get_template_directory_uri() . '/js/plugins/jquery-tooltip.js', array(), '2.1.1', true );
-	wp_register_script( 'viewport', get_template_directory_uri() . '/js/plugins/isInViewport.min.js', array(), '1.0', true );
-	wp_register_script( 'nprogress', get_template_directory_uri() . '/js/plugins/nprogress.js', array(), '1.0.0', true );
-	wp_register_script( 'swiper', get_template_directory_uri() . '/js/plugins/swiper.min.js', array(), '4.3.2', true );
+	wp_register_script( 'bootstrap', get_template_directory_uri() . '/assets/js/plugins/bootstrap.min.js', array( 'jquery' ), '3.3.7', true );
+	wp_register_script( 'slick', get_template_directory_uri() . '/assets/js/plugins/slick.min.js', array( 'jquery' ), '2.0.2', true );
+	wp_register_script( 'isotope', get_template_directory_uri() . '/assets/js/plugins/isotope.pkgd.min.js', array( 'jquery' ), '2.2.2', true );
+	wp_register_script( 'parallax', get_template_directory_uri() . '/assets/js/plugins/jquery.parallax.min.js', array(), '1.0', true );
+	wp_register_script( 'flipclock', get_template_directory_uri() . '/assets/js/plugins/flipclock.min.js', array(), '1.0', true );
+	wp_register_script( 'sticky-kit', get_template_directory_uri() . '/assets/js/plugins/sticky-kit.min.js', array( 'jquery' ), '1.1.3', true );
+	wp_register_script( 'tabs', get_template_directory_uri() . '/assets/js/plugins/jquery.tabs.js', array(), '1.0', true );
+	wp_register_script( 'notify', get_template_directory_uri() . '/assets/js/plugins/notify.min.js', array(), '1.0.0', true );
+	wp_register_script( 'tooltip', get_template_directory_uri() . '/assets/js/plugins/jquery-tooltip.js', array(), '2.1.1', true );
+	wp_register_script( 'viewport', get_template_directory_uri() . '/assets/js/plugins/isInViewport.min.js', array(), '1.0', true );
+	wp_register_script( 'nprogress', get_template_directory_uri() . '/assets/js/plugins/nprogress.js', array(), '1.0.0', true );
+	wp_register_script( 'swiper', get_template_directory_uri() . '/assets/js/plugins/swiper.min.js', array(), '4.3.2', true );
 
 	$script_name = 'wc-add-to-cart-variation';
 	if ( wp_script_is( $script_name, 'registered' ) && ! wp_script_is( $script_name, 'enqueued' ) ) {
@@ -79,8 +81,9 @@ function toffedassen_enqueue_scripts() {
 	}
 
 	wp_enqueue_script(
-		'toffedassen', get_template_directory_uri() . "/js/scripts$min.js", array(
+		'toffedassen', get_template_directory_uri() . "/assets/js/scripts$min.js", array(
 		'jquery',
+		'bootstrap',
 		'slick',
 		'imagesloaded',
 		'isotope',
@@ -407,6 +410,8 @@ function toffedassen_show_page_header() {
 
 	if ( toffedassen_is_blog() ) {
 		get_template_part( 'parts/page-headers/blog', $layout );
+	} elseif ( is_front_page() ) {
+
 	} else {
 		get_template_part( 'parts/page-headers/default' );
 	}
