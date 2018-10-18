@@ -2169,6 +2169,11 @@
         &:focus {
             border-color: #d9d9d9;
         }
+
+        &.wpcf7-not-valid {
+            border-color: #b20000;
+            color: #b20000;
+        }
     }
 
     input[type="text"],
@@ -2192,6 +2197,24 @@
         color: #222;
         font-weight: 400;
         margin-bottom: 0;
+    }
+
+    span {
+        &.wpcf7-not-valid-tip {
+            margin-top: -20px;
+            border-color: #b20000;
+            color: #b20000;
+        }
+    }
+
+    .your-message {
+        span {
+            &.wpcf7-not-valid-tip {
+                margin-top: -5px;
+                border-color: #b20000;
+                color: #b20000;
+            }
+        }
     }
 
     .require {
