@@ -2,7 +2,7 @@
 /**
  * Template part for displaying CTA
  *
- * @package Logiq
+ * @package Toffe Dassen
  */
 ?>
 
@@ -49,8 +49,7 @@
                     <h4 class="box-title">
                         <a class="box-link" href="#"><?php _e('Best Price', 'toffedassen'); ?></a>
                     </h4>
-                    <div class="box-desc"><?php _e('Guarante
-                    ed', 'toffedassen'); ?></div>
+                    <div class="box-desc"><?php _e('Guaranteed', 'toffedassen'); ?></div>
                 </div>
             </li>
         </ul>

@@ -2,12 +2,11 @@
 /**
  * Template part for displaying products on front page
  *
- * @package Toffedassen
+ * @package Toffe Dassen
  */
 
 ?>
 
-    <!-- products -->
     <div class="vc_row wpb_row vc_row-fluid toffedassen-no-padding-left toffedassen-no-padding-right vc_custom_1531299284109 toffedassen-row-full-width">
         <div class="container-fluid">
             <div class="row">
