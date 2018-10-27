@@ -106,7 +106,7 @@ if ( ! function_exists( 'toffedassen_extra_search' ) ) :
 			$post_type_html = '<input type="hidden" name="post_type" value="product">';
 		}
 
-		if ( $layout != '3' && $layout != '5' ) {
+		if ( $layout != '3' && $layout != '5' && $layout != '6' ) {
 			$css_class = 'search-modal';
 		}
 

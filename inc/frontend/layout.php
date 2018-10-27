@@ -108,6 +108,10 @@ function toffedassen_body_classes( $classes ) {
 		}
 	}
 
+	if ( toffedassen_is_home() && ! is_page_template( 'template-home-left-sidebar.php' ) && intval( toffedassen_get_option( 'boxed_layout' ) ) ) {
+		$classes[] = 'toffedassen-boxed-layout';
+	}
+
 	$p_style    = toffedassen_get_option( 'portfolio_layout' );
 	$p_nav_type = toffedassen_get_option( 'portfolio_nav_type' );
 
