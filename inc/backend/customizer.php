@@ -318,6 +318,13 @@ function toffedassen_customize_settings() {
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
+		'boxed_layout'                       => array(
+			'title'       => esc_html__( 'Boxed Layout', 'toffedassen' ),
+			'description' => '',
+			'priority'    => 10,
+			'capability'  => 'edit_theme_options',
+			'panel'       => 'styling',
+		),
 		'page_header'                        => array(
 			'title'       => esc_html__( 'Page Header', 'toffedassen' ),
 			'description' => '',
@@ -602,6 +609,56 @@ function toffedassen_customize_settings() {
 			'default'  => 1,
 			'priority' => 10,
 		),
+		'topbar_layout'                    => array(
+			'type'     => 'select',
+			'label'    => esc_html__( 'Topbar Layout', 'toffedassen' ),
+			'section'  => 'topbar',
+			'default'  => '1',
+			'priority' => 10,
+			'choices'  => array(
+				'1' => esc_html__( 'Layout 1', 'toffedassen' ),
+				'2' => esc_html__( 'Layout 2', 'toffedassen' ),
+			),
+		),
+		'topbar_border_bottom'                    => array(
+			'type'     => 'toggle',
+			'label'    => esc_html__( 'Show border bottom', 'toffedassen' ),
+			'section'  => 'topbar',
+			'default'  => 0,
+			'priority' => 10,
+		),
+		'topbar_background_color'          => array(
+			'type'     => 'color',
+			'label'    => esc_html__( 'Background Color', 'toffedassen' ),
+			'default'  => '',
+			'section'  => 'topbar',
+			'priority' => 10,
+		),
+		'topbar_color'                     => array(
+			'type'     => 'select',
+			'label'    => esc_html__( 'Color', 'toffedassen' ),
+			'section'  => 'topbar',
+			'default'  => 'default',
+			'priority' => 10,
+			'choices'  => array(
+				'default' => esc_html__( 'Default', 'toffedassen' ),
+				'custom'  => esc_html__( 'Custom', 'toffedassen' ),
+			),
+		),
+		'topbar_custom_color'              => array(
+			'type'            => 'color',
+			'label'           => esc_html__( 'Custom Color', 'toffedassen' ),
+			'default'         => '',
+			'section'         => 'topbar',
+			'priority'        => 10,
+			'active_callback' => array(
+				array(
+					'setting'  => 'topbar_color',
+					'operator' => '==',
+					'value'    => 'custom',
+				),
+			),
+		),
 		'topbar_custom_field_1'            => array(
 			'type'    => 'custom',
 			'section' => 'topbar',
@@ -635,6 +692,7 @@ function toffedassen_customize_settings() {
 				'3' => esc_html__( 'Layout 3', 'toffedassen' ),
 				'4' => esc_html__( 'Layout 4', 'toffedassen' ),
 				'5' => esc_html__( 'Layout 5', 'toffedassen' ),
+				'6' => esc_html__( 'Layout 6', 'toffedassen' ),
 			),
 		),
 
@@ -888,6 +946,143 @@ function toffedassen_customize_settings() {
 		),
 
 		// Page
+		'boxed_layout'                     => array(
+			'type'        => 'toggle',
+			'label'       => esc_html__( 'Boxed Layout', 'toffedassen' ),
+			'description' => esc_html__( 'It just apply for home page', 'toffedassen' ),
+			'section'     => 'boxed_layout',
+			'default'     => 0,
+			'priority'    => 10,
+		),
+		'boxed_background_color'           => array(
+			'type'            => 'color',
+			'label'           => esc_html__( 'Background Color', 'toffedassen' ),
+			'default'         => '',
+			'section'         => 'page_layout',
+			'priority'        => 10,
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		'boxed_background_image'           => array(
+			'type'            => 'image',
+			'label'           => esc_html__( 'Background Image', 'toffedassen' ),
+			'default'         => '',
+			'section'         => 'boxed_layout',
+			'priority'        => 10,
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		'boxed_background_horizontal'      => array(
+			'type'            => 'select',
+			'label'           => esc_html__( 'Background Horizontal', 'toffedassen' ),
+			'section'         => 'boxed_layout',
+			'default'         => '',
+			'priority'        => 10,
+			'choices'         => array(
+				''       => esc_html__( 'None', 'toffedassen' ),
+				'left'   => esc_html__( 'Left', 'toffedassen' ),
+				'center' => esc_html__( 'Center', 'toffedassen' ),
+				'right'  => esc_html__( 'Right', 'toffedassen' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		'boxed_background_vertical'        => array(
+			'type'            => 'select',
+			'label'           => esc_html__( 'Background Vertical', 'toffedassen' ),
+			'section'         => 'boxed_layout',
+			'default'         => '',
+			'priority'        => 10,
+			'choices'         => array(
+				''       => esc_html__( 'None', 'toffedassen' ),
+				'top'    => esc_html__( 'Top', 'toffedassen' ),
+				'center' => esc_html__( 'Center', 'toffedassen' ),
+				'bottom' => esc_html__( 'Bottom', 'toffedassen' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		'boxed_background_repeat'          => array(
+			'type'            => 'select',
+			'label'           => esc_html__( 'Background Repeat', 'toffedassen' ),
+			'section'         => 'boxed_layout',
+			'default'         => '',
+			'priority'        => 10,
+			'choices'         => array(
+				''          => esc_html__( 'None', 'toffedassen' ),
+				'no-repeat' => esc_html__( 'No Repeat', 'toffedassen' ),
+				'repeat'    => esc_html__( 'Repeat', 'toffedassen' ),
+				'repeat-y'  => esc_html__( 'Repeat Vertical', 'toffedassen' ),
+				'repeat-x'  => esc_html__( 'Repeat Horizontal', 'toffedassen' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		'boxed_background_attachment'      => array(
+			'type'            => 'select',
+			'label'           => esc_html__( 'Background Attachment', 'toffedassen' ),
+			'section'         => 'boxed_layout',
+			'default'         => '',
+			'priority'        => 10,
+			'choices'         => array(
+				''       => esc_html__( 'None', 'toffedassen' ),
+				'scroll' => esc_html__( 'Scroll', 'toffedassen' ),
+				'fixed'  => esc_html__( 'Fixed', 'toffedassen' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		'boxed_background_size'            => array(
+			'type'            => 'select',
+			'label'           => esc_html__( 'Background Size', 'toffedassen' ),
+			'section'         => 'boxed_layout',
+			'default'         => '',
+			'priority'        => 10,
+			'choices'         => array(
+				''        => esc_html__( 'None', 'toffedassen' ),
+				'auto'    => esc_html__( 'Auto', 'toffedassen' ),
+				'cover'   => esc_html__( 'Cover', 'toffedassen' ),
+				'contain' => esc_html__( 'Contain', 'toffedassen' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'page_boxed_layout',
+					'operator' => '==',
+					'value'    => 1,
+				),
+			),
+		),
+		// Coming Soon
 		'coming_soon_logo'                 => array(
 			'type'     => 'image',
 			'label'    => esc_html__( 'Logo', 'toffedassen' ),
@@ -1457,28 +1652,28 @@ function toffedassen_customize_settings() {
 			'choices'     => toffedassen_product_attributes(),
 			'description' => esc_html__( 'Show product attribute for each item listed under the item name.', 'toffedassen' ),
 		),
-		'catalog_custom_2'       => array(
-			'type'            => 'custom',
-			'section'         => 'woocommerce_product_catalog',
-			'default'         => '<hr>',
-			'priority'        => 70,
+		'catalog_custom_2'                 => array(
+			'type'     => 'custom',
+			'section'  => 'woocommerce_product_catalog',
+			'default'  => '<hr>',
+			'priority' => 70,
 		),
 		'add_to_cart_action'               => array(
-			'type'            => 'select',
-			'label'           => esc_html__( 'Catalog Add to Cart Action', 'toffedassen' ),
-			'section'         => 'woocommerce_product_catalog',
-			'priority'        => 70,
-			'default'         => 'notice',
-			'choices'         => array(
+			'type'     => 'select',
+			'label'    => esc_html__( 'Catalog Add to Cart Action', 'toffedassen' ),
+			'section'  => 'woocommerce_product_catalog',
+			'priority' => 70,
+			'default'  => 'notice',
+			'choices'  => array(
 				'notice' => esc_html__( 'Show Notice', 'toffedassen' ),
 				'cart'   => esc_html__( 'Show Cart Sidebar', 'toffedassen' ),
 			),
 		),
 		'catalog_page_header_custom'       => array(
-			'type'            => 'custom',
-			'section'         => 'woocommerce_product_catalog',
-			'default'         => '<hr>',
-			'priority'        => 70,
+			'type'     => 'custom',
+			'section'  => 'woocommerce_product_catalog',
+			'default'  => '<hr>',
+			'priority' => 70,
 		),
 		// Catalog Page Header
 		'catalog_page_header'              => array(
@@ -1808,7 +2003,7 @@ function toffedassen_customize_settings() {
 		),
 		'single_product_background_color'  => array(
 			'type'            => 'color',
-			'label'           => esc_html__( 'Backgroubd Color', 'toffedassen' ),
+			'label'           => esc_html__( 'Background Color', 'toffedassen' ),
 			'default'         => '#f2f1f0',
 			'section'         => 'single_product',
 			'priority'        => 10,

@@ -72,8 +72,8 @@ blockquote:after {
 }
 .site-header .menu-extra .menu-item-cart,
 .site-header .menu-extra .menu-item-wishlist {
-  margin-right: 0;
-  margin-left: 5px;
+  margin-right: 5px;
+  margin-left: 0;
 }
 .page-template-template-home-no-footer .footer-newsletter {
   right: auto;
@@ -100,19 +100,35 @@ blockquote:after {
   padding-left: 45px;
   padding-right: 20px;
 }
+/** Topbar **/
+.topbar .toffedassen-language-currency .widget-lan-cur img.iclflag {
+  padding-right: 0;
+  padding-left: 15px;
+}
+.topbar .toffedassen-language-currency .widget-lan-cur span.toggle-children:before {
+  padding-left: 0;
+  padding-right: 10px;
+}
+.topbar .topbar-widgets .widget:after {
+  right: auto;
+  left: -1px;
+}
 /** Canvas **/
 .toffedassen-off-canvas-panel {
   right: auto;
   left: -475px;
 }
 .toffedassen-off-canvas-panel.open {
-  transform: translate3d(475px, 0, 0);
+  -webkit-transform: translate3d(475px, 0, 0);
+          transform: translate3d(475px, 0, 0);
 }
 .search-modal .search-fields .btn-submit,
 .search-modal .search-fields .search-submit {
   left: 15px;
   right: auto;
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .woocommerce.mini-cart .cart_list .remove {
   left: 0;
@@ -129,13 +145,17 @@ blockquote:after {
 .header-left-sidebar .nav ul ul {
   left: auto;
   right: 100%;
-  transform: translate(-50px, 0);
+  -webkit-transform: translate(-50px, 0);
+      -ms-transform: translate(-50px, 0);
+          transform: translate(-50px, 0);
 }
 .header-left-sidebar .nav ul ul:before {
   right: -50px;
 }
 .header-left-sidebar .nav ul ul ul {
-  transform: translate(-5px, 0);
+  -webkit-transform: translate(-5px, 0);
+      -ms-transform: translate(-5px, 0);
+          transform: translate(-5px, 0);
 }
 .header-left-sidebar .nav ul ul ul:before {
   right: -5px;
@@ -147,7 +167,9 @@ blockquote:after {
 .header-left-sidebar .site-header .menu-extra .menu-item-account ul {
   left: auto;
   right: 100%;
-  transform: translate(-50px, 0);
+  -webkit-transform: translate(-50px, 0);
+      -ms-transform: translate(-50px, 0);
+          transform: translate(-50px, 0);
 }
 .header-left-sidebar .site-header .menu-extra .menu-item-account ul:before {
   right: -50px;
@@ -343,6 +365,19 @@ blockquote:after {
   padding-left: 0;
   padding-right: 20px;
 }
+.woocommerce.mini-cart .cart_list li {
+  padding: 20px 0 20px 20px;
+}
+.woocommerce.mini-cart .total strong {
+  float: right;
+}
+.woocommerce.mini-cart .total .amount {
+  float: left;
+}
+.woocommerce.content-sidebar div.product .woocommerce-tabs ul.tabs,
+.woocommerce.sidebar-content div.product .woocommerce-tabs ul.tabs {
+  text-align: right;
+}
 .woocommerce .star-rating {
   width: 71px;
 }
@@ -427,7 +462,13 @@ blockquote:after {
   float: left;
 }
 .woocommerce .product-toolbar .nav-links {
-  flex-direction: row-reverse;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
 }
 .woocommerce .shop-toolbar .shop-view .view-list {
   padding-left: 0;
@@ -606,7 +647,8 @@ blockquote:after {
   .filter-mobile-enable.content-sidebar .catalog-sidebar.open,
   .filter-mobile-enable.sidebar-content .catalog-sidebar.open,
   .filter-mobile-enable.full-content .woocommerce-products-header.open {
-    transform: translate3d(350px, 0, 0);
+    -webkit-transform: translate3d(350px, 0, 0);
+            transform: translate3d(350px, 0, 0);
   }
   .woocommerce .shop-toolbar .shop-toolbar-el {
     text-align: left;
@@ -634,6 +676,7 @@ blockquote:after {
   .filter-mobile-enable.content-sidebar .catalog-sidebar.open,
   .filter-mobile-enable.sidebar-content .catalog-sidebar.open,
   .filter-mobile-enable.full-content .woocommerce-products-header.open {
-    transform: translate3d(280px, 0, 0);
+    -webkit-transform: translate3d(280px, 0, 0);
+            transform: translate3d(280px, 0, 0);
   }
 }

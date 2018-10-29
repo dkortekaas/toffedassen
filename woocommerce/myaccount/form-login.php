@@ -12,18 +12,14 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.4.0
+ * @version 3.5.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-?>
-
-<?php wc_print_notices(); ?>
-
-<?php do_action( 'woocommerce_before_customer_login_form' ); ?>
+do_action( 'woocommerce_before_customer_login_form' ); ?>
 
 <div class="customer-login">
 
@@ -41,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<div class="tabs-panel active">
 
-						<form method="post" class="login">
+						<form method="post" class="woocommerce-form woocommerce-form-login login">
 
 							<?php do_action( 'woocommerce_login_form_start' ); ?>
 
@@ -77,24 +73,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="tabs-panel">
 
 
-							<form method="post" class="register">
+							<form method="post" class="woocommerce-form woocommerce-form-register register" <?php do_action( 'woocommerce_register_form_tag' ); ?>>
 
 								<?php do_action( 'woocommerce_register_form_start' ); ?>
 
 								<?php if ( 'no' === get_option( 'woocommerce_registration_generate_username' ) ) : ?>
 
 									<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-										<input type="text" placeholder="<?php esc_attr_e( 'Username', 'toffedassen' ); ?>" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" value="<?php if ( ! empty( $_POST['username'] ) ) {
-											echo esc_attr( $_POST['username'] );
-										} ?>" />
+										<input type="text" placeholder="<?php esc_attr_e( 'Username', 'toffedassen' ); ?>" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" value="<?php echo ( ! empty( $_POST['username'] ) ) ? esc_attr( wp_unslash( $_POST['username'] ) ) : ''; ?>" />
 									</p>
 
 								<?php endif; ?>
 
 								<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-									<input type="email" placeholder="<?php esc_attr_e( 'Email address', 'toffedassen' ); ?>" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="<?php if ( ! empty( $_POST['email'] ) ) {
-										echo esc_attr( $_POST['email'] );
-									} ?>" />
+									<input type="email" placeholder="<?php esc_attr_e( 'Email address', 'toffedassen' ); ?>" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="<?php echo ( ! empty( $_POST['email'] ) ) ? esc_attr( wp_unslash( $_POST['email'] ) ) : ''; ?>" />
 								</p>
 
 								<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>

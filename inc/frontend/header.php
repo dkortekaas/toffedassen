@@ -240,6 +240,84 @@ function toffedassen_customize_css() {
 		$css .= toffedassen_get_color_scheme_css( $color_scheme_option );
 	}
 
+	// Topbar
+	$topbar_bg           = toffedassen_get_option( 'topbar_background_color' );
+	$topbar_color        = toffedassen_get_option( 'topbar_color' );
+	$topbar_custom_color = toffedassen_get_option( 'topbar_custom_color' );
+
+	if ( $topbar_bg ) {
+		$css .= '.topbar { background-color:' . $topbar_bg . '; }';
+	}
+
+	if ( $topbar_color == 'custom' && $topbar_custom_color ) {
+		$css .= '.topbar { color:' . $topbar_custom_color . '; }';
+		$css .= '
+		.topbar a,
+		.topbar .widget_categories li a,
+		.topbar .widget_categories li a:hover,
+		.topbar .widget_recent_comments li a,
+		.topbar .widget_recent_comments li a:hover,
+		.topbar .widget_rss li a,
+		.topbar .widget_rss li a:hover,
+		.topbar .widget_pages li a,
+		.topbar .widget_pages li a:hover,
+		.topbar .widget_archive li a,
+		.topbar .widget_archive li a:hover,
+		.topbar .widget_nav_menu li a,
+		.topbar .widget_nav_menu li a:hover,
+		.topbar .widget_recent_entries li a,
+		.topbar .widget_recent_entries li a:hover,
+		.topbar .widget_meta li a,
+		.topbar .widget_meta li a:hover,
+		.topbar .widget-recent-comments li a,
+		.topbar .widget-recent-comments li a:hover,
+		.topbar .toffedassen-social-links-widget .socials-list a,
+		.topbar .toffedassen-social-links-widget .socials-list a:hover,
+		.topbar .widget_search .search-form:before,
+		.topbar .widget_search .search-form label input { color:' . $topbar_custom_color . '; }
+		';
+
+		$css .= '.topbar .widget_search .search-form ::-webkit-input-placeholder { color:' . $topbar_custom_color . '; }';
+		$css .= '.topbar .widget_search .search-form .mc4wp-form :-moz-placeholder { color:' . $topbar_custom_color . '; }';
+		$css .= '.topbar .widget_search .search-form .mc4wp-form ::-moz-placeholder { color:' . $topbar_custom_color . '; }';
+		$css .= '.topbar .widget_search .search-form .mc4wp-form :-ms-input-placeholder { color:' . $topbar_custom_color . '; }';
+
+		$css .= '
+		.topbar .widget_categories li a:after,
+		.topbar .widget_recent_comments li a:after,
+		.topbar .widget_rss li a:after,
+		.topbar .widget_pages li a:after,
+		.topbar .widget_archive li a:after,
+		.topbar .widget_nav_menu li a:after,
+		.topbar .widget_recent_entries li a:after,
+		.topbar .widget_meta li a:after,
+		.topbar .widget-recent-comments li a:after,
+		.topbar .topbar-widgets .widget:after{ background-color:' . $topbar_custom_color . '; }
+		';
+	}
+
+	$boxed_bg_color = toffedassen_get_option( 'boxed_background_color' );
+	$boxed_bg_image = toffedassen_get_option( 'boxed_background_image' );
+	$boxed_bg_h     = toffedassen_get_option( 'boxed_background_horizontal' );
+	$boxed_bg_v     = toffedassen_get_option( 'boxed_background_vertical' );
+	$boxed_bg_r     = toffedassen_get_option( 'boxed_background_repeat' );
+	$boxed_bg_a     = toffedassen_get_option( 'boxed_background_attachment' );
+	$boxed_bg_s     = toffedassen_get_option( 'boxed_background_size' );
+
+	$boxed_style = array(
+		! empty( $boxed_bg_color ) ? 'background-color: ' . $boxed_bg_color . ';' : '',
+		! empty( $boxed_bg_image ) ? 'background-image: url( ' . esc_url( $boxed_bg_image ) . ' );' : '',
+		! empty( $boxed_bg_h ) ? 'background-position-x: ' . $boxed_bg_h . ';' : '',
+		! empty( $boxed_bg_v ) ? 'background-position-y: ' . $boxed_bg_v . ';' : '',
+		! empty( $boxed_bg_r ) ? 'background-repeat: ' . $boxed_bg_r . ';' : '',
+		! empty( $boxed_bg_a ) ? 'background-attachment:' . $boxed_bg_a . ';' : '',
+		! empty( $boxed_bg_s ) ? 'background-size: ' . $boxed_bg_s . ';' : '',
+	);
+
+	if ( ! empty( $boxed_style ) ) {
+		$css .= '.toffedassen-boxed-layout ' . ' {' . implode( '', $boxed_style ) . '}';
+	}
+
 	$css .= toffedassen_typography_css();
 
 	return $css;
@@ -280,9 +358,18 @@ function toffedassen_show_topbar() {
 		return;
 	}
 
+	$layout = toffedassen_get_option( 'topbar_layout' );
+	$border = intval( toffedassen_get_option( 'topbar_border_bottom' ) );
+
+	$class = 'topbar-layout-' . $layout;
+
+	$class .= $border ? ' has-border' : '';
+
+	$container = $layout == '1' ? 'container' : 'toffedassen-container';
+
 	?>
-	<div id="topbar" class="topbar hidden-md hidden-sm hidden-xs">
-		<div class="container">
+	<div id="topbar" class="topbar hidden-md hidden-sm hidden-xs <?php echo esc_attr( $class ); ?>">
+		<div class="<?php echo esc_attr( $container ); ?>">
 			<div class="row-flex">
 				<?php if ( is_active_sidebar( 'topbar-left' ) ) : ?>
 
@@ -311,6 +398,7 @@ function toffedassen_show_topbar() {
 			</div>
 		</div>
 	</div>
+
 	<?php
 }
 
