@@ -6,28 +6,22 @@
  */
 
 $logo  = toffedassen_get_option( 'logo' );
-$logo_light  = toffedassen_get_option( 'logo_light' );
 
 if ( ! $logo ) {
 	$logo = get_template_directory_uri() . '/assets/svg/logo.svg';
-}
-
-if ( ! $logo_light ) {
-	$logo_light = get_template_directory_uri() . '/assets/svg/logo-light.svg';
 }
 
 if ( is_page_template( 'template-coming-soon-page.php' ) ) {
 	$logo = toffedassen_get_option( 'coming_soon_logo' );
 
 	if ( ! $logo ) {
-		$logo = get_template_directory_uri() . '/assets/svg/logo-light.svg';
+		$logo = get_template_directory_uri() . '/assets/svg/logo.svg';
 	}
 }
 
 ?>
 	<a href="<?php echo esc_url( home_url() ) ?>" class="logo">
-		<img src="<?php echo esc_url( $logo ); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" class="logo logo-dark">
-		<img src="<?php echo esc_url( $logo_light ); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" class="logo logo-light">
+		<img type="image/svg+xml" src="<?php echo esc_url( $logo ); ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" class="logo">
 	</a>
 <?php
 

@@ -861,7 +861,7 @@ function toffedassen_customize_settings() {
 			'section'  => 'color_scheme',
 			'priority' => 10,
 			'choices'  => array(
-				''        => array( '#f68872' ),
+				''        => array( '#1cadd1' ),
 				'#7cafca' => array( '#7cafca' ),
 			),
 		),
