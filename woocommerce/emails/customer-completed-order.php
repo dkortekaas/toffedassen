@@ -1,8 +1,8 @@
 <?php
 /**
- * Customer processing order email
+ * Customer completed order email
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/emails/customer-processing-order.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/emails/customer-completed-order.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -24,10 +24,11 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
+<?php /* translators: %s: Customer first name */ ?>
 <p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
-<p><?php _e( 'Great that you chose our store. We will start immediately.', 'toffedassen' ); ?></p>
-<p><?php _e( 'Once your package has been sent, we will send an email with a link to follow your order. If you have questions about your order you can e-mail us at <a href="mailto:info@toffedassen.nl">info@toffedassen.nl</a>', 'toffedassen' ); ?>
-
+<?php /* translators: %s: Site title */ ?>
+<p><?php _e('Your order has been handed over to the delivery service. You can follow your order with the track and trace code.', 'toffedassen' ); ?> </p>
+<p><?php //printf( esc_html__( 'Your %s order has been marked complete on our side.', 'woocommerce' ), esc_html( wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES ) ) ); ?></p>
 <?php
 
 /*
@@ -48,6 +49,12 @@ do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text, 
  * @hooked WC_Emails::email_address() Shows email address
  */
 do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text, $email );
+
+?>
+<p>
+<?php esc_html_e( 'Thanks for shopping with us.', 'woocommerce' ); ?>
+</p>
+<?php
 
 /*
  * @hooked WC_Emails::email_footer() Output the email footer
