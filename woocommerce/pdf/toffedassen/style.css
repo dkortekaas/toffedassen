@@ -5,6 +5,12 @@
 	margin-left: 2cm;
 	margin-right: 2cm;
 }
+@font-face {
+    font-family: 'Scriptfont';
+    font-style: normal;
+    font-weight: normal;
+    src: local('MyFont'), local('MyFont'), url(<?php echo $this->get_template_path(); ?>/fonts/script.ttf) format('truetype');
+}
 body {
 	background: #fff;
 	color: #000;
@@ -55,9 +61,17 @@ p + p {
 	margin-top: 1.25em;
 }
 
+p.script {
+	font-family: 'Scriptfont';
+	font-size: 16pt;
+	position: absolute;
+	bottom: 100px;
+}
+
 a { 
 	border-bottom: 1px solid; 
-	text-decoration: none; 
+	text-decoration: none;
+	color: #000;
 }
 
 /* Basic Table Styling */
