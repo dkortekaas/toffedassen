@@ -3512,7 +3512,7 @@
             }
 
             .cart-actions {
-                max-width: 360px;
+                // max-width: 360px;
             }
 
             .btn-shop,
@@ -3552,6 +3552,7 @@
 
                 .coupon {
                     padding-top: 40px;
+                    max-width: 360px;
 
                     label {
                         display: block;
@@ -3929,6 +3930,9 @@
                     &.required {
                         padding-left: 0;
                         color: #cc0000;
+                        position: absolute;
+                        right: -10px;
+                        top: 0;                        
                         &:before {
                             display: none;
                         }
@@ -4815,6 +4819,12 @@
     margin-right: 20px;
 }
 
+#add_payment_method .cart-collaterals .shipping-calculator-button::after, 
+.woocommerce-cart .cart-collaterals .shipping-calculator-button::after, 
+.woocommerce-checkout .cart-collaterals .shipping-calculator-button::after {
+    margin-left: 0;
+}
+
 .woocommerce-error,
 .woocommerce-info,
 .woocommerce-message {
@@ -5570,6 +5580,29 @@ div.mb-siwc-popup div.mb-siwc-popup-inner a:hover {
         &:before {
             font-family: FontAwesome;
             content: "\f263";
+        }
+    }
+}
+
+.woocommerce-order-pay {
+    .woocommerce-terms-and-conditions-checkbox-text {
+        vertical-align: text-top;
+        margin-left: 20px;
+    }
+}
+
+//PostNL
+.woocommerce {
+    #shipping_method {
+        li {
+            label {
+                padding-left: 32px !important;
+                &:before {
+                    left: 0px !important;
+                    content: "\5c";
+                    color: #222;
+                }
+            }
         }
     }
 }

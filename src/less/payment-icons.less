@@ -1,0 +1,22 @@
+.payment-icons {
+    .payment-icon {
+        display: inline-block;
+        opacity: .6;
+        transition: opacity .3s;
+        border-radius: 5px;
+        background-color: rgba(0,0,0,0.1);
+        padding-bottom: 0;
+        padding: 3px 5px 5px;
+        margin: 3px 3px 5px;
+        svg {
+            vertical-align: middle;
+            height: 20px;
+            width: auto !important;
+            fill: #bbb;
+            transition: .5s;
+            &:hover {
+                fill: @primary-color;
+            }
+        }
+    }
+}
