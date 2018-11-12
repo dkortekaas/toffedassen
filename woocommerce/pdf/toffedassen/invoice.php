@@ -142,7 +142,7 @@
 <?php do_action( 'wpo_wcpdf_after_order_details', $this->type, $this->order ); ?>
 
 <p class="script">
-	<?php _e('Thank you for shopping with Toffe Dassen.', 'toffedassen'); ?>
+	<?php //_e('Thank you for shopping with Toffe Dassen.', 'toffedassen'); ?>
 </p>
 
 <?php if ( $this->get_footer() ): ?>
