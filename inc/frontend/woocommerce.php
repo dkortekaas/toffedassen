@@ -494,32 +494,32 @@ class Toffe_Dassen_WooCommerce {
 			} else {
 
 				if ( $product->get_stock_status() == 'outofstock' && in_array( 'outofstock', $badges ) ) {
-					$outofstock = toffedassen_get_option( 'outofstock_text' );
-					if ( ! $outofstock ) {
+					//$outofstock = toffedassen_get_option( 'outofstock_text' );
+					//if ( ! $outofstock ) {
 						$outofstock = esc_html__( 'Out Of Stock', 'toffedassen' );
-					}
+					//}
 					$output[] = '<span class="out-of-stock ribbon">' . esc_html( $outofstock ) . '</span>';
 				} elseif ( $product->is_on_sale() && in_array( 'sale', $badges ) ) {
-					$sale = toffedassen_get_option( 'sale_text' );
-					if ( ! $sale ) {
+					//$sale = toffedassen_get_option( 'sale_text' );
+					//if ( ! $sale ) {
 						$sale = esc_html__( 'Sale', 'toffedassen' );
-					}
+					//}
 
 					$output[] = '<span class="onsale ribbon">' . esc_html( $sale ) . '</span>';
 
 				} elseif ( $product->is_featured() && in_array( 'hot', $badges ) ) {
-					$hot = toffedassen_get_option( 'hot_text' );
-					if ( ! $hot ) {
+					//$hot = toffedassen_get_option( 'hot_text' );
+					//if ( ! $hot ) {
 						$hot = esc_html__( 'Hot', 'toffedassen' );
-					}
+					//}
 					$output[] = '<span class="featured ribbon">' . esc_html( $hot ) . '</span>';
 				} elseif ( ( time() - ( 60 * 60 * 24 * $this->new_duration ) ) < strtotime( get_the_time( 'Y-m-d' ) ) && in_array( 'new', $badges ) ||
 				           get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
 				) {
-					$new = toffedassen_get_option( 'new_text' );
-					if ( ! $new ) {
+					//$new = toffedassen_get_option( 'new_text' );
+					//if ( ! $new ) {
 						$new = esc_html__( 'New', 'toffedassen' );
-					}
+					//}
 					$output[] = '<span class="newness ribbon">' . esc_html( $new ) . '</span>';
 				}
 			}
@@ -1746,32 +1746,32 @@ function toffedassen_product() {
 			else :
 
 				if ( $product->get_stock_status() == 'outofstock' && in_array( 'outofstock', $badges ) ) :
-					$outofstock = toffedassen_get_option( 'outofstock_text' );
-					if ( ! $outofstock ) :
+					//$outofstock = toffedassen_get_option( 'outofstock_text' );
+					//if ( ! $outofstock ) :
 						$outofstock = esc_html__( 'Out Of Stock', 'toffedassen' );
-					endif;
+					//endif;
 					$output[] = '<span class="out-of-stock ribbon">' . esc_html( $outofstock ) . '</span>';
 				elseif ( $product->is_on_sale() && in_array( 'sale', $badges ) ) :
-					$sale = toffedassen_get_option( 'sale_text' );
-					if ( ! $sale ) :
+					//$sale = toffedassen_get_option( 'sale_text' );
+					//if ( ! $sale ) :
 						$sale = esc_html__( 'Sale', 'toffedassen' );
-					endif;
+					//endif;
 
 					$output[] = '<span class="onsale ribbon">' . esc_html( $sale ) . '</span>';
 
 				elseif ( $product->is_featured() && in_array( 'hot', $badges ) ) :
-					$hot = toffedassen_get_option( 'hot_text' );
-					if ( ! $hot ) :
+					//$hot = toffedassen_get_option( 'hot_text' );
+					//if ( ! $hot ) :
 						$hot = esc_html__( 'Hot', 'toffedassen' );
-					endif;
+					//endif;
 					$output[] = '<span class="featured ribbon">' . esc_html( $hot ) . '</span>';
 				elseif ( ( time() - ( 60 * 60 * 24 * $new_duration ) ) < strtotime( get_the_time( 'Y-m-d' ) ) && in_array( 'new', $badges ) ||
 						get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
 				) :
-					$new = toffedassen_get_option( 'new_text' );
-					if ( ! $new ) :
+					//$new = toffedassen_get_option( 'new_text' );
+					//if ( ! $new ) :
 						$new = esc_html__( 'New', 'toffedassen' );
-					endif;
+					//endif;
 					$output[] = '<span class="newness ribbon">' . esc_html( $new ) . '</span>';
 				endif;
 			endif;
