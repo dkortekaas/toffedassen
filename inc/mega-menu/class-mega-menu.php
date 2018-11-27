@@ -1,7 +1,7 @@
 <?php
 class Toffe_Dassen_Mega_Menu {
 	/**
-	 * Toffe Dassen_Mega_Menu constructor.
+	 * Toffe_Dassen_Mega_Menu constructor.
 	 */
 	public function __construct() {
 
@@ -23,7 +23,7 @@ class Toffe_Dassen_Mega_Menu {
 	 */
 	private function init() {
 		if ( is_admin() ) {
-			new Toffe Dassen_Mega_Menu_Edit();
+			new Toffe_Dassen_Mega_Menu_Edit();
 		}
 	}
 
@@ -40,5 +40,5 @@ class Toffe_Dassen_Mega_Menu {
 add_action( 'init', function() {
 	global $mrbara_mega_menu;
 
-	$mrbara_mega_menu = new Toffe Dassen_Mega_Menu();
+	$mrbara_mega_menu = new Toffe_Dassen_Mega_Menu();
 } );

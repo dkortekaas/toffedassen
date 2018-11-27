@@ -291,8 +291,20 @@
 
 	// Toggle Menu Sidebar
 	toffedassen.menuSideBar = function () {
-		$( '#menu-sidebar-panel' ).find( '.menu .menu-item-has-children > a' ).prepend( '<span class="toggle-menu-children"><i class="icon-plus"></i> </span>' );
-		$( '#menu-sidebar-panel' ).find( 'li.menu-item-has-children > a' ).on( 'click', function ( e ) {
+		var $menuSidebar = $( '#menu-sidebar-panel' ),
+			$item = $menuSidebar.find( 'li.menu-item-has-children > a' );
+
+		$menuSidebar.find( '.menu .menu-item-has-children' ).prepend( '<span class="toggle-menu-children"><i class="icon-plus"></i> </span>' );
+
+		if ( toffedassenData.menu_mobile_behaviour === 'icon' && toffedassen.$window.width() < 1200 ) {
+			$item = $menuSidebar.find( 'li.menu-item-has-children .toggle-menu-children' );
+		}
+
+		toffedassen.mobileMenuSidebar( $item );
+	};
+
+	toffedassen.mobileMenuSidebar = function ( $item ) {
+		$item.on( 'click', function ( e ) {
 			e.preventDefault();
 
 			$( this ).closest( 'li' ).siblings().find( 'ul.sub-menu, ul.dropdown-submenu' ).slideUp();
@@ -433,7 +445,7 @@
 		 */
 		function outSearch() {
 
-			if ( toffedassen.$body.hasClass( 'header-layout-3' ) || toffedassen.$body.hasClass( 'header-layout-5' ) ) {
+			if ( toffedassen.$body.hasClass( 'header-layout-3' ) || toffedassen.$body.hasClass( 'header-layout-5' ) || toffedassen.$body.hasClass( 'header-layout-6' ) ) {
 				return;
 			}
 
@@ -475,7 +487,7 @@
 			e.preventDefault();
 			toffedassen.openModal( $( '.search-modal' ) );
 			$( this ).addClass( 'show' );
-
+			$( '#search-modal' ).find( '.search-field' ).focus();
 		} );
 
 		toffedassen.$body.on( 'click', '#toffedassen-newsletter-icon', function ( e ) {
@@ -1641,9 +1653,9 @@
 							toffedassen.addedToCartNotice( $message, ' ', true, className );
 						}
 					} else {
-						$(document.body).on('wc_fragments_refreshed', function () {
+						$( document.body ).on( 'wc_fragments_refreshed', function () {
 							$( '#icon-cart-contents' ).trigger( 'click' );
-						});
+						} );
 					}
 
 					found = false;

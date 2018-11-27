@@ -337,7 +337,8 @@
 			color: @light;
 
 			&:hover,
-			&:focus {
+			&:focus,
+			&:active {
 				background-color: @dark;
 				color: @light;
 			}
@@ -408,15 +409,24 @@
 			margin-bottom: 0;
 
 			&.menu-item-has-children  {
+				position: relative;
+
 				.toggle-menu-children {
 					font-size: 16px;
 					position: absolute;
-					top: 50%;
-					transform: translateY(-50%);
+					top: 0;
 					right: 0;
+					z-index: 999;
+					width: 25px;
+					text-align: right;
 				}
 			}
 
+			li.menu-item-has-children  {
+				.toggle-menu-children {
+					top: 0;
+				}
+			}
 
 			& > a {
 				color: #999;

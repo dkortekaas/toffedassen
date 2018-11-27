@@ -108,7 +108,7 @@ class Toffe_Dassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 
 class Toffe_Dassen_Mega_Menu_Edit {
 	/**
-	 * Toffe Dassen_Mega_Menu_Edit constructor.
+	 * Toffe_Dassen_Mega_Menu_Edit constructor.
 	 */
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );

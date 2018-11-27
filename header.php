@@ -12,6 +12,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+
 	<?php wp_head(); ?>
 </head>
 
@@ -22,7 +23,7 @@
 
 	<header id="masthead" class="site-header">
 		<?php do_action( 'toffedassen_header' ); ?>
-	</header>
+	</header><!-- #masthead -->
 
 	<?php
 	/*

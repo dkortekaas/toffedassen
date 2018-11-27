@@ -560,7 +560,7 @@ endif;
 if ( ! function_exists( 'toffedassen_is_catalog' ) ) :
 	function toffedassen_is_catalog() {
 
-		if ( function_exists( 'is_shop' ) && ( is_shop() || is_product_category() || is_product_tag() ) || ( taxonomy_exists( 'product_brand' ) && is_tax( 'product_brand' ) ) ) {
+		if ( function_exists( 'is_shop' ) && ( is_shop() || is_product_category() || is_product_tag() ) ) {
 			return true;
 		}
 
@@ -640,11 +640,7 @@ if ( ! function_exists( 'toffedassen_header_transparent' ) ) :
 			return false;
 		}
 
-//		if ( toffedassen_is_catalog() || ( function_exists( 'is_product' ) && is_product() ) ) {
-//			return false;
-//		}
-
-		if ( function_exists( 'is_product' ) && is_product() ) {
+		if ( toffedassen_is_catalog() || ( function_exists( 'is_product' ) && is_product() ) ) {
 			return false;
 		}
 
@@ -662,12 +658,6 @@ if ( ! function_exists( 'toffedassen_header_transparent' ) ) :
 
 			if ( toffedassen_is_home() ) {
 				return true;
-			}
-
-			if ( get_option( 'woocommerce_shop_page_id' ) ) {
-				if ( is_front_page() && ( get_option( 'woocommerce_shop_page_id' ) == get_option( 'page_on_front' ) ) ) {
-					return true;
-				}
 			}
 		}
 
@@ -935,7 +925,6 @@ if ( ! function_exists( 'toffedassen_get_page_header' ) ) :
 			$page_header['bg_image']   = $bg_image;
 			$page_header['parallax']   = $parallax;
 			$page_header['text_color'] = $text_color;
-
 		} elseif ( toffedassen_is_portfolio() ) {
 			if ( ! intval( toffedassen_get_option( 'portfolio_page_header' ) ) ) {
 				return false;

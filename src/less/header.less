@@ -2,8 +2,8 @@
 	background-color: @light;
 	position: relative;
 	border-bottom: 1px solid #eaeaea;
-	// padding-top: 20px;
-	// padding-bottom: 20px;
+	// padding-top: 29px;
+	// padding-bottom: 29px;
 
 	.header-no-border & {
 		border-bottom: 0;
@@ -30,6 +30,14 @@
 
 		img {
 			transition: 0.5s;
+		}
+
+		.logo-light {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			opacity: 0;
 		}
 	}
 
@@ -1152,6 +1160,32 @@
 		.menu-logo,
 		.menu-extra {
 			width: 17%;
+		}
+
+		.menu-main {
+			flex-grow: 1;
+		}
+
+		.menu-extra {
+			form.instance-search {
+				display: none;
+			}
+
+			.menu-item-search {
+				.t-icon {
+					font-size: 22px;
+					padding-bottom: 4px;
+				}
+			}
+		}
+	}
+}
+
+.header-layout-6 {
+	.site-header {
+		.menu-logo,
+		.menu-extra {
+			width: 15%;
 		}
 
 		.menu-main {

@@ -1,10 +1,10 @@
 <?php
 $breadcrumb = toffedassen_get_option( 'catalog_page_header_breadcrumbs' );
-$layout     = toffedassen_get_option( 'catalog_page_header_layout' );
-$ph_class   = $breadcrumb ? '' : 'no-breadcrumb';
+$layout = toffedassen_get_option( 'catalog_page_header_layout' );
+$ph_class = $breadcrumb ? '' : 'no-breadcrumb';
 $ph_class .= ' layout-' . $layout;
 ?>
-<div id="page-header-catalog" class="page-header page-header-catalog <?php echo esc_attr( $ph_class ) ?>">
+<div class="page-header page-header-catalog <?php echo esc_attr( $ph_class ) ?>">
 	<div class="page-header-wrapper">
 		<div class="page-header-title">
 			<?php

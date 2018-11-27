@@ -118,22 +118,21 @@ function toffedassen_enqueue_scripts() {
 
 	wp_localize_script(
 		'toffedassen', 'toffedassenData', array(
-			'ajax_url'              => admin_url( 'admin-ajax.php' ),
-			'nonce'                 => wp_create_nonce( '_toffedassen_nonce' ),
-			'menu_animation'        => toffedassen_get_option( 'menu_animation' ),
-			'ajax_search'           => intval( toffedassen_get_option( 'header_ajax_search' ) ),
-			'search_content_type'   => toffedassen_get_option( 'search_content_type' ),
-			'shop_nav_type'         => toffedassen_get_option( 'shop_nav_type' ),
-			'add_to_cart_ajax'      => intval( toffedassen_get_option( 'product_add_to_cart_ajax' ) ),
-			'add_to_cart_action'    => toffedassen_get_option( 'add_to_cart_action' ),
-			'menu_mobile_behaviour' => toffedassen_get_option( 'menu_mobile_behaviour' ),
-			'product'               => array(
+			'ajax_url'            => admin_url( 'admin-ajax.php' ),
+			'nonce'               => wp_create_nonce( '_toffedassen_nonce' ),
+			'menu_animation'      => toffedassen_get_option( 'menu_animation' ),
+			'ajax_search'         => intval( toffedassen_get_option( 'header_ajax_search' ) ),
+			'search_content_type' => toffedassen_get_option( 'search_content_type' ),
+			'shop_nav_type'       => toffedassen_get_option( 'shop_nav_type' ),
+			'add_to_cart_ajax'    => intval( toffedassen_get_option( 'product_add_to_cart_ajax' ) ),
+			'add_to_cart_action'  => toffedassen_get_option( 'add_to_cart_action' ),
+			'product'             => array(
 				'thumb_slider'     => $product_thumb_slider,
 				'thumb_vertical'   => $product_thumb_vertical,
 				'gallery_carousel' => $product_gallery_carousel,
 				'lightbox'         => $lightbox,
 			),
-			'l10n'                  => array(
+			'l10n'                => array(
 				'added_to_cart_notice'  => intval( toffedassen_get_option( 'added_to_cart_notice' ) ),
 				'notice_text'           => esc_html__( 'has been added to your cart.', 'toffedassen' ),
 				'notice_texts'          => esc_html__( 'have been added to your cart.', 'toffedassen' ),
@@ -141,7 +140,7 @@ function toffedassen_enqueue_scripts() {
 				'cart_link'             => function_exists( 'wc_get_cart_url' ) ? esc_url( wc_get_cart_url() ) : '',
 				'cart_notice_auto_hide' => intval( toffedassen_get_option( 'cart_notice_auto_hide' ) ) > 0 ? intval( toffedassen_get_option( 'cart_notice_auto_hide' ) ) * 1000 : 0,
 			),
-			'isRTL'                 => is_rtl(),
+			'isRTL'               => is_rtl(),
 		)
 	);
 }

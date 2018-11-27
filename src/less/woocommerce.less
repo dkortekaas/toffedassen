@@ -2331,17 +2331,22 @@
         }
     }
 
-    #shipping_method {
+    ul#shipping_method {
+        margin: 0 0 20px 0;
+
         li {
             cursor: pointer;
 
             .woocommerce-Price-amount {
                 font-weight: 400;
-                text-align: right;
+                float: right;
             }
 
             .shipping_method {
                 opacity: 0;
+                display: block;
+                margin: 0;
+                height: 1px;
 
                 &:checked + label {
                     &:before {
@@ -2357,7 +2362,7 @@
                 position: relative;
                 line-height: 1;
                 font-size: 14px;
-                padding-left: 3px;
+                padding-left: 20px;
                 cursor: pointer;
                 color: #222;
                 font-weight: 400;
@@ -2953,7 +2958,7 @@
         min-height: inherit;
 
         &.onsale {
-            background-color: #1cadd1;
+            background-color: #f68872;
             left: initial;
         }
 
@@ -3423,7 +3428,7 @@
                     left: -10px;
                     right: auto;
                     border-width: 5px 10px 5px 0;
-                    border-color: transparent #1cadd1 transparent transparent;
+                    border-color: transparent #f68872 transparent transparent;
                 }
             }
         }
@@ -3657,6 +3662,7 @@
                         position: absolute;
                         left: 0;
                         bottom: -4px;
+                        margin: 0;
                     }
                 }
 
@@ -4100,7 +4106,7 @@
             }
 
             .woocommerce-Price-amount {
-                color: #1cadd1;
+                color: #f68872;
             }
 
         }

@@ -245,6 +245,11 @@ function toffedassen_customize_settings() {
 			'title'    => esc_html__( 'Footer', 'toffedassen' ),
 			'priority' => 50,
 		),
+		'mobile'      => array(
+			'title'    => esc_html__( 'Mobile', 'toffedassen' ),
+			'priority' => 50,
+			'capability' => 'edit_theme_options',
+		),
 	);
 
 	$sections = array(
@@ -374,13 +379,6 @@ function toffedassen_customize_settings() {
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'woocommerce_product_catalog_mobile' => array(
-			'title'       => esc_html__( 'Product Catalog Mobile', 'toffedassen' ),
-			'description' => '',
-			'priority'    => 10,
-			'panel'       => 'woocommerce',
-			'capability'  => 'edit_theme_options',
-		),
 		'shop_badge'                         => array(
 			'title'       => esc_html__( 'Badges', 'toffedassen' ),
 			'description' => '',
@@ -443,6 +441,20 @@ function toffedassen_customize_settings() {
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
+		),
+		'menu_mobile'                        => array(
+			'title'       => esc_html__( 'Menu Sidebar', 'toffedassen' ),
+			'description' => '',
+			'priority'    => 10,
+			'capability'  => 'edit_theme_options',
+			'panel'       => 'mobile',
+		),
+		'catalog_mobile'                        => array(
+			'title'       => esc_html__( 'Catalog Mobile', 'toffedassen' ),
+			'description' => '',
+			'priority'    => 10,
+			'capability'  => 'edit_theme_options',
+			'panel'       => 'mobile',
 		),
 	);
 
@@ -620,7 +632,7 @@ function toffedassen_customize_settings() {
 				'2' => esc_html__( 'Layout 2', 'toffedassen' ),
 			),
 		),
-		'topbar_border_bottom'                    => array(
+		'topbar_border_bottom'             => array(
 			'type'     => 'toggle',
 			'label'    => esc_html__( 'Show border bottom', 'toffedassen' ),
 			'section'  => 'topbar',
@@ -919,7 +931,7 @@ function toffedassen_customize_settings() {
 			'section'  => 'color_scheme',
 			'priority' => 10,
 			'choices'  => array(
-				''        => array( '#1cadd1' ),
+				''        => array( '#f68872' ),
 				'#7cafca' => array( '#7cafca' ),
 			),
 		),
@@ -1818,28 +1830,6 @@ function toffedassen_customize_settings() {
 			),
 		),
 
-		// Catalog Mobile
-		'catalog_mobile_columns'           => array(
-			'type'        => 'select',
-			'label'       => esc_html__( 'Catalog Columns', 'toffedassen' ),
-			'default'     => '1',
-			'section'     => 'woocommerce_product_catalog_mobile',
-			'priority'    => 70,
-			'description' => esc_html__( 'Select catalog columns on mobile.', 'toffedassen' ),
-			'choices'     => array(
-				'1' => esc_html__( '1 Column', 'toffedassen' ),
-				'2' => esc_html__( '2 Columns', 'toffedassen' ),
-			),
-		),
-		'catalog_filter_mobile'            => array(
-			'type'        => 'toggle',
-			'label'       => esc_html__( 'Filter Mobile Sidebar', 'toffedassen' ),
-			'default'     => '0',
-			'section'     => 'woocommerce_product_catalog_mobile',
-			'priority'    => 70,
-			'description' => esc_html__( 'The Catalog filter display as sidebar', 'toffedassen' ),
-		),
-
 		//Badge
 		'show_badges'                      => array(
 			'type'        => 'toggle',
@@ -2642,6 +2632,39 @@ function toffedassen_customize_settings() {
 				),
 			),
 			'transport'   => 'postMessage',
+		),
+
+		// Mobile
+		'menu_mobile_behaviour'            => array(
+			'type'    => 'radio',
+			'label'   => esc_html__( 'Menu Mobile Icon Behaviour', 'toffedassen' ),
+			'default' => 'icon',
+			'section' => 'menu_mobile',
+			'choices' => array(
+				'icon' => esc_attr__( 'Open sub menu by click on icon', 'toffedassen' ),
+				'item' => esc_attr__( 'Open sub menu by click on item', 'toffedassen' ),
+			),
+		),
+		// Catalog Mobile
+		'catalog_mobile_columns'           => array(
+			'type'        => 'select',
+			'label'       => esc_html__( 'Catalog Columns', 'toffedassen' ),
+			'default'     => '1',
+			'section'     => 'catalog_mobile',
+			'priority'    => 70,
+			'description' => esc_html__( 'Select catalog columns on mobile.', 'toffedassen' ),
+			'choices'     => array(
+				'1' => esc_html__( '1 Column', 'toffedassen' ),
+				'2' => esc_html__( '2 Columns', 'toffedassen' ),
+			),
+		),
+		'catalog_filter_mobile'            => array(
+			'type'        => 'toggle',
+			'label'       => esc_html__( 'Filter Mobile Sidebar', 'toffedassen' ),
+			'default'     => '0',
+			'section'     => 'catalog_mobile',
+			'priority'    => 70,
+			'description' => esc_html__( 'The Catalog filter display as sidebar', 'toffedassen' ),
 		),
 	);
 
