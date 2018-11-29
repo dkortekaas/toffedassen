@@ -27,7 +27,9 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <?php /* translators: %s: Customer first name */ ?>
 <p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
 <?php /* translators: %s: Site title */ ?>
-<p><?php _e('All good things to those who wait.', 'toffedassen' ); ?> </p>
+<p><?php //_e('All good things to those who wait.', 'toffedassen' ); ?> </p>
+<p><?php _e('Your order has been handed over to the delivery service. You can find the package in your mailbox automatically.', 'toffedassen' ); ?> </p>
+<p><?php _e('If you have questions about your order you can e-mail us at <a href="mailto:info@toffedassen.nl">info@toffedassen.nl</a>', 'toffedassen' ); ?>
 <p><?php //_e('Your order has been handed over to the delivery service. You can follow your order with the track and trace code.', 'toffedassen' ); ?> </p>
 <p><?php //printf( esc_html__( 'Your %s order has been marked complete on our side.', 'woocommerce' ), esc_html( wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES ) ) ); ?></p>
 <?php
