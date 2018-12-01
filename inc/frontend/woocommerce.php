@@ -84,6 +84,7 @@ class Toffe_Dassen_WooCommerce {
 
 		// add product attribute
 		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'product_attribute' ), 15 );
+		
 	}
 
 	/**
@@ -165,6 +166,9 @@ class Toffe_Dassen_WooCommerce {
 				'toffedassen_product_additional_information_tab_title'
 			)
 		);
+
+		// Add share buttons
+		add_action( 'woocommerce_after_add_to_cart_form', array( $this, 'toffedassen_share' ), 15 );
 
 		// remove description heading
 		add_filter( 'woocommerce_product_description_heading', '__return_false' );
@@ -777,10 +781,19 @@ class Toffe_Dassen_WooCommerce {
 			return;
 		}
 
-		$elements = toffedassen_get_option( 'shop_toolbar' );
-		if ( ! $elements ) {
-			return;
-		}
+//echo '$elements: '. $elements;
+
+		// $elements = toffedassen_get_option( 'shop_toolbar' );
+		// if ( ! $elements ) {
+		// 	return;
+		// }
+
+		$elements = array();
+
+		$elements[] = 'result';
+		$elements[] = 'filter';
+		$elements[] = 'sort_by';
+		$elements[] = 'shop_view';
 
 		$css_class = '';
 
@@ -1824,4 +1837,10 @@ function toffedassen_product() {
 			echo '</div>';
 		echo '</div>';
 	echo '</div>';
+}
+
+
+function toffedassen_share() {
+
+	echo 'Share:';
 }

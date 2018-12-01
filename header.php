@@ -16,7 +16,7 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( 'sidebar-content filter-mobile-enable' ); ?>>
 <div id="page" class="hfeed site">
 
 	<?php do_action( 'toffedassen_before_header' ); ?>

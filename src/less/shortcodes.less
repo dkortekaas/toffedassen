@@ -571,6 +571,47 @@
         margin-bottom: 35px;
     }
 
+    .nav-filter {
+        display: table;
+        margin: 0 auto;
+        border-bottom: 0;
+
+        li {
+            a {
+                font-size: 12px;
+                font-weight: 700;
+                color: #fff;
+                text-align: center;
+                display: inline-block;
+                height: 50px;
+                line-height: 48px;
+                padding: 0 40px;
+                background-color: @gray-dark;
+                text-transform: uppercase;
+                border: 0;
+                box-shadow: none;
+                letter-spacing: .75px;
+                transition: .5s;   
+                
+                &:hover,
+                &:active,
+                &.active {
+                    color: @light;
+                    background-color: @primary-color;
+                    border: 0;
+                }
+            }
+            &.active {
+
+                a {
+                    color: @light;
+                    background-color: @primary-color;
+                    border: 0;
+                }
+            }
+        }        
+    }
+
     .product-wrapper {
         position: relative;
     }

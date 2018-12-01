@@ -47,6 +47,23 @@ if ( $product->is_in_stock() ) : ?>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
 
+	<div class="share-links">
+		<span class="share-links__title"><?php _e('SHARE', 'toffedassen'); ?>:</span>
+			<a class="share-links__link" href="http://www.facebook.com/sharer.php?u=<?php echo $product->get_permalink(); ?>&amp;p=<?php echo $product->get_title(); ?>" target="_blank">
+				<i class="ion-social-facebook"></i>
+			</a>
+			<a class="share-links__link" href="http://twitter.com/share?text=<?php _e('View this', 'toffedassen'); ?>%20<?php echo $product->get_title(); ?>%20<?php _e('at', 'toffedassen'); ?>%20&amp;url=<?php echo $product->get_permalink(); ?>" target="_blank">
+				<i class="ion-social-twitter"></i>
+			</a>
+			<a class="share-links__link" href="http://pinterest.com/pin/create/button/?url=<?php echo $product->get_permalink(); ?>&amp;media=<?php echo get_the_post_thumbnail_url($product->ID); ?>&amp;description=<?php echo $product->get_title(); ?>" target="_blank">
+				<i class="ion-social-pinterest"></i>
+			</a>
+			<a class="share-links__link" href="whatsapp://send?text=<?php _e('View this', 'toffedassen'); ?>%20<?php echo $product->get_title(); ?>%20<?php _e('at', 'toffedassen'); ?>%20<?php echo $product->get_permalink(); ?>" data-action="share/whatsapp/share" target="_blank">
+				<i class="ion-social-whatsapp"></i>
+			</a>
+		</div>
+	</div>
+
 	<?php do_action( 'woocommerce_after_add_to_cart_form' ); ?>
 
 <?php endif; ?>
