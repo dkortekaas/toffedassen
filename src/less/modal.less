@@ -24,7 +24,6 @@ body.modal-open {
 			background-color: @light;
 		}
 	}
-
 }
 
 .toffedassen-modal {
@@ -43,11 +42,10 @@ body.modal-open {
 
 	.modal-title {
 		font-weight: 400;
-		margin: 0;
+		margin: 0 0 100px;
 		line-height: 1;
 		font-size: 24px;
 		text-align: center;
-		margin-bottom: 100px;
 	}
 
 	.modal-content {
@@ -350,7 +348,7 @@ body.modal-open {
 
 .login-modal {
 	.modal-content {
-		padding-top: 200px;
+		padding-top: 120px;
 		min-height: 80%;
 	}
 
@@ -359,7 +357,6 @@ body.modal-open {
 		transition: all 0.5s ease 0.5s;
 		opacity: 0;
 		transition-delay: 0.3s;
-
 	}
 
 	.modal-footer {
@@ -370,7 +367,39 @@ body.modal-open {
 		position: static;
 		text-align: center;
 		margin-top: 20px;
+	}
 
+	.woocommerce-error {
+		padding-right: 3.5em;
+		margin-top: 40px;
+
+		.box-content {
+			a {
+				font-weight: 700;
+				font-size: 14px;
+				display: block;
+			}
+		}
+
+		a.close {
+			position: absolute;
+			top: 1.2em;
+			right: 1.5em;
+			color: #b81c23;
+			font-size: 16px;
+			opacity: 1;
+		}
+
+		span {
+			font-weight: 700;
+		}
+	}
+
+	.woocommerce input.button {
+		&.loading {
+			opacity: 0.5;
+			padding-right: 40px;
+		}
 	}
 
 	&.open {
@@ -380,7 +409,6 @@ body.modal-open {
 			transform: translateY(0);
 			opacity: 1;
 		}
-
 	}
 }
 
@@ -422,9 +450,11 @@ body.modal-open {
 		background-color: transparent;
 
 		div.product {
-			transition: 0.7s;
+			transition: 0.5s;
 			background: #fff;
 			overflow: hidden;
+			height: 570px;
+			max-height: 100vh;
 
 			.product-gallery-control {
 				display: none;
@@ -467,6 +497,10 @@ body.modal-open {
 						right: 15px;
 					}
 				}
+
+				img {
+					object-fit: cover;
+				}
 			}
 
 			&.invisible {
@@ -494,8 +528,6 @@ body.modal-open {
 				padding-left: 70px;
 				padding-right: 90px;
 				position: relative;
-				padding-top: 50px;
-				padding-bottom: 40px;
 				max-height: 570px;
 				overflow: auto;
 				margin-bottom: 0;
@@ -532,6 +564,7 @@ body.modal-open {
 
 			div.product-summary {
 				padding-left: 15px;
+				padding-top: 40px;
 			}
 
 			form.cart {

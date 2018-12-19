@@ -36,12 +36,11 @@ function toffedassen_comment( $comment, $args, $depth ) {
 		<?php printf( '<cite class="author-name">%s</cite>', get_comment_author_link() ); ?>
 
 		<?php
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		$time_string = '<time class="entry-date published updated">%1$s</time>';
 
 		$time_string = sprintf(
 			$time_string,
-			esc_attr( get_the_date( 'c' ) ),
-			esc_html( get_the_date() )
+			esc_html( get_comment_date() )
 		);
 
 		echo '<div class="comment-date">' . $time_string . '</div>';

@@ -4,7 +4,7 @@ Theme URI: http://drfuri.com/toffedassen
 Author: DrFuri
 Author URI: http://drfuri.com
 Description: Minimalist AJAX WooCommerce WordPress Theme
-Version: 1.2.1
+Version: 1.3.1
 License: GNU General Public License v2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: toffedassen
@@ -67,7 +67,7 @@ blockquote:after {
 .site-header .menu-extra .menu-item-search .search-field {
   padding: 10px 0 12px 25px;
 }
-.site-header .menu-extra .menu-item-account ul li {
+.site-header .menu-extra .menu-item-account .wrapper ul li {
   text-align: right;
 }
 .site-header .menu-extra .menu-item-cart,
@@ -157,12 +157,12 @@ blockquote:after {
   right: 100%;
   left: auto;
 }
-.header-left-sidebar .site-header .menu-extra .menu-item-account ul {
+.header-left-sidebar .site-header .menu-extra .menu-item-account .wrapper {
   left: auto;
   right: 100%;
   transform: translate(-50px, 0);
 }
-.header-left-sidebar .site-header .menu-extra .menu-item-account ul:before {
+.header-left-sidebar .site-header .menu-extra .menu-item-account .wrapper:before {
   right: -50px;
 }
 .header-left-sidebar .site {

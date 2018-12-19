@@ -72,6 +72,10 @@ function toffedassen_body_classes( $classes ) {
 		if ( '1' == toffedassen_get_option( 'single_product_layout' ) ) {
 			$classes[] = toffedassen_get_option( 'single_product_sidebar' );
 		}
+
+		if ( intval( toffedassen_get_option( 'product_add_to_cart_sticky' ) ) ) {
+			$classes[] = 'add-to-cart-sticky';
+		}
 	}
 
 	if ( toffedassen_header_transparent() ) {

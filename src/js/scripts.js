@@ -55,6 +55,9 @@
 		this.loginTab();
 		this.addToCartAjax();
 
+		// Login
+		this.loginModalAuthenticate();
+
 		// Portfolio
 		this.portfolioMasonry();
 		this.portfolioLoadingAjax();
@@ -291,8 +294,20 @@
 
 	// Toggle Menu Sidebar
 	toffedassen.menuSideBar = function () {
-		$( '#menu-sidebar-panel' ).find( '.menu .menu-item-has-children > a' ).prepend( '<span class="toggle-menu-children"><i class="icon-plus"></i> </span>' );
-		$( '#menu-sidebar-panel' ).find( 'li.menu-item-has-children > a' ).on( 'click', function ( e ) {
+		var $menuSidebar = $( '#menu-sidebar-panel' ),
+			$item = $menuSidebar.find( 'li.menu-item-has-children > a' );
+
+		$menuSidebar.find( '.menu .menu-item-has-children' ).prepend( '<span class="toggle-menu-children"><i class="icon-plus"></i> </span>' );
+
+		if ( toffedassenData.menu_mobile_behaviour === 'icon' && toffedassen.$window.width() < 1200 ) {
+			$item = $menuSidebar.find( 'li.menu-item-has-children .toggle-menu-children' );
+		}
+
+		toffedassen.mobileMenuSidebar( $item );
+	};
+
+	toffedassen.mobileMenuSidebar = function ( $item ) {
+		$item.on( 'click', function ( e ) {
 			e.preventDefault();
 
 			$( this ).closest( 'li' ).siblings().find( 'ul.sub-menu, ul.dropdown-submenu' ).slideUp();
@@ -433,7 +448,7 @@
 		 */
 		function outSearch() {
 
-			if ( toffedassen.$body.hasClass( 'header-layout-3' ) || toffedassen.$body.hasClass( 'header-layout-5' ) ) {
+			if ( toffedassen.$body.hasClass( 'header-layout-3' ) || toffedassen.$body.hasClass( 'header-layout-5' ) || toffedassen.$body.hasClass( 'header-layout-6' ) ) {
 				return;
 			}
 
@@ -475,7 +490,7 @@
 			e.preventDefault();
 			toffedassen.openModal( $( '.search-modal' ) );
 			$( this ).addClass( 'show' );
-
+			$( '#search-modal' ).find( '.search-field' ).focus();
 		} );
 
 		toffedassen.$body.on( 'click', '#toffedassen-newsletter-icon', function ( e ) {
@@ -674,30 +689,32 @@
 
 		toffedassen.$window.on( 'resize', function () {
 			$shopTopbar.find( '.widget-title' ).next().removeAttr( 'style' );
+
+			if ( toffedassen.$body.hasClass( 'filter-mobile-enable' ) && toffedassen.$window.width() < 1200 ) {
+				toffedassen.$body.find( '.shop-toolbar #toffedassen-catalog-filter-mobile' ).on( 'click', 'a', function ( e ) {
+					e.preventDefault();
+					$( this ).toggleClass( 'active' );
+				//	toffedassen.$body.toggleClass( 'show-filters-content-mobile' );
+					toffedassen.$body.addClass( 'open-canvas-panel' );
+
+					if ( toffedassen.$body.hasClass( 'full-content' ) ) {
+						$( '.woocommerce-products-header' ).addClass( 'open' );
+					} else {
+						$( '.catalog-sidebar' ).addClass( 'open' );
+					}
+				} );
+
+			} else {
+				toffedassen.$body.find( '.shop-toolbar #toffedassen-catalog-filter' ).on( 'click', 'a', function ( e ) {
+					e.preventDefault();
+					$( this ).toggleClass( 'active' );
+					$shopTopbar.slideToggle();
+					$shopTopbar.toggleClass( 'active' );
+					toffedassen.$body.toggleClass( 'show-filters-content' );
+				} );
+			}
+
 		} ).trigger( 'resize' );
-
-		if ( toffedassen.$body.hasClass( 'filter-mobile-enable' ) && toffedassen.$window.width() < 1200 ) {
-			toffedassen.$body.find( '.shop-toolbar #toffedassen-catalog-filter-mobile' ).on( 'click', 'a', function ( e ) {
-				e.preventDefault();
-				$( this ).toggleClass( 'active' );
-				toffedassen.$body.toggleClass( 'show-filters-content-mobile open-canvas-panel' );
-
-				if ( toffedassen.$body.hasClass( 'full-content' ) ) {
-					$( '.woocommerce-products-header' ).addClass( 'open' );
-				} else {
-					$( '.catalog-sidebar' ).addClass( 'open' );
-				}
-			} );
-
-		} else {
-			toffedassen.$body.find( '.shop-toolbar #toffedassen-catalog-filter' ).on( 'click', 'a', function ( e ) {
-				e.preventDefault();
-				$( this ).toggleClass( 'active' );
-				$shopTopbar.slideToggle();
-				$shopTopbar.toggleClass( 'active' );
-				toffedassen.$body.toggleClass( 'show-filters-content' );
-			} );
-		}
 	};
 
 	// Filter Ajax
@@ -760,7 +777,8 @@
 				$shopToolbar = $( '#toffedassen-shop-toolbar' ),
 				$ordering = $( '.shop-toolbar .woocommerce-ordering' ),
 				$found = $( '.shop-toolbar .product-found' ),
-				$pageHeader = $( '.page-header-catalog' );
+				$pageHeader = $( '.page-header-catalog' ),
+				$productHeader = $( '.woocommerce-products-header' );
 
 			if ( $shopToolbar.length > 0 ) {
 				var position = $shopToolbar.offset().top - 200;
@@ -800,11 +818,15 @@
 
 				$found.html( $( res ).find( '.shop-toolbar .product-found' ).html() );
 				$pageHeader.html( $( res ).find( '#page-header-catalog' ).html() );
+				$productHeader.html( $( res ).find( '.woocommerce-products-header' ).html() );
 
 				toffedassen.priceSlider();
+				toffedassen.filterScroll();
 				$( '.toffedassen-catalog-loading' ).removeClass( 'show' );
 
 				$( document.body ).trigger( 'toffedassen_ajax_filter_request_success', [res, url] );
+
+				toffedassen.shopView();
 
 			}, 'html' );
 		} );
@@ -1451,6 +1473,9 @@
 
 				var $carousel = $product_images.find( '.woocommerce-product-gallery__wrapper' );
 
+				// Force height for images
+				$carousel.find( 'img' ).css( 'height', $product.outerHeight() );
+
 				$modal.removeClass( 'loading' );
 				$product.removeClass( 'invisible' );
 
@@ -1641,9 +1666,9 @@
 							toffedassen.addedToCartNotice( $message, ' ', true, className );
 						}
 					} else {
-						$(document.body).on('wc_fragments_refreshed', function () {
+						$( document.body ).on( 'wc_fragments_refreshed', function () {
 							$( '#icon-cart-contents' ).trigger( 'click' );
-						});
+						} );
 					}
 
 					found = false;
@@ -1898,6 +1923,70 @@
 	toffedassen.tooltip = function () {
 		$( '[data-rel=tooltip]' ).tooltip( { offsetTop: -15 } );
 	};
+
+	/**
+	 * Ajax login before refresh page
+	 */
+	toffedassen.loginModalAuthenticate = function() {
+		$( '#login-modal' ).on( 'submit', '.woocommerce-form-login', function( e ) {
+			var username = $( 'input[name=username]', this ).val(),
+				password = $( 'input[name=password]', this ).val(),
+				remember = $( 'input[name=rememberme]', this ).is( ':checked' ),
+				$button = $( '[type=submit]', this ),
+				$form = $( this ),
+				$box = $form.next( '.woocommerce-error' );
+
+			if ( ! username || ! password ) {
+				return true;
+			}
+
+			e.preventDefault();
+			$button.addClass( 'loading' );
+
+			if ( $box.length ) {
+				$box.fadeOut();
+			}
+
+			$.post(
+				toffedassenData.ajax_url,
+				{
+					action: 'toffedassen_login_authenticate',
+					creds: {
+						user_login: username,
+						user_password: password,
+						remember: remember
+					}
+				},
+				function( response ) {
+					if ( ! response.success ) {
+						if ( ! $box.length ) {
+							$box = $( '<div class="woocommerce-error toffedassen-message-box danger"/>' );
+
+							$box.append( '<div class="box-content"></div>' )
+								.append( '<a class="close" href="#"><span aria-hidden="true" class="icon-cross2"></span></a>' );
+
+							$box.hide().insertAfter( $form );
+						}
+
+						$box.find( '.box-content' ).html( response.data );
+						$box.fadeIn();
+						$button.removeClass( 'loading' );
+					} else {
+						window.location.reload();
+					}
+				}
+			);
+		} );
+	};
+
+	/**
+	 * Close message box
+	 */
+	$( document.body ).on( 'click', '.toffedassen-message-box .close', function ( e ) {
+		e.preventDefault();
+
+		$( this ).closest( '.toffedassen-message-box' ).fadeOut( 'slow' );
+	} );
 
 	/**
 	 * Document ready

@@ -18,6 +18,18 @@
     }
 }
 
+@media ( min-width: 1601px ) {
+    .header-layout-1 {
+        .site-header {
+            .menu-extra .menu-extra-search,
+            .s-right form.instance-search,
+            .s-right .menu-item-search .loading {
+                display: none;
+            }
+        }
+    }
+}
+
 @media ( max-width: 1600px ) {
     .header-layout-1 {
         .site-header {
@@ -708,6 +720,32 @@
         }
     }
 
+    .single-product {
+        &.add-to-cart-sticky {
+            .site {
+                padding-bottom: 46px;
+            }
+
+            div.product div.summary .single_add_to_cart_button {
+                width: 100%;
+                min-width: auto;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                margin: 0;
+                z-index: 99;
+
+                &.loading {
+                    opacity: 1;
+                }
+            }
+
+            .backtotop {
+                bottom: 60px;
+            }
+        }
+    }
+
     .quick-view-modal {
         .modal-content {
             div.product {
@@ -1237,6 +1275,10 @@
     .toffedassen-portfolio-page .site-content {
         padding-top: 60px;
         padding-bottom: 60px;
+    }
+
+    .single-product .site-content {
+        padding-bottom: 0;
     }
 
     // Page Header
@@ -2999,6 +3041,14 @@
         &.single-product-layout-5 {
             .single-button-wrapper {
                 display: block;
+            }
+        }
+    }
+
+    .single-product {
+        &.add-to-cart-sticky {
+            div.product form.cart div.quantity {
+                margin-bottom: 15px;
             }
         }
     }

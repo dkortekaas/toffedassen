@@ -5,9 +5,24 @@ jQuery(document).ready(function ($) {
 	var $format = $('#post-formats-select').find('input.post-format'),
 		$formatBox = $('#post-format-settings');
 
-	$format.on('change', function () {
-		var type = $format.filter(':checked').val();
+	$format.on( 'change', function () {
+		var type = $(this).filter(':checked').val();
+		postFormatSettings(type);
+	} );
+	$format.filter( ':checked' ).trigger( 'change' );
 
+	$(document.body).on('change', '.editor-post-format .components-select-control__input', function () {
+		var type = $(this).val();
+		postFormatSettings(type);
+	});
+
+	$(window).load(function () {
+		var $el = $(document.body).find('.editor-post-format .components-select-control__input'),
+			type = $el.val();
+		postFormatSettings(type);
+	});
+
+	function postFormatSettings(type) {
 		$formatBox.hide();
 		if ($formatBox.find('.rwmb-field').hasClass(type)) {
 			$formatBox.show();
@@ -15,8 +30,7 @@ jQuery(document).ready(function ($) {
 
 		$formatBox.find('.rwmb-field').slideUp();
 		$formatBox.find('.' + type).slideDown();
-	});
-	$format.filter(':checked').trigger('change');
+	}
 
 	// Show/hide settings for custom layout settings
 	$('#custom_layout').on('change', function () {
@@ -28,7 +42,7 @@ jQuery(document).ready(function ($) {
 		}
 	}).trigger('change');
 
-	// Show/hide settings for custom layout settings
+	// Show/hide settings for page header custom layout settings
 	$('#page_header_custom_layout').on('change', function () {
 		if ($(this).is(':checked')) {
 			$('.rwmb-field.page-header-text-color, .rwmb-field.page-header-bg, .rwmb-field.page-header-parallax').slideDown();
@@ -48,7 +62,6 @@ jQuery(document).ready(function ($) {
 		}
 	}).trigger('change');
 
-
 	$( '#header_text_color' ).on( 'change', function() {
 		var headerTextColor = $(this).val();
 
@@ -60,21 +73,33 @@ jQuery(document).ready(function ($) {
 
 	}).trigger('change');
 
-	// Show/hide settings for template settings
+	// Show/hide settings for page template settings
 	$('#page_template').on('change', function () {
+		pageSettings($(this));
+	}).trigger('change');
 
-		if ($(this).val() == 'template-homepage.php' ||
-			$(this).val() == 'template-coming-soon-page.php' ||
-			$(this).val() == 'template-home-boxed.php' ||
-			$(this).val() == 'template-home-left-sidebar.php' ||
-			$(this).val() == 'template-home-no-footer.php'
+	$(document.body).on('change', '.editor-page-attributes__template .components-select-control__input', function () {
+		pageSettings($(this));
+	});
+
+	$(window).load(function () {
+		var $el = $(document.body).find('.editor-page-attributes__template .components-select-control__input');
+		pageSettings($el);
+	});
+
+	function pageSettings( $el ) {
+		if ($el.val() == 'template-homepage.php' ||
+			$el.val() == 'template-coming-soon-page.php' ||
+			$el.val() == 'template-home-boxed.php' ||
+			$el.val() == 'template-home-left-sidebar.php' ||
+			$el.val() == 'template-home-no-footer.php'
 		) {
 			$('#page-header-settings').hide();
 		} else {
 			$('#page-header-settings').show();
 		}
 
-		if ( $(this).val() == 'template-home-left-sidebar.php' ) {
+		if ( $el.val() == 'template-home-left-sidebar.php' ) {
 			$('#home-left-sidebar-settings').show();
 			$('#header-settings').hide();
 		} else {
@@ -82,13 +107,12 @@ jQuery(document).ready(function ($) {
 			$('#header-settings').show();
 		}
 
-		if ( $(this).val() == 'template-home-no-footer.php' ) {
+		if ( $el.val() == 'template-home-no-footer.php' ) {
 			$('#page-background-settings').hide();
 			$('#home-full-slider-settings').show();
 		} else {
 			$('#page-background-settings').show();
 			$('#home-full-slider-settings').hide();
 		}
-
-	}).trigger('change');
+	}
 });

@@ -48,7 +48,7 @@ function toffedassen_register_required_plugins() {
 			'required'           => true,
 			'force_activation'   => false,
 			'force_deactivation' => false,
-			'version'            => '1.0.0',
+			'version'            => '1.0.1',
 		),
 		array(
 			'name'               => esc_html__( 'Revolution Slider', 'toffedassen' ),

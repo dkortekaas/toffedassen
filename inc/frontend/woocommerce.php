@@ -84,7 +84,6 @@ class Toffe_Dassen_WooCommerce {
 
 		// add product attribute
 		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'product_attribute' ), 15 );
-		
 	}
 
 	/**
@@ -131,7 +130,8 @@ class Toffe_Dassen_WooCommerce {
 		add_action( 'toffedassen_page_header_shop_toolbar', array( $this, 'shop_toolbar' ), 20 );
 
 		// Add Shop Topbar
-		add_action( 'woocommerce_archive_description', array( $this, 'shop_topbar' ), 25 );
+		//add_action( 'woocommerce_archive_description', array( $this, 'shop_topbar' ), 25 );
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'shop_topbar' ), 30 );
 
 
 		// Adds breadcrumb and product navigation on top of product
@@ -498,32 +498,72 @@ class Toffe_Dassen_WooCommerce {
 			} else {
 
 				if ( $product->get_stock_status() == 'outofstock' && in_array( 'outofstock', $badges ) ) {
-					//$outofstock = toffedassen_get_option( 'outofstock_text' );
-					//if ( ! $outofstock ) {
+					$outofstock = toffedassen_get_option( 'outofstock_text' );
+					if ( ! $outofstock ) {
 						$outofstock = esc_html__( 'Out Of Stock', 'toffedassen' );
-					//}
+					}
 					$output[] = '<span class="out-of-stock ribbon">' . esc_html( $outofstock ) . '</span>';
 				} elseif ( $product->is_on_sale() && in_array( 'sale', $badges ) ) {
-					//$sale = toffedassen_get_option( 'sale_text' );
-					//if ( ! $sale ) {
-						$sale = esc_html__( 'Sale', 'toffedassen' );
-					//}
+					// Text
 
-					$output[] = '<span class="onsale ribbon">' . esc_html( $sale ) . '</span>';
+					$sale = toffedassen_get_option( 'sale_text' );
+					if ( ! $sale ) {
+						$sale = esc_html__( 'Sale', 'toffedassen' );
+					}
+
+					// Discount
+					$percentage = 0;
+					$save       = 0;
+					if ( $product->get_type() == 'variable' ) {
+						$available_variations = $product->get_available_variations();
+						$percentage           = 0;
+						$save                 = 0;
+
+						for ( $i = 0; $i < count( $available_variations ); $i ++ ) {
+							$variation_id     = $available_variations[ $i ]['variation_id'];
+							$variable_product = new WC_Product_Variation( $variation_id );
+							$regular_price    = $variable_product->get_regular_price();
+							$sales_price      = $variable_product->get_sale_price();
+							if ( empty( $sales_price ) ) {
+								continue;
+							}
+							$max_percentage = $regular_price ? round( ( ( ( $regular_price - $sales_price ) / $regular_price ) * 100 ) ) : 0;
+							$max_save       = $regular_price ? $regular_price - $sales_price : 0;
+
+							if ( $percentage < $max_percentage ) {
+								$percentage = $max_percentage;
+							}
+
+							if ( $save < $max_save ) {
+								$save = $max_save;
+							}
+						}
+					} elseif ( $product->get_type() == 'simple' || $product->get_type() == 'external' ) {
+						$percentage = round( ( ( $product->get_regular_price() - $product->get_sale_price() ) / $product->get_regular_price() ) * 100 );
+						$save       = $product->get_regular_price() - $product->get_sale_price();
+					}
+
+					if ( $percentage && toffedassen_get_option( 'sale_behaviour' ) == 'percentage' ) {
+						$sale_html = '<span class="onsale ribbon"><span class="sep">-</span>' . $percentage . '%' . '</span>';
+					} else {
+						$sale_html = '<span class="onsale ribbon">' . esc_html( $sale ) . '</span>';
+					}
+
+					$output[] = $sale_html;
 
 				} elseif ( $product->is_featured() && in_array( 'hot', $badges ) ) {
-					//$hot = toffedassen_get_option( 'hot_text' );
-					//if ( ! $hot ) {
+					$hot = toffedassen_get_option( 'hot_text' );
+					if ( ! $hot ) {
 						$hot = esc_html__( 'Hot', 'toffedassen' );
-					//}
+					}
 					$output[] = '<span class="featured ribbon">' . esc_html( $hot ) . '</span>';
 				} elseif ( ( time() - ( 60 * 60 * 24 * $this->new_duration ) ) < strtotime( get_the_time( 'Y-m-d' ) ) && in_array( 'new', $badges ) ||
 				           get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
 				) {
-					//$new = toffedassen_get_option( 'new_text' );
-					//if ( ! $new ) {
+					$new = toffedassen_get_option( 'new_text' );
+					if ( ! $new ) {
 						$new = esc_html__( 'New', 'toffedassen' );
-					//}
+					}
 					$output[] = '<span class="newness ribbon">' . esc_html( $new ) . '</span>';
 				}
 			}

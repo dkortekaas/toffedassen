@@ -17,11 +17,9 @@
  * @param string $hook
  */
 function toffedassen_meta_box_scripts( $hook ) {
-	// Detect to load un-minify scripts when WP_DEBUG is enable
-	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
-		wp_enqueue_script( 'toffedassen-meta-boxes', get_template_directory_uri() . "/js/backend/meta-boxes$min.js", array( 'jquery' ), '20161025', true );
+		wp_enqueue_script( 'toffedassen-meta-boxes', get_template_directory_uri() . "/js/backend/meta-boxes.js", array( 'jquery' ), '20161025', true );
 	}
 }
 

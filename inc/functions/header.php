@@ -193,14 +193,22 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 		if ( is_user_logged_in() ) {
 			$orders  = get_option( 'woocommerce_myaccount_orders_endpoint', 'orders' );
 			$account = get_permalink( get_option( 'woocommerce_myaccount_page_id' ) );
+
 			if ( $orders ) {
-				$account .= '/' . $orders;
+				$account .= $orders;
 			}
 
-			echo sprintf(
-				'<li class="extra-menu-item menu-item-account logined">
-					%s
-					<ul class="dropdown-submenu">
+			if ( has_nav_menu( 'user_logged' ) ) {
+				$user_menu = wp_nav_menu(
+					array(
+						'theme_location' => 'user_logged',
+						'container'      => false,
+						'echo'           => 0,
+					)
+				);
+			} else {
+				$user_menu = sprintf(
+					'<ul>
 						%s
 						<li>
 							<a href="%s">%s</a>
@@ -208,17 +216,29 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 						<li>
 							<a href="%s">%s</a>
 						</li>
-						<li>
-							<a href="%s">%s</a>
-						</li>
-					</ul>
+					</ul>',
+					$wishlist,
+					esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ),
+					esc_html__( 'Account Settings', 'toffedassen' ),
+					esc_url( $account ),
+					esc_html__( 'Orders History', 'toffedassen' )
+				);
+			}
+
+			echo sprintf(
+				'<li class="extra-menu-item menu-item-account logined">
+					%s
+					<div class="wrapper dropdown-submenu">
+						%s
+						<ul>
+							<li>
+								<a href="%s">%s</a>
+							</li>
+						</ul>
+					</div>
 				</li>',
 				$acc_html,
-				$wishlist,
-				esc_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ),
-				esc_html__( 'Account Settings', 'toffedassen' ),
-				esc_url( $account ),
-				esc_html__( 'Orders History', 'toffedassen' ),
+				$user_menu,
 				esc_url( wp_logout_url( get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ) ) ),
 				esc_html__( 'Logout', 'toffedassen' )
 			);
@@ -231,7 +251,6 @@ if ( ! function_exists( 'toffedassen_extra_account' ) ) :
 				$acc_html
 			);
 		}
-
 	}
 
 endif;

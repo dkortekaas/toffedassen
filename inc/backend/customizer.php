@@ -246,210 +246,210 @@ function toffedassen_customize_settings() {
 			'priority' => 50,
 		),
 		'mobile'      => array(
-			'title'    => esc_html__( 'Mobile', 'toffedassen' ),
-			'priority' => 50,
+			'title'      => esc_html__( 'Mobile', 'toffedassen' ),
+			'priority'   => 50,
 			'capability' => 'edit_theme_options',
 		),
 	);
 
 	$sections = array(
-		'body_typo'                          => array(
+		'body_typo'                   => array(
 			'title'       => esc_html__( 'Body', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'heading_typo'                       => array(
+		'heading_typo'                => array(
 			'title'       => esc_html__( 'Heading', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'header_typo'                        => array(
+		'header_typo'                 => array(
 			'title'       => esc_html__( 'Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'footer_typo'                        => array(
+		'footer_typo'                 => array(
 			'title'       => esc_html__( 'Footer', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'typography',
 		),
-		'topbar'                             => array(
+		'topbar'                      => array(
 			'title'       => esc_html__( 'Topbar', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 5,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'header',
 		),
-		'header'                             => array(
+		'header'                      => array(
 			'title'       => esc_html__( 'Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'header',
 		),
-		'logo'                               => array(
+		'logo'                        => array(
 			'title'       => esc_html__( 'Logo', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'header',
 		),
-		'backtotop'                          => array(
+		'backtotop'                   => array(
 			'title'       => esc_html__( 'Back to Top', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'preloader'                          => array(
+		'preloader'                   => array(
 			'title'       => esc_html__( 'Preloader', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'color_scheme'                       => array(
+		'color_scheme'                => array(
 			'title'       => esc_html__( 'Color Scheme', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 210,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'boxed_layout'                       => array(
+		'boxed_layout'                => array(
 			'title'       => esc_html__( 'Boxed Layout', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'styling',
 		),
-		'page_header'                        => array(
+		'page_header'                 => array(
 			'title'       => esc_html__( 'Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'page',
 		),
-		'coming_soon'                        => array(
+		'coming_soon'                 => array(
 			'title'       => esc_html__( 'Coming Soon', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'page',
 		),
-		'blog_page_header'                   => array(
+		'blog_page_header'            => array(
 			'title'       => esc_html__( 'Blog Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'blog',
 		),
-		'blog_page'                          => array(
+		'blog_page'                   => array(
 			'title'       => esc_html__( 'Blog Page', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'blog',
 		),
-		'single_post'                        => array(
+		'single_post'                 => array(
 			'title'       => esc_html__( 'Single Post', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'blog',
 		),
-		'catalog_page_header'                => array(
+		'catalog_page_header'         => array(
 			'title'       => esc_html__( 'Catalog Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'woocommerce',
 		),
-		'woocommerce_product_catalog'        => array(
+		'woocommerce_product_catalog' => array(
 			'title'       => esc_html__( 'Product Catalog', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'shop_badge'                         => array(
+		'shop_badge'                  => array(
 			'title'       => esc_html__( 'Badges', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 40,
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'single_product'                     => array(
+		'single_product'              => array(
 			'title'       => esc_html__( 'Single Product', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'woocommerce',
 			'capability'  => 'edit_theme_options',
 		),
-		'portfolio_page_header'              => array(
+		'portfolio_page_header'       => array(
 			'title'       => esc_html__( 'Portfolio Page Header', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'portfolio',
 			'capability'  => 'edit_theme_options',
 		),
-		'portfolio'                          => array(
+		'portfolio'                   => array(
 			'title'       => esc_html__( 'Portfolio', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'portfolio',
 			'capability'  => 'edit_theme_options',
 		),
-		'single_portfolio'                   => array(
+		'single_portfolio'            => array(
 			'title'       => esc_html__( 'Single Portfolio', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 90,
 			'panel'       => 'portfolio',
 			'capability'  => 'edit_theme_options',
 		),
-		'footer_newsletter'                  => array(
+		'footer_newsletter'           => array(
 			'title'       => esc_html__( 'Footer Newsletter', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'footer_layout'                      => array(
+		'footer_layout'               => array(
 			'title'       => esc_html__( 'Footer Layout', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'footer_widgets'                     => array(
+		'footer_widgets'              => array(
 			'title'       => esc_html__( 'Footer Widgets', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'footer_copyright'                   => array(
+		'footer_copyright'            => array(
 			'title'       => esc_html__( 'Footer Copyright', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'footer',
 		),
-		'menu_mobile'                        => array(
+		'menu_mobile'                 => array(
 			'title'       => esc_html__( 'Menu Sidebar', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
 			'capability'  => 'edit_theme_options',
 			'panel'       => 'mobile',
 		),
-		'catalog_mobile'                        => array(
+		'catalog_mobile'              => array(
 			'title'       => esc_html__( 'Catalog Mobile', 'toffedassen' ),
 			'description' => '',
 			'priority'    => 10,
@@ -1860,6 +1860,24 @@ function toffedassen_customize_settings() {
 				),
 			),
 		),
+		'sale_behaviour'                   => array(
+			'type'            => 'radio',
+			'label'           => esc_html__( 'Sale Behaviour', 'toffedassen' ),
+			'default'         => 'text',
+			'section'         => 'shop_badge',
+			'priority'        => 20,
+			'choices'         => array(
+				'text'       => esc_attr__( 'Show Text', 'toffedassen' ),
+				'percentage' => esc_attr__( 'Show Percentage Discount', 'toffedassen' ),
+			),
+			'active_callback' => array(
+				array(
+					'setting'  => 'badges',
+					'operator' => 'contains',
+					'value'    => 'sale',
+				),
+			),
+		),
 		'sale_text'                        => array(
 			'type'            => 'text',
 			'label'           => esc_html__( 'Custom Sale Text', 'toffedassen' ),
@@ -1871,6 +1889,11 @@ function toffedassen_customize_settings() {
 					'setting'  => 'show_badges',
 					'operator' => '==',
 					'value'    => 1,
+				),
+				array(
+					'setting'  => 'sale_behaviour',
+					'operator' => '==',
+					'value'    => 'text',
 				),
 				array(
 					'setting'  => 'badges',
@@ -2013,6 +2036,16 @@ function toffedassen_customize_settings() {
 			'priority'    => 40,
 			'description' => esc_html__( 'Check this option to enable add to cart with AJAX on the product page.', 'toffedassen' ),
 		),
+
+		'product_add_to_cart_sticky'         => array(
+			'type'        => 'toggle',
+			'label'       => esc_html__( 'Add to cart Sticky', 'toffedassen' ),
+			'section'     => 'single_product',
+			'default'     => 1,
+			'priority'    => 40,
+			'description' => esc_html__( 'Check this option to enable add to cart sticky on the product page on mobile.', 'toffedassen' ),
+		),
+
 		'product_zoom'                     => array(
 			'type'            => 'toggle',
 			'label'           => esc_html__( 'Product Zoom', 'toffedassen' ),
