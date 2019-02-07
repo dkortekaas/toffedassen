@@ -16,7 +16,7 @@
                     <h4 class="box-title">
                         <a class="box-link" href="#"><?php _e('Free Shipping', 'toffedassen'); ?></a>
                     </h4>
-                    <div class="box-desc"><?php _e('Over &euro; 25,-', 'toffedassen'); ?></div>
+                    <div class="box-desc"><?php _e('Voor bestellingen binnen NL', 'toffedassen'); ?></div>
                 </div>
             </li>
             <li class="cta-icon-box">

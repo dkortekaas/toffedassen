@@ -17,5 +17,7 @@ get_header();
 
 	<?php get_template_part( 'parts/home/products', 'home' ); ?>
 
+	<?php get_template_part( 'parts/home/content', 'instagram' ); ?>
+
 <?php
 get_footer();
