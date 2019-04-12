@@ -1769,9 +1769,8 @@ class Toffe_Dassen_WooCommerce {
 	}
 }
 
-function toffedassen_product() {
-	global $product;
-	$attachment_ids  = $product->get_gallery_image_ids();
+function toffedassen_product( $_product ) {
+	$attachment_ids  = $_product->get_gallery_image_ids();
 	$secondary_thumb = intval( toffedassen_get_option( 'disable_secondary_thumb' ) );
 	$shop_view       = toffedassen_get_option( 'shop_view' );
 	$new_duration = toffedassen_get_option( 'product_newness' );
@@ -1792,19 +1791,19 @@ function toffedassen_product() {
 			$badges = toffedassen_get_option( 'badges' );
 			// Change the default sale ribbon
 
-			$custom_badges = maybe_unserialize( get_post_meta( $product->get_id(), 'custom_badges_text', true ) );
+			$custom_badges = maybe_unserialize( get_post_meta( $_product->get_id(), 'custom_badges_text', true ) );
 			if ( $custom_badges ) :
 				$output[] = '<span class="custom ribbon">' . esc_html( $custom_badges ) . '</span>';
 
 			else :
 
-				if ( $product->get_stock_status() == 'outofstock' && in_array( 'outofstock', $badges ) ) :
+				if ( $_product->get_stock_status() == 'outofstock' && in_array( 'outofstock', $badges ) ) :
 					//$outofstock = toffedassen_get_option( 'outofstock_text' );
 					//if ( ! $outofstock ) :
 						$outofstock = esc_html__( 'Out Of Stock', 'toffedassen' );
 					//endif;
 					$output[] = '<span class="out-of-stock ribbon">' . esc_html( $outofstock ) . '</span>';
-				elseif ( $product->is_on_sale() && in_array( 'sale', $badges ) ) :
+				elseif ( $_product->is_on_sale() && in_array( 'sale', $badges ) ) :
 					//$sale = toffedassen_get_option( 'sale_text' );
 					//if ( ! $sale ) :
 						$sale = esc_html__( 'Sale', 'toffedassen' );
@@ -1812,14 +1811,14 @@ function toffedassen_product() {
 
 					$output[] = '<span class="onsale ribbon">' . esc_html( $sale ) . '</span>';
 
-				elseif ( $product->is_featured() && in_array( 'hot', $badges ) ) :
+				elseif ( $_product->is_featured() && in_array( 'hot', $badges ) ) :
 					//$hot = toffedassen_get_option( 'hot_text' );
 					//if ( ! $hot ) :
 						$hot = esc_html__( 'Hot', 'toffedassen' );
 					//endif;
 					$output[] = '<span class="featured ribbon">' . esc_html( $hot ) . '</span>';
 				elseif ( ( time() - ( 60 * 60 * 24 * $new_duration ) ) < strtotime( get_the_time( 'Y-m-d' ) ) && in_array( 'new', $badges ) ||
-						get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
+						get_post_meta( $_product->get_id(), '_is_new', true ) == 'yes'
 				) :
 					//$new = toffedassen_get_option( 'new_text' );
 					//if ( ! $new ) :
@@ -1849,7 +1848,7 @@ function toffedassen_product() {
 					echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
 				endif;
 
-				echo '<a href="' . $product->get_permalink() . '" data-id="' . esc_attr( $product->get_id() ) . '"  class="toffedassen-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'toffedassen' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
+				echo '<a href="' . $_product->get_permalink() . '" data-id="' . esc_attr( $_product->get_id() ) . '"  class="toffedassen-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'toffedassen' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
 
 			echo '</div>';
 		echo '</div>';
@@ -1858,7 +1857,7 @@ function toffedassen_product() {
 	echo '<div class="un-product-details">';
 		printf( '<h3><a href="%s">%s</a></h3>', esc_url( get_the_permalink() ), get_the_title() );
 		?>
-		<span class="price"><?php echo wp_kses_post($product->get_price_html()); ?></span>
+		<span class="price"><?php echo wp_kses_post($_product->get_price_html()); ?></span>
 		<?php
 		echo '<div class="footer-button footer-button-shop-list">';
 
@@ -1872,7 +1871,7 @@ function toffedassen_product() {
 					echo do_shortcode( '[yith_wcwl_add_to_wishlist]' );
 				endif;
 
-				echo '<a href="' . $product->get_permalink() . '" data-id="' . esc_attr( $product->get_id() ) . '"  class="toffedassen-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'toffedassen' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
+				echo '<a href="' . $_product->get_permalink() . '" data-id="' . esc_attr( $_product->get_id() ) . '"  class="toffedassen-product-quick-view hidden-sm hidden-xs" data-original-title="' . esc_attr__( 'Quick View', 'toffedassen' ) . '" data-rel="tooltip"><i class="icon-frame-expand"></i></a>';
 
 			echo '</div>';
 		echo '</div>';
