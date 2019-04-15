@@ -78,15 +78,42 @@
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
+
+
+// $args_latest = wc_get_products(
+//     array(
+//         'status' => 'publish',
+//         'limit' => 10,
+//         'orderby' => array('date' => 'DESC'),
+//         'return' => 'objects'
+//     )
+// );
+
+
+// $latest_products = wc_get_products( $args_latest );
+
+// if ($latest_products) {
+//     foreach ($latest_products as $latest_product) { ?>
+         <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
+             <div class="product-inner clearfix">
+                
+                 <?php //toffedassen_product( get_post($latest_product->get_id()) ); ?>
+             </div>
+         </li>
+     <?php
+//         $loop++;
+//     }
+// }
+
                                                 $args_latest = array(
-                                                    'post_type' => 'product',
-                                                    'stock' => 1,
-                                                    'posts_per_page' => 10,
-                                                    'category' => 39,
-                                                    'orderby' =>'date',
-                                                    'order' => 'DESC',
-                                                    'suppress_filters' => true
+                                                    'post_type'         => 'product',
+                                                    'post_status'       => 'publish',
+                                                    'posts_per_page'    => 10,
+                                                    'orderby'           => 'date',
+                                                    'order'             => 'DESC',
+                                                    'product_cat'       => 'stropdassen'
                                                 );
+                                                
                                                 $loop_latest = new WP_Query( $args_latest );
                                                 $count_latest = 0;
                                                 $class_latest = '';
@@ -124,11 +151,12 @@
                                             <ul class="products columns-5">
                                                 <?php
                                                 $args_mostsold = array(
-                                                    'post_type' => 'product',
-                                                    'stock' => 1,
-                                                    'meta_key' => 'total_sales',
-                                                    'orderby' => 'meta_value_num',
-                                                    'posts_per_page' => 10,
+                                                    'post_type'         => 'product',
+                                                    'post_status'       => 'publish',
+                                                    'meta_key'          => 'total_sales',
+                                                    'orderby'           => 'meta_value_num',
+                                                    'posts_per_page'    => 10,
+                                                    'product_cat'       => 'stropdassen'
                                                 );
                                                 $loop_mostsold = new WP_Query( $args_mostsold );
                                                 $count_mostsold = 0;
