@@ -17,15 +17,21 @@
 
                                 <div class="product-header">
                                     <ul class="nav nav-tabs nav-filter filter" role="tablist">
-                                        <li role="presentation" class="active"><a href="#onsale" aria-controls="onsale" role="tab" data-toggle="tab">Aanbiedingen</a></li>
-                                        <li role="presentation"><a href="#new" aria-controls="new" role="tab" data-toggle="tab">Nieuwe producten</a></li>
-                                        <li role="presentation"><a href="#sales" aria-controls="sales" role="tab" data-toggle="tab">Meest verkocht</a></li>
+                                        <li role="presentation" class="active"><a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
+                                            <?php _e('Sales', 'toffedassen'); ?>
+                                        </a></li>
+                                        <li role="presentation"><a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
+                                            <?php _e('Latest Products', 'toffedassen'); ?>
+                                        </a></li>
+                                        <li role="presentation"><a href="#mostsold" aria-controls="mostsold" role="tab" data-toggle="tab">
+                                            <?php _e('Most Sold', 'toffedassen'); ?>
+                                        </a></li>
                                     </ul>
                                 </div>
 
                                 <div class="product-wrapper tab-content">
 
-                                    <div role="tabpanel" class="tab-pane active" id="onsale">
+                                    <div role="tabpanel" class="tab-pane active" id="sale">
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
@@ -50,11 +56,11 @@
                                                 endif; 
                                                 $count_sale++;
 
-                                                $_product_onsale = wc_get_product( get_the_ID() );
+                                                $_product_sale = wc_get_product( get_the_ID() );
                                             ?>
                                                 <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php echo $class_sale; ?>">
                                                     <div class="product-inner clearfix">
-                                                        <?php toffedassen_product( $_product_onsale ); ?>
+                                                        <?php toffedassen_product( $_product_sale ); ?>
                                                     </div>
                                                 </li>
                                             <?php endwhile; ?>
@@ -67,38 +73,39 @@
                                     </div>
 
 
-                                    <div role="tabpanel" class="tab-pane" id="new">
+                                    <div role="tabpanel" class="tab-pane" id="latest">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
-                                                $args_new = array(
+                                                $args_latest = array(
                                                     'post_type' => 'product',
                                                     'stock' => 1,
                                                     'posts_per_page' => 10,
                                                     'category' => 39,
                                                     'orderby' =>'date',
-                                                    'order' => 'DESC'
+                                                    'order' => 'DESC',
+                                                    'suppress_filters' => true
                                                 );
-                                                $loop_new = new WP_Query( $args_new );
-                                                $count_new = 0;
-                                                $class_new = '';
-                                                while ( $loop_new->have_posts() ) : $loop_new->the_post();
-                                                    $total_new = $loop_new->found_posts;
-                                                    if ( $count_new == 0 ) :
-                                                        $class_new = ' first';
-                                                    elseif ( $count_new == ($total_new - 1) ) :
-                                                        $class_new = ' last';
+                                                $loop_latest = new WP_Query( $args_latest );
+                                                $count_latest = 0;
+                                                $class_latest = '';
+                                                while ( $loop_latest->have_posts() ) : $loop_latest->the_post();
+                                                    $total_latest = $loop_latest->found_posts;
+                                                    if ( $count_latest == 0 ) :
+                                                        $class_latest = ' first';
+                                                    elseif ( $count_latest == ($total_latest - 1) ) :
+                                                        $class_latest = ' last';
                                                     else :
-                                                        $class_new = '';
+                                                        $class_latest = '';
                                                     endif; 
-                                                    $count_new++;
+                                                    $count_latest++;
 
-                                                    $_product_new = wc_get_product( get_the_ID() );
+                                                    $_product_latest = wc_get_product( get_the_ID() );
                                                 ?>
-                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php echo $class_sale; ?>">
+                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php echo $class_latest; ?>">
                                                         <div class="product-inner clearfix">
-                                                        <?php toffedassen_product( $_product_new ); ?>
+                                                        <?php toffedassen_product( $_product_latest ); ?>
                                                         </div>
                                                     </li>
                                                 <?php endwhile; ?>
@@ -111,37 +118,37 @@
 
                                     </div>
  
-                                    <div role="tabpanel" class="tab-pane" id="sales">
+                                    <div role="tabpanel" class="tab-pane" id="mostsold">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                                 <?php
-                                                $args_sales = array(
+                                                $args_mostsold = array(
                                                     'post_type' => 'product',
                                                     'stock' => 1,
                                                     'meta_key' => 'total_sales',
                                                     'orderby' => 'meta_value_num',
                                                     'posts_per_page' => 10,
                                                 );
-                                                $loop_sales = new WP_Query( $args_sales );
-                                                $count_sales = 0;
-                                                $class_sales = '';
-                                                while ( $loop_sales->have_posts() ) : $loop_sales->the_post();
-                                                    $total_sales = $loop_sales->found_posts;
-                                                    if ( $count_sales == 0 ) :
-                                                        $class_sales = ' first';
-                                                    elseif ( $count_sales == ($total_sales - 1) ) :
-                                                        $class_sales = ' last';
+                                                $loop_mostsold = new WP_Query( $args_mostsold );
+                                                $count_mostsold = 0;
+                                                $class_mostsold = '';
+                                                while ( $loop_mostsold->have_posts() ) : $loop_mostsold->the_post();
+                                                    $total_mostsold = $loop_mostsold->found_posts;
+                                                    if ( $count_mostsold == 0 ) :
+                                                        $class_mostsold = ' first';
+                                                    elseif ( $count_mostsold == ($total_mostsold - 1) ) :
+                                                        $class_mostsold = ' last';
                                                     else :
-                                                        $class_sales = '';
+                                                        $class_mostsold = '';
                                                     endif; 
-                                                    $count_sales++;
+                                                    $count_mostsold++;
 
-                                                    $_product_sales = wc_get_product( get_the_ID() );
+                                                    $_product_mostsold = wc_get_product( get_the_ID() );
                                                 ?>
-                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php echo $class_sales; ?>">
+                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php echo $class_mostsold; ?>">
                                                         <div class="product-inner clearfix">
-                                                            <?php toffedassen_product( $_product_sales ); ?>
+                                                            <?php toffedassen_product( $_product_mostsold ); ?>
                                                         </div>
                                                     </li>
                                                 <?php endwhile; ?>

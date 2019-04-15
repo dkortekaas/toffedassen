@@ -1,0 +1,669 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Toffe Dassen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-04-15 14:21+0200\n"
+"PO-Revision-Date: 2019-04-15 14:24+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/backend/theme-options.php:41
+msgid "Theme Options"
+msgstr ""
+
+#: inc/backend/theme-options.php:166
+msgid "Header Logo"
+msgstr ""
+
+#: inc/backend/theme-options.php:167
+msgid "Logo to be displayed in the header menu."
+msgstr ""
+
+#: inc/backend/theme-options.php:173
+msgid "Login Logo"
+msgstr ""
+
+#: inc/backend/theme-options.php:174
+msgid "Logo to be displayed in the login page. (320x120)"
+msgstr ""
+
+#: inc/backend/theme-options.php:180
+msgid "Favicon"
+msgstr ""
+
+#: inc/backend/theme-options.php:181
+msgid "Site favicon. (32x32)"
+msgstr ""
+
+#: inc/backend/theme-options.php:187
+msgid "SEO"
+msgstr ""
+
+#: inc/backend/theme-options.php:188
+msgid "Search Engine Optimization Settings."
+msgstr ""
+
+#: inc/backend/theme-options.php:193
+msgid "Site Keywords"
+msgstr ""
+
+#: inc/backend/theme-options.php:194
+msgid "Keywords describing this site, comma separated."
+msgstr ""
+
+#: inc/backend/theme-options.php:210
+msgid "Facebook Username"
+msgstr ""
+
+#: inc/backend/theme-options.php:211
+msgid "Username of Facebook page."
+msgstr ""
+
+#: inc/backend/theme-options.php:217
+msgid "Twitter Username"
+msgstr ""
+
+#: inc/backend/theme-options.php:218
+msgid "Username of Twitter profile."
+msgstr ""
+
+#: inc/backend/theme-options.php:224
+msgid "Youtube Username"
+msgstr ""
+
+#: inc/backend/theme-options.php:225
+msgid "Username of Youtube channel."
+msgstr ""
+
+#: inc/backend/theme-options.php:231
+msgid "Flickr Username"
+msgstr ""
+
+#: inc/backend/theme-options.php:232
+msgid "Username of Flickr profile."
+msgstr ""
+
+#: inc/backend/theme-options.php:238
+msgid "Google+ Profile ID"
+msgstr ""
+
+#: inc/backend/theme-options.php:239
+msgid "ID of Google+ profile."
+msgstr ""
+
+#: inc/backend/theme-options.php:255
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/backend/theme-options.php:256
+msgid "Main theme color."
+msgstr ""
+
+#: inc/backend/theme-options.php:262
+msgid "Custom CSS"
+msgstr ""
+
+#: inc/backend/theme-options.php:263
+msgid "Enter any custom CSS you want here."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:334
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:335
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:339
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:340
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:392
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:393
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:394
+#: inc/tgm/class-tgm-plugin-activation.php:3252
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:395
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:397
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:399
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:402
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:403
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:404
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2075
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2366
+msgid "Required"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2369
+msgid "Recommended"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2385
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2388
+msgid "External Source"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2391
+msgid "Pre-Packaged"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2408
+msgid "Not Installed"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2412
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2414
+msgid "Active"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2420
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2423
+msgid "Requires Update"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2426
+msgid "Update recommended"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2583
+msgid "Installed version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2591
+msgid "Minimum required version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2603
+msgid "Available version:"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2640
+msgid "Plugin"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2641
+msgid "Source"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2642
+msgid "Type"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2646
+msgid "Version"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2647
+msgid "Status"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2696
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2701
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2707
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2810
+msgid "Install"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2816
+msgid "Update"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2819
+msgid "Activate"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2850
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2852
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2893
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:2895
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3251
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3591
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3594
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3596
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3600
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3602
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3603
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3605
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3608
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3611
+msgid "All installations have been completed."
+msgstr ""
+
+#: inc/tgm/class-tgm-plugin-activation.php:3613
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/widgets/widget-layered-nav-filters.php:179
+#, php-format
+msgid "Min %s"
+msgstr ""
+
+#: inc/widgets/widget-layered-nav-filters.php:184
+#, php-format
+msgid "Max %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs-parser/index.js:329
+#, javascript-format
+msgid "Not enough arguments following: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs-parser/index.js:492
+#, javascript-format
+msgid "Invalid JSON config file: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:91
+msgid "Positionals:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:197
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:199
+msgid "command"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:208
+msgid "Commands:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:224
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:453
+msgid "default:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:226
+msgid "aliases:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:287
+msgid "boolean"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:288
+msgid "count"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:289
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:290
+msgid "string"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:291
+msgid "array"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:292
+msgid "number"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:296
+msgid "required"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:297
+msgid "choices:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:316
+msgid "Examples:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:431
+msgid "generated-value"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:29
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:52
+#, javascript-format
+msgid "Not enough non-option arguments: got %s, need at least %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:40
+#, javascript-format
+msgid "Too many non-option arguments: got %s, maximum of %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:147
+msgid "Invalid values:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:150
+#, javascript-format
+msgid "Argument: %s, Given: %s, Choices: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:180
+#, javascript-format
+msgid "Argument check failed: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:256
+msgid "Implications failed:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:295
+#, javascript-format
+msgid "Arguments %s and %s are mutually exclusive"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:316
+#, javascript-format
+msgid "Did you mean %s?"
+msgstr ""
+
+#: parts/home/content-cta.php:17
+msgid "Free Shipping"
+msgstr "Gratis verzending"
+
+#: parts/home/content-cta.php:19
+msgid "Voor bestellingen binnen NL"
+msgstr ""
+
+#: parts/home/content-cta.php:28
+msgid "Fast Delivery"
+msgstr "Snelle levering"
+
+#: parts/home/content-cta.php:30
+msgid "Within 3 days"
+msgstr "Binnen 3 werkdagen"
+
+#: parts/home/content-cta.php:39
+msgid "100% Secure"
+msgstr "100% veilig"
+
+#: parts/home/content-cta.php:41
+msgid "Online Shopping"
+msgstr "Online winkelen"
+
+#: parts/home/content-cta.php:50
+msgid "Best Price"
+msgstr "Beste prijs"
+
+#: parts/home/content-cta.php:52
+msgid "Guaranteed"
+msgstr "Gegarandeerd"
+
+#: parts/home/content-hero.php:18
+msgid "To Collection"
+msgstr "Naar de collectie"
+
+#: parts/home/products-home.php:21
+msgid "Sales"
+msgstr "Aanbiedingen"
+
+#: parts/home/products-home.php:24
+msgid "Latest Products"
+msgstr "Nieuwste producten"
+
+#: parts/home/products-home.php:27
+msgid "Most Sold"
+msgstr "Meest verkocht"
+
+#: parts/home/products-home.php:166
+msgid "All Products"
+msgstr "Alle producten"
+
+#: woocommerce/cart/cart-shipping.php:48
+msgid "Change address"
+msgstr "Adres wijzigen"
+
+#: woocommerce/cart/cart-shipping.php:59
+msgid ""
+"There are no shipping methods available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:63
+msgid "Enter a different address"
+msgstr ""
+
+#: woocommerce/emails/customer-completed-order.php:31
+msgid ""
+"Your order has been handed over to the delivery service. You can find the "
+"package in your mailbox automatically."
+msgstr ""
+
+#: woocommerce/emails/customer-completed-order.php:32
+msgid ""
+"If you have questions about your order you can e-mail us at <a href=\"mailto:"
+"info@toffedassen.nl\">info@toffedassen.nl</a>"
+msgstr ""
+
+#: woocommerce/emails/customer-processing-order.php:29
+msgid "Great that you chose our store. We will start immediately."
+msgstr ""
+
+#: woocommerce/emails/customer-processing-order.php:30
+msgid ""
+"Once your package has been sent, we will send an email with a link to follow "
+"your order. If you have questions about your order you can e-mail us at <a "
+"href=\"mailto:info@toffedassen.nl\">info@toffedassen.nl</a>"
+msgstr ""
+
+#: woocommerce/emails/email-order-details.php:36
+#, php-format
+msgid "Order number %s"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:31
+#: woocommerce/pdf/toffedassen/packing-slip.php:44
+msgid "Billing Address:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:44
+msgid "Ship To:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:55
+msgid "Invoice Number:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:61
+msgid "Invoice Date:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:66
+#: woocommerce/pdf/toffedassen/packing-slip.php:54
+msgid "Order Number:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:70
+#: woocommerce/pdf/toffedassen/packing-slip.php:58
+msgid "Order Date:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:74
+msgid "Payment Method:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:88
+#: woocommerce/pdf/toffedassen/packing-slip.php:76
+msgid "Product"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:89
+#: woocommerce/pdf/toffedassen/packing-slip.php:77
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:90
+msgid "Price"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:97
+#: woocommerce/pdf/toffedassen/packing-slip.php:84
+msgid "Description"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:102
+#: woocommerce/pdf/toffedassen/packing-slip.php:89
+msgid "SKU"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:103
+#: woocommerce/pdf/toffedassen/packing-slip.php:90
+msgid "SKU:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:104
+#: woocommerce/pdf/toffedassen/packing-slip.php:91
+msgid "Weight:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/invoice.php:119
+#: woocommerce/pdf/toffedassen/packing-slip.php:106
+msgid "Customer Notes"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/packing-slip.php:31
+msgid "Shipping Address:"
+msgstr ""
+
+#: woocommerce/pdf/toffedassen/packing-slip.php:62
+msgid "Shipping Method:"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:51
+msgid "SHARE"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:55
+#: woocommerce/single-product/add-to-cart/simple.php:61
+msgid "View this"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:55
+#: woocommerce/single-product/add-to-cart/simple.php:61
+msgid "at"
+msgstr ""

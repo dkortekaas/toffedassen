@@ -9,7 +9,7 @@
 
     <div class="lead">
 		<div class="container">
-    		<h1>Toffe Dassen</h1>
+    		<h1><?php get_bloginfo( 'name' ); ?></h1>
 			<?php the_content(); ?>
     	</div>
 	</div>
