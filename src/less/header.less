@@ -64,6 +64,30 @@
 			padding: 0;
 		}
 
+		.dropdown-submenu {
+			display: none;
+			background: white;
+			padding: 10px;
+			position: fixed;
+
+			li {
+				&>:hover {
+					a {
+						&:after {
+							content: "";
+							position: absolute;
+							bottom: 4px;
+							right: 0;
+							height: 2px;
+							width: 0;
+							background-color: #222;
+							transition: .5s;						
+						}
+					}
+				}
+			}
+		}
+
 		& > ul:not(.no-flex) {
 			display: flex;
 			align-items: center;

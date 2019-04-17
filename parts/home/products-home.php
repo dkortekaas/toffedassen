@@ -23,9 +23,9 @@
                                         <li role="presentation"><a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
                                             <?php _e('Latest Products', 'toffedassen'); ?>
                                         </a></li>
-                                        <li role="presentation"><a href="#mostsold" aria-controls="mostsold" role="tab" data-toggle="tab">
-                                            <?php _e('Most Sold', 'toffedassen'); ?>
-                                        </a></li>
+                                        <!-- <li role="presentation"><a href="#mostsold" aria-controls="mostsold" role="tab" data-toggle="tab">
+                                            <?php //_e('Most Sold', 'toffedassen'); ?>
+                                        </a></li> -->
                                     </ul>
                                 </div>
 
@@ -90,35 +90,36 @@
 
                                     </div>
  
+                                    <!--
                                     <div role="tabpanel" class="tab-pane" id="mostsold">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
-                                            $mostsold_products = wc_get_products( array(
-                                                'limit' => 10,
-                                                'meta_key' => 'total_sales', // our custom query meta_key
-                                                'category' => array( 'stropdassen' ),
-                                                //'return'   => 'ids', // needed to pass to $post_object
-                                                'orderby'  => array( 'meta_value_num' => 'DESC', 'title' => 'ASC' ), // order from highest to lowest of top sellers
-                                            ) );
+                                            // $mostsold_products = wc_get_products( array(
+                                            //     'limit' => 10,
+                                            //     'meta_key' => 'total_sales', // our custom query meta_key
+                                            //     'category' => array( 'stropdassen' ),
+                                            //     //'return'   => 'ids', // needed to pass to $post_object
+                                            //     'orderby'  => array( 'meta_value_num' => 'DESC', 'title' => 'ASC' ), // order from highest to lowest of top sellers
+                                            // ) );
 
-                                            if (!empty($mostsold_products)) :
-                                                foreach ($mostsold_products as $mostsold_product) : ?>
-                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
-                                                        <div class="product-inner clearfix">
-                                                            <?php toffedassen_product( $mostsold_product ); ?>
-                                                        </div>
-                                                    </li>
-                                                <?php
-                                                endforeach;
-                                            endif;
-                                            wp_reset_postdata();
-                                            wp_reset_query();
+                                            // if (!empty($mostsold_products)) :
+                                            //     foreach ($mostsold_products as $mostsold_product) : ?>
+                                            //         <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
+                                            //             <div class="product-inner clearfix">
+                                            //                 <?php //toffedassen_product( $mostsold_product ); ?>
+                                            //             </div>
+                                            //         </li>
+                                            //     <?php
+                                            //     endforeach;
+                                            // endif;
+                                            // wp_reset_postdata();
+                                            // wp_reset_query();
                                             ?>
                                             </ul>
                                         </div>
-
+                                        -->
                                     </div>
 
                                     <div class="load-more text-center">
