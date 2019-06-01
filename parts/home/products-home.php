@@ -17,30 +17,42 @@
 
                                 <div class="product-header">
                                     <ul class="nav nav-tabs nav-filter filter" role="tablist">
-                                        <li role="presentation" class="active"><a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
+                                        <!-- <li role="presentation" class="active"><a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
                                             <?php _e('Sales', 'toffedassen'); ?>
-                                        </a></li>
-                                        <li role="presentation"><a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
+                                        </a></li> -->
+                                        <li role="presentation" class="active"><a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
                                             <?php _e('Latest Products', 'toffedassen'); ?>
                                         </a></li>
-                                        <!-- <li role="presentation"><a href="#mostsold" aria-controls="mostsold" role="tab" data-toggle="tab">
-                                            <?php //_e('Most Sold', 'toffedassen'); ?>
-                                        </a></li> -->
+                                        <li role="presentation"><a href="#combisets" aria-controls="combisets" role="tab" data-toggle="tab">
+                                            <?php _e('Combisets tie & socks', 'toffedassen'); ?>
+                                        </a></li>
                                     </ul>
                                 </div>
 
                                 <div class="product-wrapper tab-content">
 
-                                    <div role="tabpanel" class="tab-pane active" id="sale">
+                                    <!-- <div role="tabpanel" class="tab-pane active" id="sale">
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
                                             $onsale_products = wc_get_products( array(
-                                                'meta_key'  => '_price',
-                                                'limit'     => 10,
-                                                'include'   => wc_get_product_ids_on_sale(),
-                                                'category'  => array( 'stropdassen' ),
-                                                'orderby'   => array( 'meta_value_num' => 'DESC', 'title' => 'ASC' ), // order from highest to lowest of top sellers
+                                                'post_type'      => 'product',
+                                                'posts_per_page' => 10,
+                                                'meta_query'     => array(
+                                                    'relation' => 'OR',
+                                                    array( // Simple products type
+                                                        'key'           => '_sale_price',
+                                                        'value'         => 0,
+                                                        'compare'       => '>',
+                                                        'type'          => 'numeric'
+                                                    ),
+                                                    array( // Variable products type
+                                                        'key'           => '_min_variation_sale_price',
+                                                        'value'         => 0,
+                                                        'compare'       => '>',
+                                                        'type'          => 'numeric'
+                                                    )
+                                                )
                                             ) );
 
                                             if (!empty($onsale_products)) :
@@ -58,9 +70,9 @@
                                             ?>
                                             </ul>
                                         </div>
-                                    </div>
+                                    </div> -->
 
-                                    <div role="tabpanel" class="tab-pane" id="latest">
+                                    <div role="tabpanel" class="tab-pane active" id="latest">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
@@ -90,36 +102,33 @@
 
                                     </div>
  
-                                    <!--
-                                    <div role="tabpanel" class="tab-pane" id="mostsold">
+                                    <div role="tabpanel" class="tab-pane" id="combisets">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
-                                            // $mostsold_products = wc_get_products( array(
-                                            //     'limit' => 10,
-                                            //     'meta_key' => 'total_sales', // our custom query meta_key
-                                            //     'category' => array( 'stropdassen' ),
-                                            //     //'return'   => 'ids', // needed to pass to $post_object
-                                            //     'orderby'  => array( 'meta_value_num' => 'DESC', 'title' => 'ASC' ), // order from highest to lowest of top sellers
-                                            // ) );
+                                            $combisets_products = wc_get_products( array(
+                                                'limit' => 10,
+                                                'category' => array( 'stropdassen-combisets' ),
+                                                'orderby' => 'date',
+                                                'order' => 'DESC',
+                                            ) );
 
-                                            // if (!empty($mostsold_products)) :
-                                            //     foreach ($mostsold_products as $mostsold_product) : ?>
-                                            //         <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
-                                            //             <div class="product-inner clearfix">
-                                            //                 <?php //toffedassen_product( $mostsold_product ); ?>
-                                            //             </div>
-                                            //         </li>
-                                            //     <?php
-                                            //     endforeach;
-                                            // endif;
-                                            // wp_reset_postdata();
-                                            // wp_reset_query();
+                                            if (!empty($combisets_products)) :
+                                                foreach ($combisets_products as $combisets_product) : ?>
+                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
+                                                        <div class="product-inner clearfix">
+                                                            <?php toffedassen_product( $combisets_product ); ?>
+                                                        </div>
+                                                    </li>
+                                                <?php
+                                                endforeach;
+                                            endif;
+                                            wp_reset_postdata();
+                                            wp_reset_query();
                                             ?>
                                             </ul>
                                         </div>
-                                        -->
                                     </div>
 
                                     <div class="load-more text-center">

@@ -1944,7 +1944,7 @@ function toffedassen_customize_settings() {
 			'type'            => 'text',
 			'label'           => esc_html__( 'Custom New Text', 'toffedassen' ),
 			'section'         => 'shop_badge',
-			'default'         => 'New',
+			'default'         => esc_html__( 'New', 'toffedassen' ),
 			'priority'        => 20,
 			'active_callback' => array(
 				array(
