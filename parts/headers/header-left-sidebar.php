@@ -30,6 +30,7 @@ $header_copyright = get_post_meta( get_the_ID(), 'header_copyright', true );
 		<div class="menu-main">
 			<nav class="primary-nav nav">
 				<?php toffedassen_nav_menu(); ?>
+				<?php toffedassen_extra_language_switcher(); ?>
 			</nav>
 		</div>
 	</div>

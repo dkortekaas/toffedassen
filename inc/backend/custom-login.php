@@ -39,4 +39,4 @@ function toffedassen_custom_login_url_title() {
 	return esc_html__( 'Developed by internetbureau Weblogiq', 'toffedassen' );
 }
 
-add_filter( 'login_headertitle', 'toffedassen_custom_login_url_title' );
+add_filter( 'login_headertext', 'toffedassen_custom_login_url_title' );

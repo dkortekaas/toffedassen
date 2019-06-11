@@ -346,6 +346,31 @@ if ( ! function_exists( 'toffedassen_extra_sidebar' ) ) :
 
 endif;
 
+
+/**
+ * Get Menu extra language switcher
+ *
+ * @since  1.0.0
+ *
+ *
+ * @return string
+ */
+if ( ! function_exists( 'toffedassen_extra_language_switcher' ) ) :
+	function toffedassen_extra_language_switcher ( $langclass ) {
+		$languages = icl_get_languages('skip_missing=0&orderby=code');
+
+		if ( !empty ( $languages ) ) :
+			echo '<li class="extra-menu-item menu-item-sidebar menu-item-language-switcher ' . $langclass . '">';
+			foreach ( $languages as $l) :
+				if(!$l['active']) echo '<a href="'.$l['url'].'">';
+				echo '<img src="'.$l['country_flag_url'].'" height="12" alt="'.$l['language_code'].'" width="18" />';
+				if(!$l['active']) echo '</a>';
+			endforeach;
+			echo '</li>';
+		endif;
+	}
+endif;
+
 /**
  * Get Menu extra sidebar
  *

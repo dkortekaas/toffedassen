@@ -168,7 +168,7 @@ class Toffe_Dassen_WooCommerce {
 		);
 
 		// Add share buttons
-		add_action( 'woocommerce_after_add_to_cart_form', array( $this, 'toffedassen_share' ), 15 );
+		//add_action( 'woocommerce_after_add_to_cart_form', array( $this, 'toffedassen_share' ), 15 );
 
 		// remove description heading
 		add_filter( 'woocommerce_product_description_heading', '__return_false' );
@@ -1884,7 +1884,7 @@ function toffedassen_product( $_product ) {
 }
 
 
-function toffedassen_share() {
+// function toffedassen_share() {
 
-	echo 'Share:';
-}
+// 	echo 'Share:';
+// }

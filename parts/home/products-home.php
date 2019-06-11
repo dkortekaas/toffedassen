@@ -17,9 +17,6 @@
 
                                 <div class="product-header">
                                     <ul class="nav nav-tabs nav-filter filter" role="tablist">
-                                        <!-- <li role="presentation" class="active"><a href="#sale" aria-controls="sale" role="tab" data-toggle="tab">
-                                            <?php _e('Sales', 'toffedassen'); ?>
-                                        </a></li> -->
                                         <li role="presentation" class="active"><a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
                                             <?php _e('Latest Products', 'toffedassen'); ?>
                                         </a></li>
@@ -30,47 +27,6 @@
                                 </div>
 
                                 <div class="product-wrapper tab-content">
-
-                                    <!-- <div role="tabpanel" class="tab-pane active" id="sale">
-                                        <div class="woocommerce columns-5">
-                                            <ul class="products columns-5">
-                                            <?php
-                                            $onsale_products = wc_get_products( array(
-                                                'post_type'      => 'product',
-                                                'posts_per_page' => 10,
-                                                'meta_query'     => array(
-                                                    'relation' => 'OR',
-                                                    array( // Simple products type
-                                                        'key'           => '_sale_price',
-                                                        'value'         => 0,
-                                                        'compare'       => '>',
-                                                        'type'          => 'numeric'
-                                                    ),
-                                                    array( // Variable products type
-                                                        'key'           => '_min_variation_sale_price',
-                                                        'value'         => 0,
-                                                        'compare'       => '>',
-                                                        'type'          => 'numeric'
-                                                    )
-                                                )
-                                            ) );
-
-                                            if (!empty($onsale_products)) :
-                                                foreach ($onsale_products as $onsale_product) : ?>
-                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
-                                                        <div class="product-inner clearfix">
-                                                            <?php toffedassen_product( $onsale_product ); ?>
-                                                        </div>
-                                                    </li>
-                                                <?php
-                                                endforeach;
-                                            endif;
-                                            wp_reset_postdata();
-                                            wp_reset_query();
-                                            ?>
-                                            </ul>
-                                        </div>
-                                    </div> -->
 
                                     <div role="tabpanel" class="tab-pane active" id="latest">
 

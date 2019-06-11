@@ -290,6 +290,7 @@ if ( ! function_exists( 'toffedassen_off_canvas_menu_sidebar' ) ) :
 						toffedassen_nav_menu();
 					}
 					?>
+					<ul class="language-switcher"><?php toffedassen_extra_language_switcher( 'hidden-l' ); ?></ul>
                 </div>
                 <div class="widget-panel-footer">
                 </div>
