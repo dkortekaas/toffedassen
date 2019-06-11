@@ -362,9 +362,9 @@ if ( ! function_exists( 'toffedassen_extra_language_switcher' ) ) :
 		if ( !empty ( $languages ) ) :
 			echo '<li class="extra-menu-item menu-item-sidebar menu-item-language-switcher ' . $langclass . '">';
 			foreach ( $languages as $l) :
-				if(!$l['active']) echo '<a href="'.$l['url'].'">';
+				if ( !$l['active'] ) echo '<a href="'.$l['url'].'" title="'.$l['native_name'].'">';
 				echo '<img src="'.$l['country_flag_url'].'" height="12" alt="'.$l['language_code'].'" width="18" />';
-				if(!$l['active']) echo '</a>';
+				if ( !$l['active'] ) echo '</a>';
 			endforeach;
 			echo '</li>';
 		endif;

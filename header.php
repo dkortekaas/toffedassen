@@ -11,6 +11,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="p:domain_verify" content="075c8b89d50282792e355acbaf91faff"/>
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
