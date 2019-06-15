@@ -28,6 +28,7 @@ var gulpTasks = './src/gulp/tasks';
 gulp.task('less', require(gulpTasks + '/less')(gulp, plugins, outputAssets + '/css'));
 gulp.task('scripts', require(gulpTasks + '/scripts')(gulp, plugins, outputAssets + '/js'));
 gulp.task('images', require(gulpTasks + '/images')(gulp, plugins, outputAssets + '/images'));
+gulp.task('favicons', require(gulpTasks + '/favicons')(gulp, plugins, outputAssets + '/favicons'));
 gulp.task('fonts', require(gulpTasks + '/fonts')(gulp, plugins, outputAssets + '/fonts'));
 gulp.task('svg', require(gulpTasks + '/svg')(gulp, plugins, outputAssets + '/svg'));
 
@@ -35,8 +36,9 @@ gulp.task('watch', ['less'], function () {
     gulp.watch('src/less/**/*.less', ['less']);
     gulp.watch('src/js/**/*.js', ['scripts']);
     gulp.watch('src/images/**/*', ['images']);
+    gulp.watch('src/favicons/**/*', ['favicons']);
     gulp.watch('src/fonts/**/*', ['fonts']);
     gulp.watch('src/svg/**/*.svg', ['svg']);
 });
 
-gulp.task('default', ['less', 'scripts', 'images', 'fonts', 'svg'], function () { });
+gulp.task('default', ['less', 'scripts', 'images', 'favicons', 'fonts', 'svg'], function () { });

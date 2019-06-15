@@ -104,22 +104,6 @@ if ( ! function_exists( 'toffedassen_head_cleanup' ) ) :
 endif;
 
 /**
- * Show less info to users on failed login for security.
- * (Will not let a valid username be known.)
- *
- * @return string
- */
-if ( ! function_exists( 'toffedassen_show_less_login_info' ) ) :
-
-	function toffedassen_show_less_login_info() {
-
-		return esc_html__( '<strong>ERROR</strong>: Stop guessing!', 'toffedassen' );
-
-	}
-
-endif;
-
-/**
  * Remove WP Version From styles and scripts.
  *
  * @return string

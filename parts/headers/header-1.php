@@ -10,7 +10,7 @@
 	<div class="header-main">
 		<div class="header-row">
 			<div class="menu-logo s-left">
-				<div class="site-logo">
+				<div class="site-logo" itemscope itemtype="http://schema.org/Organization">
 					<?php get_template_part( 'parts/logo' ); ?>
 				</div>
 			</div>
