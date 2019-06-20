@@ -72,3 +72,12 @@ function toffedassen_init() {
 }
 
 add_action( 'wp_loaded', 'toffedassen_init' );
+
+// Change image size product gallery thumbnail
+add_filter( 'woocommerce_get_image_size_gallery_thumbnail', function( $size ) {
+    return array(
+        'width'  => 135,
+        'height' => 135,
+        'crop'   => 0,
+    );
+} );
