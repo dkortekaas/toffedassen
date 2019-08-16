@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.0
+ * @version 3.7.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -102,7 +102,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 									'max_value'    => $_product->get_max_purchase_quantity(),
 									'min_value'    => '0',
 									'product_name' => $_product->get_name(),
-								), $_product, false
+								),
+								$_product,
+								false
 							);
 						}
 
@@ -158,27 +160,29 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<?php } ?>
 				</div>
 
-				<?php do_action( 'woocommerce_cart_actions' ); ?>
+					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
-				<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
-			</td>
-		</tr>
+					<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
+				</td>
+			</tr>
 
-		<?php do_action( 'woocommerce_after_cart_contents' ); ?>
+			<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 		</tbody>
 	</table>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
 
+<?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
+
 <div class="cart-collaterals">
 	<?php
-	/**
-	 * Cart collaterals hook.
-	 *
-	 * @hooked woocommerce_cross_sell_display
-	 * @hooked woocommerce_cart_totals - 10
-	 */
-	do_action( 'woocommerce_cart_collaterals' );
+		/**
+		 * Cart collaterals hook.
+		 *
+		 * @hooked woocommerce_cross_sell_display
+		 * @hooked woocommerce_cart_totals - 10
+		 */
+		do_action( 'woocommerce_cart_collaterals' );
 	?>
 </div>
 
