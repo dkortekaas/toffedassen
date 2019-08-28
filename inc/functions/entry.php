@@ -25,9 +25,9 @@ function toffedassen_entry_footer() {
 
 
 	echo '<footer class="entry-footer">' .
-	     '<div class="row">' .
-	     '<div class="' . esc_attr( $col ) . ' col-xs-12 col-sm-12">' .
-	     '<div class="entry-footer-wrapper">';
+		'<div class="row">' .
+		'<div class="' . esc_attr( $col ) . ' col-xs-12 col-sm-12">' .
+		'<div class="entry-footer-wrapper">';
 
 	if ( has_tag() ) :
 		the_tags( '<div class="tag-list"><span class="tag-title">' . esc_html__( 'Tags: ', 'toffedassen' ) . '</span>', ', ', '</div>' );
@@ -51,8 +51,7 @@ function toffedassen_entry_footer() {
  * @since 1.0.0
  *
  * @param integer $num_words The maximum number of words
- * @param string $more More link.
- * @param bool $echo Echo or return output
+ * @param string  $more      More link.
  *
  * @return string|void Limited content.
  */
@@ -60,8 +59,12 @@ function toffedassen_content_limit( $num_words, $more = "&hellip;" ) {
 	$content = get_the_excerpt();
 
 	// Strip tags and shortcodes so the content truncation count is done correctly
-	$content = strip_tags( strip_shortcodes( $content ), apply_filters( '
-	toffedassen_content_limit_allowed_tags', '<script>,<style>' ) );
+	$content = strip_tags(
+		strip_shortcodes( $content ), apply_filters(
+			'
+	toffedassen_content_limit_allowed_tags', '<script>,<style>'
+		)
+	);
 
 	// Remove inline styles / scripts
 	$content = trim( preg_replace( '#<(s(cript|tyle)).*?</\1>#si', '', $content ) );
@@ -376,6 +379,83 @@ function toffedassen_entry_meta_single_portfolio() {
 }
 
 /**
+ * Get recently viewed products
+ *
+ * @return string
+ */
+if ( ! function_exists( 'toffedassen_recently_viewed_products' ) ) :
+	function toffedassen_recently_viewed_products( $atts ) {
+
+		$viewed_products = ! empty( $_COOKIE['woocommerce_recently_viewed'] ) ? (array) explode( '|', $_COOKIE['woocommerce_recently_viewed'] ) : array();
+		$viewed_products = array_reverse( array_filter( array_map( 'absint', $viewed_products ) ) );
+
+		$output = array();
+
+		$output[] = '<div class="recently-header">';
+		if ( isset( $atts['title'] ) && $atts['title'] ) {
+			$output[] = sprintf( '<h2 class="title">%s</h2>', esc_html( $atts['title'] ) );
+		}
+
+		$output[] = '</div>';
+
+		if ( empty( $viewed_products ) ) {
+
+			$output[] = sprintf(
+				'<ul class="product-list no-products">' .
+				'<li class="text-center">%s <br><a href="%s" class="btn-secondary">%s</a></li>' .
+				'</ul>',
+				esc_html__( 'Recently Viewed Products is a function which helps you keep track of your recent viewing history.', 'toffedassen' ),
+				esc_url( get_permalink( get_option( 'woocommerce_shop_page_id' ) ) ),
+				esc_html__( 'Shop Now', 'toffedassen' )
+			);
+
+		} else {
+			if ( ! function_exists( 'wc_get_product' ) ) {
+				$output[] = sprintf(
+					'<ul class="product-list no-products">' .
+					'<li class="text-center">%s <br><a href="%s" class="btn-secondary">%s</a></li>' .
+					'</ul>',
+					esc_html__( 'Recently Viewed Products is a function which helps you keep track of your recent viewing history.', 'toffedassen' ),
+					esc_url( get_permalink( get_option( 'woocommerce_shop_page_id' ) ) ),
+					esc_html__( 'Shop Now', 'toffedassen' )
+				);
+			}
+
+			$output[] = '<ul class="product-list">';
+			$number   = intval( $atts['numbers'] );
+			$index    = 1;
+			foreach ( $viewed_products as $product_id ) {
+				if ( $index > $number ) {
+					break;
+				}
+
+				$index ++;
+
+				$product = wc_get_product( $product_id );
+
+				if ( empty( $product ) ) {
+					continue;
+				}
+				$output[] = sprintf(
+					'<li class="item">' .
+					'<a href="%s">' .
+					'%s' .
+					'<span class="title">%s</span>' .
+					'</a>' .
+					'</li>',
+					esc_url( $product->get_permalink() ),
+					$product->get_image( 'shop_catalog' ),
+					$product->get_title()
+				);
+			}
+			$output[] = '</ul>';
+		}
+
+		return sprintf( '<div class="container">%s</div>', implode( ' ', $output ) );
+	}
+endif;
+
+/**
  * Print HTML of language switcher
  * It requires plugin WPML installed
  */
@@ -448,14 +528,14 @@ if ( ! function_exists( 'toffedassen_currency_switcher' ) ) :
 						$currency_list, sprintf(
 							'<li class="actived"><a href="#" class="woocs_flag_view_item woocs_flag_view_item_current" data-currency="%s">%s</a></li>',
 							esc_attr( $currency['name'] ),
-							esc_html( $currency[ $key_cur ] )
+							esc_html( $currency[$key_cur] )
 						)
 					);
 				} else {
 					$currency_list[] = sprintf(
 						'<li><a href="#" class="woocs_flag_view_item" data-currency="%s">%s</a></li>',
 						esc_attr( $currency['name'] ),
-						esc_html( $currency[ $key_cur ] )
+						esc_html( $currency[$key_cur] )
 					);
 				}
 			}
@@ -463,7 +543,7 @@ if ( ! function_exists( 'toffedassen_currency_switcher' ) ) :
 			$currency_dd = sprintf(
 				'<span class="current">%s<span class="toggle-children i-icon arrow_carrot-down"></span></span>' .
 				'<ul>%s</ul>',
-				$currencies[ $WOOCS->current_currency ][ $key_cur ],
+				$currencies[$WOOCS->current_currency][$key_cur],
 				implode( "\n\t", $currency_list )
 			);
 
@@ -593,9 +673,9 @@ endif;
 if ( ! function_exists( 'toffedassen_is_home' ) ) :
 	function toffedassen_is_home() {
 		if ( is_page_template( 'template-homepage.php' ) ||
-		     is_page_template( 'template-home-boxed.php' ) ||
-		     is_page_template( 'template-home-left-sidebar.php' ) ||
-		     is_page_template( 'template-home-no-footer.php' )
+			is_page_template( 'template-home-boxed.php' ) ||
+			is_page_template( 'template-home-left-sidebar.php' ) ||
+			is_page_template( 'template-home-no-footer.php' )
 		) {
 			return true;
 		}
@@ -614,8 +694,7 @@ endif;
 if ( ! function_exists( 'toffedassen_is_page_template' ) ) :
 	function toffedassen_is_page_template() {
 		if ( is_page_template( 'template-fullwidth.php' ) ||
-		     is_page_template( 'template-coming-soon-page.php' ) ||
-		     toffedassen_is_home()
+			toffedassen_is_home()
 		) {
 			return true;
 		}
@@ -626,49 +705,58 @@ if ( ! function_exists( 'toffedassen_is_page_template' ) ) :
 endif;
 
 /**
+ * Conditional function to check if current page is the maintenance page.
+ *
+ * @return bool
+ */
+function toffedassen_is_maintenance_page() {
+	if ( ! toffedassen_get_option( 'maintenance_enable' ) ) {
+		return false;
+	}
+
+	if ( current_user_can( 'super admin' ) ) {
+		return false;
+	}
+
+	$page_id = toffedassen_get_option( 'maintenance_page' );
+
+	if ( ! $page_id ) {
+		return false;
+	}
+
+	return is_page( $page_id );
+}
+
+/**
  *  Check Header Transparent
  */
 
 if ( ! function_exists( 'toffedassen_header_transparent' ) ) :
 
 	function toffedassen_header_transparent() {
-		$header_transparent  = toffedassen_get_option( 'header_transparent' );
-		$custom_header       = toffedassen_get_post_meta( 'custom_header' );
-		$disable_transparent = toffedassen_get_post_meta( 'disable_header_transparent' );
+		$header_transparent = toffedassen_get_option( 'header_transparent' );
+		$catalog_layout     = toffedassen_get_option( 'catalog_layout' );
+		$custom_header      = toffedassen_get_post_meta( 'custom_header' );
+		$enable_transparent = toffedassen_get_post_meta( 'enable_header_transparent' );
 
-		if ( is_page_template( 'template-home-left-sidebar.php' ) ) {
+		if ( is_page_template( 'template-home-left-sidebar.php' ) || is_404() ) {
 			return false;
 		}
 
-//		if ( toffedassen_is_catalog() || ( function_exists( 'is_product' ) && is_product() ) ) {
-//			return false;
-//		}
-
-		if ( function_exists( 'is_product' ) && is_product() ) {
+		if ( is_singular() && ! is_page() ) {
 			return false;
 		}
 
-		if ( intval( $header_transparent ) ) {
-			if ( $custom_header && $disable_transparent ) {
-				return false;
-			}
+		//if ( toffedassen_is_catalog() && ( $catalog_layout == 'sidebar-content' || $catalog_layout == 'content-sidebar' ) ) {
+			//return false;
+		//}
 
-			$page_header    = toffedassen_get_page_header();
-			$page_header_bg = $page_header['bg_image'];
+		if ( intval( $header_transparent ) && toffedassen_is_home() ) {
+			return true;
+		}
 
-			if ( $page_header_bg ) {
-				return true;
-			}
-
-			if ( toffedassen_is_home() ) {
-				return true;
-			}
-
-			if ( get_option( 'woocommerce_shop_page_id' ) ) {
-				if ( is_front_page() && ( get_option( 'woocommerce_shop_page_id' ) == get_option( 'page_on_front' ) ) ) {
-					return true;
-				}
-			}
+		if ( $custom_header && $enable_transparent ) {
+			return true;
 		}
 
 		return false;
@@ -680,27 +768,15 @@ endif;
  * Check Header Sticky
  */
 
-/**
- * show taxonomy filter
- *
- * @return string
- */
-
 if ( ! function_exists( 'toffedassen_header_sticky' ) ) :
 	function toffedassen_header_sticky() {
-		$header_sticky         = toffedassen_get_option( 'header_sticky' );
-		$custom_header         = toffedassen_get_post_meta( 'custom_header' );
-		$disable_header_sticky = toffedassen_get_post_meta( 'disable_header_sticky' );
+		$header_sticky = toffedassen_get_option( 'header_sticky' );
 
 		if ( is_page_template( 'template-home-left-sidebar.php' ) ) {
 			return false;
 		}
 
 		if ( intval( $header_sticky ) ) {
-			if ( $custom_header && $disable_header_sticky ) {
-				return false;
-			}
-
 			return true;
 		}
 
@@ -726,7 +802,6 @@ if ( ! function_exists( 'toffedassen_taxs_list' ) ) :
 		$id        = 'toffedassen-taxs-list';
 
 		if ( is_tax( $taxonomy ) || is_category() ) {
-
 			$queried_object = get_queried_object();
 			if ( $queried_object ) {
 				$term_id = $queried_object->term_id;
@@ -886,7 +961,15 @@ function toffedassen_get_post_meta( $meta ) {
 
 if ( ! function_exists( 'toffedassen_get_page_header' ) ) :
 	function toffedassen_get_page_header() {
-		if ( is_singular( 'product' ) || is_singular( 'post' ) || is_404() ) {
+		if ( is_singular() && ! is_page() ) {
+			return false;
+		}
+
+		if ( toffedassen_is_home() || is_404() ) {
+			return false;
+		}
+
+		if ( toffedassen_is_catalog() ) {
 			return false;
 		}
 
@@ -989,7 +1072,7 @@ if ( ! function_exists( 'toffedassen_get_breadcrumbs' ) ) :
 
 		ob_start();
 		?>
-        <nav class="breadcrumbs">
+		<nav class="breadcrumbs">
 			<?php
 			toffedassen_breadcrumbs(
 				array(

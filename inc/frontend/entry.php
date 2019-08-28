@@ -55,10 +55,6 @@ if ( ! function_exists( 'toffedassen_site_content_open' ) ) :
 		$product_layout = toffedassen_get_option( 'single_product_layout' );
 		$portfolio_style   = toffedassen_get_option( 'portfolio_layout' );
 
-		if ( is_front_page() ) :
-			$container = 'container-fluid';
-		endif;
-
 		if ( toffedassen_is_page_template() ) {
 			$container = 'container-fluid';
 		}

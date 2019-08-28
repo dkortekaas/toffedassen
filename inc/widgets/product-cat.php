@@ -11,35 +11,65 @@ if ( ! class_exists( 'WC_Widget' ) ) {
 if ( ! class_exists( 'Toffe_Dassen_Widget_Product_Cat' ) ) {
 
 	/**
-	 * Tag Cloud Widget.
+	 * Toffe Dassen - Product Categories Widget.
 	 *
 	 */
 	class Toffe_Dassen_Widget_Product_Cat extends WC_Widget {
 
 		/**
-		 * Constructor.
+		 * Category ancestors.
+		 *
+		 * @var array
 		 */
+		public $cat_ancestors;
+
+		/**
+		 * Current Category.
+		 *
+		 * @var bool
+		 */
+		public $current_cat;
+
 		public function __construct() {
-
-
 			$this->widget_cssclass    = 'woocommerce widget_product_categories toffedassen_widget_product_categories';
 			$this->widget_description = esc_html__( 'A list of product categories.', 'toffedassen' );
 			$this->widget_id          = 'toffedassen_product_cat';
 			$this->widget_name        = esc_html__( 'Toffe Dassen Product Categories', 'toffedassen' );
 			$this->settings           = array(
-				'title'  => array(
+				'title'              => array(
 					'type'  => 'text',
-					'std'   => esc_html__( 'Product Categories', 'toffedassen' ),
-					'label' => esc_html__( 'Title', 'toffedassen' )
+					'std'   => esc_html__( 'Product categories', 'toffedassen' ),
+					'label' => esc_html__( 'Title', 'toffedassen' ),
 				),
-				'style'  => array(
+				'orderby'            => array(
 					'type'    => 'select',
-					'std'     => '1',
+					'std'     => 'name',
+					'label'   => esc_html__( 'Order by', 'toffedassen' ),
 					'options' => array(
-						'1' => esc_html__( 'Style 1', 'toffedassen' ),
-						'2' => esc_html__( 'Style 2', 'toffedassen' )
+						'order' => esc_html__( 'Category order', 'toffedassen' ),
+						'title' => esc_html__( 'Name', 'toffedassen' ),
+						'count' => esc_html__( 'Count', 'toffedassen' ),
 					),
-					'label'   => esc_html__( 'Style', 'toffedassen' )
+				),
+				'count'              => array(
+					'type'  => 'checkbox',
+					'std'   => 0,
+					'label' => esc_html__( 'Show product counts', 'toffedassen' ),
+				),
+				'show_children_only' => array(
+					'type'  => 'checkbox',
+					'std'   => 0,
+					'label' => esc_html__( 'Only show current category and children of it', 'toffedassen' ),
+				),
+				'hide_empty'         => array(
+					'type'  => 'checkbox',
+					'std'   => 0,
+					'label' => esc_html__( 'Hide empty categories', 'toffedassen' ),
+				),
+				'max_depth'          => array(
+					'type'  => 'text',
+					'std'   => '',
+					'label' => esc_html__( 'Maximum depth', 'toffedassen' ),
 				),
 				'height' => array(
 					'type'  => 'text',
@@ -56,92 +86,139 @@ if ( ! class_exists( 'Toffe_Dassen_Widget_Product_Cat' ) ) {
 		 *
 		 * @see WP_Widget
 		 *
-		 * @param array $args
-		 * @param array $instance
+		 * @param array $args     Widget arguments.
+		 * @param array $instance Widget instance.
 		 */
 		public function widget( $args, $instance ) {
-			$this->widget_start( $args, $instance );
-			$current_taxonomy = 'product_cat';
-
-			$list_args = array(
-				'taxonomy' => $current_taxonomy,
-				'title_li' => ''
-			);
-
-			if ( empty( $instance['title'] ) ) {
-				$taxonomy          = get_taxonomy( $current_taxonomy );
-				$instance['title'] = $taxonomy->labels->name;
-			}
+			global $wp_query, $post;
 
 			$attr = '';
-
 			if ( isset( $instance['height'] ) && $instance['height'] ) {
 				$height = $instance['height'];
 
 				$attr = 'data-height="' . intval( $height ) . '"';
 			}
 
-			if ( isset( $instance['style'] ) && $instance['style'] != '2' ) {
-				$term_id        = 0;
-				$queried_object = get_queried_object();
-				if ( $queried_object && isset ( $queried_object->term_id ) ) {
-					$term_id = $queried_object->term_id;
-				}
+			$count              = isset( $instance['count'] ) ? $instance['count'] : $this->settings['count']['std'];
+			$show_children_only = isset( $instance['show_children_only'] ) ? $instance['show_children_only'] : $this->settings['show_children_only']['std'];
+			$orderby            = isset( $instance['orderby'] ) ? $instance['orderby'] : $this->settings['orderby']['std'];
+			$hide_empty         = isset( $instance['hide_empty'] ) ? $instance['hide_empty'] : $this->settings['hide_empty']['std'];
+			$dropdown_args      = array(
+				'hide_empty' => $hide_empty,
+			);
+			$list_args          = array(
+				'show_count'   => $count,
+				'hierarchical' => 1,
+				'taxonomy'     => 'product_cat',
+				'hide_empty'   => $hide_empty,
+			);
+			$max_depth          = absint( isset( $instance['max_depth'] ) ? $instance['max_depth'] : $this->settings['max_depth']['std'] );
 
-				$terms  = get_terms( $current_taxonomy );
-				$found  = false;
-				$output = array();
-				if ( $terms ) {
+			$list_args['menu_order'] = false;
+			$dropdown_args['depth']  = $max_depth;
+			$list_args['depth']      = $max_depth;
 
-					foreach ( $terms as $term ) {
-
-						$css_class = 'cat-item cat-item-' . $term->term_id;
-						if ( $term_id == $term->term_id ) {
-							$css_class .= ' chosen';
-							$found = true;
-						}
-
-						$output[] = sprintf( '<li class="%s"><a href="%s">%s</a></li>', esc_attr( $css_class ), esc_url( get_term_link( $term ) ), $term->name );
-					}
-
-				}
-
-				$css_class = $found ? '' : 'chosen';
-
-				printf(
-					'<ul class="product-categories" %s>' .
-					'<li class="%s"><a href="%s">%s</a></li>' .
-					'%s' .
-					'</ul>',
-					$attr,
-					esc_attr( $css_class ),
-					esc_url( esc_url( get_permalink( get_option( 'woocommerce_shop_page_id' ) ) ) ),
-					esc_html__( 'All', 'toffedassen' ),
-					implode( ' ', $output )
-				);
+			if ( 'order' === $orderby ) {
+				$list_args['menu_order'] = 'asc';
 			} else {
-				echo '<ul class="product-categories" ' . $attr . '>';
-
-				wp_list_categories( apply_filters( 'woocommerce_product_categories_widget_args', $list_args ) );
-
-				echo '</ul>';
+				$list_args['orderby'] = $orderby;
+				if ( $orderby === 'count' ) {
+					$atts['order'] = 'desc';
+				}
 			}
 
-			$this->widget_end( $args );
-		}
+			$this->current_cat   = false;
+			$this->cat_ancestors = array();
 
-		/**
-		 * Returns topic count text.
-		 *
-		 * @since 2.6.0
-		 *
-		 * @param int $count
-		 *
-		 * @return string
-		 */
-		public function _topic_count_text( $count ) {
-			/* translators: %s: product count */
-			return sprintf( _n( '%s product', '%s products', $count, 'toffedassen' ), number_format_i18n( $count ) );
+			if ( is_tax( 'product_cat' ) ) {
+				$this->current_cat   = $wp_query->queried_object;
+				$this->cat_ancestors = get_ancestors( $this->current_cat->term_id, 'product_cat' );
+
+			} elseif ( is_singular( 'product' ) ) {
+				$product_category = wc_get_product_terms(
+					$post->ID, 'product_cat', apply_filters(
+						'woocommerce_product_categories_widget_product_terms_args', array(
+							'orderby' => 'parent',
+						)
+					)
+				);
+
+
+				if ( ! empty( $product_category ) ) {
+					$current_term = '';
+					foreach ( $product_category as $term ) {
+						if ( $term->parent != 0 ) {
+							$current_term = $term;
+							break;
+						}
+					}
+					$this->current_cat   = $current_term ? $current_term : $product_category[0];
+					$this->cat_ancestors = get_ancestors( $this->current_cat->term_id, 'product_cat' );
+				}
+
+			}
+
+			// Show Siblings and Children Only.
+			if ( $show_children_only ) {
+				$dropdown_args['child_of'] = 0;
+				$list_args['child_of']     = 0;
+
+				if ( $this->current_cat ) {
+					// Direct children.
+					$include = get_terms(
+						'product_cat',
+						array(
+							'fields'       => 'ids',
+							'parent'       => $this->current_cat->term_id,
+							'hierarchical' => true,
+							'hide_empty'   => false,
+						)
+					);
+
+					$list_args['include']     = implode( ',', $include );
+					$list_args['depth']       = 1;
+					$dropdown_args['include'] = $list_args['include'];
+					$dropdown_args['depth']   = 1;
+				}
+			}
+
+			$this->widget_start( $args, $instance );
+
+			$list_args['title_li']                   = '';
+			$list_args['pad_counts']                 = 1;
+			$list_args['show_option_none']           = esc_html__( 'No product categories exist.', 'toffedassen' );
+			$list_args['current_category']           = ( $this->current_cat ) ? $this->current_cat->term_id : '';
+			$list_args['current_category_ancestors'] = $this->cat_ancestors;
+			$list_args['max_depth']                  = $max_depth;
+
+			$parent_term_id = 0;
+			if ( is_tax( 'product_cat' ) || is_singular( 'product' ) ) {
+				if ( count( $this->cat_ancestors ) > 0 ) {
+					$parent_term_id = end( $this->cat_ancestors );
+				}
+
+				$children_terms = get_term_children( $parent_term_id, 'product_cat' );
+				if ( count( $children_terms ) <= 0 ) {
+					$parent_term_id = 0;
+				}
+			}
+
+			$list_args['child_of'] = $parent_term_id;
+
+			echo '<ul class="product-categories" ' . $attr . ' >';
+			if ( $parent_term_id ) {
+				$parent_term = get_term_by( 'id', $parent_term_id, 'product_cat' );
+				echo '<li class="current-cat-parent toffedassen-current-cat-parent"><a href="' . esc_url( get_term_link( $parent_term_id, 'product_cat' ) ) . '">' . $parent_term->name . '</a>';
+				echo '<ul class="children">';
+			}
+			wp_list_categories( apply_filters( 'woocommerce_product_categories_widget_args', $list_args ) );
+			if ( $parent_term_id ) {
+				echo '</ul>';
+				echo '</li>';
+			}
+			echo '</ul>';
+
+			$this->widget_end( $args );
 		}
 	}
 }

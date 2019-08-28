@@ -44,8 +44,6 @@ if ( ! class_exists( 'Toffe_Dassen_Language_Currency_Widget' ) ) {
 		 * @param array $instance Settings for the current Text widget instance.
 		 */
 		public function widget( $args, $instance ) {
-
-
 			echo wp_kses_post( $args['before_widget'] );
 			if ( ! empty( $title ) ) {
 				echo wp_kses_post( $args['before_title'] ) . $title . wp_kses_post( $args['after_title'] );

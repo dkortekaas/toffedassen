@@ -65,6 +65,13 @@ class Toffe_Dassen_Mega_Menu_Walker_Edit extends Walker_Nav_Menu_Edit {
 
 		$xpath = new DOMXPath($dom);
 
+		// Remove spaces in href attribute
+		$anchors = $xpath->query( "//a" );
+
+		foreach ( array_reverse( iterator_to_array( $anchors ) ) as $anchor ) {
+			$anchor->setAttribute( 'href', trim( $anchor->getAttribute( 'href' ) ) );
+		}
+
 		// Add more menu item data
 		$settings = $xpath->query("//*[@id='menu-item-settings-" . $item->ID . "']")->item(0);
 

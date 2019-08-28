@@ -36,7 +36,9 @@ if ( ! function_exists( 'toffedassen_register_widgets' ) ) :
 			);
 
 			foreach ( $wc_widgets as $widget ) {
-				register_widget( $widget );
+				if ( class_exists( $widget ) ) {
+					register_widget( $widget );
+				}
 			}
 		}
 
@@ -49,7 +51,9 @@ if ( ! function_exists( 'toffedassen_register_widgets' ) ) :
 		);
 
 		foreach ( $widgets as $widget ) {
-			register_widget( $widget );
+			if ( class_exists( $widget ) ) {
+				register_widget( $widget );
+			}
 		}
 	}
 

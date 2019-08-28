@@ -39,7 +39,7 @@ if ( ! function_exists( 'toffedassen_get_layout' ) ) :
 			if ( 'grid' == toffedassen_get_option( 'blog_style' ) ) {
 				$layout = toffedassen_get_option( 'blog_layout' );
 			}
-		} elseif ( is_singular('product') && toffedassen_get_option( 'single_product_layout' ) == '1' ) {
+		} elseif ( is_singular( 'product' ) && toffedassen_get_option( 'single_product_layout' ) == '1' ) {
 			$layout = toffedassen_get_option( 'single_product_sidebar' );
 		} elseif ( is_404() ) {
 			$layout = 'full-content';

@@ -8,7 +8,8 @@ function toffedassen_footer_widgets() {
 		is_active_sidebar( 'footer-sidebar-1' ) == false &&
 		is_active_sidebar( 'footer-sidebar-2' ) == false &&
 		is_active_sidebar( 'footer-sidebar-3' ) == false &&
-		is_active_sidebar( 'footer-sidebar-4' ) == false 
+		is_active_sidebar( 'footer-sidebar-4' ) == false &&
+		is_active_sidebar( 'footer-sidebar-5' ) == false
 	) {
 		return;
 	}
@@ -21,8 +22,8 @@ function toffedassen_footer_widgets() {
 	$columns = max( 1, absint( toffedassen_get_option( 'footer_widgets_columns' ) ) );
 	$col     = 'col-xs-12 col-sm-6';
 
-	if ( 4 == $columns ) {
-		$col .= ' col-md-3';
+	if ( 5 == $columns ) {
+		$col .= ' col-md-1-5';
 	} else {
 		$col .= ' col-md-' . 12 / $columns;
 	}

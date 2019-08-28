@@ -110,6 +110,8 @@ if ( ! function_exists( 'toffedassen_extra_search' ) ) :
 			$css_class = 'search-modal';
 		}
 
+		$search_text = apply_filters( 'toffedassen_search_text', esc_html__( 'Start Searching', 'toffedassen' ) );
+
 		$items .= sprintf(
 			'<form method="get" class="instance-search" action="%s">' .
 			'<input type="text" name="s" placeholder="%s..." class="search-field" autocomplete="off">' .
@@ -123,7 +125,7 @@ if ( ! function_exists( 'toffedassen_extra_search' ) ) :
 			'<div class="woocommerce"></div>' .
 			'</div>',
 			esc_url( home_url( '/' ) ),
-			esc_html__( 'Start Searching', 'toffedassen' ),
+			$search_text,
 			$post_type_html
 		);
 
@@ -319,16 +321,16 @@ if ( ! function_exists( 'toffedassen_extra_sidebar' ) ) :
 			return '';
 		}
 
-		$icon_cart  = '<i class="t-icon icon-menu"></i>';
+		$icon  = '<i class="t-icon icon-menu"></i>';
 		$menu_class = '';
-		$icon_cart  = apply_filters( 'toffedassen_icon_menu', $icon_cart );
+		$icon  = apply_filters( 'toffedassen_icon_menu', $icon );
 
 		$menu_text = '';
 
 		if ( ! is_page_template( 'template-home-left-sidebar.php' ) ) {
 			$menu_text = esc_html( toffedassen_get_option( 'header_menu_text' ) );
 			if ( ! empty( $menu_text ) ) {
-				$icon_cart = '<span class="hidden-xs">' . $menu_text . '</span>' . $icon_cart;
+				$icon = '<span class="hidden-xs">' . $menu_text . '</span>' . $icon;
 			}
 		}
 
@@ -339,7 +341,7 @@ if ( ! function_exists( 'toffedassen_extra_sidebar' ) ) :
 				</a>
 			</li>',
 			esc_attr( $menu_class ),
-			wp_kses_post( $icon_cart )
+			wp_kses_post( $icon )
 		);
 
 	}
@@ -480,114 +482,6 @@ endif;
 if ( ! function_exists( 'toffedassen_get_menu_extras' ) ) :
 	function toffedassen_get_menu_extras() {
 		return toffedassen_get_option( 'menu_extras' );
-	}
-
-endif;
-
-/**
- * Get Page Css
- *
- * @since  1.0.0
- *
- *
- * @return string
- */
-if ( ! function_exists( 'toffedassen_get_page_custom_css' ) ) :
-	function toffedassen_get_page_custom_css() {
-		$id            = get_post_meta( get_the_ID(), 'image', true );
-		$bg_color      = get_post_meta( get_the_ID(), 'color', true );
-		$bg_horizontal = get_post_meta( get_the_ID(), 'background_horizontal', true );
-		$bg_vertical   = get_post_meta( get_the_ID(), 'background_vertical', true );
-		$bg_repeat     = get_post_meta( get_the_ID(), 'background_repeat', true );
-		$bg_attachment = get_post_meta( get_the_ID(), 'background_attachment', true );
-		$bg_size       = get_post_meta( get_the_ID(), 'background_size', true );
-
-		$url = wp_get_attachment_image_src( $id, 'full' );
-
-		$class = '.page-id-' . get_the_ID();
-
-		$bg_css = ! empty( $bg_color ) ? "background-color: {$bg_color};" : '';
-		$bg_css .= ! empty( $url ) ? "background-image: url( " . esc_url( $url[0] ) . " );" : '';
-
-		$bg_css .= ! empty( $bg_repeat ) ? "background-repeat: {$bg_repeat};" : '';
-
-		if ( ! empty( $bg_horizontal ) || ! empty( $bg_vertical ) ) {
-			$bg_css .= "background-position: {$bg_horizontal} {$bg_vertical};";
-		}
-
-		$bg_css .= ! empty( $bg_attachment ) ? "background-attachment: {$bg_attachment};" : '';
-
-		$bg_css .= ! empty( $bg_size ) ? "background-size: {$bg_size};" : '';
-
-		if ( $bg_css ) {
-			$bg_css = $class . '{' . $bg_css . '}';
-			$bg_css .= '@media (max-width: 1199px) { ' . $class . ' { background: #fff; } }';
-		}
-
-		return $bg_css;
-	}
-
-endif;
-
-/**
- * Get Header Css
- *
- * @since  1.0.0
- *
- *
- * @return string
- */
-if ( ! function_exists( 'toffedassen_header_css' ) ) :
-	function toffedassen_header_css() {
-		$css = '';
-
-		// Header Color
-		$header_color = toffedassen_get_option( 'header_text_color' );
-		$h_color      = '';
-
-		if ( get_post_meta( get_the_ID(), 'custom_header', true ) ) {
-			$header_color = get_post_meta( get_the_ID(), 'header_text_color', true );
-		}
-
-		if ( $header_color == 'custom' ) {
-			$h_color = toffedassen_get_option( 'header_text_custom_color' );
-
-			if ( get_post_meta( get_the_ID(), 'custom_header', true ) ) {
-				$h_color = get_post_meta( get_the_ID(), 'header_color', true );
-			}
-		}
-
-		if ( $h_color ) {
-			$css .= '.header-color-custom .nav ul.menu > li > a,
-			 		.header-color-custom .menu-extra ul > li > a,
-			 		.header-color-custom .site-header .menu-extra .menu-item-search .t-icon { color: ' . $h_color . '; }';
-			$css .= '.header-color-custom .nav ul.menu > li > a:after { background-color: ' . $h_color . '; }';
-		}
-
-		// Menu Hover Custom Color
-		$menu_color = toffedassen_get_option( 'menu_hover_color' );
-		$m_color    = '';
-
-		if ( $menu_color == 'custom-color' ) {
-			$m_color = toffedassen_get_option( 'menu_hover_custom_color' );
-		}
-
-		if ( $m_color ) {
-			$css .= '.nav ul.menu.custom-color > li:hover > a,
-				.nav ul.menu.custom-color > li.current-menu-item > a,
-				.nav ul.menu.custom-color > li.current_page_item > a,
-				.nav ul.menu.custom-color > li.current-menu-ancestor > a,
-				.nav ul.menu.custom-color > li.current-menu-parent > a,
-				.nav ul.menu.custom-color > li.active > a { color: ' . $m_color . '; }';
-			$css .= '.nav ul.menu.custom-color > li:hover > a:after,
-				.nav ul.menu.custom-color > li.current-menu-item > a:after,
-				.nav ul.menu.custom-color > li.current_page_item > a:after,
-				.nav ul.menu.custom-color > li.current-menu-ancestor > a:after,
-				.nav ul.menu.custom-color > li.current-menu-parent > a:after,
-				.nav ul.menu.custom-color > li.active > a:after { background-color: ' . $m_color . '; }';
-		}
-
-		return $css;
 	}
 
 endif;

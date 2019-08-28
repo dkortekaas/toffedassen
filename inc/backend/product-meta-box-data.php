@@ -22,6 +22,7 @@ class Toffe_Dassen_Meta_Box_Product_Data {
 		if ( ! function_exists( 'is_woocommerce' ) ) {
 			return false;
 		}
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		// Add form
 		add_action( 'woocommerce_product_data_panels', array( $this, 'product_meta_fields' ) );
 		add_action( 'woocommerce_product_data_tabs', array( $this, 'product_meta_tab' ) );
@@ -29,6 +30,14 @@ class Toffe_Dassen_Meta_Box_Product_Data {
 
 		add_action( 'wp_ajax_product_meta_fields', array( $this, 'instance_product_meta_fields' ) );
 		add_action( 'wp_ajax_nopriv_product_meta_fields', array( $this, 'instance_product_meta_fields' ) );
+	}
+
+	public function enqueue_scripts( $hook ) {
+		$screen = get_current_screen();
+		if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) && $screen->post_type == 'product' ) {
+			wp_enqueue_script( 'toffedassen_wc_settings_js', get_template_directory_uri() . '/js/backend/woocommerce.js', array( 'jquery' ), '20190717', true );
+			wp_enqueue_style( 'toffedassen_wc_settings_style', get_template_directory_uri() . "/css/woocommerce-settings.css", array(), '20190717' );
+		}
 	}
 
 	/**
@@ -85,9 +94,19 @@ class Toffe_Dassen_Meta_Box_Product_Data {
 			update_post_meta( $post_id, 'attributes_extra', $woo_data );
 		}
 
-		if ( isset( $_POST['custom_badges_text'] ) ) {
-			$woo_data = $_POST['custom_badges_text'];
-			update_post_meta( $post_id, 'custom_badges_text', $woo_data );
+		if ( isset( $_POST['_toffedassen_custom_badges_text'] ) ) {
+			$woo_data = $_POST['_toffedassen_custom_badges_text'];
+			update_post_meta( $post_id, '_toffedassen_custom_badges_text', $woo_data );
+		}
+
+		if ( isset( $_POST['_toffedassen_custom_badges_bg'] ) ) {
+			$woo_data = $_POST['_toffedassen_custom_badges_bg'];
+			update_post_meta( $post_id, '_toffedassen_custom_badges_bg', $woo_data );
+		}
+
+		if ( isset( $_POST['_toffedassen_custom_badges_color'] ) ) {
+			$woo_data = $_POST['_toffedassen_custom_badges_color'];
+			update_post_meta( $post_id, '_toffedassen_custom_badges_color', $woo_data );
 		}
 
 		if ( isset( $_POST['_is_new'] ) ) {
@@ -105,6 +124,7 @@ class Toffe_Dassen_Meta_Box_Product_Data {
 	 * @param $post_id
 	 */
 	public function create_product_extra_fields( $post_id ) {
+		$post_custom = get_post_custom( $post_id );
 		$attributes = maybe_unserialize( get_post_meta( $post_id, '_product_attributes', true ) );
 
 		if ( ! $attributes ) : ?>
@@ -132,11 +152,32 @@ class Toffe_Dassen_Meta_Box_Product_Data {
 
 		woocommerce_wp_text_input(
 			array(
-				'id'       => 'custom_badges_text',
+				'id'       => '_toffedassen_custom_badges_text',
 				'label'    => esc_html__( 'Custom Badge Text', 'toffedassen' ),
 				'desc_tip' => esc_html__( 'Enter this optional to show your badges.', 'toffedassen' ),
 			)
 		);
+
+		$bg_color       = ( isset( $post_custom['_toffedassen_custom_badges_bg'][0] ) ) ? $post_custom['_toffedassen_custom_badges_bg'][0] : '';
+		woocommerce_wp_text_input(
+			array(
+				'id'       => '_toffedassen_custom_badges_bg',
+				'label'    => esc_html__( 'Custom Badge Background', 'toffedassen' ),
+				'desc_tip' => esc_html__( 'Pick background color for your badge', 'toffedassen' ),
+				'value'    => $bg_color,
+			)
+		);
+
+		$color       = ( isset( $post_custom['_toffedassen_custom_badges_color'][0] ) ) ? $post_custom['_toffedassen_custom_badges_color'][0] : '';
+		woocommerce_wp_text_input(
+			array(
+				'id'       => '_toffedassen_custom_badges_color',
+				'label'    => esc_html__( 'Custom Badge Color', 'toffedassen' ),
+				'desc_tip' => esc_html__( 'Pick color for your badge', 'toffedassen' ),
+				'value'    => $color,
+			)
+		);
+
 		woocommerce_wp_checkbox(
 			array(
 				'id'          => '_is_new',

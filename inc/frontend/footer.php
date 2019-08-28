@@ -13,10 +13,6 @@
 
 if ( ! function_exists( 'toffedassen_show_footer' ) ) :
 	function toffedassen_show_footer() {
-		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
-			return;
-		}
-
 		$footer_layout = 1;
 		get_template_part( 'parts/footers/layout', $footer_layout );
 	}
@@ -37,7 +33,7 @@ function toffedassen_footer_newsletter() {
 		return;
 	}
 
-	if ( is_page_template( 'template-coming-soon-page.php' ) || is_page_template( 'template-home-no-footer.php' ) ) {
+	if ( is_page_template( 'template-home-no-footer.php' ) ) {
 		return;
 	}
 
@@ -45,8 +41,12 @@ function toffedassen_footer_newsletter() {
 		return;
 	}
 
+	if ( toffedassen_is_maintenance_page() ) {
+		return;
+	}
+
 	$style = toffedassen_get_option( 'newsletter_style' );
-	$shape = toffedassen_get_option( 'newsletter_shape' );
+	$shape = toffedasseno_get_option( 'newsletter_shape' );
 	$title = toffedassen_get_option( 'newsletter_title' );
 	$desc  = toffedassen_get_option( 'newsletter_desc' );
 	$bg    = toffedassen_get_option( 'newsletter_background_color' );
@@ -258,11 +258,6 @@ add_action( 'toffedassen_after_footer', 'toffedassen_preloader' );
 if ( ! function_exists( 'toffedassen_off_canvas_menu_sidebar' ) ) :
 	function toffedassen_off_canvas_menu_sidebar() {
 
-		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
-			return;
-		}
-
-
 		?>
         <div id="menu-sidebar-panel" class="menu-sidebar toffedassen-off-canvas-panel">
             <div class="widget-canvas-content">
@@ -329,10 +324,6 @@ add_action( 'wp_footer', 'toffedassen_site_canvas_layer' );
 if ( ! function_exists( 'toffedassen_off_canvas_cart' ) ) :
 	function toffedassen_off_canvas_cart() {
 
-		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
-			return;
-		}
-
 		if ( ! function_exists( 'woocommerce_mini_cart' ) ) {
 			return;
 		}
@@ -367,10 +358,6 @@ add_action( 'wp_footer', 'toffedassen_off_canvas_cart' );
  */
 if ( ! function_exists( 'toffedassen_search_modal' ) ) :
 	function toffedassen_search_modal() {
-
-		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
-			return;
-		}
 
 		?>
         <div id="search-modal" class="search-modal toffedassen-modal" tabindex="-1" role="dialog">
@@ -449,9 +436,7 @@ add_action( 'wp_footer', 'toffedassen_search_modal' );
  */
 if ( ! function_exists( 'toffedassen_quick_view_modal' ) ) :
 	function toffedassen_quick_view_modal() {
-		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
-			return;
-		}
+
 		?>
 
         <div id="quick-view-modal" class="quick-view-modal toffedassen-modal woocommerce" tabindex="-1" role="dialog">
@@ -493,10 +478,6 @@ add_action( 'wp_footer', 'toffedassen_quick_view_modal' );
 if ( ! function_exists( 'toffedassen_login_modal' ) ) :
 	function toffedassen_login_modal() {
 
-		if ( is_page_template( 'template-coming-soon-page.php' ) ) {
-			return;
-		}
-
 		if ( ! shortcode_exists( 'woocommerce_my_account' ) ) {
 			return;
 		}
@@ -504,6 +485,11 @@ if ( ! function_exists( 'toffedassen_login_modal' ) ) :
 		if ( is_user_logged_in() ) {
 			return;
 		}
+
+		if ( intval( toffedassen_get_option( 'my_account' ) ) ) {
+			return;
+		}
+
 		?>
 
         <div id="login-modal" class="login-modal toffedassen-modal woocommerce-account" tabindex="-1" role="dialog">
@@ -559,3 +545,89 @@ if ( ! function_exists( 'toffedassen_newsletter_modal' ) ) :
 endif;
 
 add_action( 'wp_footer', 'toffedassen_newsletter_modal' );
+
+function mobile_catalog_sorting_popup() {
+	$elements = toffedassen_get_option( 'shop_toolbar' );
+
+	if ( empty( $elements ) ) {
+		return;
+	}
+
+	if ( ! in_array( 'sort_by', $elements ) ) {
+		return;
+	}
+
+	echo '<div class="toffedassen-catalog-sorting-mobile" id="toffedassen-catalog-sorting-mobile">';
+
+	if ( function_exists( 'woocommerce_catalog_ordering' ) ) {
+		woocommerce_catalog_ordering();
+	}
+
+	echo '</div>';
+}
+add_action( 'wp_footer', 'mobile_catalog_sorting_popup' );
+
+/**
+ * Display recently viewed products in footer
+ *
+ * @since 1.0.0
+ *
+ *  return string
+ */
+if ( ! function_exists( 'toffedassen_footer_recently_viewed' ) ) :
+	function toffedassen_footer_recently_viewed() {
+		if ( ! function_exists( 'is_woocommerce' ) ) {
+			return;
+		}
+
+		$recently_viewed = apply_filters( 'toffedassen_footer_recently_viewed', toffedassen_get_option( 'footer_recently_viewed' ) );
+		if ( ! intval( $recently_viewed ) ) {
+			return;
+		}
+
+		if ( is_404() || is_page_template( 'template-coming-soon-page.php' ) ) {
+			return;
+		}
+
+		$els = apply_filters( 'toffedassen_footer_recently_viewed_els', toffedassen_get_option( 'footer_recently_viewed_els' ) );
+		if ( empty( $els ) ) {
+			return;
+		}
+
+		if ( toffedassen_is_home() ) {
+			if ( ! in_array( 'homepage', $els ) ) {
+				return;
+			}
+		} elseif ( is_page() ) {
+			if ( ! in_array( 'page', $els ) ) {
+				return;
+			}
+		} elseif ( is_singular( 'post' ) ) {
+			if ( ! in_array( 'post', $els ) ) {
+				return;
+			}
+		} elseif ( toffedassen_is_blog() ) {
+			if ( ! in_array( 'post', $els ) ) {
+				return;
+			}
+		} elseif ( toffedassen_is_catalog() ) {
+			if ( ! in_array( 'catalog', $els ) ) {
+				return;
+			}
+		} elseif ( is_singular( 'product' ) ) {
+			if ( ! in_array( 'single_product', $els ) ) {
+				return;
+			}
+		} else {
+			if ( ! in_array( 'other', $els ) ) {
+				return;
+			}
+		}
+
+		$columns  = apply_filters( 'toffedassen_footer_recently_viewed_columns', 5 );
+
+		echo '<div class="mf-recently-products footer-recently-viewed load-ajax" data-columns = ' . $columns . ' id="footer-recently-viewed"></div>';
+	}
+endif;
+
+add_action( 'toffedassen_before_footer', 'toffedassen_footer_recently_viewed', 30 );

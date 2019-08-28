@@ -58,10 +58,13 @@ foreach ( $catalog_orderby_options as $id => $name ) {
 }
 
 ?>
-<ul class="shop-toolbar-el woocommerce-ordering">
+<ul class="woocommerce-ordering">
 	<li class="current"><span><?php echo esc_html__( 'Sort by', 'toffedassen' ) ?><span class="sort-by"><?php echo esc_html( $order_current ); ?></span></span>
 		<ul>
 			<?php echo wp_kses_post( $order_html ); ?>
 		</ul>
+	</li>
+	<li class="cancel-ordering hidden-lg">
+		<a href="#" class="cancel-order"><?php esc_html_e('Cancel', 'toffedassen'); ?></a>
 	</li>
 </ul>
