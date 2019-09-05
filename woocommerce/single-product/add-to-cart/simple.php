@@ -47,6 +47,16 @@ if ( $product->is_in_stock() ) : ?>
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>
 
+	<ul class="checked-list">
+	<?php if( $product->is_in_stock() ) : ?>
+		<li><?php _e('In Stock', 'toffedassen'); ?></li>
+	<?php else : ?>
+		<li><?php _e('Soon in stock', 'toffedassen'); ?></li>
+	<?php endif; ?>
+		<li><?php _e('FREE shipping within the Netherlands', 'toffedassen'); ?></li>
+		<li><?php _e('100% satisfaction guarantee (return within 14 days)', 'toffedassen'); ?></li>
+	</ul>
+
 	<div class="share-links">
 		<span class="share-links__title"><?php _e('SHARE', 'toffedassen'); ?>:</span>
 			<a class="share-links__link" href="http://www.facebook.com/sharer.php?u=<?php echo $product->get_permalink(); ?>&amp;p=<?php echo $product->get_title(); ?>" target="_blank">
