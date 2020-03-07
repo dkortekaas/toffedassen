@@ -17,10 +17,10 @@
 
                                 <div class="product-header">
                                     <ul class="nav nav-tabs nav-filter filter" role="tablist">
-                                        <li role="presentation" class="active"><a href="#ties" aria-controls="latest" role="tab" data-toggle="tab">
+                                        <li role="presentation" class="active"><a href="#ties" aria-controls="ties" role="tab" data-toggle="tab">
                                             <?php _e('Neckties', 'toffedassen'); ?>
                                         </a></li>
-                                        <li role="presentation"><a href="#scarfs" aria-controls="latest" role="tab" data-toggle="tab">
+                                        <li role="presentation"><a href="#scarfs" aria-controls="scarfs" role="tab" data-toggle="tab">
                                             <?php _e('Scarfs', 'toffedassen'); ?>
                                         </a></li>
                                         <li role="presentation"><a href="#combisets" aria-controls="combisets" role="tab" data-toggle="tab">
