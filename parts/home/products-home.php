@@ -36,7 +36,7 @@
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
-                                            $latest_products = wc_get_products( array(
+                                            $ties = wc_get_products( array(
                                                 'limit' => 10,
                                                 'category' => array( 'stropdassen' ),
                                                 'orderby' => 'date',
@@ -66,7 +66,7 @@
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
                                             <?php
-                                            $combisets_products = wc_get_products( array(
+                                            $scarfs = wc_get_products( array(
                                                 'limit' => 10,
                                                 'category' => array( 'sjaals' ),
                                                 'orderby' => 'date',
