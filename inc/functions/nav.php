@@ -56,6 +56,7 @@ function toffedassen_numeric_pagination() {
 		}
 
 		echo paginate_links( $args );
+		remove_filter( 'number_format_i18n', 'toffedassen_paginate_links_prefix' );
 		?>
 	</nav>
 	<?php

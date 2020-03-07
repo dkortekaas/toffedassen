@@ -301,16 +301,16 @@ if ( ! defined( 'YITH_WCWL' ) ) {
                                id="custom_add_to_cart"><?php echo apply_filters( 'yith_wcwl_custom_add_to_cart_text', esc_html__( 'Add the selected products to the cart', 'toffedassen' ) ) ?></a>
                         </div>
 					<?php endif; ?>
-					<?php if ( $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
+	                <?php if ( $is_user_owner && $show_ask_estimate_button && $count > 0 ): ?>
                         <div class="ask-an-estimate-button-container">
 
-                            <a href="<?php echo ( ! empty( $additional_info ) || ! is_user_logged_in() ) ? '#ask_an_estimate_popup' : esc_url( $ask_estimate_url ) ?>"
-                               class="btn button ask-an-estimate-button" <?php echo ( ! empty( $additional_info ) ) ? 'data-rel="prettyPhoto[ask_an_estimate]"' : '' ?> >
-								<?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' ) ?>
-								<?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', esc_html__( 'Ask for an estimate', 'toffedassen' ) ) ?>
+                            <a href="<?php echo ( $additional_info || ! is_user_logged_in() ) ? '#ask_an_estimate_popup' : esc_url( $ask_estimate_url ) ?>"
+                               class="btn button ask-an-estimate-button" <?php echo ( $additional_info ) ? 'data-rel="prettyPhoto[ask_an_estimate]"' : '' ?> >
+				                <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_icon', '<i class="fa fa-shopping-cart"></i>' ) ?>
+				                <?php echo apply_filters( 'yith_wcwl_ask_an_estimate_text', esc_html__( 'Ask for an estimate', 'toffedassen' ) ) ?>
                             </a>
                         </div>
-					<?php endif; ?>
+	                <?php endif; ?>
 
 
 					<?php

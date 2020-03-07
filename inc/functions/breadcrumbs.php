@@ -72,7 +72,6 @@ function toffedassen_breadcrumbs( $args = '' ) {
 		$items[] = sprintf( $item_text_tpl, $args['labels']['home'] );
 	} // Blog
 	elseif ( is_home() && ! is_front_page() ) {
-
 		$items[] = sprintf(
 			$item_text_tpl,
 			$args['labels']['blog']
@@ -120,7 +119,6 @@ function toffedassen_breadcrumbs( $args = '' ) {
 		}
 	} // Page
 	elseif ( is_page() ) {
-
 		if ( ( function_exists( 'is_cart' ) && is_cart() ) || ( function_exists( 'is_checkout' ) && is_checkout() ) ) {
 			if ( $page_id = get_option( 'woocommerce_shop_page_id' ) ) {
 				$items[] = sprintf( $item_tpl, esc_url( get_permalink( $page_id ) ), get_the_title( $page_id ) );
@@ -144,20 +142,8 @@ function toffedassen_breadcrumbs( $args = '' ) {
 	} // Taxonomy
 	elseif ( is_tax() || is_category() || is_tag() ) {
 		$current_term = get_queried_object();
+
 		if ( $current_term ) {
-			if ( ( taxonomy_exists( 'product_cat' ) && 'product_cat' == $current_term->taxonomy )
-				|| ( taxonomy_exists( 'product_tag' ) && 'product_tag' == $current_term->taxonomy )
-				|| ( taxonomy_exists( 'product_brand' ) && 'product_brand' == $current_term->taxonomy ) ) {
-				if ( $page_id = get_option( 'woocommerce_shop_page_id' ) ) {
-					$items[] = sprintf( $item_tpl, esc_url( get_permalink( $page_id ) ), get_the_title( $page_id ) );
-				}
-			}
-
-			if ( ( 'category' == $current_term->taxonomy || 'post_tag' == $current_term->taxonomy )
-				&& 'page' == get_option( 'show_on_front' ) && ( $blog_page_id = get_option( 'page_for_posts' ) ) ) {
-				$items[] = sprintf( $item_tpl, get_page_link( $blog_page_id ), get_the_title( $blog_page_id ) );
-			}
-
 			$terms = toffedassen_get_term_parents( get_queried_object_id(), $current_term->taxonomy );
 			if ( $terms ) {
 				foreach ( $terms as $term_id ) {

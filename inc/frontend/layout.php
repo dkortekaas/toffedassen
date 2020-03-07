@@ -47,12 +47,6 @@ function toffedassen_body_classes( $classes ) {
 	}
 
 	if ( toffedassen_is_catalog() ) {
-		$layout = toffedassen_get_option( 'catalog_layout' );
-
-		if ( $layout == 'masonry-content' ) {
-			$classes[] = 'catalog-masonry';
-		}
-
 		$classes[] = 'toffedassen-catalog-page';
 		$classes[] = 'toffedassen-catalog-mobile-' . intval( toffedassen_get_option( 'catalog_mobile_columns' ) ) . '-columns';
 
@@ -77,10 +71,6 @@ function toffedassen_body_classes( $classes ) {
 
 		if ( '1' == toffedassen_get_option( 'single_product_layout' ) ) {
 			$classes[] = toffedassen_get_option( 'single_product_sidebar' );
-		}
-
-		if ( intval( toffedassen_get_option( 'product_add_to_cart_sticky' ) ) ) {
-			$classes[] = 'add-to-cart-sticky';
 		}
 	}
 

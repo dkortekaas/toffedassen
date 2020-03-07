@@ -17,13 +17,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php
-				if ( toffedassen_is_maintenance_page() ) {
-					the_content();
-				} else {
-					get_template_part( 'parts/content', 'page' );
-				}
-				?>
+				<?php get_template_part( 'parts/content', 'page' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

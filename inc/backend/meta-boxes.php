@@ -17,9 +17,11 @@
  * @param string $hook
  */
 function toffedassen_meta_box_scripts( $hook ) {
+	// Detect to load un-minify scripts when WP_DEBUG is enable
+	$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
-		wp_enqueue_script( 'toffedassen-meta-boxes', get_template_directory_uri() . "/js/backend/meta-boxes.js", array( 'jquery' ), '20161025', true );
+		wp_enqueue_script( 'toffedassen-meta-boxes', get_template_directory_uri() . "/js/backend/meta-boxes$min.js", array( 'jquery' ), '20161025', true );
 	}
 }
 
@@ -87,12 +89,18 @@ function toffedassen_register_meta_boxes( $meta_boxes ) {
 				'std'  => false,
 			),
 			array(
-				'name'  => esc_html__( 'Enable Header Transparent', 'toffedassen' ),
-				'id'    => 'enable_header_transparent',
+				'name'  => esc_html__( 'Disable Header Transparent', 'toffedassen' ),
+				'id'    => 'disable_header_transparent',
 				'type'  => 'checkbox',
 				'std'   => false,
-				'class' => 'enable-header-transparent',
-				'desc'  => esc_html__( 'This option just apply for pages which is not home page template', 'supro' ),
+				'class' => 'disable-header-transparent',
+			),
+			array(
+				'name'  => esc_html__( 'Disable Header Sticky', 'toffedassen' ),
+				'id'    => 'disable_header_sticky',
+				'type'  => 'checkbox',
+				'std'   => false,
+				'class' => 'disable-header-sticky',
 			),
 			array(
 				'name'  => esc_html__( 'Hide Border', 'toffedassen' ),
@@ -197,146 +205,148 @@ function toffedassen_register_meta_boxes( $meta_boxes ) {
 		),
 	);
 
-	// Page Background Settings
-	$meta_boxes[] = array(
-		'id'       => 'page-background-settings',
-		'title'    => esc_html__( 'Page Background Settings', 'toffedassen' ),
-		'pages'    => array( 'page' ),
-		'context'  => 'normal',
-		'priority' => 'high',
-		'autosave' => true,
-		'fields'   => array(
-			array(
-				'name' => esc_html__( 'Background Color', 'toffedassen' ),
-				'id'   => 'color',
-				'type' => 'color',
-			),
-			array(
-				'name'             => esc_html__( 'Background Image', 'toffedassen' ),
-				'id'               => 'image',
-				'type'             => 'image_advanced',
-				'class'            => 'image',
-				'max_file_uploads' => 1,
-			),
-			array(
-				'name'    => esc_html__( 'Background Horizontal', 'toffedassen' ),
-				'id'      => 'background_horizontal',
-				'type'    => 'select',
-				'std'     => '',
-				'options' => array(
-					''       => esc_html__( 'None', 'toffedassen' ),
-					'left'   => esc_html__( 'Left', 'toffedassen' ),
-					'center' => esc_html__( 'Center', 'toffedassen' ),
-					'right'  => esc_html__( 'Right', 'toffedassen' ),
+	if ( ! $post_id || ( 'page' == get_option( 'show_on_front' ) && $post_id != get_option( 'page_for_posts' ) ) ) {
+		// Page Background Settings
+		$meta_boxes[] = array(
+			'id'       => 'page-background-settings',
+			'title'    => esc_html__( 'Page Background Settings', 'toffedassen' ),
+			'pages'    => array( 'page' ),
+			'context'  => 'normal',
+			'priority' => 'high',
+			'autosave' => true,
+			'fields'   => array(
+				array(
+					'name' => esc_html__( 'Background Color', 'toffedassen' ),
+					'id'   => 'color',
+					'type' => 'color',
+				),
+				array(
+					'name'             => esc_html__( 'Background Image', 'toffedassen' ),
+					'id'               => 'image',
+					'type'             => 'image_advanced',
+					'class'            => 'image',
+					'max_file_uploads' => 1,
+				),
+				array(
+					'name'    => esc_html__( 'Background Horizontal', 'toffedassen' ),
+					'id'      => 'background_horizontal',
+					'type'    => 'select',
+					'std'     => '',
+					'options' => array(
+						''       => esc_html__( 'None', 'toffedassen' ),
+						'left'   => esc_html__( 'Left', 'toffedassen' ),
+						'center' => esc_html__( 'Center', 'toffedassen' ),
+						'right'  => esc_html__( 'Right', 'toffedassen' ),
+					),
+				),
+				array(
+					'name'    => esc_html__( 'Background Vertical', 'toffedassen' ),
+					'id'      => 'background_vertical',
+					'type'    => 'select',
+					'std'     => '',
+					'options' => array(
+						''       => esc_html__( 'None', 'toffedassen' ),
+						'top'    => esc_html__( 'Top', 'toffedassen' ),
+						'center' => esc_html__( 'Center', 'toffedassen' ),
+						'bottom' => esc_html__( 'Bottom', 'toffedassen' ),
+					),
+				),
+				array(
+					'name'    => esc_html__( 'Background Repeat', 'toffedassen' ),
+					'id'      => 'background_repeat',
+					'type'    => 'select',
+					'std'     => '',
+					'options' => array(
+						''          => esc_html__( 'None', 'toffedassen' ),
+						'no-repeat' => esc_html__( 'No Repeat', 'toffedassen' ),
+						'repeat'    => esc_html__( 'Repeat', 'toffedassen' ),
+						'repeat-y'  => esc_html__( 'Repeat Vertical', 'toffedassen' ),
+						'repeat-x'  => esc_html__( 'Repeat Horizontal', 'toffedassen' ),
+					),
+				),
+				array(
+					'name'    => esc_html__( 'Background Attachment', 'toffedassen' ),
+					'id'      => 'background_attachment',
+					'type'    => 'select',
+					'std'     => '',
+					'options' => array(
+						''       => esc_html__( 'None', 'toffedassen' ),
+						'scroll' => esc_html__( 'Scroll', 'toffedassen' ),
+						'fixed'  => esc_html__( 'Fixed', 'toffedassen' ),
+					),
+				),
+				array(
+					'name'    => esc_html__( 'Background Size', 'toffedassen' ),
+					'id'      => 'background_size',
+					'type'    => 'select',
+					'std'     => '',
+					'options' => array(
+						''        => esc_html__( 'None', 'toffedassen' ),
+						'auto'    => esc_html__( 'Auto', 'toffedassen' ),
+						'cover'   => esc_html__( 'Cover', 'toffedassen' ),
+						'contain' => esc_html__( 'Contain', 'toffedassen' ),
+					),
 				),
 			),
-			array(
-				'name'    => esc_html__( 'Background Vertical', 'toffedassen' ),
-				'id'      => 'background_vertical',
-				'type'    => 'select',
-				'std'     => '',
-				'options' => array(
-					''       => esc_html__( 'None', 'toffedassen' ),
-					'top'    => esc_html__( 'Top', 'toffedassen' ),
-					'center' => esc_html__( 'Center', 'toffedassen' ),
-					'bottom' => esc_html__( 'Bottom', 'toffedassen' ),
-				),
-			),
-			array(
-				'name'    => esc_html__( 'Background Repeat', 'toffedassen' ),
-				'id'      => 'background_repeat',
-				'type'    => 'select',
-				'std'     => '',
-				'options' => array(
-					''          => esc_html__( 'None', 'toffedassen' ),
-					'no-repeat' => esc_html__( 'No Repeat', 'toffedassen' ),
-					'repeat'    => esc_html__( 'Repeat', 'toffedassen' ),
-					'repeat-y'  => esc_html__( 'Repeat Vertical', 'toffedassen' ),
-					'repeat-x'  => esc_html__( 'Repeat Horizontal', 'toffedassen' ),
-				),
-			),
-			array(
-				'name'    => esc_html__( 'Background Attachment', 'toffedassen' ),
-				'id'      => 'background_attachment',
-				'type'    => 'select',
-				'std'     => '',
-				'options' => array(
-					''       => esc_html__( 'None', 'toffedassen' ),
-					'scroll' => esc_html__( 'Scroll', 'toffedassen' ),
-					'fixed'  => esc_html__( 'Fixed', 'toffedassen' ),
-				),
-			),
-			array(
-				'name'    => esc_html__( 'Background Size', 'toffedassen' ),
-				'id'      => 'background_size',
-				'type'    => 'select',
-				'std'     => '',
-				'options' => array(
-					''        => esc_html__( 'None', 'toffedassen' ),
-					'auto'    => esc_html__( 'Auto', 'toffedassen' ),
-					'cover'   => esc_html__( 'Cover', 'toffedassen' ),
-					'contain' => esc_html__( 'Contain', 'toffedassen' ),
-				),
-			),
-		),
-	);
+		);
 
-	//Page Header Settings
-	$meta_boxes[] = array(
-		'id'       => 'page-header-settings',
-		'title'    => esc_html__( 'Page Header Settings', 'toffedassen' ),
-		'pages'    => array( 'page' ),
-		'context'  => 'normal',
-		'priority' => 'high',
-		'fields'   => array(
-			array(
-				'name'  => esc_html__( 'Hide Page Header', 'toffedassen' ),
-				'id'    => 'hide_page_header',
-				'type'  => 'checkbox',
-				'std'   => false,
-				'class' => 'hide-page-header',
-			),
-			array(
-				'name'  => esc_html__( 'Hide Breadcrumbs', 'toffedassen' ),
-				'id'    => 'hide_breadcrumbs',
-				'type'  => 'checkbox',
-				'std'   => false,
-				'class' => 'hide-breadcrumbs',
-			),
-			array(
-				'name' => esc_html__( 'Custom Layout', 'toffedassen' ),
-				'id'   => 'page_header_custom_layout',
-				'type' => 'checkbox',
-				'std'  => false,
-			),
-			array(
-				'name'    => esc_html__( 'Text Color', 'toffedassen' ),
-				'id'      => 'text_color',
-				'type'    => 'select',
-				'std'     => 'dark',
-				'options' => array(
-					'dark'  => esc_html__( 'Dark', 'toffedassen' ),
-					'light' => esc_html__( 'Light', 'toffedassen' ),
+		//Page Header Settings
+		$meta_boxes[] = array(
+			'id'       => 'page-header-settings',
+			'title'    => esc_html__( 'Page Header Settings', 'toffedassen' ),
+			'pages'    => array( 'page' ),
+			'context'  => 'normal',
+			'priority' => 'high',
+			'fields'   => array(
+				array(
+					'name'  => esc_html__( 'Hide Page Header', 'toffedassen' ),
+					'id'    => 'hide_page_header',
+					'type'  => 'checkbox',
+					'std'   => false,
+					'class' => 'hide-page-header',
 				),
-				'class'   => 'page-header-text-color',
+				array(
+					'name'  => esc_html__( 'Hide Breadcrumbs', 'toffedassen' ),
+					'id'    => 'hide_breadcrumbs',
+					'type'  => 'checkbox',
+					'std'   => false,
+					'class' => 'hide-breadcrumbs',
+				),
+				array(
+					'name' => esc_html__( 'Custom Layout', 'toffedassen' ),
+					'id'   => 'page_header_custom_layout',
+					'type' => 'checkbox',
+					'std'  => false,
+				),
+				array(
+					'name'    => esc_html__( 'Text Color', 'toffedassen' ),
+					'id'      => 'text_color',
+					'type'    => 'select',
+					'std'     => 'dark',
+					'options' => array(
+						'dark'  => esc_html__( 'Dark', 'toffedassen' ),
+						'light' => esc_html__( 'Light', 'toffedassen' ),
+					),
+					'class'   => 'page-header-text-color',
+				),
+				array(
+					'name'             => esc_html__( 'Background Image', 'toffedassen' ),
+					'id'               => 'page_header_bg',
+					'type'             => 'image_advanced',
+					'max_file_uploads' => 1,
+					'std'              => false,
+					'class'            => 'page-header-bg',
+				),
+				array(
+					'name'  => esc_html__( 'Enable Parallax', 'toffedassen' ),
+					'id'    => 'parallax',
+					'type'  => 'checkbox',
+					'std'   => false,
+					'class' => 'page-header-parallax',
+				),
 			),
-			array(
-				'name'             => esc_html__( 'Background Image', 'toffedassen' ),
-				'id'               => 'page_header_bg',
-				'type'             => 'image_advanced',
-				'max_file_uploads' => 1,
-				'std'              => false,
-				'class'            => 'page-header-bg',
-			),
-			array(
-				'name'  => esc_html__( 'Enable Parallax', 'toffedassen' ),
-				'id'    => 'parallax',
-				'type'  => 'checkbox',
-				'std'   => false,
-				'class' => 'page-header-parallax',
-			),
-		),
-	);
+		);
+	}
 
 	// Product Videos
 	$meta_boxes[] = array(
@@ -374,24 +384,3 @@ function toffedassen_register_meta_boxes( $meta_boxes ) {
 }
 
 add_filter( 'rwmb_meta_boxes', 'toffedassen_register_meta_boxes' );
-
-function toffedassen_admin_notice__success() {
-
-	if ( ! function_exists('toffedassen_vc_addons_init') ) {
-		return;
-	}
-
-	$versions = get_plugin_data( WP_PLUGIN_DIR . '/toffedassen-addons/toffedassen-addons.php' );
-	if ( version_compare( $versions['Version'], '1.0.3', '>=' ) ) {
-		return;
-	}
-	?>
-	<div class="notice notice-info is-dismissible">
-		<p>
-			<strong><?php esc_html_e( 'The Toffe Dassen Addons plugin needs to be updated to 1.0.3 to ensure maximum compatibility with this theme. Go to Plugins > Supro Addons to update it.', 'supro' ); ?></strong>
-		</p>
-	</div>
-	<?php
-}
-
-add_action( 'admin_notices', 'toffedassen_admin_notice__success' );

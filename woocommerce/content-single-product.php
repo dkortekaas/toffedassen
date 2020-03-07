@@ -38,8 +38,8 @@ $product_layout = toffedassen_get_option( 'single_product_layout' );
 
 	<div class="toffedassen-single-product-detail">
 		<?php if ( ! in_array( $product_layout, array( '5', '6' ) ) ) : ?>
-		<div class="container">
-			<?php endif; ?>
+			<div class="container">
+		<?php endif; ?>
 			<?php
 			do_action( 'toffedassen_before_single_product' );
 			?>
@@ -75,9 +75,9 @@ $product_layout = toffedassen_get_option( 'single_product_layout' );
 
 				</div>
 			</div>
-			<?php if ( ! in_array( $product_layout, array( '5', '6' ) ) ) : ?>
-		</div>
-	<?php endif; ?>
+		<?php if ( ! in_array( $product_layout, array( '5', '6' ) ) ) : ?>
+			</div>
+		<?php endif; ?>
 		<!-- .summary -->
 	</div>
 	<div class="clear"></div>

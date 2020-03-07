@@ -39,14 +39,8 @@ class Toffe_Dassen_WooCommerce {
 		// Define all hook
 		add_action( 'template_redirect', array( $this, 'hooks' ) );
 
-		// Track Product View
-		add_action( 'template_redirect', array( $this, 'toffedassen_track_product_view' ) );
-		
 		// Need an early hook to ajaxify update mini shop cart
 		add_filter( 'woocommerce_add_to_cart_fragments', array( $this, 'add_to_cart_fragments' ) );
-
-		add_action( 'wp_ajax_toffedassen_footer_recently_viewed', array( $this, 'toffedassen_footer_recently_viewed' ) );
-		add_action( 'wp_ajax_nopriv_toffedassen_footer_recently_viewed', array( $this, 'toffedassen_footer_recently_viewed', ) );
 
 		// Remove catalog ordering
 		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
@@ -90,9 +84,6 @@ class Toffe_Dassen_WooCommerce {
 
 		// add product attribute
 		add_action( 'woocommerce_after_shop_loop_item_title', array( $this, 'product_attribute' ), 15 );
-
-		// Buy now
-		add_filter( 'woocommerce_add_to_cart_redirect', array( $this, 'buy_now_redirect' ), 99 );
 	}
 
 	/**
@@ -119,17 +110,15 @@ class Toffe_Dassen_WooCommerce {
 
 		// Remove badges
 		remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash' );
-		if ( '1' == toffedassen_get_option( 'single_product_layout' ) && intval( toffedassen_get_option( 'product_badges' ) ) ) {
-			add_action( 'woocommerce_before_single_product_summary', array( $this, 'product_ribbons' ) );
-		}
 
 		// Remove shop page title
 		add_filter( 'woocommerce_show_page_title', '__return_false' );
 
-		// Change shop columns
-		if ( toffedassen_get_option( 'catalog_layout' ) == 'masonry-content' ) {
-			add_filter( 'loop_shop_columns', array( $this, 'shop_columns' ) );
-		}
+		// Add Bootstrap classes
+		add_filter( 'post_class', array( $this, 'product_class' ), 30, 3 );
+
+		add_filter( 'product_cat_class', array( $this, 'product_cat_class' ), 30, 3 );
+
 
 		// Remove catalog ordering
 		remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
@@ -142,15 +131,11 @@ class Toffe_Dassen_WooCommerce {
 
 		// Add Shop Topbar
 		//add_action( 'woocommerce_archive_description', array( $this, 'shop_topbar' ), 25 );
-		add_action( 'woocommerce_before_main_content', array( $this, 'shop_topbar' ), 999 );
-		add_action( 'woocommerce_before_main_content', array( $this, 'shop_masonry_cat' ), 999 );
-
-		// Add Shop Bottombar
-		add_action( 'toffedassen_after_footer', array( $this, 'shop_bottombar' ), 15 );
+		add_action( 'woocommerce_before_shop_loop', array( $this, 'shop_topbar' ), 30 );
 
 
 		// Adds breadcrumb and product navigation on top of product
-		if ( function_exists( 'is_product' ) && is_product() ) {
+		if ( function_exists('is_product')  && is_product() ) {
 			add_action( 'woocommerce_before_main_content', array( $this, 'product_toolbar' ), 5 );
 		}
 
@@ -169,8 +154,7 @@ class Toffe_Dassen_WooCommerce {
 		// Single Product Button
 		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'yith_button' ), 50 );
 		add_action( 'woocommerce_before_add_to_cart_button', array( $this, 'open_button_group' ), 10 );
-		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'close_button_group' ), 200 );
-		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'product_buy_now_button' ), 300 );
+		add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'close_button_group' ), 1000 );
 		remove_action( 'woocommerce_single_variation', 'woocommerce_single_variation', 10 );
 		add_action( 'woocommerce_before_add_to_cart_button', 'woocommerce_single_variation', 5 );
 
@@ -424,34 +408,6 @@ class Toffe_Dassen_WooCommerce {
 	}
 
 	/**
-	 * Track product views.
-	 */
-	function toffedassen_track_product_view() {
-		if ( ! is_singular( 'product' ) ) {
-			return;
-		}
-
-		global $post;
-
-		if ( empty( $_COOKIE['woocommerce_recently_viewed'] ) ) {
-			$viewed_products = array();
-		} else {
-			$viewed_products = (array) explode( '|', $_COOKIE['woocommerce_recently_viewed'] );
-		}
-
-		if ( ! in_array( $post->ID, $viewed_products ) ) {
-			$viewed_products[] = $post->ID;
-		}
-
-		if ( sizeof( $viewed_products ) > 15 ) {
-			array_shift( $viewed_products );
-		}
-
-		// Store for session only
-		wc_setcookie( 'woocommerce_recently_viewed', implode( '|', $viewed_products ), time() + 60 * 60 * 24 * 30 );
-	}
-	
-	/**
 	 * WooCommerce Loop Product Content Thumbs
 	 *
 	 * @since  1.0
@@ -459,55 +415,21 @@ class Toffe_Dassen_WooCommerce {
 	 * @return string
 	 */
 	function product_content_thumbnail() {
-		global $product, $woocommerce_loop;
-
+		global $product;
 		$attachment_ids  = $product->get_gallery_image_ids();
 		$secondary_thumb = intval( toffedassen_get_option( 'disable_secondary_thumb' ) );
+		$shop_view       = toffedassen_get_option( 'shop_view' );
 
 		printf( '<div class="un-product-thumbnail">' );
 
 		printf( '<a href ="%s" class="">', esc_url( get_the_permalink() ) );
 
-		$image_size = 'shop_catalog';
-
-		if ( toffedassen_is_catalog() ) {
-			if ( toffedassen_get_option( 'catalog_layout' ) == 'masonry-content' ) {
-
-				if ( $woocommerce_loop ) {
-					if ( isset( $woocommerce_loop['loop'] ) && isset( $woocommerce_loop['current_page'] ) && $woocommerce_loop['per_page'] ) {
-						$index = intval( $woocommerce_loop['loop'] ) % 2;
-						$i     = intval( $woocommerce_loop['current_page'] ) % 2;
-						$mod   = intval( $woocommerce_loop['per_page'] ) % 2;
-
-						if ( $mod == 1 ) {
-							if (
-								( $index != 1 && $i == 1 ) ||
-								( $index == 1 && $i != 1 )
-							) {
-								$image_size = 'toffedassen-product-masonry-long';
-							} else {
-								$image_size = 'toffedassen-product-masonry-normal';
-							}
-						} else {
-							if ( $index != 1 ) {
-								$image_size = 'toffedassen-product-masonry-long';
-							} else {
-								$image_size = 'toffedassen-product-masonry-normal';
-							}
-						}
-					}
-				}
-			}
-		}
-
-		$image_size = apply_filters( 'single_product_archive_thumbnail_size', $image_size );
-
 		if ( function_exists( 'woocommerce_get_product_thumbnail' ) ) {
-			echo woocommerce_get_product_thumbnail( $image_size );
+			echo woocommerce_get_product_thumbnail();
 		}
 
 		if ( ! $secondary_thumb && $attachment_ids ) {
-			echo wp_get_attachment_image( $attachment_ids[0], $image_size, '', array( 'class' => 'image-hover' ) );
+			echo wp_get_attachment_image( $attachment_ids[0], 'shop_catalog', '', array( 'class' => 'image-hover' ) );
 		}
 
 		$this->product_ribbons();
@@ -569,19 +491,9 @@ class Toffe_Dassen_WooCommerce {
 			$badges = toffedassen_get_option( 'badges' );
 			// Change the default sale ribbon
 
-			$custom_badges = maybe_unserialize( get_post_meta( $product->get_id(), '_toffedassen_custom_badges_text', true ) );
-			$custom_badges_bg    = get_post_meta( $product->get_id(), '_toffedassen_custom_badges_bg', true );
-			$custom_badges_color = get_post_meta( $product->get_id(), '_toffedassen_custom_badges_color', true );
+			$custom_badges = maybe_unserialize( get_post_meta( $product->get_id(), 'custom_badges_text', true ) );
 			if ( $custom_badges ) {
-				$style    = '';
-				$bg_color = ! empty( $custom_badges_bg ) ? 'background-color:' . $custom_badges_bg . ' !important;' : '';
-				$color    = ! empty( $custom_badges_color ) ? 'color:' . $custom_badges_color . ' !important;' : '';
-
-				if ( $bg_color || $color ) {
-					$style = 'style="' . $color . $bg_color . '"';
-				}
-
-				$output[] = '<span class="custom ribbon"' . $style . '>' . esc_html( $custom_badges ) . '</span>';
+				$output[] = '<span class="custom ribbon">' . esc_html( $custom_badges ) . '</span>';
 
 			} else {
 
@@ -601,7 +513,7 @@ class Toffe_Dassen_WooCommerce {
 						$save                 = 0;
 
 						for ( $i = 0; $i < count( $available_variations ); $i ++ ) {
-							$variation_id     = $available_variations[$i]['variation_id'];
+							$variation_id     = $available_variations[ $i ]['variation_id'];
 							$variable_product = new WC_Product_Variation( $variation_id );
 							$regular_price    = $variable_product->get_regular_price();
 							$sales_price      = $variable_product->get_sale_price();
@@ -639,13 +551,12 @@ class Toffe_Dassen_WooCommerce {
 					}
 					$output[] = '<span class="featured ribbon">' . esc_html( $hot ) . '</span>';
 				} elseif ( ( time() - ( 60 * 60 * 24 * $this->new_duration ) ) < strtotime( get_the_time( 'Y-m-d' ) ) && in_array( 'new', $badges ) ||
-					get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
+				           get_post_meta( $product->get_id(), '_is_new', true ) == 'yes'
 				) {
 					$new = esc_html__( 'New', 'toffedassen' );
 					$output[] = '<span class="newness ribbon">' . esc_html( $new ) . '</span>';
 				}
 			}
-
 
 			if ( $output ) {
 				printf( '<span class="ribbons">%s</span>', implode( '', $output ) );
@@ -655,38 +566,12 @@ class Toffe_Dassen_WooCommerce {
 		}
 	}
 
-	function product_brand() {
-		global $product;
-		$brand = '';
-
-		$terms = wp_get_post_terms( $product->get_id(), 'product_brand', '' );
-
-		if ( ! is_wp_error( $terms ) && $terms ) {
-			$term_html = array();
-
-			foreach ( $terms as $term ) {
-				$term_html[] = sprintf( '<a href="%s">%s</a>', esc_url( get_term_link( $term->term_id, 'product_brand' ) ), esc_html( $term->name ) );
-			}
-
-			$brand = sprintf(
-				'<div class="product_brand">
-					<strong>%s</strong>
-					%s
-				</div>',
-				esc_html__( 'Brand:', 'toffedassen' ),
-				implode( ',', $term_html )
-			);
-		}
-
-		return $brand;
-	}
-
 	function product_meta() {
 		global $product;
 		$meta = toffedassen_get_option( 'show_product_meta' );
-		$cats = $tags = $brand = '';
+		$cats = $tags = '';
 
-		if ( ! in_array( 'categories', $meta ) && ! in_array( 'tags', $meta ) && ! in_array( 'brand', $meta ) ) {
+		if ( ! in_array( 'categories', $meta ) && ! in_array( 'tags', $meta ) ) {
 			return;
 		}
 
@@ -698,11 +583,7 @@ class Toffe_Dassen_WooCommerce {
 			$tags = wc_get_product_tag_list( $product->get_id(), ', ', '<div class="tagged_as"><strong>' . _n( 'Tag: ', 'Tags: ', count( $product->get_tag_ids() ), 'toffedassen' ) . '</strong>', '</div>' );
 		}
 
-		if ( in_array( 'brand', $meta ) ) {
-			$brand = $this->product_brand();
-		}
-
-		echo '<div class="product_meta">' . $cats . $tags . $brand . '</div>';
+		echo '<div class="product_meta">' . $cats . $tags . '</div>';
 	}
 
 	function product_sku() {
@@ -715,17 +596,17 @@ class Toffe_Dassen_WooCommerce {
 
 		if ( wc_product_sku_enabled() && ( $product->get_sku() || $product->is_type( 'variable' ) ) ) {
 			?>
-			<div class="sku_wrapper"><?php esc_html_e( 'SKU:', 'toffedassen' ); ?>
-				<span class="sku">
+            <div class="sku_wrapper"><?php esc_html_e( 'SKU:', 'toffedassen' ); ?>
+                <span class="sku">
                     <?php
-					if ( $sku = $product->get_sku() ) {
-						echo wp_kses_post( $sku );
-					} else {
-						echo esc_html__( 'N/A', 'toffedassen' );
-					}
-					?>
+                    if( $sku = $product->get_sku() ) {
+                        echo wp_kses_post( $sku );
+                    } else {
+	                    echo esc_html__( 'N/A', 'toffedassen' );
+                    }
+                  ?>
                 </span>
-			</div>
+            </div>
 			<?php
 		}
 	}
@@ -733,14 +614,14 @@ class Toffe_Dassen_WooCommerce {
 	function product_header_summary() {
 		global $product;
 		?>
-		<div class="header-summary">
-			<p class="price"><?php echo wp_kses_post( $product->get_price_html() ); ?></p>
+        <div class="header-summary">
+            <p class="price"><?php echo wp_kses_post($product->get_price_html()); ?></p>
 			<?php
 			if ( $product->get_type() == 'simple' ) {
 				echo wc_get_stock_html( $product );
 			}
 			?>
-		</div>
+        </div>
 		<?php
 	}
 
@@ -761,22 +642,102 @@ class Toffe_Dassen_WooCommerce {
 	}
 
 	/**
-	 * Change the shop columns
+	 * Add Bootstrap's column classes for product
 	 *
-	 * @since  1.0.0
+	 * @since 1.0
 	 *
-	 * @param  int $columns The default columns
+	 * @param array $classes
+	 * @param string $class
+	 * @param string $post_id
 	 *
-	 * @return int
+	 * @return array
 	 */
-	function shop_columns( $columns ) {
-		if ( toffedassen_is_catalog() ) {
-			if ( toffedassen_get_option( 'catalog_layout' ) == 'masonry-content' ) {
-				$columns = 3;
+	function product_class( $classes, $class = '', $post_id = '' ) {
+		if ( ! $post_id || get_post_type( $post_id ) !== 'product' ) {
+			return $classes;
+		}
+
+		global $product;
+
+		if ( ! is_single( $post_id ) ) {
+			global $woocommerce_loop;
+
+			$sm_class = 'col-sm-4';
+
+			if ( $woocommerce_loop['columns'] == 2 ) {
+				$sm_class = 'col-sm-6';
+			}
+
+
+			if ( ! is_search() ) {
+				$classes[] = 'col-xs-6 ' . $sm_class;
+
+				if ( $woocommerce_loop['columns'] != 5 ) {
+					$classes[] = 'col-md-' . ( 12 / $woocommerce_loop['columns'] );
+				} else {
+					$classes[] = 'col-md-1-5';
+				}
+
+				$classes[] = 'un-' . $woocommerce_loop['columns'] . '-cols';
+			} else {
+				if ( function_exists( 'is_woocommerce' ) && is_woocommerce() ) {
+					$classes[] = 'col-xs-6 ' . $sm_class;
+
+					if ( $woocommerce_loop['columns'] != 5 ) {
+						$classes[] = 'col-md-' . ( 12 / $woocommerce_loop['columns'] );
+					} else {
+						$classes[] = 'col-md-1-5';
+					}
+
+					$classes[] = 'un-' . $woocommerce_loop['columns'] . '-cols';
+				}
+			}
+		} else {
+			$classes[]      = 'toffedassen-single-product';
+			$product_layout = toffedassen_get_option( 'single_product_layout' );
+			$classes[]      = 'toffedassen-product-layout-' . $product_layout;
+
+			if ( in_array( $product_layout, array( '1', '2', '5', '6' ) ) ) {
+				$classes[] = 'toffedassen-product-slider';
+			}
+
+			$columns = wc_get_default_products_per_row();
+
+			if ( $columns == '5' ) {
+				$classes[] = 'toffedassen-product-slider';
 			}
 		}
 
-		return apply_filters( 'toffedassen_shop_columns', $columns );
+		return $classes;
+	}
+
+	/**
+	 * Add Bootstrap's column classes for product cat
+	 *
+	 * @since 1.0
+	 *
+	 * @param array $classes
+	 * @param string $class
+	 * @return array
+	 */
+	function product_cat_class( $classes, $class = '', $category = '' ) {
+		if ( is_search() ) {
+			return $classes;
+		}
+
+		global $woocommerce_loop;
+
+		$sm_class = 'col-sm-4';
+
+		if ( $woocommerce_loop['columns'] == 2 ) {
+			$sm_class = 'col-sm-6';
+		}
+
+		$classes[] = 'col-xs-6 ' . $sm_class;
+		$classes[] = 'col-md-' . ( 12 / $woocommerce_loop['columns'] );
+		$classes[] = 'un-' . $woocommerce_loop['columns'] . '-cols';
+
+		return $classes;
 	}
 
 	/**
@@ -849,10 +810,21 @@ class Toffe_Dassen_WooCommerce {
 			return;
 		}
 
-		//$elements = toffedassen_get_option( 'shop_toolbar' );
-		//if ( ! $elements ) {
-			//return;
-		//}
+//echo '$elements: '. $elements;
+
+		// $elements = toffedassen_get_option( 'shop_toolbar' );
+		// if ( ! $elements ) {
+		// 	return;
+		// }
+
+		$elements = array();
+
+		$elements[] = 'result';
+		$elements[] = 'filter';
+		$elements[] = 'sort_by';
+		$elements[] = 'shop_view';
+
+		$css_class = '';
 
 		$output = array();
 
@@ -870,23 +842,23 @@ class Toffe_Dassen_WooCommerce {
 			}
 
 			if ( $found ) {
-				$output[] = sprintf( '<div class="shop-toolbar-el product-found hidden-md hidden-sm hidden-xs">%s</div>', $found );
+				$output[] = sprintf( '<div class="shop-toolbar-el product-found">%s</div>', $found );
 			}
 		}
 
 		if ( in_array( 'filter', $elements ) ) {
-			$output[] = '<div id="toffedassen-catalog-filter" class="shop-toolbar-el toffedassen-catalog-filter hidden-md hidden-sm hidden-xs">
-							<a href="#">' . esc_html__( 'Filter', 'toffedassen' ) . '<i class="arrow_carrot-down"></i></a>
+			$output[] = '<div id="toffedassen-catalog-filter" class="shop-toolbar-el toffedassen-catalog-filter">
+							<a href="#">' . esc_html__( 'Filter', 'toffedassen' ) . '<i class="arrow_carrot-down"></i>
+
+							</a>
 						</div>';
 		}
 
 		if ( in_array( 'sort_by', $elements ) ) {
 			ob_start();
 			woocommerce_catalog_ordering();
-			$ordering = ob_get_clean();
-			$output[] = '<div class="shop-toolbar-el hidden-md hidden-sm hidden-xs">' . $ordering . '</div>';
+			$output[] = ob_get_clean();
 
-			$output[] = '<div id="toffedassen-woocommerce-ordering-mobile" class="shop-toolbar-el woocommerce-ordering-mobile hidden-lg">' . $ordering . '</div>';
 		}
 
 		if ( in_array( 'shop_view', $elements ) ) {
@@ -894,7 +866,7 @@ class Toffe_Dassen_WooCommerce {
 			$grid_current = $this->shop_view == 'grid' ? 'current' : '';
 
 			$output[] = sprintf(
-				'<div id="toffedassen-shop-view" class="shop-toolbar-el shop-view hidden-md hidden-sm hidden-xs">' .
+				'<div id="toffedassen-shop-view" class="shop-toolbar-el shop-view">' .
 				'<a href="#" class="view-grid %s" data-view="grid"><i class="icon-icons2"></i></a>' .
 				'<a href="#" class="view-list %s" data-view="list"><i class="icon-list4"></i></a>' .
 				'</div>',
@@ -904,16 +876,16 @@ class Toffe_Dassen_WooCommerce {
 		}
 
 		if ( in_array( 'filter', $elements ) ) {
-			$output[] = '<div id="toffedassen-catalog-filter-mobile" class="shop-toolbar-el toffedassen-catalog-filter-mobile hidden-lg">
+			$output[] = '<div id="toffedassen-catalog-filter-mobile" class="shop-toolbar-el toffedassen-catalog-filter-mobile">
 							<a href="#"><i class="icon-equalizer"></i></a>
 						</div>';
 		}
 
 		if ( $output ) {
 			?>
-			<div id="toffedassen-shop-toolbar" class="shop-toolbar">
+            <div id="toffedassen-shop-toolbar" class="shop-toolbar <?php echo esc_attr( $css_class ); ?>">
 				<?php echo implode( ' ', $output ); ?>
-			</div>
+            </div>
 			<?php
 		}
 	}
@@ -947,157 +919,31 @@ class Toffe_Dassen_WooCommerce {
 		}
 
 		?>
-		<div id="un-shop-topbar" class="widgets-area shop-topbar un-shop-topbar">
-			<div class="shop-topbar-canvas">
-				<div class="widget-panel-header hidden-lg">
-					<a href="#" class="close-canvas-panel"><span aria-hidden="true" class="icon-cross2"></span></a>
-				</div>
-				<div class="shop-topbar-content">
-					<?php
-					$sidebar = 'catalog-filter';
-					if ( is_active_sidebar( $sidebar ) ) {
-						dynamic_sidebar( $sidebar );
-					}
-					?>
-				</div>
-
-				<div class="shop-filter-actived">
-					<?php
-					$link = toffedassen_get_page_base_url();
-
-					if ( $_GET ) {
-						printf( '<a href="%s" id="remove-filter-actived" class="remove-filter-actived"><i class="icon-cross2"></i>%s</a>', esc_url( $link ), esc_html__( 'Clear All Filter', 'toffedassen' ) );
-					}
-					?>
-				</div>
+        <div id="un-shop-topbar" class="widgets-area shop-topbar">
+			<div class="widget-panel-header hidden-lg">
+				<a href="#" class="close-canvas-panel"><span aria-hidden="true" class="icon-cross2"></span></a>
 			</div>
-		</div>
+            <div class="shop-topbar-content">
+				<?php
+				$sidebar = 'catalog-filter';
+				if ( is_active_sidebar( $sidebar ) ) {
+					dynamic_sidebar( $sidebar );
+				}
+				?>
+            </div>
+
+            <div class="shop-filter-actived">
+				<?php
+				$link = toffedassen_get_page_base_url();
+
+				if ( $_GET ) {
+					printf( '<a href="%s" id="remove-filter-actived" class="remove-filter-actived"><i class="icon-cross2"></i>%s</a>', esc_url( $link ), esc_html__( 'Clear All Filter', 'toffedassen' ) );
+				}
+				?>
+            </div>
+        </div>
 
 		<?php
-	}
-
-	/**
-	 * Display a bottom bar on top of product archive
-	 *
-	 * @since 1.0
-	 */
-	function shop_bottombar() {
-
-		if ( ! toffedassen_is_catalog() ) {
-			return;
-		}
-
-		if ( toffedassen_get_option( 'catalog_layout' ) != 'masonry-content' ) {
-			return;
-		}
-
-		$elements = toffedassen_get_option( 'shop_toolbar_masonry' );
-		if ( ! in_array( 'filter', $elements ) ) {
-			return;
-		}
-
-		echo '<div class="shop-bottombar"><div class="container"><div class="shop-bottombar-content">';
-		printf( '<div class="filters-bottom"><a href="#" class="un-filter filters">%s <i class="icon-plus"></i> </a></div>', esc_html__( 'Filters', 'supro' ) );
-
-		echo '</div></div></div>';
-	}
-
-	function shop_masonry_cat() {
-		if ( ! toffedassen_is_catalog() ) {
-			return;
-		}
-
-		if ( toffedassen_get_option( 'catalog_layout' ) != 'masonry-content' ) {
-			return;
-		}
-
-		$elements = toffedassen_get_option( 'shop_toolbar_masonry' );
-		if ( ! in_array( 'categories', $elements ) ) {
-			return;
-		}
-
-		$this->shop_masonry_cat_html();
-	}
-
-	function shop_masonry_cat_html() {
-		$taxonomy = 'product_cat';
-
-		$term_id   = 0;
-		$cats      = $output = '';
-		$found     = false;
-		$number    = intval( toffedassen_get_option( 'catalog_categories_numbers' ) );
-		$cats_slug = wp_kses_post( toffedassen_get_option( 'catalog_categories' ) );
-
-		if ( is_tax( $taxonomy ) || is_category() ) {
-			$queried_object = get_queried_object();
-			if ( $queried_object ) {
-				$term_id = $queried_object->term_id;
-			}
-		}
-
-		if ( $cats_slug ) {
-			$cats_slug = explode( ',', $cats_slug );
-
-			foreach ( $cats_slug as $slug ) {
-				$cat = get_term_by( 'slug', $slug, $taxonomy );
-
-				if ( $cat ) {
-					$cat_selected = '';
-					if ( $cat->term_id == $term_id ) {
-						$cat_selected = 'selected';
-						$found        = true;
-					}
-
-					$cats .= sprintf( '<li><a href="%s" class="%s">%s</a></li>', esc_url( get_term_link( $cat ) ), esc_attr( $cat_selected ), esc_html( $cat->name ) );
-				}
-			}
-
-		} else {
-			$args = array(
-				'number'  => $number,
-				'orderby' => 'count',
-				'order'   => 'DESC',
-
-			);
-
-			$categories = get_terms( $taxonomy, $args );
-			if ( ! is_wp_error( $categories ) && $categories ) {
-				foreach ( $categories as $cat ) {
-					$cat_selected = '';
-					if ( $cat->term_id == $term_id ) {
-						$cat_selected = 'selected';
-						$found        = true;
-					}
-
-					$cats .= sprintf( '<li><a href="%s" class="%s">%s</a></li>', esc_url( get_term_link( $cat ) ), esc_attr( $cat_selected ), esc_html( $cat->name ) );
-				}
-			}
-		}
-
-		$cat_selected = $found ? '' : 'selected';
-
-		$text = apply_filters( 'toffedassen_shop_masonry_cat_html_text', esc_html__( 'All', 'toffedassen' ) );
-
-		if ( $cats ) {
-			$url = get_permalink( wc_get_page_id( 'shop' ) );
-
-			$output = sprintf(
-				'<ul>
-					<li><a href="%s" class="%s">%s</a></li>
-					 %s
-				</ul>',
-				esc_url( $url ),
-				esc_attr( $cat_selected ),
-				$text,
-				$cats
-			);
-		}
-
-		if ( $output ) {
-			$output = apply_filters( 'toffedassen_shop_masonry_cat_html', $output );
-
-			printf( '<div id="toffedassen-catalog-taxs-list" class="toffedassen-taxs-list toffedassen-catalog-taxs-list">%s</div>', $output );
-		}
 	}
 
 	/**
@@ -1218,8 +1064,8 @@ class Toffe_Dassen_WooCommerce {
 		);
 		?>
 
-		<div class="product-toolbar clearfix">
-			<div class="container">
+        <div class="product-toolbar clearfix">
+            <div class="container">
 				<?php
 
 				if ( in_array( 'breadcrumb', $toolbar ) ) {
@@ -1242,8 +1088,8 @@ class Toffe_Dassen_WooCommerce {
 					);
 				}
 				?>
-			</div>
-		</div>
+            </div>
+        </div>
 
 		<?php
 	}
@@ -1317,7 +1163,11 @@ class Toffe_Dassen_WooCommerce {
 			return false;
 		}
 
-		if ( function_exists( 'is_product' ) && is_product() ) {
+		if (  function_exists('is_product') && is_product() ) {
+			return false;
+		}
+
+		if ( is_home() && ! is_front_page() ) {
 			return false;
 		}
 
@@ -1348,6 +1198,7 @@ class Toffe_Dassen_WooCommerce {
 		if ( $user ) {
 			printf( '<h3 class="m-title">%s %s</h3>', esc_html__( 'Hello!', 'toffedassen' ), $user->display_name );
 		}
+
 	}
 
 	/**
@@ -1615,11 +1466,11 @@ class Toffe_Dassen_WooCommerce {
 		foreach ( $item_data as $key => $data ) {
 			// Set hidden to true to not display meta on cart.
 			if ( ! empty( $data['hidden'] ) ) {
-				unset( $item_data[$key] );
+				unset( $item_data[ $key ] );
 				continue;
 			}
-			$item_data[$key]['key']     = ! empty( $data['key'] ) ? $data['key'] : $data['name'];
-			$item_data[$key]['display'] = ! empty( $data['display'] ) ? $data['display'] : $data['value'];
+			$item_data[ $key ]['key']     = ! empty( $data['key'] ) ? $data['key'] : $data['name'];
+			$item_data[ $key ]['display'] = ! empty( $data['display'] ) ? $data['display'] : $data['value'];
 		}
 
 		// Output flat or in list format.
@@ -1649,10 +1500,10 @@ class Toffe_Dassen_WooCommerce {
 		global $pagenow, $wpdb, $wp;
 
 		if ( ( is_admin() && 'edit.php' != $pagenow )
-			|| ! is_search()
-			|| ! isset( $wp->query_vars['s'] )
-			|| ( isset( $wp->query_vars['post_type'] ) && 'product' != $wp->query_vars['post_type'] )
-			|| ( isset( $wp->query_vars['post_type'] ) && is_array( $wp->query_vars['post_type'] ) && ! in_array( 'product', $wp->query_vars['post_type'] ) )
+		     || ! is_search()
+		     || ! isset( $wp->query_vars['s'] )
+		     || ( isset( $wp->query_vars['post_type'] ) && 'product' != $wp->query_vars['post_type'] )
+		     || ( isset( $wp->query_vars['post_type'] ) && is_array( $wp->query_vars['post_type'] ) && ! in_array( 'product', $wp->query_vars['post_type'] ) )
 		) {
 			return $where;
 		}
@@ -1745,19 +1596,19 @@ class Toffe_Dassen_WooCommerce {
 						if ( is_wp_error( $term ) ) {
 							continue;
 						}
-						if ( $variations && isset( $variations[$term->slug] ) ) {
-							$attachment_id = $variations[$term->slug];
+						if ( $variations && isset( $variations[ $term->slug ] ) ) {
+							$attachment_id = $variations[ $term->slug ];
 							$attachment    = wp_get_attachment_image_src( $attachment_id, 'shop_catalog' );
 							$image_srcset  = wp_get_attachment_image_srcset( $attachment_id, 'shop_catalog' );
 
 							if ( $attachment_id == get_post_thumbnail_id() && ! $found ) {
 								$css_class .= ' selected';
-								$found = true;
+								$found     = true;
 							}
 
 							if ( $attachment ) {
 								$css_class .= ' un-swatch-variation-image';
-								$img_src = $attachment[0];
+								$img_src   = $attachment[0];
 								echo '' . $this->swatch_html( $term, $attr_type, $img_src, $css_class, $image_srcset );
 							}
 
@@ -1875,7 +1726,7 @@ class Toffe_Dassen_WooCommerce {
 				}
 
 				if ( $attribute ) {
-					$variations[$attribute[0]] = $attachment_id;
+					$variations[ $attribute[0] ] = $attachment_id;
 				}
 
 			}
@@ -1904,73 +1755,6 @@ class Toffe_Dassen_WooCommerce {
 		);
 
 		return $values;
-	}
-
-	/**
-	 * get_recently_viewed_products
-	 */
-	function toffedassen_footer_recently_viewed() {
-		if ( apply_filters( 'toffedassen_check_ajax_referer', true ) ) {
-			check_ajax_referer( '_toffedassen_nonce', 'nonce' );
-		}
-		$atts              = array();
-		$atts['numbers']   = toffedassen_get_option( 'footer_recently_viewed_number' );
-		$atts['title']     = toffedassen_get_option( 'footer_recently_viewed_title' );
-		$output            = toffedassen_recently_viewed_products( $atts );
-		wp_send_json_success( $output );
-		die();
-	}
-
-	/**
-	 * Display buy now button
-	 *
-	 * @since 1.0
-	 */
-	function product_buy_now_button() {
-		global $product;
-		if ( ! intval( toffedassen_get_option( 'product_buy_now' ) ) ) {
-			return;
-		}
-
-		if ( $product->get_type() == 'external' ) {
-			return;
-		}
-
-		echo sprintf( '<button class="buy_now_button button">%s</button>', wp_kses_post( supro_get_option( 'product_buy_now_text' ) ) );
-	}
-
-	function buy_now_redirect( $url ) {
-
-		if ( ! isset( $_REQUEST['buy_now'] ) || $_REQUEST['buy_now'] == false ) {
-			return $url;
-		}
-
-		if ( empty( $_REQUEST['quantity'] ) ) {
-			return $url;
-		}
-
-		if ( is_array( $_REQUEST['quantity'] ) ) {
-			$quantity_set = false;
-			foreach ( $_REQUEST['quantity'] as $item => $quantity ) {
-				if ( $quantity <= 0 ) {
-					continue;
-				}
-				$quantity_set = true;
-			}
-
-			if ( ! $quantity_set ) {
-				return $url;
-			}
-		}
-
-
-		$redirect = toffedassen_get_option( 'product_buy_now_link' );
-		if ( empty( $redirect ) ) {
-			return wc_get_checkout_url();
-		} else {
-			wp_safe_redirect( $redirect );
-			exit;
-		}
 	}
 }
 

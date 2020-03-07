@@ -17,11 +17,8 @@
 
                                 <div class="product-header">
                                     <ul class="nav nav-tabs nav-filter filter" role="tablist">
-                                        <li role="presentation" class="active"><a href="#ties" aria-controls="latest" role="tab" data-toggle="tab">
-                                            <?php _e('Neckties', 'toffedassen'); ?>
-                                        </a></li>
-                                        <li role="presentation"><a href="#scarfs" aria-controls="latest" role="tab" data-toggle="tab">
-                                            <?php _e('Scarfs', 'toffedassen'); ?>
+                                        <li role="presentation" class="active"><a href="#latest" aria-controls="latest" role="tab" data-toggle="tab">
+                                            <?php _e('Latest Products', 'toffedassen'); ?>
                                         </a></li>
                                         <li role="presentation"><a href="#combisets" aria-controls="combisets" role="tab" data-toggle="tab">
                                             <?php _e('Combisets tie & socks', 'toffedassen'); ?>
@@ -31,7 +28,7 @@
 
                                 <div class="product-wrapper tab-content">
 
-                                    <div role="tabpanel" class="tab-pane active" id="neckties">
+                                    <div role="tabpanel" class="tab-pane active" id="latest">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
@@ -61,34 +58,6 @@
 
                                     </div>
  
-                                    <div role="tabpanel" class="tab-pane" id="scarfs">
-
-                                        <div class="woocommerce columns-5">
-                                            <ul class="products columns-5">
-                                            <?php
-                                            $combisets_products = wc_get_products( array(
-                                                'limit' => 10,
-                                                'category' => array( 'sjaals' ),
-                                                'orderby' => 'date',
-                                                'order' => 'DESC',
-                                            ) );
-
-                                            if (!empty($scarfs)) :
-                                                foreach ($scarfs as $scarf) : ?>
-                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
-                                                        <div class="product-inner clearfix">
-                                                            <?php toffedassen_product( $scarf ); ?>
-                                                        </div>
-                                                    </li>
-                                                <?php
-                                                endforeach;
-                                            endif;
-                                            wp_reset_postdata();
-                                            wp_reset_query();
-                                            ?>
-                                            </ul>
-                                        </div>
-                                    </div> 
                                     <div role="tabpanel" class="tab-pane" id="combisets">
 
                                         <div class="woocommerce columns-5">
