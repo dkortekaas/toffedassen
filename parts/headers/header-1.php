@@ -28,8 +28,8 @@
 			</div>
 			<div class="menu-extra s-right">
 				<ul>
-					<?php toffedassen_extra_search(); ?>
 					<?php toffedassen_extra_language_switcher( 'hidden-md hidden-sm hidden-xs' ); ?>
+					<?php toffedassen_extra_search(); ?>
 					<?php toffedassen_extra_account(); ?>
 					<?php toffedassen_extra_wishlist(); ?>
 					<?php toffedassen_extra_cart(); ?>					
