@@ -51,7 +51,6 @@ if ( ! $related_posts->have_posts() ) {
 		<div class="related-section-title">
 			<?php
 			if ( $titles = toffedassen_get_option( 'related_posts_title' ) ) {
-
 				echo sprintf( '<h2 class="related-title">%s</h2>', $titles );
 			}
 			?>
