@@ -15,7 +15,7 @@ function toffedassen_enqueue_scripts() {
 	 * Register and enqueue styles
 	 */
 	wp_register_style( 'toffedassen-fonts', toffedassen_fonts_url(), array(), '20180307' );
-	//wp_register_style( 'toffedassen-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.2.0' );
+	wp_register_style( 'toffedassen-style', get_template_directory_uri() . '/assets/css/style.css', array(), '1.2.0' );
 	wp_register_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '3.3.7' );
 	wp_register_style( 'eleganticons', get_template_directory_uri() . '/assets/css/eleganticons.min.css', array(), '1.0.0' );
 	wp_register_style( 'linearicons', get_template_directory_uri() . '/assets/css/linearicons.min.css', array(), '1.0.0' );
