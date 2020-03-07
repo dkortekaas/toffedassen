@@ -61,7 +61,7 @@
 
                                     </div>
  
-                                     <div role="tabpanel" class="tab-pane" id="combisets">
+                                     <div role="tabpanel" class="tab-pane" id="scarfs">
 
                                         <div class="woocommerce columns-5">
                                             <ul class="products columns-5">
@@ -90,35 +90,6 @@
                                         </div>
                                     </div>
                                 
-                                    <div role="tabpanel" class="tab-pane" id="scarfs">
-
-                                        <div class="woocommerce columns-5">
-                                            <ul class="products columns-5">
-                                            <?php
-                                            $combisets_products = wc_get_products( array(
-                                                'limit' => 10,
-                                                'category' => array( 'stropdassen-combisets' ),
-                                                'orderby' => 'date',
-                                                'order' => 'DESC',
-                                            ) );
-
-                                            if (!empty($combisets_products)) :
-                                                foreach ($combisets_products as $combisets_product) : ?>
-                                                    <li class="product type-product col-xs-6 col-sm-4 col-md-1-5 un-5-cols<?php //echo $class_latest; ?>">
-                                                        <div class="product-inner clearfix">
-                                                            <?php toffedassen_product( $combisets_product ); ?>
-                                                        </div>
-                                                    </li>
-                                                <?php
-                                                endforeach;
-                                            endif;
-                                            wp_reset_postdata();
-                                            wp_reset_query();
-                                            ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-
                                     <div role="tabpanel" class="tab-pane" id="combisets">
 
                                         <div class="woocommerce columns-5">
