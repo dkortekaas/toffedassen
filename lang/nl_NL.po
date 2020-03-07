@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Toffe Dassen\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-01 21:13+0200\n"
-"PO-Revision-Date: 2019-06-01 21:15+0200\n"
+"POT-Creation-Date: 2020-03-07 12:40+0100\n"
+"PO-Revision-Date: 2020-03-07 12:43+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-KeywordsList: _e;__;esc_html__\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -38,9 +38,9 @@ msgstr ""
 #: inc/backend/customizer.php:1084 inc/backend/customizer.php:2521
 #: inc/backend/customizer.php:2534 inc/backend/customizer.php:2547
 #: inc/backend/customizer.php:2561 inc/backend/customizer.php:2573
-#: inc/backend/meta-boxes.php:234 inc/backend/meta-boxes.php:246
-#: inc/backend/meta-boxes.php:258 inc/backend/meta-boxes.php:271
-#: inc/backend/meta-boxes.php:282 inc/backend/product-meta-box-data.php:118
+#: inc/backend/meta-boxes.php:236 inc/backend/meta-boxes.php:248
+#: inc/backend/meta-boxes.php:260 inc/backend/meta-boxes.php:273
+#: inc/backend/meta-boxes.php:284 inc/backend/product-meta-box-data.php:118
 msgid "None"
 msgstr ""
 
@@ -253,23 +253,23 @@ msgstr ""
 #: inc/backend/customizer.php:644 inc/backend/customizer.php:971
 #: inc/backend/customizer.php:1114 inc/backend/customizer.php:2019
 #: inc/backend/customizer.php:2470 inc/backend/customizer.php:2502
-#: inc/backend/meta-boxes.php:217
+#: inc/backend/meta-boxes.php:219
 msgid "Background Color"
 msgstr ""
 
 #: inc/backend/customizer.php:651 inc/backend/customizer.php:749
 #: inc/backend/customizer.php:838 inc/backend/customizer.php:947
-#: inc/backend/customizer.php:2463 inc/backend/meta-boxes.php:123
+#: inc/backend/customizer.php:2463 inc/backend/meta-boxes.php:125
 msgid "Color"
 msgstr ""
 
 #: inc/backend/customizer.php:656 inc/backend/product-meta-box-data.php:117
-#: inc/frontend/woocommerce.php:1156
+#: inc/frontend/woocommerce.php:1145
 msgid "Default"
 msgstr ""
 
 #: inc/backend/customizer.php:657 inc/backend/customizer.php:737
-#: inc/backend/customizer.php:833 inc/backend/meta-boxes.php:118
+#: inc/backend/customizer.php:833 inc/backend/meta-boxes.php:120
 msgid "Custom"
 msgstr ""
 
@@ -292,7 +292,7 @@ msgstr ""
 #: inc/backend/customizer.php:689 inc/backend/customizer.php:1006
 #: inc/backend/customizer.php:1026 inc/backend/customizer.php:2424
 #: inc/backend/customizer.php:2523 inc/backend/customizer.php:2536
-#: inc/backend/meta-boxes.php:236 inc/backend/meta-boxes.php:248
+#: inc/backend/meta-boxes.php:238 inc/backend/meta-boxes.php:250
 msgid "Center"
 msgstr ""
 
@@ -333,7 +333,7 @@ msgstr ""
 msgid "Check this to enable header transparent in homepage only."
 msgstr ""
 
-#: inc/backend/customizer.php:730 inc/backend/meta-boxes.php:111
+#: inc/backend/customizer.php:730 inc/backend/meta-boxes.php:113
 msgid "Header Text Color"
 msgstr ""
 
@@ -344,14 +344,14 @@ msgstr ""
 #: inc/backend/customizer.php:735 inc/backend/customizer.php:1216
 #: inc/backend/customizer.php:1339 inc/backend/customizer.php:2276
 #: inc/backend/customizer.php:2343 inc/backend/customizer.php:2497
-#: inc/backend/meta-boxes.php:116 inc/backend/meta-boxes.php:325
+#: inc/backend/meta-boxes.php:118 inc/backend/meta-boxes.php:327
 msgid "Dark"
 msgstr ""
 
 #: inc/backend/customizer.php:736 inc/backend/customizer.php:1217
 #: inc/backend/customizer.php:1340 inc/backend/customizer.php:2277
 #: inc/backend/customizer.php:2344 inc/backend/customizer.php:2496
-#: inc/backend/meta-boxes.php:117 inc/backend/meta-boxes.php:326
+#: inc/backend/meta-boxes.php:119 inc/backend/meta-boxes.php:328
 msgid "Light"
 msgstr ""
 
@@ -384,7 +384,7 @@ msgid "Menu Text"
 msgstr ""
 
 #: inc/backend/customizer.php:784 inc/backend/customizer.php:1130
-#: inc/backend/customizer.php:2366 inc/backend/meta-boxes.php:161
+#: inc/backend/customizer.php:2366 inc/backend/meta-boxes.php:163
 msgid "Socials"
 msgstr ""
 
@@ -434,8 +434,8 @@ msgstr ""
 msgid "Search Content Type"
 msgstr ""
 
-#: inc/backend/customizer.php:865 inc/functions/entry.php:780
-#: inc/widgets/product-cat.php:119 inc/widgets/product-tag.php:99
+#: inc/backend/customizer.php:865 inc/functions/entry.php:770
+#: inc/widgets/product-cat.php:118 inc/widgets/product-tag.php:98
 msgid "All"
 msgstr ""
 
@@ -476,97 +476,97 @@ msgstr ""
 #: inc/backend/customizer.php:985 inc/backend/customizer.php:1107
 #: inc/backend/customizer.php:1229 inc/backend/customizer.php:1376
 #: inc/backend/customizer.php:2282 inc/backend/customizer.php:2509
-#: inc/backend/meta-boxes.php:222 inc/backend/meta-boxes.php:331
+#: inc/backend/meta-boxes.php:224 inc/backend/meta-boxes.php:333
 msgid "Background Image"
 msgstr ""
 
 #: inc/backend/customizer.php:999 inc/backend/customizer.php:2516
-#: inc/backend/meta-boxes.php:229
+#: inc/backend/meta-boxes.php:231
 msgid "Background Horizontal"
 msgstr ""
 
 #: inc/backend/customizer.php:1005 inc/backend/customizer.php:2522
-#: inc/backend/meta-boxes.php:235
+#: inc/backend/meta-boxes.php:237
 msgid "Left"
 msgstr ""
 
 #: inc/backend/customizer.php:1007 inc/backend/customizer.php:2524
-#: inc/backend/meta-boxes.php:237
+#: inc/backend/meta-boxes.php:239
 msgid "Right"
 msgstr ""
 
 #: inc/backend/customizer.php:1019 inc/backend/customizer.php:2529
-#: inc/backend/meta-boxes.php:241
+#: inc/backend/meta-boxes.php:243
 msgid "Background Vertical"
 msgstr ""
 
 #: inc/backend/customizer.php:1025 inc/backend/customizer.php:2535
-#: inc/backend/meta-boxes.php:247
+#: inc/backend/meta-boxes.php:249
 msgid "Top"
 msgstr ""
 
 #: inc/backend/customizer.php:1027 inc/backend/customizer.php:2537
-#: inc/backend/meta-boxes.php:249
+#: inc/backend/meta-boxes.php:251
 msgid "Bottom"
 msgstr ""
 
 #: inc/backend/customizer.php:1039 inc/backend/customizer.php:2542
-#: inc/backend/meta-boxes.php:253
+#: inc/backend/meta-boxes.php:255
 msgid "Background Repeat"
 msgstr ""
 
 #: inc/backend/customizer.php:1045 inc/backend/customizer.php:2548
-#: inc/backend/meta-boxes.php:259
+#: inc/backend/meta-boxes.php:261
 msgid "No Repeat"
 msgstr ""
 
 #: inc/backend/customizer.php:1046 inc/backend/customizer.php:2549
-#: inc/backend/meta-boxes.php:260
+#: inc/backend/meta-boxes.php:262
 msgid "Repeat"
 msgstr ""
 
 #: inc/backend/customizer.php:1047 inc/backend/customizer.php:2550
-#: inc/backend/meta-boxes.php:261
+#: inc/backend/meta-boxes.php:263
 msgid "Repeat Vertical"
 msgstr ""
 
 #: inc/backend/customizer.php:1048 inc/backend/customizer.php:2551
-#: inc/backend/meta-boxes.php:262
+#: inc/backend/meta-boxes.php:264
 msgid "Repeat Horizontal"
 msgstr ""
 
 #: inc/backend/customizer.php:1060 inc/backend/customizer.php:2556
-#: inc/backend/meta-boxes.php:266
+#: inc/backend/meta-boxes.php:268
 msgid "Background Attachment"
 msgstr ""
 
 #: inc/backend/customizer.php:1066 inc/backend/customizer.php:2562
-#: inc/backend/meta-boxes.php:272
+#: inc/backend/meta-boxes.php:274
 msgid "Scroll"
 msgstr ""
 
 #: inc/backend/customizer.php:1067 inc/backend/customizer.php:2563
-#: inc/backend/meta-boxes.php:273
+#: inc/backend/meta-boxes.php:275
 msgid "Fixed"
 msgstr ""
 
 #: inc/backend/customizer.php:1079 inc/backend/customizer.php:2568
-#: inc/backend/meta-boxes.php:277
+#: inc/backend/meta-boxes.php:279
 msgid "Background Size"
 msgstr ""
 
 #: inc/backend/customizer.php:1085 inc/backend/customizer.php:2574
-#: inc/backend/meta-boxes.php:283
+#: inc/backend/meta-boxes.php:285
 msgid "Auto"
 msgstr ""
 
 #: inc/backend/customizer.php:1086 inc/backend/customizer.php:2575
-#: inc/backend/meta-boxes.php:284
+#: inc/backend/meta-boxes.php:286
 msgid "Cover"
 msgstr ""
 
 #: inc/backend/customizer.php:1087 inc/backend/customizer.php:2576
-#: inc/backend/meta-boxes.php:285
+#: inc/backend/meta-boxes.php:287
 msgid "Contain"
 msgstr ""
 
@@ -584,7 +584,7 @@ msgid "Newsletter"
 msgstr ""
 
 #: inc/backend/customizer.php:1172 inc/backend/customizer.php:2455
-#: inc/backend/meta-boxes.php:198
+#: inc/backend/meta-boxes.php:200
 msgid "Newsletter Form"
 msgstr ""
 
@@ -616,7 +616,7 @@ msgid "Page Header Text Color"
 msgstr ""
 
 #: inc/backend/customizer.php:1243 inc/backend/customizer.php:1357
-#: inc/backend/customizer.php:2289 inc/backend/meta-boxes.php:339
+#: inc/backend/customizer.php:2289 inc/backend/meta-boxes.php:341
 msgid "Enable Parallax"
 msgstr ""
 
@@ -743,32 +743,32 @@ msgid "Socials Share"
 msgstr ""
 
 #: inc/backend/customizer.php:1540 inc/backend/customizer.php:2085
-#: inc/functions/entry.php:488 inc/widgets/socials.php:25
+#: inc/functions/entry.php:488 inc/widgets/socials.php:23
 msgid "Facebook"
 msgstr ""
 
 #: inc/backend/customizer.php:1541 inc/backend/customizer.php:2086
-#: inc/functions/entry.php:489 inc/widgets/socials.php:26
+#: inc/functions/entry.php:489 inc/widgets/socials.php:24
 msgid "Twitter"
 msgstr ""
 
 #: inc/backend/customizer.php:1542 inc/backend/customizer.php:2087
-#: inc/widgets/socials.php:27
+#: inc/widgets/socials.php:25
 msgid "Google Plus"
 msgstr ""
 
 #: inc/backend/customizer.php:1543 inc/backend/customizer.php:2088
-#: inc/functions/entry.php:491 inc/widgets/socials.php:29
+#: inc/functions/entry.php:491 inc/widgets/socials.php:27
 msgid "Tumblr"
 msgstr ""
 
 #: inc/backend/customizer.php:1544 inc/backend/customizer.php:2089
-#: inc/functions/entry.php:496 inc/widgets/socials.php:31
+#: inc/functions/entry.php:496 inc/widgets/socials.php:29
 msgid "Pinterest"
 msgstr ""
 
 #: inc/backend/customizer.php:1545 inc/backend/customizer.php:2090
-#: inc/widgets/socials.php:30
+#: inc/widgets/socials.php:28
 msgid "Linkedin"
 msgstr ""
 
@@ -852,7 +852,7 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
-#: inc/backend/customizer.php:1757 inc/frontend/woocommerce.php:862
+#: inc/backend/customizer.php:1757 inc/frontend/woocommerce.php:851
 msgid "Filter"
 msgstr ""
 
@@ -926,25 +926,25 @@ msgstr ""
 msgid "Check this to show badges on every products."
 msgstr ""
 
-#: inc/backend/customizer.php:1849 inc/frontend/woocommerce.php:557
-#: inc/frontend/woocommerce.php:1799
+#: inc/backend/customizer.php:1849 inc/frontend/woocommerce.php:550
+#: inc/frontend/woocommerce.php:1788
 #: inc/mega-menu/class-mega-menu-walker.php:334
 msgid "Hot"
 msgstr "Hot"
 
-#: inc/backend/customizer.php:1850 inc/frontend/woocommerce.php:565
-#: inc/frontend/woocommerce.php:1803
+#: inc/backend/customizer.php:1850 inc/backend/customizer.php:1947
+#: inc/frontend/woocommerce.php:556 inc/frontend/woocommerce.php:1792
 #: inc/mega-menu/class-mega-menu-walker.php:337
 msgid "New"
 msgstr "Nieuw"
 
-#: inc/backend/customizer.php:1851 inc/frontend/woocommerce.php:511
-#: inc/frontend/woocommerce.php:1796
+#: inc/backend/customizer.php:1851 inc/frontend/woocommerce.php:505
+#: inc/frontend/woocommerce.php:1785
 msgid "Sale"
 msgstr "Aanbieding"
 
-#: inc/backend/customizer.php:1852 inc/frontend/woocommerce.php:503
-#: inc/frontend/woocommerce.php:1793
+#: inc/backend/customizer.php:1852 inc/frontend/woocommerce.php:501
+#: inc/frontend/woocommerce.php:1782
 msgid "Out Of Stock"
 msgstr ""
 
@@ -1211,8 +1211,8 @@ msgstr ""
 msgid "Just show newsletter on HomePage"
 msgstr ""
 
-#: inc/backend/customizer.php:2418 inc/widgets/product-cat.php:42
-#: inc/widgets/product-tag.php:42
+#: inc/backend/customizer.php:2418 inc/widgets/product-cat.php:41
+#: inc/widgets/product-tag.php:41
 msgid "Style"
 msgstr ""
 
@@ -1335,141 +1335,141 @@ msgstr ""
 msgid "The Catalog filter display as sidebar"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:45
+#: inc/backend/meta-boxes.php:47
 msgid "Format Details"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:52
+#: inc/backend/meta-boxes.php:54
 msgid "Image"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:59
+#: inc/backend/meta-boxes.php:61
 msgid "Gallery"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:65
+#: inc/backend/meta-boxes.php:67
 msgid "Video"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:78
+#: inc/backend/meta-boxes.php:80
 msgid "Header Settings"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:84
+#: inc/backend/meta-boxes.php:86
 msgid "Custom Header"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:90
+#: inc/backend/meta-boxes.php:92
 msgid "Disable Header Transparent"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:97
+#: inc/backend/meta-boxes.php:99
 msgid "Disable Header Sticky"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:104
+#: inc/backend/meta-boxes.php:106
 msgid "Hide Border"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:134
+#: inc/backend/meta-boxes.php:136
 msgid "Header Left Sidebar Settings"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:140
+#: inc/backend/meta-boxes.php:142
 msgid "Header Account Text"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:145
+#: inc/backend/meta-boxes.php:147
 msgid "Header Wishlist Text"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:150
+#: inc/backend/meta-boxes.php:152
 msgid "Header Cart Text"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:155
+#: inc/backend/meta-boxes.php:157
 msgid "Header Copyright"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:164
+#: inc/backend/meta-boxes.php:166
 msgid "Header Socials"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:168
+#: inc/backend/meta-boxes.php:170
 msgid "Enter socials URL"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:176
+#: inc/backend/meta-boxes.php:178
 msgid "Newsletter Settings"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:182
+#: inc/backend/meta-boxes.php:184
 msgid "Hide Newsletter"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:188
+#: inc/backend/meta-boxes.php:190
 msgid "Form Title"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:193
+#: inc/backend/meta-boxes.php:195
 msgid "Form Subtitle"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:201
+#: inc/backend/meta-boxes.php:203
 msgid "Go to MailChimp for WP &gt; Form to get shortcode"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:210
+#: inc/backend/meta-boxes.php:212
 msgid "Page Background Settings"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:294
+#: inc/backend/meta-boxes.php:296
 msgid "Page Header Settings"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:300
+#: inc/backend/meta-boxes.php:302
 msgid "Hide Page Header"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:307
+#: inc/backend/meta-boxes.php:309
 msgid "Hide Breadcrumbs"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:314
+#: inc/backend/meta-boxes.php:316
 msgid "Custom Layout"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:320
+#: inc/backend/meta-boxes.php:322
 msgid "Text Color"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:352
+#: inc/backend/meta-boxes.php:354
 msgid "Product Video"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:358
+#: inc/backend/meta-boxes.php:360
 msgid "Video URL"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:362
+#: inc/backend/meta-boxes.php:364
 msgid ""
 "Enter URL of Youtube or Vimeo or specific filetypes such as mp4, m4v, webm, "
 "ogv, wmv, flv."
 msgstr ""
 
-#: inc/backend/meta-boxes.php:365
+#: inc/backend/meta-boxes.php:367
 msgid "Video Width(px)"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:368
+#: inc/backend/meta-boxes.php:370
 msgid "Enter the width of video."
 msgstr ""
 
-#: inc/backend/meta-boxes.php:372
+#: inc/backend/meta-boxes.php:374
 msgid "Video Height(px)"
 msgstr ""
 
-#: inc/backend/meta-boxes.php:375
+#: inc/backend/meta-boxes.php:377
 msgid "Enter the height of video."
 msgstr ""
 
@@ -1685,15 +1685,15 @@ msgstr ""
 msgid "The Latest Posts"
 msgstr "Nieuwste berichten"
 
-#: inc/frontend/header.php:138
+#: inc/frontend/header.php:137
 msgid "has been added to your cart."
 msgstr ""
 
-#: inc/frontend/header.php:139
+#: inc/frontend/header.php:138
 msgid "have been added to your cart."
 msgstr ""
 
-#: inc/frontend/header.php:140
+#: inc/frontend/header.php:139
 msgid "View Cart"
 msgstr ""
 
@@ -1705,67 +1705,67 @@ msgstr ""
 msgid "Orders History"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:616
+#: inc/frontend/woocommerce.php:605
 msgid "N/A"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:848
+#: inc/frontend/woocommerce.php:837
 msgid " Products"
 msgstr " Producten"
 
-#: inc/frontend/woocommerce.php:850
+#: inc/frontend/woocommerce.php:839
 msgid " Product"
 msgstr " Product"
 
-#: inc/frontend/woocommerce.php:852
+#: inc/frontend/woocommerce.php:841
 msgid "Found"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:951
+#: inc/frontend/woocommerce.php:940
 msgid "Clear All Filter"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1039
+#: inc/frontend/woocommerce.php:1028
 msgid "Select"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1095
+#: inc/frontend/woocommerce.php:1084
 msgid "Product navigation"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1139
+#: inc/frontend/woocommerce.php:1128
 msgid "Reviews"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1150
+#: inc/frontend/woocommerce.php:1139
 msgid "More Information"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1157
+#: inc/frontend/woocommerce.php:1146
 msgid "Popularity"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1158
+#: inc/frontend/woocommerce.php:1147
 msgid "Average rating"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1159
+#: inc/frontend/woocommerce.php:1148
 msgid "Newness"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1160
+#: inc/frontend/woocommerce.php:1149
 msgid "Price: low to high"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1161
+#: inc/frontend/woocommerce.php:1150
 msgid "Price: high to low"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1210 woocommerce/myaccount/dashboard.php:36
+#: inc/frontend/woocommerce.php:1199 woocommerce/myaccount/dashboard.php:36
 msgid "Hello!"
 msgstr ""
 
-#: inc/frontend/woocommerce.php:1234
+#: inc/frontend/woocommerce.php:1223
 msgid "Nothing found"
 msgstr ""
 
@@ -1807,15 +1807,11 @@ msgstr ""
 msgid "%s %s"
 msgstr ""
 
-#: inc/functions/cleanup.php:116
-msgid "<strong>ERROR</strong>: Stop guessing!"
-msgstr ""
-
-#: inc/functions/comments.php:58
+#: inc/functions/comments.php:59
 msgid "Reply"
 msgstr ""
 
-#: inc/functions/comments.php:59
+#: inc/functions/comments.php:60
 msgid "Edit"
 msgstr ""
 
@@ -1840,7 +1836,7 @@ msgstr ""
 msgid "Google"
 msgstr ""
 
-#: inc/functions/entry.php:492 inc/widgets/socials.php:32
+#: inc/functions/entry.php:492 inc/widgets/socials.php:30
 msgid "Flickr"
 msgstr ""
 
@@ -1848,7 +1844,7 @@ msgstr ""
 msgid "Vimeo"
 msgstr ""
 
-#: inc/functions/entry.php:494 inc/widgets/socials.php:28
+#: inc/functions/entry.php:494 inc/widgets/socials.php:26
 msgid "Youtube"
 msgstr ""
 
@@ -1856,7 +1852,7 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: inc/functions/entry.php:497 inc/widgets/socials.php:34
+#: inc/functions/entry.php:497 inc/widgets/socials.php:32
 msgid "Dribbble"
 msgstr ""
 
@@ -1864,7 +1860,7 @@ msgstr ""
 msgid "Spotify"
 msgstr ""
 
-#: inc/functions/entry.php:499 inc/widgets/socials.php:33
+#: inc/functions/entry.php:499 inc/widgets/socials.php:31
 msgid "Instagram"
 msgstr ""
 
@@ -1888,7 +1884,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: inc/functions/entry.php:505 inc/widgets/socials.php:35
+#: inc/functions/entry.php:505 inc/widgets/socials.php:33
 msgid "Skype"
 msgstr ""
 
@@ -1904,15 +1900,15 @@ msgstr ""
 msgid "Yelp"
 msgstr ""
 
-#: inc/functions/entry.php:777
+#: inc/functions/entry.php:767
 msgid "All Categories"
 msgstr ""
 
-#: inc/functions/entry.php:1067
+#: inc/functions/entry.php:1056
 msgid "Play Video"
 msgstr ""
 
-#: inc/functions/entry.php:1093
+#: inc/functions/entry.php:1082
 msgid "Click to enlarge"
 msgstr ""
 
@@ -2362,161 +2358,269 @@ msgstr ""
 msgid "Hide Details"
 msgstr ""
 
-#: inc/widgets/filter-price-list.php:30
+#: inc/widgets/filter-price-list.php:28
 msgid ""
 "Shows a price filter list in a widget which lets you narrow down the list of "
 "shown products when viewing product categories."
 msgstr ""
 
-#: inc/widgets/filter-price-list.php:33
+#: inc/widgets/filter-price-list.php:31
 msgid "Toffe Dassen Price Filter List"
 msgstr ""
 
-#: inc/widgets/language-currency.php:30
+#: inc/widgets/language-currency.php:28
 msgid ""
 "Shows language list by WPML plugin and currency list by WooCommerce Currency "
 "Switcher plugin"
 msgstr ""
 
-#: inc/widgets/language-currency.php:33
+#: inc/widgets/language-currency.php:31
 msgid "Toffe Dassen Language & Currency"
 msgstr ""
 
-#: inc/widgets/popular-posts.php:27
+#: inc/widgets/popular-posts.php:25
 msgid "Toffe Dassen - PopularPost"
 msgstr ""
 
-#: inc/widgets/popular-posts.php:30
+#: inc/widgets/popular-posts.php:28
 msgid "Display most popular posts"
 msgstr ""
 
-#: inc/widgets/product-cat.php:26
+#: inc/widgets/product-cat.php:25
 msgid "A list of product categories."
 msgstr ""
 
-#: inc/widgets/product-cat.php:28
+#: inc/widgets/product-cat.php:27
 msgid "Toffe Dassen Product Categories"
 msgstr ""
 
-#: inc/widgets/product-cat.php:32
+#: inc/widgets/product-cat.php:31
 msgid "Product Categories"
 msgstr ""
 
-#: inc/widgets/product-cat.php:33 inc/widgets/product-tag.php:33
-#: inc/widgets/widget-layered-nav-filters.php:36
-#: inc/widgets/woo-attributes-filter.php:82
+#: inc/widgets/product-cat.php:32 inc/widgets/product-tag.php:32
+#: inc/widgets/widget-layered-nav-filters.php:34
+#: inc/widgets/woo-attributes-filter.php:80
 msgid "Title"
 msgstr ""
 
-#: inc/widgets/product-cat.php:39 inc/widgets/product-tag.php:39
-#: inc/widgets/socials.php:105
+#: inc/widgets/product-cat.php:38 inc/widgets/product-tag.php:38
+#: inc/widgets/socials.php:103
 msgid "Style 1"
 msgstr ""
 
-#: inc/widgets/product-cat.php:40 inc/widgets/product-tag.php:40
-#: inc/widgets/socials.php:106
+#: inc/widgets/product-cat.php:39 inc/widgets/product-tag.php:39
+#: inc/widgets/socials.php:104
 msgid "Style 2"
 msgstr ""
 
-#: inc/widgets/product-cat.php:47 inc/widgets/woo-attributes-filter.php:102
+#: inc/widgets/product-cat.php:46 inc/widgets/woo-attributes-filter.php:100
 msgid "Height"
 msgstr ""
 
-#: inc/widgets/product-sort-by.php:15
+#: inc/widgets/product-sort-by.php:13
 msgid "Toffe Dassen - Product Sort By"
 msgstr ""
 
-#: inc/widgets/product-sort-by.php:18
+#: inc/widgets/product-sort-by.php:16
 #, fuzzy
 #| msgid "Latest Products"
 msgid "Sort Product By"
 msgstr "Nieuwste producten"
 
-#: inc/widgets/product-tag.php:26
+#: inc/widgets/product-tag.php:25
 msgid "Your most used product tags in cloud format."
 msgstr ""
 
-#: inc/widgets/product-tag.php:28
+#: inc/widgets/product-tag.php:27
 msgid "Toffe Dassen Product Tags"
 msgstr ""
 
-#: inc/widgets/product-tag.php:32
+#: inc/widgets/product-tag.php:31
 #, fuzzy
 #| msgid "All Products"
 msgid "Product Tags"
 msgstr "Alle producten"
 
-#: inc/widgets/socials.php:36
+#: inc/widgets/socials.php:34
 msgid "RSS"
 msgstr ""
 
-#: inc/widgets/socials.php:52
+#: inc/widgets/socials.php:50
 msgid "Toffe Dassen - Social Links"
 msgstr ""
 
-#: inc/widgets/socials.php:55
+#: inc/widgets/socials.php:53
 msgid "Display links to social media networks."
 msgstr ""
 
-#: inc/widgets/socials.php:136
+#: inc/widgets/socials.php:134
 msgid "URL"
 msgstr ""
 
-#: inc/widgets/widget-layered-nav-filters.php:29
+#: inc/widgets/widget-layered-nav-filters.php:27
 msgid "Display a list of active product filters."
 msgstr ""
 
-#: inc/widgets/widget-layered-nav-filters.php:31
+#: inc/widgets/widget-layered-nav-filters.php:29
 msgid "Toffe Dassen - Active Product Filters"
 msgstr ""
 
-#: inc/widgets/widget-layered-nav-filters.php:35
+#: inc/widgets/widget-layered-nav-filters.php:33
 msgid "Active filters"
 msgstr ""
 
-#: inc/widgets/widget-layered-nav-filters.php:179
+#: inc/widgets/widget-layered-nav-filters.php:177
 #, php-format
 msgid "Min %s"
 msgstr ""
 
-#: inc/widgets/widget-layered-nav-filters.php:184
+#: inc/widgets/widget-layered-nav-filters.php:182
 #, php-format
 msgid "Max %s"
 msgstr ""
 
-#: inc/widgets/widget-layered-nav-filters.php:191
+#: inc/widgets/widget-layered-nav-filters.php:189
 #, php-format
 msgid "Rated %s out of 5"
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:29
+#: inc/widgets/woo-attributes-filter.php:27
 msgid ""
 "Shows a custom attribute in a widget which lets you narrow down the list of "
 "products when viewing product categories."
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:31
+#: inc/widgets/woo-attributes-filter.php:29
 msgid "Toffe Dassen Attributes Filter"
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:81
+#: inc/widgets/woo-attributes-filter.php:79
 msgid "Filter by"
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:87
+#: inc/widgets/woo-attributes-filter.php:85
 msgid "Attribute"
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:93
+#: inc/widgets/woo-attributes-filter.php:91
 msgid "Query type"
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:95
+#: inc/widgets/woo-attributes-filter.php:93
 msgid "AND"
 msgstr ""
 
-#: inc/widgets/woo-attributes-filter.php:96
+#: inc/widgets/woo-attributes-filter.php:94
 msgid "OR"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs-parser/index.js:329
+#, javascript-format
+msgid "Not enough arguments following: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs-parser/index.js:492
+#, javascript-format
+msgid "Invalid JSON config file: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:91
+msgid "Positionals:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:197
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:199
+msgid "command"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:208
+msgid "Commands:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:224
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:453
+msgid "default:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:226
+msgid "aliases:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:287
+msgid "boolean"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:288
+msgid "count"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:289
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:290
+msgid "string"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:291
+msgid "array"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:292
+msgid "number"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:296
+msgid "required"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:297
+msgid "choices:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:316
+msgid "Examples:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:431
+msgid "generated-value"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:29
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:52
+#, javascript-format
+msgid "Not enough non-option arguments: got %s, need at least %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:40
+#, javascript-format
+msgid "Too many non-option arguments: got %s, maximum of %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:147
+msgid "Invalid values:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:150
+#, javascript-format
+msgid "Argument: %s, Given: %s, Choices: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:180
+#, javascript-format
+msgid "Argument check failed: %s"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:256
+msgid "Implications failed:"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:295
+#, javascript-format
+msgid "Arguments %s and %s are mutually exclusive"
+msgstr ""
+
+#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:316
+#, javascript-format
+msgid "Did you mean %s?"
 msgstr ""
 
 #: parts/content-none.php:19
@@ -2538,7 +2642,7 @@ msgid "Free Shipping"
 msgstr "Gratis verzending"
 
 #: parts/home/content-cta.php:19
-msgid "Voor bestellingen binnen NL"
+msgid "For orders within the Netherlands"
 msgstr ""
 
 #: parts/home/content-cta.php:28
@@ -2550,34 +2654,43 @@ msgid "Within 3 days"
 msgstr "Binnen 3 werkdagen"
 
 #: parts/home/content-cta.php:39
+#, php-format
+msgid "100% satisfaction"
+msgstr ""
+
+#: parts/home/content-cta.php:41
+msgid "not happy, money back"
+msgstr ""
+
+#: parts/home/content-cta.php:50
 msgid "100% Secure"
 msgstr "100% veilig"
 
-#: parts/home/content-cta.php:41
+#: parts/home/content-cta.php:52
 msgid "Online Shopping"
 msgstr "Online winkelen"
 
-#: parts/home/content-cta.php:50
-msgid "Best Price"
-msgstr "Beste prijs"
+#: parts/home/content-hero.php:16
+msgid "Buy the coolest ties at Toffe Dassen!"
+msgstr ""
 
-#: parts/home/content-cta.php:52
-msgid "Guaranteed"
-msgstr "Gegarandeerd"
-
-#: parts/home/content-hero.php:18
+#: parts/home/content-hero.php:17
 msgid "To Collection"
 msgstr "Naar de collectie"
 
 #: parts/home/products-home.php:21
-msgid "Sales"
-msgstr "Aanbiedingen"
+msgid "Neckties"
+msgstr "Stropdassen"
 
 #: parts/home/products-home.php:24
-msgid "Latest Products"
-msgstr "Nieuwste producten"
+msgid "Scarfs"
+msgstr "Sjaals"
 
-#: parts/home/products-home.php:127
+#: parts/home/products-home.php:27
+msgid "Combisets tie & socks"
+msgstr ""
+
+#: parts/home/products-home.php:153
 msgid "All Products"
 msgstr "Alle producten"
 
@@ -2635,7 +2748,7 @@ msgstr ""
 msgid "Available on backorder"
 msgstr ""
 
-#: woocommerce/cart/mini-cart.php:78
+#: woocommerce/cart/mini-cart.php:80
 msgid "Qty"
 msgstr ""
 
@@ -2686,7 +2799,7 @@ msgid ""
 "href=\"mailto:info@toffedassen.nl\">info@toffedassen.nl</a>"
 msgstr ""
 
-#: woocommerce/emails/email-order-details.php:36
+#: woocommerce/emails/email-order-details.php:34
 #, php-format
 msgid "Order number %s"
 msgstr ""
@@ -2891,17 +3004,35 @@ msgstr ""
 msgid "Your review"
 msgstr ""
 
-#: woocommerce/single-product/add-to-cart/simple.php:51
+#: woocommerce/single-product/add-to-cart/simple.php:52
+#: woocommerce/wishlist-view.php:192 woocommerce/wishlist-view.php:215
+msgid "In Stock"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:54
+msgid "Soon in stock"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:56
+msgid "FREE shipping within the Netherlands"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:57
+#, php-format
+msgid "100% satisfaction guarantee (return within 14 days)"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/simple.php:61
 msgid "SHARE"
 msgstr ""
 
-#: woocommerce/single-product/add-to-cart/simple.php:55
-#: woocommerce/single-product/add-to-cart/simple.php:61
+#: woocommerce/single-product/add-to-cart/simple.php:65
+#: woocommerce/single-product/add-to-cart/simple.php:71
 msgid "View this"
 msgstr ""
 
-#: woocommerce/single-product/add-to-cart/simple.php:55
-#: woocommerce/single-product/add-to-cart/simple.php:61
+#: woocommerce/single-product/add-to-cart/simple.php:65
+#: woocommerce/single-product/add-to-cart/simple.php:71
 msgid "at"
 msgstr ""
 
@@ -2925,10 +3056,6 @@ msgstr ""
 
 #: woocommerce/wishlist-view.php:190 woocommerce/wishlist-view.php:213
 msgid "Out of Stock"
-msgstr ""
-
-#: woocommerce/wishlist-view.php:192 woocommerce/wishlist-view.php:215
-msgid "In Stock"
 msgstr ""
 
 #: woocommerce/wishlist-view.php:225
@@ -2963,6 +3090,18 @@ msgstr ""
 #: woocommerce/wishlist-view.php:347
 msgid "Your email"
 msgstr ""
+
+#~ msgid "Best Price"
+#~ msgstr "Beste prijs"
+
+#~ msgid "Guaranteed"
+#~ msgstr "Gegarandeerd"
+
+#~ msgid "Sales"
+#~ msgstr "Aanbiedingen"
+
+#~ msgid "Latest Products"
+#~ msgstr "Nieuwste producten"
 
 #~ msgid "Most Sold"
 #~ msgstr "Meest verkocht"
