@@ -68,7 +68,7 @@
                                             <?php
                                             $combisets_products = wc_get_products( array(
                                                 'limit' => 10,
-                                                'category' => array( 'scarfs' ),
+                                                'category' => array( 'sjaals' ),
                                                 'orderby' => 'date',
                                                 'order' => 'DESC',
                                             ) );
