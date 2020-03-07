@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Toffe Dassen\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 12:40+0100\n"
-"PO-Revision-Date: 2020-03-07 12:43+0100\n"
+"POT-Creation-Date: 2020-03-07 17:18+0100\n"
+"PO-Revision-Date: 2020-03-07 17:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -1064,28 +1064,20 @@ msgid ""
 msgstr ""
 
 #: inc/backend/customizer.php:2134
-#, fuzzy
-#| msgid "Latest Products"
 msgid "Show Related Products"
-msgstr "Nieuwste producten"
+msgstr "Toon gerelateerde producten"
 
 #: inc/backend/customizer.php:2141
-#, fuzzy
-#| msgid "Latest Products"
 msgid "Related Products Title"
-msgstr "Nieuwste producten"
+msgstr "Gerelateerde producten titel"
 
 #: inc/backend/customizer.php:2143
-#, fuzzy
-#| msgid "Latest Products"
 msgid "Related products"
-msgstr "Nieuwste producten"
+msgstr "Gerelateerde producten"
 
 #: inc/backend/customizer.php:2155
-#, fuzzy
-#| msgid "Latest Products"
 msgid "Related Products Columns"
-msgstr "Nieuwste producten"
+msgstr "Gerelateerde producten kolommen"
 
 #: inc/backend/customizer.php:2159
 msgid ""
@@ -1112,10 +1104,8 @@ msgid "6 Columns"
 msgstr ""
 
 #: inc/backend/customizer.php:2176
-#, fuzzy
-#| msgid "Latest Products"
 msgid "Related Products Numbers"
-msgstr "Nieuwste producten"
+msgstr "Gerelateerde producten nummers"
 
 #: inc/backend/customizer.php:2180
 msgid ""
@@ -2423,10 +2413,8 @@ msgid "Toffe Dassen - Product Sort By"
 msgstr ""
 
 #: inc/widgets/product-sort-by.php:16
-#, fuzzy
-#| msgid "Latest Products"
 msgid "Sort Product By"
-msgstr "Nieuwste producten"
+msgstr "Sorteren op:"
 
 #: inc/widgets/product-tag.php:25
 msgid "Your most used product tags in cloud format."
@@ -2437,10 +2425,8 @@ msgid "Toffe Dassen Product Tags"
 msgstr ""
 
 #: inc/widgets/product-tag.php:31
-#, fuzzy
-#| msgid "All Products"
 msgid "Product Tags"
-msgstr "Alle producten"
+msgstr "Productentags"
 
 #: inc/widgets/socials.php:34
 msgid "RSS"
@@ -2643,7 +2629,7 @@ msgstr "Gratis verzending"
 
 #: parts/home/content-cta.php:19
 msgid "For orders within the Netherlands"
-msgstr ""
+msgstr "voor bestellingen binnen Nederland"
 
 #: parts/home/content-cta.php:28
 msgid "Fast Delivery"
@@ -2656,7 +2642,7 @@ msgstr "Binnen 3 werkdagen"
 #: parts/home/content-cta.php:39
 #, php-format
 msgid "100% satisfaction"
-msgstr ""
+msgstr "100% tevredenheid"
 
 #: parts/home/content-cta.php:41
 msgid "not happy, money back"
@@ -2690,7 +2676,7 @@ msgstr "Sjaals"
 msgid "Combisets tie & socks"
 msgstr ""
 
-#: parts/home/products-home.php:153
+#: parts/home/products-home.php:124
 msgid "All Products"
 msgstr "Alle producten"
 
