@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Toffe Dassen\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 17:18+0100\n"
-"PO-Revision-Date: 2020-03-07 17:26+0100\n"
+"POT-Creation-Date: 2020-03-07 17:31+0100\n"
+"PO-Revision-Date: 2020-03-07 17:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -14,7 +14,29 @@ msgstr ""
 "X-Generator: Poedit 2.3\n"
 "X-Poedit-KeywordsList: _e;__;esc_html__\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-0: inc\n"
+"X-Poedit-SearchPath-1: parts\n"
+"X-Poedit-SearchPath-2: src\n"
+"X-Poedit-SearchPath-3: woocommerce\n"
+"X-Poedit-SearchPath-4: 404.php\n"
+"X-Poedit-SearchPath-5: archive.php\n"
+"X-Poedit-SearchPath-6: archive-portfolio.php\n"
+"X-Poedit-SearchPath-7: comments.php\n"
+"X-Poedit-SearchPath-8: footer.php\n"
+"X-Poedit-SearchPath-9: front-page.php\n"
+"X-Poedit-SearchPath-10: functions.php\n"
+"X-Poedit-SearchPath-11: header.php\n"
+"X-Poedit-SearchPath-12: index.php\n"
+"X-Poedit-SearchPath-13: page.php\n"
+"X-Poedit-SearchPath-14: search.php\n"
+"X-Poedit-SearchPath-15: sidebar.php\n"
+"X-Poedit-SearchPath-16: single.php\n"
+"X-Poedit-SearchPath-17: single-portfolio.php\n"
+"X-Poedit-SearchPath-18: template-fullwidth.php\n"
+"X-Poedit-SearchPath-19: template-home-boxed.php\n"
+"X-Poedit-SearchPath-20: template-home-left-sidebar.php\n"
+"X-Poedit-SearchPath-21: template-home-no-footer.php\n"
+"X-Poedit-SearchPath-22: template-homepage.php\n"
 
 #: comments.php:51 comments.php:73
 msgid "Older Comments"
@@ -152,10 +174,8 @@ msgid "Badges"
 msgstr ""
 
 #: inc/backend/customizer.php:390
-#, fuzzy
-#| msgid "All Products"
 msgid "Single Product"
-msgstr "Alle producten"
+msgstr "Enkel product"
 
 #: inc/backend/customizer.php:397
 msgid "Portfolio Page Header"
@@ -440,10 +460,8 @@ msgid "All"
 msgstr ""
 
 #: inc/backend/customizer.php:866
-#, fuzzy
-#| msgid "All Products"
 msgid "Only products"
-msgstr "Alle producten"
+msgstr "Alleen producten"
 
 #: inc/backend/customizer.php:879
 msgid "Logo Light"
@@ -2501,114 +2519,6 @@ msgstr ""
 msgid "OR"
 msgstr ""
 
-#: node_modules/svg-sprite/node_modules/yargs-parser/index.js:329
-#, javascript-format
-msgid "Not enough arguments following: %s"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs-parser/index.js:492
-#, javascript-format
-msgid "Invalid JSON config file: %s"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:91
-msgid "Positionals:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:197
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:199
-msgid "command"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:208
-msgid "Commands:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:224
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:453
-msgid "default:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:226
-msgid "aliases:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:287
-msgid "boolean"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:288
-msgid "count"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:289
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:290
-msgid "string"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:291
-msgid "array"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:292
-msgid "number"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:296
-msgid "required"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:297
-msgid "choices:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:316
-msgid "Examples:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/usage.js:431
-msgid "generated-value"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:29
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:52
-#, javascript-format
-msgid "Not enough non-option arguments: got %s, need at least %s"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:40
-#, javascript-format
-msgid "Too many non-option arguments: got %s, maximum of %s"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:147
-msgid "Invalid values:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:150
-#, javascript-format
-msgid "Argument: %s, Given: %s, Choices: %s"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:180
-#, javascript-format
-msgid "Argument check failed: %s"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:256
-msgid "Implications failed:"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:295
-#, javascript-format
-msgid "Arguments %s and %s are mutually exclusive"
-msgstr ""
-
-#: node_modules/svg-sprite/node_modules/yargs/lib/validation.js:316
-#, javascript-format
-msgid "Did you mean %s?"
-msgstr ""
-
 #: parts/content-none.php:19
 #, php-format
 msgid ""
@@ -2642,7 +2552,7 @@ msgstr "Binnen 3 werkdagen"
 #: parts/home/content-cta.php:39
 #, php-format
 msgid "100% satisfaction"
-msgstr "100% tevredenheid"
+msgstr ""
 
 #: parts/home/content-cta.php:41
 msgid "not happy, money back"
@@ -3027,10 +2937,8 @@ msgid "Awaiting product image"
 msgstr ""
 
 #: woocommerce/wishlist-view.php:92
-#, fuzzy
-#| msgid "Best Price"
 msgid "Unit Price"
-msgstr "Beste prijs"
+msgstr "Prijs"
 
 #: woocommerce/wishlist-view.php:105
 msgid "Stock Status"
