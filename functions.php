@@ -59,3 +59,31 @@ if ( is_admin() ) {
 	require get_template_directory() . '/inc/frontend/entry.php';
 	//require get_template_directory() . '/inc/mega-menu/class-mega-menu-walker.php';
 }
+
+// Display GA Price Field
+function woo_add_ean_code() {
+    global $woocommerce, $post;
+
+    echo '<div class="options_group">';
+        woocommerce_wp_text_input( 
+            array( 
+                'id'            => '_ean_code', 
+                'label'         => __( 'EAN Code', 'toffedassen' ), 
+                'placeholder'   => '', 
+                'description'   => __( 'Enter the EAN code here.', 'toffedassen' ),
+                'type'          => 'text', 
+                'desc_tip'      => 'true'
+            )
+        );
+    echo '</div>';
+}
+add_action( 'woocommerce_product_options_general_product_data', 'woo_add_ean_code' );
+
+// Save GA Price Field
+function woo_add_ean_code_save( $post_id ){
+    $ean_code_field = $_POST['_ean_code'];
+    if( !empty( $ean_code_field ) ) :
+        update_post_meta( $post_id, '_ean_code', esc_attr( $ean_code_field ) );
+    endif;
+}
+add_action( 'woocommerce_process_product_meta', 'woo_add_ean_code_save' );
