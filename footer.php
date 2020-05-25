@@ -29,6 +29,13 @@
 		<?php do_action( 'toffedassen_footer' ) ?>
 	</footer><!-- #colophon -->
 
+	<div class="whatsapp-chat">
+		<div class="icon">
+			<i class="fa fa-whatsapp"></i>
+			Vragen? WhatsApp!
+		</div>
+	</div>
+
 	<?php do_action( 'toffedassen_after_footer' ) ?>
 </div><!-- #page -->
 
