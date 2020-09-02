@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Toffe Dassen\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 17:44+0100\n"
-"PO-Revision-Date: 2020-03-07 17:44+0100\n"
+"POT-Creation-Date: 2020-06-26 12:08+0200\n"
+"PO-Revision-Date: 2020-06-26 12:08+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-KeywordsList: _e;__;esc_html__\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: inc\n"
@@ -48,6 +48,20 @@ msgstr ""
 
 #: comments.php:95
 msgid "Your email address will not be published."
+msgstr ""
+
+#: footer.php:33
+msgid ""
+"Hello, how may we help you? Just send us a message now to get assistance."
+msgstr ""
+"Hallo, hoe kunnen we je helpen? Stuur ons nu een bericht om hulp te krijgen."
+
+#: functions.php:71
+msgid "EAN Code"
+msgstr ""
+
+#: functions.php:73
+msgid "Enter the EAN code here."
 msgstr ""
 
 #: inc/backend/custom-login.php:39

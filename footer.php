@@ -30,10 +30,9 @@
 	</footer><!-- #colophon -->
 
 	<div class="whatsapp-chat">
-		<div class="icon">
+		<a class="icon" href="https://api.whatsapp.com/send?phone=31682826039" rel="nofollow" title="<?php _e( 'Hello, how may we help you? Just send us a message now to get assistance.', 'toffedassen' ) ?>" data-rel="tooltip" data-placement="left">
 			<i class="fa fa-whatsapp"></i>
-			Vragen? WhatsApp!
-		</div>
+		</a>
 	</div>
 
 	<?php do_action( 'toffedassen_after_footer' ) ?>

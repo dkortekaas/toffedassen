@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce/Templates
- * @version     3.4.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce/Templates
+ * @version 4.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -33,33 +33,31 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			<?php
 			$quantites_required      = false;
 			$previous_post           = $post;
-			$grouped_product_columns = apply_filters( 'woocommerce_grouped_product_columns', array(
-				'label',
-				'quantity',
-			), $product );
+			$grouped_product_columns = apply_filters(
+				'woocommerce_grouped_product_columns',
+				array(
+					'quantity',
+					'label',
+					'price',
+				),
+				$product
+			);
+
+			do_action( 'woocommerce_grouped_product_list_before', $grouped_product_columns, $quantites_required, $product );
 
 			foreach ( $grouped_products as $grouped_product_child ) {
 				$post_object        = get_post( $grouped_product_child->get_id() );
 				$quantites_required = $quantites_required || ( $grouped_product_child->is_purchasable() && ! $grouped_product_child->has_options() );
-				$post               = $post_object; // WPCS: override ok.
+				$post               = $post_object; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				setup_postdata( $post );
 
-				echo '<tr id="product-' . esc_attr( $grouped_product_child->get_id() ) . '" class="woocommerce-grouped-product-list-item ' . esc_attr( implode( ' ', wc_get_product_class( '', $grouped_product_child->get_id() ) ) ) . '">';
+				echo '<tr id="product-' . esc_attr( $grouped_product_child->get_id() ) . '" class="woocommerce-grouped-product-list-item ' . esc_attr( implode( ' ', wc_get_product_class( '', $grouped_product_child ) ) ) . '">';
 
 				// Output columns for each product.
 				foreach ( $grouped_product_columns as $column_id ) {
 					do_action( 'woocommerce_grouped_product_list_before_' . $column_id, $grouped_product_child );
 
 					switch ( $column_id ) {
-						case 'label':
-							$value  = '<label for="product-' . esc_attr( $grouped_product_child->get_id() ) . '">';
-							$value .= $grouped_product_child->is_visible() ? '<a href="' . esc_url( apply_filters( 'woocommerce_grouped_product_list_link', get_permalink( $grouped_product_child->get_id() ), $grouped_product_child->get_id() ) ) . '">' . $grouped_product_child->get_name() . '</a>' : $grouped_product_child->get_name();
-							$value .= '</label>';
-							$value .= '<div class="woo-price">';
-							$value .= $grouped_product_child->get_price_html() . wc_get_stock_html( $grouped_product_child );
-							$value .= '</div>';
-							break;
-
 						case 'quantity':
 							ob_start();
 
@@ -70,33 +68,45 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 							} else {
 								do_action( 'woocommerce_before_add_to_cart_quantity' );
 
-								woocommerce_quantity_input( array(
-									'input_name'  => 'quantity[' . $grouped_product_child->get_id() . ']',
-									'input_value' => isset( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ? wc_stock_amount( wc_clean( wp_unslash( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ) ) : 0, // WPCS: CSRF ok, input var okay, sanitization ok.
-									'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 0, $grouped_product_child ),
-									'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $grouped_product_child->get_max_purchase_quantity(), $grouped_product_child ),
-								) );
+								woocommerce_quantity_input(
+									array(
+										'input_name'  => 'quantity[' . $grouped_product_child->get_id() . ']',
+										'input_value' => isset( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ? wc_stock_amount( wc_clean( wp_unslash( $_POST['quantity'][ $grouped_product_child->get_id() ] ) ) ) : '', // phpcs:ignore WordPress.Security.NonceVerification.Missing
+										'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 0, $grouped_product_child ),
+										'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $grouped_product_child->get_max_purchase_quantity(), $grouped_product_child ),
+										'placeholder' => '0',
+									)
+								);
 
 								do_action( 'woocommerce_after_add_to_cart_quantity' );
 							}
 
 							$value = ob_get_clean();
 							break;
-
+						case 'label':
+							$value  = '<label for="product-' . esc_attr( $grouped_product_child->get_id() ) . '">';
+							$value .= $grouped_product_child->is_visible() ? '<a href="' . esc_url( apply_filters( 'woocommerce_grouped_product_list_link', $grouped_product_child->get_permalink(), $grouped_product_child->get_id() ) ) . '">' . $grouped_product_child->get_name() . '</a>' : $grouped_product_child->get_name();
+							$value .= '</label>';
+							break;
+						case 'price':
+							$value = $grouped_product_child->get_price_html() . wc_get_stock_html( $grouped_product_child );
+							break;
 						default:
 							$value = '';
 							break;
 					}
 
-					echo '<td class="woocommerce-grouped-product-list-item__' . esc_attr( $column_id ) . '">' . apply_filters( 'woocommerce_grouped_product_list_column_' . $column_id, $value, $grouped_product_child ) . '</td>'; // WPCS: XSS ok.
+					echo '<td class="woocommerce-grouped-product-list-item__' . esc_attr( $column_id ) . '">' . apply_filters( 'woocommerce_grouped_product_list_column_' . $column_id, $value, $grouped_product_child ) . '</td>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 					do_action( 'woocommerce_grouped_product_list_after_' . $column_id, $grouped_product_child );
 				}
 
 				echo '</tr>';
 			}
-			$post = $previous_post; // WPCS: override ok.
+			$post = $previous_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 			setup_postdata( $post );
+
+			do_action( 'woocommerce_grouped_product_list_after', $grouped_product_columns, $quantites_required, $product );
 			?>
 		</tbody>
 	</table>

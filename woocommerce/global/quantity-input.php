@@ -12,7 +12,7 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.6.0
+ * @version 4.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -25,7 +25,7 @@ if ( $max_value && $min_value === $max_value ) {
 	<?php
 } else {
 	/* translators: %s: Quantity. */
-	$labelledby = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'toffedassen' ), strip_tags( $args['product_name'] ) ) : '';
+	$label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
 	?>
 	<div class="quantity">
 		<span class="decrease  icon_minus-06"></span>
@@ -38,7 +38,7 @@ if ( $max_value && $min_value === $max_value ) {
 			   max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>"
 			   name="<?php echo esc_attr( $input_name ); ?>"
 			   value="<?php echo esc_attr( $input_value ); ?>"
-			   title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'toffedassen' ) ?>"
+			   title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ); ?>"
 			   size="4"
 			/>
 		<span class="increase icon_plus"></span>
