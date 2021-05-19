@@ -13,8 +13,8 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.7.0
+ * @package WooCommerce\Templates
+ * @version 5.2.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 						sprintf(
 							'<a href="%s" class="remove remove_from_cart_button" aria-label="%s" data-product_id="%s" data-cart_item_key="%s" data-product_sku="%s">&times;</a>',
 							esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-							esc_html__( 'Remove this item', 'woocommerce' ),
+							esc_attr__( 'Remove this item', 'woocommerce' ),
 							esc_attr( $product_id ),
 							esc_attr( $cart_item_key ),
 							esc_attr( $_product->get_sku() )
@@ -93,12 +93,12 @@ do_action( 'woocommerce_before_mini_cart' ); ?>
 		</p>
 
 
-
 		<?php do_action( 'woocommerce_widget_shopping_cart_before_buttons' ); ?>
 
 		<p class="woocommerce-mini-cart__buttons buttons"><?php do_action( 'woocommerce_widget_shopping_cart_buttons' ); ?></p>
 
 		<?php do_action( 'woocommerce_widget_shopping_cart_after_buttons' ); ?>
+
 	</div>
 <?php else : ?>
 
